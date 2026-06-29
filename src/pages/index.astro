@@ -1,0 +1,109 @@
+---
+import '../styles/global.css';
+import { firm, hero, pillars, turn, whyTercet, plans, pricingNote, steps, closing, practiceAreas, disclaimer } from '../data/site.js';
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{firm.name} — Estate, Trust &amp; Legacy Planning</title>
+  <meta name="description" content="Tercet Law — estate, trust, and legacy planning for Alabama families. Clear counsel, flat fees, plans built to hold." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/">{firm.name}</a>
+      <a class="navbtn" href={firm.bookingUrl}>Book a conversation</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <p class="kicker">{firm.kicker}</p>
+        <h1>{hero.h1}</h1>
+        <p class="subline">{hero.subline}</p>
+      </section>
+
+      <div class="lede">
+        {hero.lede.map((p) => <p>{p}</p>)}
+      </div>
+
+      <div class="cta"><a class="btn-fill" href={firm.bookingUrl}>{hero.cta}</a></div>
+
+      <hr class="rule" />
+
+      <section class="cols">
+        {pillars.map((c) => (
+          <div><h3>{c.title}</h3><p>{c.body}</p></div>
+        ))}
+      </section>
+
+      <hr class="rule" />
+
+      <p class="turn">{turn}</p>
+
+      <hr class="rule" />
+
+      <h2 class="sec">Why Tercet</h2>
+      <div class="why">
+        {whyTercet.map((p) => <p set:html={p} />)}
+      </div>
+
+      <hr class="rule" />
+
+      <h2 class="sec">Three ways in — you choose which, not whether</h2>
+      <section class="pkgs">
+        {plans.map((pl) => (
+          <div class="pkg">
+            <div class="nm">{pl.name}</div>
+            <div class="pr">{pl.price}</div>
+            <ul>{pl.features.map((f) => <li>{f}</li>)}</ul>
+          </div>
+        ))}
+      </section>
+      <p class="note">{pricingNote}</p>
+
+      <hr class="rule" />
+
+      <h2 class="sec">How it works</h2>
+      <ol class="steps">
+        {steps.map((s) => (
+          <li><span class="rn">{s.n}</span><b>{s.title}</b> {s.body}</li>
+        ))}
+      </ol>
+
+      <hr class="rule" />
+
+      <p class="closing">{closing}</p>
+
+      <div class="ctarow" id="start">
+        <a class="btn-line" href={firm.bookingUrl}>Start with a conversation</a>
+        <a class="btn-fill" href={`mailto:${firm.email}`}>Email the firm</a>
+      </div>
+
+      <hr class="rule" />
+
+      <h2 class="sec">Areas of practice</h2>
+      <section class="areas">
+        {practiceAreas.map((a) => (
+          <div class="area"><h4>{a.name}</h4><p>{a.blurb}</p></div>
+        ))}
+      </section>
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <p class="disc">{disclaimer}</p>
+      <p class="sig">{firm.legalName.toUpperCase()}</p>
+      <p class="meta">&copy; {year} {firm.legalName}. All&nbsp;rights&nbsp;reserved. &middot; {firm.attorneyDisplay}, Esq. &middot; <a href={`mailto:${firm.email}`}>{firm.email}</a></p>
+    </div>
+  </footer>
+</body>
+</html>

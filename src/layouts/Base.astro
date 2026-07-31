@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+import { firm } from '../data/site.js';
+const { title = "Tercet Law — Estate, Trust & Legacy Planning", description = "Tercet Law — estate, trust, and legacy planning for Alabama families. Flat fees, plans built to hold." } = Astro.props;
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/">{firm.name}</a>
+      <nav class="navlinks">
+        <a href="/services">Services</a>
+        <a href="/process">Process</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/about">About</a>
+        <a class="navbtn" href="/start">Book a conversation</a>
+      </nav>
+    </div>
+  </header>
+  <main><slot /></main>
+  <footer class="site">
+    <div class="wrap">
+      <p class="disc">{firm.legalName}. Russ Michael Schmidtberger (&ldquo;Russ Michaels&rdquo;) is the attorney responsible for this communication and is licensed to practice law in Alabama. This website is attorney advertising, offered for general information and not as legal advice; an attorney&ndash;client relationship begins only upon a signed engagement agreement. <a href="/disclaimers" style="text-decoration:underline">Full disclaimers</a>.</p>
+      <p class="sig">{firm.legalName.toUpperCase()}</p>
+      <p class="meta">&copy; {year} {firm.legalName}. All&nbsp;rights&nbsp;reserved. &middot; {firm.attorneyDisplay}, Esq. &middot; <a href={`mailto:${firm.email}`}>{firm.email}</a></p>
+      <p class="backlink">A member of the <a href="https://www.vaulthuman.com">Vault Human</a> family of companies.</p>
+    </div>
+  </footer>
+</body>
+</html>

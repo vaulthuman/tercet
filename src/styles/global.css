@@ -95,3 +95,24 @@ footer .meta a{text-decoration:none;}
 
 
 /* static — no on-load animation. Taglines are Times New Roman italic. */
+
+/* — multi-page nav + page heads (Tercet site build 2026-07-31) — */
+.navlinks{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
+.navlinks a{text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.82;}
+.navlinks a:hover{opacity:1;}
+.navlinks a.navbtn{border:1px solid var(--ink);padding:12px 20px;opacity:1;white-space:nowrap;}
+.navlinks a.navbtn:hover{background:var(--ink);color:#000;}
+@media(max-width:680px){ .navlinks{gap:12px;} .navlinks a{font-size:10px;letter-spacing:1px;} .navlinks a.navbtn{padding:10px 13px;} }
+.pagehead{text-align:center;padding:88px 0 10px;max-width:820px;margin:0 auto;}
+.eyebrow{font-family:var(--sans);font-size:12px;letter-spacing:4px;text-transform:uppercase;opacity:.7;margin:0 0 22px;}
+.pagehead h1{margin-bottom:22px;}
+.dek{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.4vw,25px);line-height:1.45;opacity:.92;max-width:720px;margin:0 auto;}
+.prose{max-width:720px;margin:0 auto;text-align:center;}
+.prose p{font-size:16.5px;margin:0 0 18px;opacity:.92;}
+.person-name{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,34px);text-align:center;margin:0 0 18px;}
+.portrait{width:210px;height:262px;object-fit:cover;object-position:center 18%;filter:grayscale(1);border:1px solid var(--line);display:block;margin:0 auto 26px;}
+.backlink{text-align:center;font-size:12px;letter-spacing:1px;opacity:.5;margin-top:14px;}
+.backlink a{text-decoration:underline;}
+
+.fam-ish{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);}
+.fam-ish:hover{border-color:var(--ink);}

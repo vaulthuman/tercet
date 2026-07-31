@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import { whyTercet } from '../data/site.js';
+---
+<Base title="About — Tercet Law" description="Tercet Law was founded by Russ Michaels, an attorney and operator-builder licensed in Alabama.">
+  <div class="wrap">
+    <div class="pagehead">
+      <p class="eyebrow">The attorney</p>
+      <h1>Work directly with the attorney.</h1>
+      <p class="dek">Not a case number at a big firm &mdash; one accountable person who understands your family and your plan.</p>
+    </div>
+    <hr class="rule" />
+    <img class="portrait" src="https://www.vaulthuman.com/russ-michaels.jpg" alt="Russ Michaels, attorney and founder of Tercet Law" width="210" height="262" />
+    <p class="person-name">Russ Michaels</p>
+    <div class="lede">{whyTercet.map((p) => <p set:html={p} />)}</div>
+    <div class="lede"><p>Russ is licensed to practice law in Alabama and has led organizations for over twenty years &mdash; as a CEO, Executive Director, and Board President, and as an attorney, still practicing. He brings an operator&rsquo;s eye to a family&rsquo;s plan: not only drafting documents, but building a structure that holds when it is finally needed.</p></div>
+    <hr class="rule" />
+    <div class="ctarow"><a class="btn-fill" href="/start">Start with a conversation</a></div>
+  </div>
+</Base>

@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { plans, pricingNote } from '../data/site.js';
+---
+<Base title="Pricing — Tercet Law" description="Three flat-fee estate planning plans, quoted before any work begins.">
+  <div class="wrap">
+    <div class="pagehead">
+      <p class="eyebrow">Flat fees</p>
+      <h1>You choose the plan &mdash; never wonder about the bill.</h1>
+      <p class="dek">Every fee is flat and quoted before any work begins. Three ways in; you choose which, not whether.</p>
+    </div>
+    <hr class="rule" />
+    <section class="pkgs">{plans.map((pl) => (<div class="pkg"><div class="nm">{pl.name}</div><div class="pr">{pl.price}</div><ul>{pl.features.map((f) => <li>{f}</li>)}</ul></div>))}</section>
+    <p class="note">{pricingNote}</p>
+    <hr class="rule" />
+    <div class="ctarow"><a class="btn-fill" href="/start">Start with a conversation</a></div>
+  </div>
+</Base>

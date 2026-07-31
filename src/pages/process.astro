@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { steps } from '../data/site.js';
+---
+<Base title="Process — Tercet Law" description="How it works: four unhurried steps from first conversation to a plan that holds.">
+  <div class="wrap">
+    <div class="pagehead">
+      <p class="eyebrow">How it works</p>
+      <h1>Four steps. Unhurried, and clear.</h1>
+      <p class="dek">No jargon, no pressure, no surprise bills &mdash; just a plan built with care, at a pace that respects your life.</p>
+    </div>
+    <hr class="rule" />
+    <ol class="steps">{steps.map((s) => (<li><span class="rn">{s.n}</span><b>{s.title}</b> {s.body}</li>))}</ol>
+    <hr class="rule" />
+    <div class="ctarow"><a class="btn-fill" href="/start">Start with a conversation</a></div>
+  </div>
+</Base>

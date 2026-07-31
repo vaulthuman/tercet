@@ -8,7 +8,7 @@ export const firm = {
   legalName: "Tercet Law, PLLC",
   attorney: "Russ Michael Schmidtberger",
   attorneyDisplay: "Russ Michaels",
-  email: "rmichaels@tercetlaw.com",
+  email: "tercet@tercetlaw.com",
   kicker: "Estate · Trust · Legacy Planning",
   // booking link — swap when Calendly/intake is live
   bookingUrl: "#start",

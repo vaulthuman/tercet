@@ -1,19 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
-import { firm, steps } from '../data/site.js';
+import { steps } from '../data/site.js';
 ---
 <Base title="Start — Tercet Law" description="Start with a conversation. It's free, and there's no pressure.">
-  <div class="wrap">
-    <div class="pagehead">
-      <p class="eyebrow">Begin</p>
-      <h1>Start with a conversation.</h1>
-      <p class="dek">Tell us a little about your situation and pick a time. It&rsquo;s free, and there&rsquo;s no pressure &mdash; just a chance to be understood.</p>
-    </div>
-    <hr class="rule" />
-    <h2 class="sec">What happens next</h2>
-    <ol class="steps">{steps.map((s) => (<li><span class="rn">{s.n}</span><b>{s.title}</b> {s.body}</li>))}</ol>
-    <hr class="rule" />
-    <div class="ctarow"><a class="btn-fill" href={`mailto:${firm.email}?subject=A%20conversation%20about%20my%20plan`}>Email the firm</a></div>
-    <p class="note">Prefer to schedule directly? A booking link is coming soon &mdash; for now, a short email is the fastest way to start.</p>
-  </div>
+<div class="wrap">
+<div class="pagehead">
+<p class="eyebrow">Begin</p>
+<h1>Start with a conversation.</h1>
+<p class="dek">Tell us a little about your situation and pick a time. It&rsquo;s free, and there&rsquo;s no pressure &mdash; just a chance to be understood.</p>
+</div>
+<hr class="rule" />
+<h2 class="sec">What happens next</h2>
+<ol class="steps">{steps.map((s) => (<li><span class="rn">{s.n}</span><b>{s.title}</b> {s.body}</li>))}</ol>
+<hr class="rule" />
+<div class="formwrap">
+<script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
+<div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
+</div>
+<p class="note">Share a little about your situation and we&rsquo;ll reach out personally &mdash; usually within a few hours. A real person holds it from here.</p>
+</div>
 </Base>
+<style>
+  .formwrap{background:#fff;border-radius:14px;padding:24px 20px;margin:10px 0 20px;min-height:360px}
+</style>

@@ -2,24 +2,35 @@
 import Base from '../layouts/Base.astro';
 import { steps } from '../data/site.js';
 ---
-<Base title="Start — Tercet Law" description="Start with a conversation. It's free, and there's no pressure.">
+<Base title="Start — Tercet Law" description="Start with a private conversation about your estate plan. Calm, plain-English, with clear flat-fee options. Licensed in Alabama.">
 <div class="wrap">
 <div class="pagehead">
-<p class="eyebrow">Begin</p>
+<p class="eyebrow">Estate planning for Alabama families, individuals &amp; business owners</p>
 <h1>Start with a conversation.</h1>
-<p class="dek">Tell us a little about your situation and pick a time. It&rsquo;s free, and there&rsquo;s no pressure &mdash; just a chance to be understood.</p>
+<p class="dek">Tell us what you&rsquo;re trying to put in order &mdash; wills, trusts, or a full estate plan. Calm, plain-English, with clear flat-fee options. It&rsquo;s free, and there&rsquo;s no pressure &mdash; just a chance to be understood.</p>
 </div>
 <hr class="rule" />
 <h2 class="sec">What happens next</h2>
 <ol class="steps">{steps.map((s) => (<li><span class="rn">{s.n}</span><b>{s.title}</b> {s.body}</li>))}</ol>
 <hr class="rule" />
+<div class="coachcard">
+<img src="/russ-bw.jpg" alt="Russ Michaels, Attorney" width="96" height="120" />
+<div><p class="coachname">Russ Michaels</p><p class="coachrole">Attorney &middot; Licensed in Alabama</p></div>
+</div>
 <div class="formwrap">
 <script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
 <div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
 </div>
-<p class="note">Share a little about your situation and we&rsquo;ll reach out personally &mdash; usually within a few hours. A real person holds it from here.</p>
+<p class="txline">Located in Texas? We&rsquo;ll help identify the right next step or referral.</p>
+<p class="note">Your attorney reads every note personally and replies &mdash; usually within one business day. A real person holds it from here.</p>
 </div>
 </Base>
 <style>
   .formwrap{background:#0D0D0D;border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:26px 22px;margin:10px 0 20px;min-height:360px;box-shadow:0 20px 40px rgba(0,0,0,.55)}
+  .coachcard{display:flex;align-items:center;gap:16px;margin:0 0 22px}
+  .coachcard img{width:96px;height:120px;object-fit:cover;border-radius:10px;flex:0 0 auto;filter:grayscale(1)}
+  .coachname{font-weight:600;margin:0}
+  .coachrole{opacity:.7;margin:2px 0 0;font-size:14px}
+  .txline{max-width:660px;margin:14px auto 0;text-align:center;font-size:14px;opacity:.72}
+  .note{max-width:660px;margin:10px auto 0;text-align:center;opacity:.8;font-size:14px}
 </style>

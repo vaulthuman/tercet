@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { steps } from '../data/site.js';
 ---
-<Base title="Start — Tercet Law" description="Start with a private conversation about your estate plan. Calm, plain-English, with clear flat-fee options. Licensed in Alabama.">
+<Base title="Start — Tercet Law" description="Start with a private conversation about your estate plan. Calm, plain-English, with clear flat-fee options. Licensed in Alabama." modal={false}>
 <div class="wrap">
 <div class="pagehead">
 <p class="eyebrow">Estate planning for Alabama families, individuals &amp; business owners</p>
@@ -14,8 +14,8 @@ import { steps } from '../data/site.js';
 <ol class="steps">{steps.map((s) => (<li><span class="rn">{s.n}</span><b>{s.title}</b> {s.body}</li>))}</ol>
 <hr class="rule" />
 <div class="coachcard">
-<img src="/russ-bw.jpg" alt="Russ Michaels, Attorney" width="96" height="120" />
-<div><p class="coachname">Russ Michaels</p><p class="coachrole">Attorney &middot; Licensed in Alabama</p></div>
+<img src="/russ-bw.jpg" alt="Russ Michaels, Attorney" width="120" height="150" />
+<div><p class="coachname">Russ Michaels, Esq.</p><p class="coachrole">Attorney &middot; Licensed in Alabama</p></div>
 </div>
 <div class="formwrap">
 <script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
@@ -26,9 +26,11 @@ import { steps } from '../data/site.js';
 </div>
 </Base>
 <style>
-  .formwrap{background:#0D0D0D;border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:26px 22px;margin:10px 0 20px;min-height:360px;box-shadow:0 20px 40px rgba(0,0,0,.55)}
-  .coachcard{display:flex;align-items:center;gap:16px;margin:0 0 22px}
-  .coachcard img{width:96px;height:120px;object-fit:cover;border-radius:10px;flex:0 0 auto;filter:grayscale(1)}
+  .formwrap{background:#f7f5f0;color:#14161c;border:1px solid #e4ded3;border-radius:14px;padding:26px 22px;margin:10px auto 20px;max-width:560px;min-height:360px;box-shadow:0 20px 40px rgba(0,0,0,.28)}
+  .formwrap :is(label,legend,p,span,h1,h2,h3){color:#14161c !important}
+  .formwrap :is(input,textarea,select){color:#14161c !important;background:#fff !important;border:1px solid #c9c4bb !important}
+  .coachcard{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;margin:0 auto 22px}
+  .coachcard img{width:120px;height:150px;object-fit:cover;border-radius:12px;filter:grayscale(1)}
   .coachname{font-weight:600;margin:0}
   .coachrole{opacity:.7;margin:2px 0 0;font-size:14px}
   .txline{max-width:660px;margin:14px auto 0;text-align:center;font-size:14px;opacity:.72}

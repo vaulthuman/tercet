@@ -13,6 +13,6 @@ import { plans, pricingNote } from '../data/site.js';
     <section class="pkgs">{plans.map((pl) => (<div class="pkg"><div class="nm">{pl.name}</div><div class="pr">{pl.price}</div><ul>{pl.features.map((f) => <li>{f}</li>)}</ul></div>))}</section>
     <p class="note">{pricingNote}</p>
     <hr class="rule" />
-    <div class="ctarow"><a class="btn-fill" href="/start">Start with a conversation</a></div>
+    <div class="ctarow"><a class="btn-fill" href="/start" data-open-form>Start with a conversation</a></div>
   </div>
 </Base>

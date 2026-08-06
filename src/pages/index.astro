@@ -10,7 +10,7 @@ import { firm, hero, pillars, turn, whyTercet, closing } from '../data/site.js';
       <p class="subline">{hero.subline}</p>
     </section>
     <div class="lede">{hero.lede.map((p) => <p>{p}</p>)}</div>
-    <div class="cta"><a class="btn-fill" href="/start">{hero.cta}</a></div>
+    <div class="cta"><a class="btn-fill" href="/start" data-open-form>{hero.cta}</a></div>
 
     <hr class="rule" />
     <section class="cols">{pillars.map((c) => (<div><h3>{c.title}</h3><p>{c.body}</p></div>))}</section>
@@ -32,6 +32,6 @@ import { firm, hero, pillars, turn, whyTercet, closing } from '../data/site.js';
 
     <hr class="rule" />
     <p class="closing">{closing}</p>
-    <div class="ctarow" id="start"><a class="btn-fill" href="/start">Start with a conversation</a><a class="btn-line" href={`mailto:${firm.email}`}>Email the firm</a></div>
+    <div class="ctarow" id="start"><a class="btn-fill" href="/start" data-open-form>Start with a conversation</a></div>
   </div>
 </Base>

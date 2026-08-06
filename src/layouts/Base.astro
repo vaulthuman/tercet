@@ -31,11 +31,12 @@ const year = new Date().getFullYear();
         <a href="/process">Process</a>
         <a href="/pricing">Pricing</a>
         <a href="/about">About</a>
-        <a class="navbtn" href="/start" data-open-form>Book a conversation</a>
+        <a class="navbtn" href="/start" data-open-form>Start a conversation</a>
       </nav>
     </div>
   </header>
   <main><slot /></main>
+  <div class="vh-ribbon" style="text-align:center;padding:22px 16px;border-top:1px solid rgba(139,146,153,.22)"><a href="https://www.vaulthuman.com" style="color:#8B9299;text-decoration:none;font:500 14px/1.6 Inter,system-ui,sans-serif;letter-spacing:.03em">One seat. Your whole life. <strong style="color:#8B9299">Vault Human.</strong></a></div>
   <footer class="site">
     <div class="wrap">
       <p class="disc">{firm.legalName}. Russ Michael Schmidtberger (&ldquo;Russ Michaels&rdquo;) is the attorney responsible for this communication and is licensed to practice law in Alabama. This website is attorney advertising, offered for general information and not as legal advice; an attorney&ndash;client relationship begins only upon a signed engagement agreement. <a href="/disclaimers" style="text-decoration:underline">Full disclaimers</a>.</p>
@@ -51,7 +52,7 @@ const year = new Date().getFullYear();
     <div class="vh-modal__bg" data-close-form></div>
     <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book a conversation">
       <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
-      <h2 class="vh-modal__title">Start with a conversation</h2>
+      <h2 class="vh-modal__title">Start a conversation</h2>
       <p class="vh-modal__sub">Tell us a little about your situation and we&rsquo;ll be in touch. It&rsquo;s free, and there&rsquo;s no pressure.</p>
       <div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
     </div>

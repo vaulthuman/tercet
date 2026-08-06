@@ -7,7 +7,7 @@ export const firm = {
   bookingUrl: "#start",
 };
 export const hero = {
-  h1: "One counselor for your whole legal life.",
+  h1: "The whole of your legal life, in one steady hand.",
   subline: "Life Law — family, business, money, and legacy — held by one attorney who sees the whole picture, on a clear flat fee.",
   lede: [
     "Most people meet the law in fragments — a will here, a contract there, a dispute handled by a stranger who doesn't know the rest of your life. The pieces don't protect a whole person.",
@@ -23,12 +23,13 @@ export const pillars = [
 export const turn = "This isn't estate paperwork. It's a counselor who can hold your whole legal life — family, business, money, and legacy — so nothing important is left to chance, or to a stranger.";
 export const whyTercet = [
   "A <i>tercet</i> is three lines of verse that only become whole together — the shape of this work: your family, your business, and your legacy, counseled as one picture rather than loose documents.",
-  "Tercet was founded by Russ Michaels, an attorney who spent two decades building and restructuring companies — in real estate, finance, and the turnarounds where structure is tested under real pressure. That's the lens he brings to your whole legal life now.",
+  "Tercet was founded by Russ Michaels, Esq., an attorney who spent two decades building and restructuring companies — in real estate, finance, and the turnarounds where structure is tested under real pressure. That's the lens he brings to your whole legal life now.",
 ];
 export const plans = [
-  { name: "The Will Plan", price: "$1,500", features: ["Last will & testament", "Financial power of attorney", "Healthcare directive & living will", "One review meeting"] },
-  { name: "The Trust Plan", price: "$3,500", features: ["Everything in the Will Plan", "Revocable living trust", "Deed & funding guidance", "Avoids probate on covered assets"] },
-  { name: "Trust + Advanced", price: "$6,500", features: ["Everything in the Trust Plan", "Long-term-care & Medicaid planning", "Tax-aware & business-interest planning", "Coordination with your CPA / advisor"] },
+  { name: "Estate Essentials", price: "$1,500", features: ["Will & testament", "Financial power of attorney", "Healthcare directive & living will", "One review meeting"] },
+  { name: "Family & Trust", price: "$3,500", features: ["Everything in Estate Essentials", "Revocable living trust", "Deed & funding guidance", "Avoids probate on covered assets"] },
+  { name: "Life Law Plan", price: "$7,500", features: ["A full estate plan", "A business / entity review", "One new-era matter (crypto · AI · fintech · cannabis)", "Coordination with your CPA / advisor"] },
+  { name: "Life Law Counsel", price: "$10,000/mo", features: ["An ongoing counsel relationship, start to finish", "Family & business legal needs handled year-round", "Priority access + mediation", "An annual plan refresh"] },
 ];
 export const pricingNote = "Every fee is flat and quoted before any work begins — so you're choosing a plan, never wondering about the bill.";
 export const steps = [

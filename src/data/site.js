@@ -63,6 +63,8 @@ export const practiceAreas = [
   { name: "Elder Law & Medicaid Planning", blurb: "Long-term-care planning that protects what you've built." },
   { name: "Guardianship & Conservatorship", blurb: "Standing up for those who can't speak for themselves." },
   { name: "Business & Succession Planning", blurb: "Keeping the business you built intact across generations." },
+  { name: "Special Needs Planning", blurb: "Providing for a loved one with a disability without risking their benefits." },
+  { name: "Charitable & Legacy Giving", blurb: "Structuring gifts and bequests that carry your values forward." },
 ];
 
 export const disclaimer = "Tercet Law, PLLC. Russ Michael Schmidtberger (\"Russ Michaels\") is the attorney responsible for this communication and is licensed to practice law in Alabama. This website is attorney advertising, offered for general information and not as legal advice; an attorney–client relationship begins only upon a signed engagement agreement.";

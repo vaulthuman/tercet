@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { firm } from '../data/site.js';
-const { title = "Tercet Law — Estate, Trust & Legacy Planning", description = "Tercet Law — estate, trust, and legacy planning for families. Flat fees, plans built to hold." } = Astro.props;
+const { title = "Tercet Law — Estate, Trust & Legacy Planning", description = "Tercet Law — estate, trust, and legacy planning for families. Flat fees, plans built to hold.", modal = true } = Astro.props;
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -31,7 +31,7 @@ const year = new Date().getFullYear();
         <a href="/process">Process</a>
         <a href="/pricing">Pricing</a>
         <a href="/about">About</a>
-        <a class="navbtn" href="/start">Book a conversation</a>
+        <a class="navbtn" href="/start" data-open-form>Book a conversation</a>
       </nav>
     </div>
   </header>
@@ -40,10 +40,32 @@ const year = new Date().getFullYear();
     <div class="wrap">
       <p class="disc">{firm.legalName}. Russ Michael Schmidtberger (&ldquo;Russ Michaels&rdquo;) is the attorney responsible for this communication and is licensed to practice law in Alabama. This website is attorney advertising, offered for general information and not as legal advice; an attorney&ndash;client relationship begins only upon a signed engagement agreement. <a href="/disclaimers" style="text-decoration:underline">Full disclaimers</a>.</p>
       <p class="sig">{firm.legalName.toUpperCase()}</p>
-      <p class="meta">&copy; {year} {firm.legalName}. All&nbsp;rights&nbsp;reserved. &middot; {firm.attorneyDisplay}, Esq. &middot; <a href={`mailto:${firm.email}`}>{firm.email}</a></p>
+      <p class="meta">&copy; {year} {firm.legalName}. All&nbsp;rights&nbsp;reserved. &middot; {firm.attorneyDisplay}, Esq. &middot; <a href="tel:+18888332510">(888)&nbsp;833-2510</a></p>
       <p class="backlink">A member of the <a href="https://www.vaulthuman.com">Vault Human</a> family of companies.</p>
     </div>
   </footer>
+
+  {modal && (
+  <Fragment>
+  <div id="vh-modal" class="vh-modal" aria-hidden="true">
+    <div class="vh-modal__bg" data-close-form></div>
+    <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book a conversation">
+      <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
+      <h2 class="vh-modal__title">Start with a conversation</h2>
+      <p class="vh-modal__sub">Tell us a little about your situation and we&rsquo;ll be in touch. It&rsquo;s free, and there&rsquo;s no pressure.</p>
+      <div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
+    </div>
+  </div>
+  <script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
+  <script is:inline>
+  (function(){var m=document.getElementById('vh-modal');if(!m)return;
+  function o(e){if(e)e.preventDefault();m.classList.add('is-open');m.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden';}
+  function c(){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');document.documentElement.style.overflow='';}
+  document.addEventListener('click',function(e){var t=e.target.closest('[data-open-form]');if(t){o(e);return;}if(e.target.closest('[data-close-form]'))c();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();
+  </script>
+  </Fragment>
+  )}
 <script>
 addEventListener('DOMContentLoaded',function(){
  if(!('IntersectionObserver'in window))return;

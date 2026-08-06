@@ -1,70 +1,52 @@
-// ─────────────────────────────────────────────────────────────
-// TERCET LAW — site content. Edit values here; layout stays put.
-// To change a price, a feature, or add a practice area: edit below.
-// ─────────────────────────────────────────────────────────────
-
+// TERCET LAW — content. (rev 2026-08-06: The Counselor · Life Law · StoryBrand spine)
 export const firm = {
-  name: "Tercet Law",
-  legalName: "Tercet Law, PLLC",
-  attorney: "Russ Michael Schmidtberger",
-  attorneyDisplay: "Russ Michaels",
+  name: "Tercet Law", legalName: "Tercet Law, PLLC",
+  attorney: "Russ Michael Schmidtberger", attorneyDisplay: "Russ Michaels",
   email: "tercet@tercetlaw.com",
-  kicker: "Estate · Trust · Legacy Planning",
-  // booking link — swap when Calendly/intake is live
+  kicker: "Life Law · Family · Business · Money · Legacy",
   bookingUrl: "#start",
 };
-
 export const hero = {
-  h1: "The people you love shouldn't inherit the things you meant to do.",
-  subline: "A plan is not paperwork. It's the one, quiet act of care you get to author for them.",
+  h1: "One counselor for your whole legal life.",
+  subline: "Life Law — family, business, money, and legacy — held by one attorney who sees the whole picture, on a clear flat fee.",
   lede: [
-    "Most of us keep meaning to get our affairs in order, and keep not getting to it — until the delay quietly becomes someone else's burden, at the worst possible moment. It doesn't have to go that way.",
-    "Tercet is a small, deliberate practice built on one idea: that planning for your family should feel less like legal paperwork and more like being understood. You work directly with the attorney — unhurried, on a clear flat fee — turning the people, the property, and the wishes that don't fit on a form into a plan that actually holds when it's needed.",
+    "Most people meet the law in fragments — a will here, a contract there, a dispute handled by a stranger who doesn't know the rest of your life. The pieces don't protect a whole person.",
+    "Tercet is Life Law: one counselor who holds the entire picture — your family, your business, your money, and your legacy — and builds the structure that actually holds when it's tested.",
   ],
-  cta: "Start with a conversation",
+  cta: "Start a conversation",
 };
-
 export const pillars = [
-  { title: "The people", body: "Who you'd protect, who would speak for you, and who would raise your children if you couldn't. We begin with them — not the documents." },
-  { title: "What you've built", body: "Your home, your accounts, the business you grew — kept where you want them, and spared the cost and delay of probate." },
-  { title: "A plan that holds", body: "Wills, trusts, and directives built to do their work in the moments they're actually needed — and to stay current as life moves." },
+  { title: "Family & Life", body: "Marriage, children, care, and the decisions that protect the people closest to you." },
+  { title: "Business & New Era", body: "Entities, contracts, and the law of what's next — crypto, cannabis, AI & tech, and fintech." },
+  { title: "Money & Legacy", body: "Estates, wills, trusts, and a legacy planned on purpose — plus mediation when things need resolving." },
 ];
-
-export const turn = "This isn't estate paperwork. It's the structure that speaks for you when you can't speak for yourself — and quietly keeps your family out of a courtroom.";
-
+export const turn = "This isn't estate paperwork. It's a counselor who can hold your whole legal life — family, business, money, and legacy — so nothing important is left to chance, or to a stranger.";
 export const whyTercet = [
-  "A <i>tercet</i> is three lines of verse that only become whole together. It's the shape of this work, too — the people, the property, and the wishes that bind them, written as one plan rather than three loose documents.",
-  "Tercet was founded by Russ Michaels, an attorney who spent the better part of two decades building and restructuring companies — in real estate, finance, and the turnarounds where structure is tested under real pressure. That's the lens he brings to families now: not only drafting documents, but building something that holds when it's finally needed.",
+  "A <i>tercet</i> is three lines of verse that only become whole together — the shape of this work: your family, your business, and your legacy, counseled as one picture rather than loose documents.",
+  "Tercet was founded by Russ Michaels, an attorney who spent two decades building and restructuring companies — in real estate, finance, and the turnarounds where structure is tested under real pressure. That's the lens he brings to your whole legal life now.",
 ];
-
 export const plans = [
   { name: "The Will Plan", price: "$1,500", features: ["Last will & testament", "Financial power of attorney", "Healthcare directive & living will", "One review meeting"] },
   { name: "The Trust Plan", price: "$3,500", features: ["Everything in the Will Plan", "Revocable living trust", "Deed & funding guidance", "Avoids probate on covered assets"] },
   { name: "Trust + Advanced", price: "$6,500", features: ["Everything in the Trust Plan", "Long-term-care & Medicaid planning", "Tax-aware & business-interest planning", "Coordination with your CPA / advisor"] },
 ];
-
 export const pricingNote = "Every fee is flat and quoted before any work begins — so you're choosing a plan, never wondering about the bill.";
-
 export const steps = [
-  { n: "I", title: "Start with a conversation.", body: "Tell us a little about your situation and pick a time. It's free, and there's no pressure." },
-  { n: "II", title: "We map the plan together.", body: "One focused meeting to understand your people, property, and wishes — and to recommend the right plan." },
+  { n: "I", title: "Start a conversation.", body: "Tell us a little about your situation and pick a time. It's free, and there's no pressure." },
+  { n: "II", title: "We map the whole picture.", body: "One focused meeting across your family, business, money, and legacy — and the right plan for it." },
   { n: "III", title: "We draft, and you sign.", body: "We prepare everything, walk you through it in plain language, and execute it properly." },
   { n: "IV", title: "It stays with you.", body: "Your plan is built to hold — and we're here when life changes it." },
 ];
-
-export const closing = "When the day comes that a plan is needed, no one ever wishes it had been cheaper, or faster. They only wish it had been done — and done with care.";
-
-// Practice areas — boxes now, future pages later. Add one = add a line.
+export const closing = "When the day comes that counsel is needed, no one wishes it had been cheaper or faster. They only wish it had been done — and done by someone who saw the whole picture.";
 export const practiceAreas = [
-  { name: "Estate Planning", blurb: "Wills, trusts, and the plan that ties them together." },
-  { name: "Trusts & Trust Funding", blurb: "Revocable and purpose-built trusts, properly funded." },
-  { name: "Probate & Estate Administration", blurb: "Guiding families through administration and the courts." },
+  { name: "Estate & Legacy Planning", blurb: "Wills, trusts, and the plan that ties them together." },
+  { name: "Wills & Trusts", blurb: "Revocable and purpose-built trusts, properly funded." },
+  { name: "Family Law", blurb: "Marriage, children, and the matters closest to home." },
+  { name: "Business Law", blurb: "Entities, contracts, and succession for the business you built." },
+  { name: "New-Era Business Law", blurb: "Crypto, cannabis, AI & tech, and fintech — the law of what's next." },
+  { name: "Mediation", blurb: "Resolving disputes without burning the relationships that matter." },
   { name: "Powers of Attorney & Directives", blurb: "Financial and healthcare authority, set before it's needed." },
-  { name: "Elder Law & Medicaid Planning", blurb: "Long-term-care planning that protects what you've built." },
-  { name: "Guardianship & Conservatorship", blurb: "Standing up for those who can't speak for themselves." },
-  { name: "Business & Succession Planning", blurb: "Keeping the business you built intact across generations." },
-  { name: "Special Needs Planning", blurb: "Providing for a loved one with a disability without risking their benefits." },
+  { name: "Probate & Estate Administration", blurb: "Guiding families through administration and the courts." },
   { name: "Charitable & Legacy Giving", blurb: "Structuring gifts and bequests that carry your values forward." },
 ];
-
 export const disclaimer = "Tercet Law, PLLC. Russ Michael Schmidtberger (\"Russ Michaels\") is the attorney responsible for this communication and is licensed to practice law in Alabama. This website is attorney advertising, offered for general information and not as legal advice; an attorney–client relationship begins only upon a signed engagement agreement.";

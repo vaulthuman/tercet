@@ -1,37 +1,470 @@
----
-import Base from '../layouts/Base.astro';
-import { firm, hero, pillars, turn, whyTercet, closing } from '../data/site.js';
----
-<Base>
-  <div class="wrap">
-    <section class="hero">
-      <p class="kicker">{firm.kicker}</p>
-      <h1>{hero.h1}</h1>
-      <p class="subline">{hero.subline}</p>
-    </section>
-    <div class="lede">{hero.lede.map((p) => <p>{p}</p>)}</div>
-    <div class="cta"><a class="btn-fill" href="/start" data-open-form>{hero.cta}</a></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tercet Law — Estate Planning &amp; Business Succession | Alabama</title>
+<!--
+  TERCET LAW — redesigned homepage v1 (2026-08-07)
+  Direction: warm-authority evolution of the sleek Tercet brand. Ivory base, deep ink text,
+  forest-green + muted brass accents, black used selectively for authority. Serif headlines
+  (continuity) + clean sans body. Built from the consensus of ChatGPT/Grok/Gemini + research.
 
-    <hr class="rule" />
-    <section class="cols">{pillars.map((c) => (<div><h3>{c.title}</h3><p>{c.body}</p></div>))}</section>
+  >>> BEFORE THIS GOES LIVE (Russ):
+  1. PHOTO: replace the two portrait placeholders with a warm, approachable professional photo
+     of Russ (direct eye contact, business-casual/suit). This is the single biggest conversion lever.
+  2. JURISDICTION: copy states "Alabama-licensed." Confirm your exact Texas authorization before
+     asserting TX practice; the FAQ answer on Texas is a PLACEHOLDER to verify.
+  3. PRICING: tiers shown as "starting at" with a scope-varies note. Confirm the package scopes are
+     real and deliverable in each jurisdiction before publishing (don't promise every bullet everywhere).
+  4. FORM: wire the CTA form to the live HubSpot form (portal 246947446 / form GUID
+     3f225ab5-5a70-46d9-a497-29e6256b1e52) so the proven lead chain fires. Prefer EMBEDDED form
+     over pop-up (pop-up friction is implicated in the 0-conversion ad problem).
+  5. COMPLIANCE: AL Rule 7.2 permits advertising fees/terms; TX has an advertising-review process.
+     Testimonials must be real + compliant. No "best/expert/specialist/#1" superiority claims used.
+  6. ATTORNEY-CLIENT DISCLAIMER is present near the form and in the footer — keep it.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style is:global>
+  :root{
+    --ivory:#F7F3EA;      /* warm base */
+    --ivory-2:#EFE9DC;    /* card / alt band */
+    --ink:#1C1B18;        /* near-black text */
+    --ink-soft:#4A4740;   /* secondary text */
+    --forest:#20463A;     /* primary accent (trust/legacy) */
+    --forest-deep:#163127;
+    --brass:#A9843E;      /* warm accent */
+    --line:#DED6C6;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--ivory);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-0.01em}
+  h1{font-size:clamp(2.3rem,5vw,4rem)}
+  h2{font-size:clamp(1.8rem,3.5vw,2.7rem)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+  .btn{display:inline-block;padding:15px 30px;border-radius:2px;font-weight:600;font-size:.95rem;letter-spacing:.02em;cursor:pointer;border:1.5px solid transparent;transition:.18s;text-align:center}
+  .btn-primary{background:var(--forest);color:var(--ivory)}
+  .btn-primary:hover{background:var(--forest-deep)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--ivory)}
+  .eyebrow{font-family:'Inter';font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--brass)}
 
-    <hr class="rule" />
-    <p class="turn">{turn}</p>
+  /* utility bar */
+  .util{background:var(--forest-deep);color:#E9E2D3;font-size:.8rem;letter-spacing:.04em;text-align:center;padding:8px 14px}
+  .util b{color:var(--white);font-weight:600}
 
-    <hr class="rule" />
-    <h2 class="sec">Why Tercet</h2>
-    <div class="lede">{whyTercet.map((p) => <p set:html={p} />)}</div>
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(247,243,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:'Fraunces';font-size:1.5rem;font-weight:600;letter-spacing:.16em}
+  .brand small{display:block;font-family:'Inter';font-size:.58rem;letter-spacing:.34em;color:var(--ink-soft);font-weight:600;margin-top:-2px}
+  .navlinks{display:flex;gap:30px;align-items:center}
+  .navlinks a{font-size:.9rem;font-weight:500;color:var(--ink-soft)}
+  .navlinks a:hover{color:var(--forest)}
+  .navlinks .btn{padding:11px 22px}
+  @media(max-width:820px){.navlinks a:not(.btn){display:none}}
 
-    <hr class="rule" />
-    <h2 class="sec">Explore</h2>
-    <section class="cols">
-      <div><h3><a href="/services" class="fam-ish">Services</a></h3><p>Estate planning, trusts, probate, powers of attorney, elder law, and more.</p></div>
-      <div><h3><a href="/pricing" class="fam-ish">Pricing</a></h3><p>Three flat-fee plans, quoted before any work begins.</p></div>
-      <div><h3><a href="/process" class="fam-ish">Process</a></h3><p>Four unhurried steps, from first conversation to a plan that holds.</p></div>
-    </section>
+  /* hero */
+  .hero{padding:46px 0 44px}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:center}
+  .hero h1{margin-bottom:14px}
+  .hero .lede{font-size:1.15rem;color:var(--ink-soft);max-width:33ch;margin-bottom:14px}
+  .hero .price-note{font-size:.92rem;color:var(--forest);font-weight:600;margin-bottom:18px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-trust{margin-top:26px;font-size:.82rem;color:var(--ink-soft);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .hero-trust span{display:flex;align-items:center;gap:7px}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--brass);display:inline-block}
+  /* portrait placeholder */
+  .portrait{aspect-ratio:4/4.9;max-width:315px;margin-left:auto;border-radius:4px;background:
+     linear-gradient(160deg,var(--forest) 0%,var(--forest-deep) 100%);
+     position:relative;overflow:hidden;display:flex;align-items:flex-end;box-shadow:0 24px 60px -28px rgba(22,49,39,.6)}
+  .portrait .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#CBD8CE;padding:24px}
+  .portrait .ph svg{opacity:.5;margin-bottom:14px}
+  .portrait .ph em{font-family:'Inter';font-style:normal;font-size:.74rem;letter-spacing:.03em;line-height:1.5;max-width:24ch}
+  .portrait .cap{position:relative;z-index:2;width:100%;background:linear-gradient(transparent,rgba(11,24,18,.85));color:#F2ECDD;padding:22px 20px 16px}
+  .portrait .cap b{font-family:'Fraunces';font-weight:600;font-size:1.05rem}
+  .portrait .cap span{display:block;font-size:.76rem;letter-spacing:.06em;color:#BFC7B9;margin-top:2px}
+  @media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:34px}.hero .lede{max-width:none}}
 
-    <hr class="rule" />
-    <p class="closing">{closing}</p>
-    <div class="ctarow" id="start"><a class="btn-fill" href="/start" data-open-form>Start a conversation</a></div>
+  /* recognition strip */
+  .band{padding:56px 0}
+  .band-dark{background:var(--ink);color:var(--ivory)}
+  .band-dark h2,.band-dark h3{color:var(--ivory)}
+  .recognition h2{margin-bottom:8px}
+  .recognition .sub{color:#B9B3A5;margin-bottom:34px}
+  .triggers{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}
+  .trigger{background:var(--ink);padding:26px 24px}
+  .trigger .n{font-family:'Fraunces';color:var(--brass);font-size:1.1rem;margin-bottom:6px}
+  .trigger p{color:#DDD7C9;font-size:.98rem}
+  @media(max-width:720px){.triggers{grid-template-columns:1fr}}
+
+  /* pricing */
+  .plans{padding:60px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .sec-head h2{margin:10px 0 12px}
+  .sec-head p{color:var(--ink-soft)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:32px 28px;display:flex;flex-direction:column;position:relative}
+  .card.feat{border:1.5px solid var(--forest);box-shadow:0 26px 60px -34px rgba(32,70,58,.5)}
+  .flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--brass);color:var(--white);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:2px}
+  .card h3{font-size:1.4rem;margin-bottom:4px}
+  .card .for{font-size:.86rem;color:var(--ink-soft);min-height:40px}
+  .card .price{font-family:'Fraunces';font-size:2.5rem;font-weight:600;color:var(--forest);margin:14px 0 2px}
+  .card .price small{font-family:'Inter';font-size:.8rem;font-weight:500;color:var(--ink-soft);letter-spacing:.02em}
+  .card ul{list-style:none;margin:20px 0 26px;display:flex;flex-direction:column;gap:11px}
+  .card li{font-size:.92rem;padding-left:26px;position:relative;color:var(--ink)}
+  .card li::before{content:"";position:absolute;left:0;top:7px;width:13px;height:8px;border-left:2px solid var(--forest);border-bottom:2px solid var(--forest);transform:rotate(-45deg)}
+  .card .btn{margin-top:auto}
+  .plans .fineprint{text-align:center;color:var(--ink-soft);font-size:.82rem;margin-top:26px;max-width:720px;margin-left:auto;margin-right:auto}
+  @media(max-width:820px){.cards{grid-template-columns:1fr}}
+
+  /* comparison */
+  .compare{padding:20px 0 76px}
+  table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  th,td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:.92rem}
+  thead th{background:var(--ivory-2);font-family:'Fraunces';font-weight:600;font-size:1rem}
+  th.c,td.c{text-align:center}
+  td.yes{color:var(--forest);font-weight:700}
+  tbody tr:last-child td{border-bottom:none}
+  .compare .lbl{font-weight:500}
+
+  /* process */
+  .process{padding:58px 0}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
+  .step{border-top:2px solid var(--brass);padding-top:20px}
+  .step .num{font-family:'Fraunces';font-size:2.2rem;color:var(--forest);line-height:1;margin-bottom:10px}
+  .step h4{font-size:1.15rem;margin-bottom:7px}
+  .step p{color:var(--ink-soft);font-size:.94rem}
+  @media(max-width:720px){.steps{grid-template-columns:1fr}}
+
+  /* meet russ */
+  .meet{padding:20px 0 76px}
+  .meet-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+  .meet .portrait{aspect-ratio:1/1.05}
+  .meet h2{margin-bottom:16px}
+  .meet p{color:var(--ink-soft);margin-bottom:14px;max-width:52ch}
+  .meet .sig{font-family:'Fraunces';font-style:italic;font-size:1.15rem;color:var(--forest);margin-top:6px}
+  @media(max-width:820px){.meet-grid{grid-template-columns:1fr;gap:30px}}
+
+  /* why */
+  .why{padding:64px 0}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:34px}
+  .why-item h4{display:flex;gap:10px;align-items:baseline;font-size:1.08rem;margin-bottom:6px}
+  .why-item h4 span{color:var(--brass);font-family:'Fraunces'}
+  .why-item p{color:var(--ink-soft);font-size:.93rem}
+  @media(max-width:720px){.why-grid{grid-template-columns:1fr}}
+
+  /* faq */
+  .faq{padding:58px 0}
+  .faq-list{max-width:800px;margin:34px auto 0}
+  details{border-bottom:1px solid var(--line);padding:18px 4px}
+  summary{font-family:'Fraunces';font-size:1.12rem;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--brass);font-size:1.5rem;font-family:'Inter'}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--ink-soft);margin-top:12px;font-size:.96rem}
+
+  /* final cta */
+  .final{background:linear-gradient(160deg,var(--forest) 0%,var(--forest-deep) 100%);color:var(--ivory);padding:60px 0}
+  .final h2{color:var(--white);margin-bottom:10px}
+  .final .lede{color:#CFDAD0;margin-bottom:30px;max-width:52ch}
+  .final-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+  .final .prices{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:24px}
+  .final .prices div{border-left:2px solid var(--brass);padding-left:12px}
+  .final .prices b{font-family:'Fraunces';font-size:1.4rem;display:block}
+  .final .prices span{font-size:.78rem;color:#BFCabb}
+  form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:28px}
+  form label{display:block;font-size:.8rem;letter-spacing:.04em;margin-bottom:6px;color:#DDE5DC}
+  form input,form select,form textarea{width:100%;padding:12px 14px;margin-bottom:16px;border-radius:3px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.95);font-family:inherit;font-size:.95rem}
+  form .btn-primary{background:var(--brass);width:100%;border:none}
+  form .btn-primary:hover{background:#946f2f}
+  .disclaimer{font-size:.72rem;color:#AEB8AC;margin-top:12px;line-height:1.5}
+  @media(max-width:820px){.final-grid{grid-template-columns:1fr;gap:32px}}
+
+  /* footer */
+  footer{background:var(--ink);color:#B7B2A6;padding:52px 0 30px;font-size:.86rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:34px}
+  footer .brand{color:var(--ivory);margin-bottom:12px}
+  footer a{color:#B7B2A6}footer a:hover{color:var(--ivory)}
+  footer h5{color:var(--ivory);font-family:'Inter';font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .endorse{font-family:'Fraunces';font-style:italic;color:#8FA394}
+  .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;font-size:.74rem;color:#8A857A;line-height:1.6}
+  @media(max-width:720px){.foot-grid{grid-template-columns:1fr;gap:26px}}
+.portrait-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.navlinks a.btn{color:var(--ivory)}
+</style>
+<!-- Google Ads gtag (AW-18371546487) + HubSpot->conversion bridge (preserved from Base) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18371546487"></script>
+<script is:inline>
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());gtag('config','AW-18371546487');
+  window.addEventListener('message',function(e){if(e&&e.data&&e.data.type==='hsFormCallback'&&e.data.eventName==='onFormSubmitted'){gtag('event','conversion',{send_to:'AW-18371546487/r4eECOKGw9wcEPeanrhE'});gtag('event','generate_lead');}});
+</script>
+</head>
+<body>
+
+<div class="util">
+  <b>Alabama-licensed attorney</b> &nbsp;·&nbsp; Virtual appointments available &nbsp;·&nbsp; <b>Flat-fee plans starting at $1,500</b>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">TERCET LAW<small>ESTATE · TRUST · LEGACY</small></div>
+    <nav class="navlinks">
+      <a href="#plans">Plans &amp; Pricing</a>
+      <a href="#process">Process</a>
+      <a href="#about">About Russ</a>
+      <a href="#faq">FAQ</a>
+      <a href="#start" class="btn btn-primary">Find the Right Plan</a>
+    </nav>
   </div>
-</Base>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Estate Planning &amp; Business Succession</div>
+      <h1>Estate planning for the life &mdash; and the business &mdash; you&rsquo;ve built.</h1>
+      <p class="lede">Wills, trusts, powers of attorney, and succession planning for Alabama families and business owners. Clear scope. Flat fees. You work directly with Russ Michaels, Esq.</p>
+      <p class="price-note">Flat-fee plans starting at $1,500 &mdash; the price is clear before any work begins.</p>
+      <div class="hero-cta">
+        <a href="#plans" class="btn btn-primary">Find the Right Plan</a>
+        <a href="#about" class="btn btn-ghost">Meet Russ</a>
+      </div>
+      <div class="hero-trust">
+        <span><i class="dot"></i> Alabama-licensed</span>
+        <span><i class="dot"></i> Flat-fee, no hourly surprises</span>
+        <span><i class="dot"></i> Virtual, guided process</span>
+      </div>
+    </div>
+    <div style="aspect-ratio:4/4.5;max-width:300px;margin-left:auto;border-radius:6px;background:linear-gradient(160deg,#20463A 0%,#163127 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 24px 60px -30px rgba(22,49,39,.6)">
+<svg viewBox="0 0 260 330" width="82%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tercet Law">
+  <rect x="12" y="12" width="236" height="306" fill="none" stroke="#A9843E" stroke-width="1.4"/>
+  <rect x="19" y="19" width="222" height="292" fill="none" stroke="#A9843E" stroke-width=".6" opacity=".55"/>
+  <g stroke="#CBA96A" stroke-width="4.5" stroke-linecap="round">
+    <line x1="108" y1="74" x2="108" y2="150"/>
+    <line x1="130" y1="58" x2="130" y2="150"/>
+    <line x1="152" y1="74" x2="152" y2="150"/>
+  </g>
+  <line x1="92" y1="168" x2="168" y2="168" stroke="#A9843E" stroke-width="1.2"/>
+  <text x="130" y="212" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-weight="600" font-size="36" fill="#F7F3EA" letter-spacing="3">TERCET</text>
+  <text x="130" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-weight="600" font-size="10.5" fill="#CBA96A" letter-spacing="7">LIFE LAW</text>
+  <text x="130" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#9FB3A4" letter-spacing="3.5">FAMILY · BUSINESS · LEGACY</text>
+</svg></div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section class="band band-dark recognition">
+  <div class="wrap">
+    <h2>You may need a plan if&hellip;</h2>
+    <p class="sub">Estate planning isn&rsquo;t only for the wealthy or the elderly. It&rsquo;s for anyone with people or property they&rsquo;d want protected.</p>
+    <div class="triggers">
+      <div class="trigger"><div class="n">You have children</div><p>&mdash; and want to name who cares for them, and how they&rsquo;re provided for.</p></div>
+      <div class="trigger"><div class="n">You own a home</div><p>&mdash; and want to keep it out of a slow, public probate.</p></div>
+      <div class="trigger"><div class="n">You own a business</div><p>&mdash; and need a plan for what happens to it, and to your partners.</p></div>
+      <div class="trigger"><div class="n">Your documents are dated</div><p>&mdash; a plan more than five years old may no longer do what you think.</p></div>
+      <div class="trigger"><div class="n">You care for a parent</div><p>&mdash; and want authority and clarity before a crisis, not after.</p></div>
+      <div class="trigger"><div class="n">You&rsquo;ve had a life change</div><p>&mdash; marriage, a new child, a move, a sale, a diagnosis.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="band plans" id="plans">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Flat-Fee Plans</div>
+      <h2>Three clear plans. The price before the work.</h2>
+      <p>Every plan is a fixed flat fee, quoted before we begin &mdash; no hourly billing, no surprise invoices. Choose by the life you&rsquo;re protecting.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Essential Plan</h3>
+        <p class="for">For an individual or couple who needs a clear, foundational plan.</p>
+        <div class="price">$1,500 <small>starting at</small></div>
+        <ul>
+          <li>Planning consultation</li>
+          <li>Will</li>
+          <li>Financial power of attorney</li>
+          <li>Advance healthcare directive</li>
+          <li>Signing &amp; execution guidance</li>
+        </ul>
+        <a href="#start" class="btn btn-ghost">Select Essential</a>
+      </div>
+      <div class="card feat">
+        <div class="flag">Most Chosen</div>
+        <h3>Family Trust Plan</h3>
+        <p class="for">For families and homeowners who want to avoid probate and coordinate their affairs.</p>
+        <div class="price">$3,500 <small>starting at</small></div>
+        <ul>
+          <li>Everything in Essential</li>
+          <li>Revocable living trust</li>
+          <li>Pour-over will</li>
+          <li>Trust-funding guidance</li>
+          <li>Beneficiary &amp; asset review</li>
+        </ul>
+        <a href="#start" class="btn btn-primary">Select Family Trust</a>
+      </div>
+      <div class="card">
+        <h3>Legacy &amp; Business Plan</h3>
+        <p class="for">For business owners, blended families, and more complex succession needs.</p>
+        <div class="price">$6,500 <small>starting at</small></div>
+        <ul>
+          <li>Everything in Family Trust</li>
+          <li>Business succession review</li>
+          <li>Ownership &amp; fiduciary planning</li>
+          <li>Digital &amp; other modern-asset provisions</li>
+          <li>Implementation roadmap</li>
+        </ul>
+        <a href="#start" class="btn btn-ghost">Select Legacy</a>
+      </div>
+    </div>
+    <p class="fineprint">Prices are starting flat fees; final scope is confirmed in writing before any engagement begins. Court filing fees and third-party costs, where applicable, are additional. Availability of specific provisions depends on your jurisdiction and circumstances.</p>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare wrap">
+  <table>
+    <thead><tr><th>What&rsquo;s included</th><th class="c">Essential<br>$1,500</th><th class="c">Family Trust<br>$3,500</th><th class="c">Legacy &amp; Business<br>$6,500</th></tr></thead>
+    <tbody>
+      <tr><td class="lbl">Will, POAs &amp; healthcare directive</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td class="lbl">Revocable living trust + pour-over will</td><td class="c">&mdash;</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td class="lbl">Trust-funding &amp; beneficiary guidance</td><td class="c">&mdash;</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+      <tr><td class="lbl">Business succession review</td><td class="c">&mdash;</td><td class="c">&mdash;</td><td class="c yes">✓</td></tr>
+      <tr><td class="lbl">Digital / modern-asset &amp; complex-family planning</td><td class="c">&mdash;</td><td class="c">&mdash;</td><td class="c yes">✓</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PROCESS -->
+<section class="band process" id="process">
+  <div class="wrap">
+    <div class="eyebrow">How It Works</div>
+    <h2>Four unhurried steps &mdash; from first call to a plan that holds.</h2>
+    <div class="steps" style="grid-template-columns:repeat(4,1fr)">
+      <div class="step"><div class="num">1</div><h4>Choose a starting plan</h4><p>Pick the plan that fits, or book a short clarity call if you&rsquo;re unsure.</p></div>
+      <div class="step"><div class="num">2</div><h4>Meet directly with Russ</h4><p>No document factory. You work with the attorney who designs your plan.</p></div>
+      <div class="step"><div class="num">3</div><h4>Review your draft</h4><p>We build it around your family and assets, then walk through it together.</p></div>
+      <div class="step"><div class="num">4</div><h4>Sign &amp; execute</h4><p>Guided signing and funding, so the plan actually works when it&rsquo;s needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET RUSS -->
+<section class="band meet" id="about">
+  <div class="wrap meet-grid">
+    <div class="portrait">
+      <img class="portrait-photo" alt="Russ Michaels, Esq., founder of Tercet Law" src="/russ-bw.jpg">
+      <div class="cap"><b>Russ Michaels, Esq.</b><span>Founder &middot; Tercet Law</span></div>
+    </div>
+    <div>
+      <div class="eyebrow">Meet Russ</div>
+      <h2>Your plan isn&rsquo;t handed to a document factory.</h2>
+      <p>Russ Michaels is an Alabama-licensed attorney who spent two decades building, restructuring, and operating companies &mdash; in real estate, finance, and the turnarounds where structure gets tested under real pressure. That&rsquo;s the lens he brings to protecting your family and your business now.</p>
+      <p>He works on flat fees because you deserve to know the cost before the work begins &mdash; and because the point is a plan that&rsquo;s finished and holds, not a running meter. You talk to the person who does the work.</p>
+      <p class="sig">&ldquo;The best plan is the one that&rsquo;s actually done &mdash; and done by someone who saw the whole picture.&rdquo;</p>
+      <a href="#start" class="btn btn-primary" style="margin-top:14px">Start with a conversation</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="band band-dark why">
+  <div class="wrap">
+    <div class="eyebrow">Why Tercet</div>
+    <h2>Boutique by design.</h2>
+    <div class="why-grid">
+      <div class="why-item"><h4><span>01</span> Direct attorney access</h4><p>You work with Russ &mdash; not an intake team, not a junior handoff.</p></div>
+      <div class="why-item"><h4><span>02</span> Flat-fee scope</h4><p>A clear price and a clear deliverable, agreed before we begin.</p></div>
+      <div class="why-item"><h4><span>03</span> Estate &amp; business, coordinated</h4><p>Your family plan and your business succession, handled as one picture.</p></div>
+      <div class="why-item"><h4><span>04</span> Virtual &amp; guided</h4><p>Meet, review, and sign from wherever you are &mdash; without losing the human touch.</p></div>
+      <div class="why-item"><h4><span>05</span> Plain-language planning</h4><p>You&rsquo;ll understand what your plan does, and why, in words that make sense.</p></div>
+      <div class="why-item"><h4><span>06</span> Modern assets, handled cleanly</h4><p>Digital and other modern assets accounted for in the plan &mdash; not left to chance.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="band faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Common Questions</div><h2>Straight answers, before you call.</h2></div>
+    <div class="faq-list">
+      <details open><summary>Do I need a will or a trust?</summary><p>It depends on what you own and what you want to happen. A will directs where things go; a trust can help your family avoid probate, keep matters private, and plan for incapacity. On your call, Russ will tell you plainly which fits &mdash; and won&rsquo;t upsell you into more than you need.</p></details>
+      <details><summary>What&rsquo;s included in the flat fee &mdash; and what isn&rsquo;t?</summary><p>Each plan lists its included documents and guidance. The flat fee covers the legal work in that plan&rsquo;s scope, confirmed in writing before we begin. Court filing fees and third-party costs (for example, recording fees) are separate and disclosed up front.</p></details>
+      <details><summary>Can everything be handled virtually?</summary><p>Yes. Consultations, review, and most planning are handled virtually, with guided signing. If a step requires an in-person formality, we&rsquo;ll tell you in advance.</p></details>
+      <details><summary>Do you practice in Texas?</summary><p>Russ is licensed in Alabama. If you&rsquo;re outside Alabama, tell us where you&rsquo;re located and we&rsquo;ll confirm exactly how we can help &mdash; often by coordinating with trusted local counsel &mdash; before any engagement begins.</p></details>
+      <details><summary>Can you update an existing plan?</summary><p>Often, yes. Bring what you have; Russ will review it and recommend whether an update or a fresh plan makes more sense for your situation.</p></details>
+      <details><summary>What if I own a business?</summary><p>That&rsquo;s the Legacy &amp; Business plan &mdash; it coordinates your estate plan with business succession so ownership, control, and your family are all accounted for together.</p></details>
+      <details><summary>Does contacting Tercet create an attorney-client relationship?</summary><p>No. Reaching out, or sending information through this site, does not create an attorney-client relationship. That relationship begins only when we both sign a written engagement.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="start">
+  <div class="wrap final-grid">
+    <div>
+      <div class="eyebrow" style="color:#D9B877">Get Started</div>
+      <h2>The cost of your plan should be clear before the work begins.</h2>
+      <p class="lede">Tell us a little about what you&rsquo;re protecting. Russ will follow up personally &mdash; usually within one business day.</p>
+      <div class="prices">
+        <div><b>$1,500</b><span>Essential</span></div>
+        <div><b>$3,500</b><span>Family Trust</span></div>
+        <div><b>$6,500</b><span>Legacy &amp; Business</span></div>
+      </div>
+      <p style="font-size:.9rem;color:#CFDAD0">Prefer to talk first? Call <b style="color:#fff">(888) 833-2510</b>.</p>
+    </div>
+    <!-- NOTE: wire this form to the live HubSpot form (portal 246947446 / form 3f225ab5-5a70-46d9-a497-29e6256b1e52) so the proven lead chain fires. Keep it EMBEDDED (not pop-up). -->
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:26px">
+      <div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
+      <p class="disclaimer" style="font-size:.72rem;color:#AEB8AC;margin-top:12px">By submitting, you agree we may contact you about your inquiry. Contacting Tercet Law does not create an attorney-client relationship; that begins only with a signed engagement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="font-size:1.3rem">TERCET LAW</div>
+        <p style="max-width:34ch">Estate planning, trusts, and business succession &mdash; flat-fee, boutique, and built around your whole picture.</p>
+        <p style="margin-top:14px" class="endorse">A Vault Human practice</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#plans">Plans &amp; Pricing</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#about">About Russ</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#start">Start a Conversation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+18888332510">(888) 833-2510</a></li>
+          <li>1401 Lavaca St, Suite 211<br>Austin, TX 78701</li>
+          <li>Virtual appointments available</li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      Tercet Law &mdash; Russ Michaels, Esq., Alabama-licensed attorney. This website is for general information and may be considered attorney advertising; it is not legal advice, and no attorney-client relationship is formed by using this site or contacting us. Prior results do not guarantee a similar outcome. Flat fees shown are starting prices; final scope and fees are set in a written engagement. &copy; 2026 Tercet Law. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
+</body>
+</html>

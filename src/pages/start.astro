@@ -14,7 +14,7 @@ import { steps } from '../data/site.js';
 <ol class="steps">{steps.map((s) => (<li><span class="rn">{s.n}</span><b>{s.title}</b> {s.body}</li>))}</ol>
 <hr class="rule" />
 <div class="coachcard">
-<img src="/russ-bw.jpg" alt="Russ Michaels, Attorney" width="120" height="150" />
+<img src="/russ-color.jpg" alt="Russ Michaels, Attorney" width="120" height="150" />
 <div><p class="coachname">Russ Michaels, Esq.</p><p class="coachrole">Attorney &middot; Licensed in Alabama</p></div>
 </div>
 <div class="formwrap">
@@ -30,7 +30,7 @@ import { steps } from '../data/site.js';
   .formwrap :is(label,legend,p,span,h1,h2,h3){color:#14161c !important}
   .formwrap :is(input,textarea,select){color:#14161c !important;background:#fff !important;border:1px solid #c9c4bb !important}
   .coachcard{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;margin:0 auto 22px}
-  .coachcard img{width:120px;height:150px;object-fit:cover;border-radius:12px;filter:grayscale(1)}
+  .coachcard img{width:120px;height:150px;object-fit:cover;border-radius:12px}
   .coachname{font-weight:600;margin:0}
   .coachrole{opacity:.7;margin:2px 0 0;font-size:14px}
   .txline{max-width:660px;margin:14px auto 0;text-align:center;font-size:14px;opacity:.72}

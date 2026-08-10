@@ -125,8 +125,8 @@
 
   /* meet russ */
   .meet{padding:20px 0 76px}
-  .meet-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
-  .meet .portrait{aspect-ratio:1/1.05}
+  .meet-grid{display:grid;grid-template-columns:340px 1fr;gap:48px;align-items:start}
+  .meet .portrait{aspect-ratio:4/5;max-width:340px;margin:0}
   .meet h2{margin-bottom:16px}
   .meet p{color:var(--ink-soft);margin-bottom:14px;max-width:52ch}
   .meet .sig{font-family:'Fraunces';font-style:italic;font-size:1.15rem;color:var(--forest);margin-top:6px}
@@ -177,7 +177,20 @@
   .endorse{font-family:'Fraunces';font-style:italic;color:#8FA394}
   .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;font-size:.74rem;color:#8A857A;line-height:1.6}
   @media(max-width:720px){.foot-grid{grid-template-columns:1fr;gap:26px}}
-.portrait-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.portrait-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+/* start-a-conversation modal (mirrors Vault Human hub) */
+.vh-modal{position:fixed;inset:0;z-index:2147483000;display:none}
+.vh-modal.is-open{display:block}
+.vh-modal__bg{position:absolute;inset:0;background:rgba(0,0,0,.74)}
+.vh-modal__card{position:relative;width:min(520px,92vw);margin:6.5vh auto;background:#f7f5f0;color:#14161c;border-radius:14px;padding:34px 30px 26px;max-height:86vh;overflow:auto;box-shadow:0 30px 90px rgba(0,0,0,.55);font-family:Inter,system-ui,sans-serif}
+.vh-modal__x{position:absolute;top:8px;right:14px;background:none;border:0;font-size:30px;line-height:1;color:#8a8a8a;cursor:pointer;padding:2px 8px}
+.vh-modal__x:hover{color:#14161c}
+.vh-modal__title{margin:0 0 6px;font-family:Fraunces,Georgia,serif;font-weight:400;font-size:26px;color:#14161c}
+.vh-modal__sub{margin:0 0 18px;color:#565656;font-size:15px;line-height:1.45}
+.vh-modal .hs-form-frame{color:#14161c}
+.vh-modal .hs-form-frame label,.vh-modal .hs-form-frame legend,.vh-modal .hs-form-frame p,.vh-modal .hs-form-frame span,.vh-modal .hs-form-frame h1,.vh-modal .hs-form-frame h2,.vh-modal .hs-form-frame h3{color:#14161c !important}
+.vh-modal .hs-form-frame input,.vh-modal .hs-form-frame textarea,.vh-modal .hs-form-frame select{color:#14161c !important;background:#fff !important;border:1px solid #c9c4bb !important}
+@media(max-width:560px){.vh-modal__card{width:100vw;min-height:100vh;margin:0;border-radius:0}}
 .navlinks a.btn{color:var(--ivory)}
 </style>
 <!-- Google Ads gtag (AW-18371546487) + HubSpot->conversion bridge (preserved from Base) -->
@@ -202,7 +215,7 @@
       <a href="#process">Process</a>
       <a href="#about">About Russ</a>
       <a href="#faq">FAQ</a>
-      <a href="#start" class="btn btn-primary">Find the Right Plan</a>
+      <a href="#plans" class="btn btn-primary">Find the Right Plan</a>
     </nav>
   </div>
 </header>
@@ -278,7 +291,7 @@
           <li>Advance healthcare directive</li>
           <li>Signing &amp; execution guidance</li>
         </ul>
-        <a href="#start" class="btn btn-ghost">Select Essential</a>
+        <a href="#start" class="btn btn-ghost" data-open-form>Select Essential</a>
       </div>
       <div class="card feat">
         <div class="flag">Most Chosen</div>
@@ -292,7 +305,7 @@
           <li>Trust-funding guidance</li>
           <li>Beneficiary &amp; asset review</li>
         </ul>
-        <a href="#start" class="btn btn-primary">Select Family Trust</a>
+        <a href="#start" class="btn btn-primary" data-open-form>Select Family Trust</a>
       </div>
       <div class="card">
         <h3>Legacy &amp; Business Plan</h3>
@@ -305,7 +318,7 @@
           <li>Digital &amp; other modern-asset provisions</li>
           <li>Implementation roadmap</li>
         </ul>
-        <a href="#start" class="btn btn-ghost">Select Legacy</a>
+        <a href="#start" class="btn btn-ghost" data-open-form>Select Legacy</a>
       </div>
     </div>
     <p class="fineprint">Prices are starting flat fees; final scope is confirmed in writing before any engagement begins. Court filing fees and third-party costs, where applicable, are additional. Availability of specific provisions depends on your jurisdiction and circumstances.</p>
@@ -353,7 +366,7 @@
       <p>Russ Michaels is an Alabama-licensed attorney who spent two decades building, restructuring, and operating companies &mdash; in real estate, finance, and the turnarounds where structure gets tested under real pressure. That&rsquo;s the lens he brings to protecting your family and your business now.</p>
       <p>He works on flat fees because you deserve to know the cost before the work begins &mdash; and because the point is a plan that&rsquo;s finished and holds, not a running meter. You talk to the person who does the work.</p>
       <p class="sig">&ldquo;The best plan is the one that&rsquo;s actually done &mdash; and done by someone who saw the whole picture.&rdquo;</p>
-      <a href="#start" class="btn btn-primary" style="margin-top:14px">Start with a conversation</a>
+      <a href="#start" class="btn btn-primary" style="margin-top:14px" data-open-form>Start with a conversation</a>
     </div>
   </div>
 </section>
@@ -428,7 +441,7 @@
           <li><a href="#process">Process</a></li>
           <li><a href="#about">About Russ</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#start">Start a Conversation</a></li>
+          <li><a href="#start" data-open-form>Start a Conversation</a></li>
         </ul>
       </div>
       <div>
@@ -447,6 +460,23 @@
   </div>
 </footer>
 
+<!-- Start-a-conversation modal (mirrors Vault Human hub) -->
+<div id="vh-modal" class="vh-modal" aria-hidden="true">
+  <div class="vh-modal__bg" data-close-form></div>
+  <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Start a conversation">
+    <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
+    <h2 class="vh-modal__title">Start a conversation</h2>
+    <p class="vh-modal__sub">Tell us a little about your situation and we&rsquo;ll be in touch. It&rsquo;s free, and there&rsquo;s no pressure.</p>
+    <div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
+  </div>
+</div>
+<script is:inline>
+(function(){var m=document.getElementById('vh-modal');if(!m)return;
+function o(e){if(e)e.preventDefault();m.classList.add('is-open');m.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden';}
+function c(){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');document.documentElement.style.overflow='';}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-open-form]');if(t){o(e);return;}if(e.target.closest('[data-close-form]'))c();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();
+</script>
 <script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
 </body>
 </html>

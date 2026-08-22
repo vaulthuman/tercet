@@ -216,8 +216,8 @@
     window.addEventListener('message',function(e){var d=e&&e.data;if(!d)return;if(typeof d==='string'){try{d=JSON.parse(d);}catch(_){return;}}if(!d||typeof d!=='object')return;var t=d.type||d.messageType||'',n=d.eventName||d.event||'';if(t==='hsFormCallback'&&(n==='onFormSubmitted'||n==='onFormSubmit'))fire();else if(n==='onFormSubmitted')fire();else if(d.accepted===true&&d.formGuid)fire();});
     window.addEventListener('hsFormCallback',function(e){if(e&&e.detail&&e.detail.eventName==='onFormSubmitted')fire();});})();
 </script>
-<script type="application/ld+json" is:inline>{"@context":"https://schema.org","@type":"LegalService","@id":"https://www.tercetlaw.com/#firm","name":"Tercet Law","url":"https://www.tercetlaw.com","telephone":"+1-888-833-2510","image":"https://www.tercetlaw.com/og-tercet.png","description":"Estate planning, trusts, and business succession for Alabama families and business owners. Flat-fee plans, priced before the work begins.","areaServed":{"@type":"State","name":"Alabama"},"priceRange":"$1,500-$6,500","parentOrganization":{"@id":"https://www.vaulthuman.com/#org"},"founder":{"@type":"Person","@id":"https://www.vaulthuman.com/#russ","name":"Russ Michaels","alternateName":"Russ Michael Schmidtberger","jobTitle":"Founder","telephone":"+1-888-833-2510","worksFor":{"@id":"https://www.vaulthuman.com/#org"}},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Flat-Fee Estate Plans","itemListElement":[{"@type":"Offer","name":"Essential Plan","price":"1500","priceCurrency":"USD"},{"@type":"Offer","name":"Family Trust Plan","price":"3500","priceCurrency":"USD"},{"@type":"Offer","name":"Legacy & Business Plan","price":"6500","priceCurrency":"USD"}]}}</script>
-<script type="application/ld+json" is:inline>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need a will or a trust?","acceptedAnswer":{"@type":"Answer","text":"It depends on what you own and what you want to happen. A will directs where things go; a trust can help your family avoid probate, keep matters private, and plan for incapacity."}},{"@type":"Question","name":"What does an estate plan cost at Tercet Law?","acceptedAnswer":{"@type":"Answer","text":"Flat-fee plans start at $1,500 for the Essential Plan, $3,500 for the Family Trust Plan, and $6,500 for the Legacy and Business Plan. The price is confirmed in writing before any work begins."}},{"@type":"Question","name":"Can everything be handled virtually?","acceptedAnswer":{"@type":"Answer","text":"Yes. Consultations, review, and most planning are handled virtually, with guided signing."}},{"@type":"Question","name":"Where is Tercet Law licensed?","acceptedAnswer":{"@type":"Answer","text":"Tercet Law is licensed in Alabama. Russ Michael Schmidtberger, who practices as Russ Michaels, is the responsible attorney."}}]}</script>
+<script type="application/ld+json" is:inline>{"@context":"https://schema.org","@type":"LegalService","@id":"https://www.tercetlaw.com/#firm","name":"Tercet Law","url":"https://www.tercetlaw.com","telephone":"+1-888-833-2510","image":"https://www.tercetlaw.com/og-tercet.png","description":"Estate planning, trusts, and business succession for Alabama families and business owners. Flat-fee plans, priced before the work begins.","areaServed":{"@type":"State","name":"Alabama"},"priceRange":"$1,500-$7,500","parentOrganization":{"@id":"https://www.vaulthuman.com/#org"},"founder":{"@type":"Person","@id":"https://www.vaulthuman.com/#russ","name":"Russ Michaels","alternateName":"Russ Michael Schmidtberger","jobTitle":"Founder","telephone":"+1-888-833-2510","worksFor":{"@id":"https://www.vaulthuman.com/#org"}},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Flat-Fee Estate Plans","itemListElement":[{"@type":"Offer","name":"Estate Essentials","price":"1500","priceCurrency":"USD"},{"@type":"Offer","name":"Family & Trust","price":"3500","priceCurrency":"USD"},{"@type":"Offer","name":"Life Law Plan","price":"7500","priceCurrency":"USD"}]}}</script>
+<script type="application/ld+json" is:inline>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need a will or a trust?","acceptedAnswer":{"@type":"Answer","text":"It depends on what you own and what you want to happen. A will directs where things go; a trust can help your family avoid probate, keep matters private, and plan for incapacity."}},{"@type":"Question","name":"What does an estate plan cost at Tercet Law?","acceptedAnswer":{"@type":"Answer","text":"Flat-fee plans start at $1,500 for Estate Essentials, $3,500 for Family & Trust, and $7,500 for the Life Law Plan. The price is confirmed in writing before any work begins."}},{"@type":"Question","name":"Can everything be handled virtually?","acceptedAnswer":{"@type":"Answer","text":"Yes. Consultations, review, and most planning are handled virtually, with guided signing."}},{"@type":"Question","name":"Where is Tercet Law licensed?","acceptedAnswer":{"@type":"Answer","text":"Tercet Law is licensed in Alabama. Russ Michael Schmidtberger, who practices as Russ Michaels, is the responsible attorney."}}]}</script>
 </head>
 <body>
 
@@ -299,7 +299,7 @@
     </div>
     <div class="cards">
       <div class="card">
-        <h3>Essential Plan</h3>
+        <h3>Estate Essentials</h3>
         <p class="for">For an individual or couple who needs a clear, foundational plan.</p>
         <div class="price">$1,500 <small>starting at</small></div>
         <ul>
@@ -309,34 +309,34 @@
           <li>Advance healthcare directive</li>
           <li>Signing &amp; execution guidance</li>
         </ul>
-        <a href="#start" class="btn btn-ghost" data-open-form>Select Essential</a>
+        <a href="#start" class="btn btn-ghost" data-open-form>Select Estate Essentials</a>
       </div>
       <div class="card feat">
         <div class="flag">Most Chosen</div>
-        <h3>Family Trust Plan</h3>
+        <h3>Family &amp; Trust</h3>
         <p class="for">For families and homeowners who want to avoid probate and coordinate their affairs.</p>
         <div class="price">$3,500 <small>starting at</small></div>
         <ul>
-          <li>Everything in Essential</li>
+          <li>Everything in Estate Essentials</li>
           <li>Revocable living trust</li>
           <li>Pour-over will</li>
           <li>Trust-funding guidance</li>
           <li>Beneficiary &amp; asset review</li>
         </ul>
-        <a href="#start" class="btn btn-primary" data-open-form>Select Family Trust</a>
+        <a href="#start" class="btn btn-primary" data-open-form>Select Family &amp; Trust</a>
       </div>
       <div class="card">
-        <h3>Legacy &amp; Business Plan</h3>
+        <h3>Life Law Plan</h3>
         <p class="for">For business owners, blended families, and more complex succession needs.</p>
-        <div class="price">$6,500 <small>starting at</small></div>
+        <div class="price">$7,500 <small>starting at</small></div>
         <ul>
-          <li>Everything in Family Trust</li>
+          <li>Everything in Family &amp; Trust</li>
           <li>Business succession review</li>
           <li>Ownership &amp; fiduciary planning</li>
           <li>Digital &amp; other modern-asset provisions</li>
           <li>Implementation roadmap</li>
         </ul>
-        <a href="#start" class="btn btn-ghost" data-open-form>Select Legacy</a>
+        <a href="#start" class="btn btn-ghost" data-open-form>Select Life Law Plan</a>
       </div>
     </div>
     <p class="fineprint">Prices are starting flat fees; final scope is confirmed in writing before any engagement begins. Court filing fees and third-party costs, where applicable, are additional. Availability of specific provisions depends on your jurisdiction and circumstances.</p>
@@ -346,7 +346,7 @@
 <!-- COMPARE -->
 <section class="compare wrap">
   <table>
-    <thead><tr><th>What&rsquo;s included</th><th class="c">Essential<br>$1,500</th><th class="c">Family Trust<br>$3,500</th><th class="c">Legacy &amp; Business<br>$6,500</th></tr></thead>
+    <thead><tr><th>What&rsquo;s included</th><th class="c">Estate Essentials<br>$1,500</th><th class="c">Family &amp; Trust<br>$3,500</th><th class="c">Life Law Plan<br>$7,500</th></tr></thead>
     <tbody>
       <tr><td class="lbl">Will, POAs &amp; healthcare directive</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
       <tr><td class="lbl">Revocable living trust + pour-over will</td><td class="c">&mdash;</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
@@ -415,7 +415,7 @@
       <details><summary>Can everything be handled virtually?</summary><p>Yes. Consultations, review, and most planning are handled virtually, with guided signing. If a step requires an in-person formality, we&rsquo;ll tell you in advance.</p></details>
       <details><summary>Do you practice in Texas?</summary><p>Russ is licensed in Alabama. If you&rsquo;re outside Alabama, tell us where you&rsquo;re located and we&rsquo;ll confirm exactly how we can help &mdash; often by coordinating with trusted local counsel &mdash; before any engagement begins.</p></details>
       <details><summary>Can you update an existing plan?</summary><p>Often, yes. Bring what you have; Russ will review it and recommend whether an update or a fresh plan makes more sense for your situation.</p></details>
-      <details><summary>What if I own a business?</summary><p>That&rsquo;s the Legacy &amp; Business plan &mdash; it coordinates your estate plan with business succession so ownership, control, and your family are all accounted for together.</p></details>
+      <details><summary>What if I own a business?</summary><p>That&rsquo;s the Life Law Plan &mdash; it coordinates your estate plan with business succession so ownership, control, and your family are all accounted for together.</p></details>
       <details><summary>Does contacting Tercet create an attorney-client relationship?</summary><p>No. Reaching out, or sending information through this site, does not create an attorney-client relationship. That relationship begins only when we both sign a written engagement.</p></details>
     </div>
   </div>
@@ -429,9 +429,9 @@
       <h2>The cost of your plan should be clear before the work begins.</h2>
       <p class="lede">Tell us a little about what you&rsquo;re protecting. Russ will follow up personally &mdash; usually within one business day.</p>
       <div class="prices">
-        <div><b>$1,500</b><span>Essential</span></div>
-        <div><b>$3,500</b><span>Family Trust</span></div>
-        <div><b>$6,500</b><span>Legacy &amp; Business</span></div>
+        <div><b>$1,500</b><span>Estate Essentials</span></div>
+        <div><b>$3,500</b><span>Family &amp; Trust</span></div>
+        <div><b>$7,500</b><span>Life Law Plan</span></div>
       </div>
       <p style="font-size:.9rem;color:#CFDAD0">Prefer to talk first? Call <b style="color:#fff">(888) 833-2510</b>.</p>
     </div>

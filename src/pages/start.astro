@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { steps } from '../data/site.js';
+import { steps, plans } from '../data/site.js';
+const flat = plans.filter(p => !p.price.includes('/mo'));
 ---
 <Base title="Start — Tercet Law" description="Start with a private conversation about your estate plan. Calm, plain-English, with clear flat-fee options. Licensed in Alabama." modal={false}>
 <div class="wrap">
@@ -13,10 +14,20 @@ import { steps } from '../data/site.js';
 <h2 class="sec">What happens next</h2>
 <ol class="steps">{steps.map((s) => (<li><span class="rn">{s.n}</span><b>{s.title}</b> {s.body}</li>))}</ol>
 <hr class="rule" />
-<div class="coachcard">
+<section class="pricestrip" aria-label="Flat fees">
+<h2 class="sec">Flat fees, shown before you decide.</h2>
+<ul class="fees">{flat.map((pl) => (<li><span class="fn">{pl.name}</span><span class="fp">{pl.price}</span></li>))}</ul>
+<p class="feenote">Every fee is quoted in writing before any work begins. You choose a plan, never wonder about the bill. <a href="/pricing">See what&rsquo;s in each plan &rarr;</a></p>
+</section>
+<hr class="rule" />
+<section class="proof">
 <img src="/russ-color.jpg" alt="Russ Michaels, Attorney" width="120" height="150" />
-<div><p class="coachname">Russ Michaels, Esq.</p><p class="coachrole">Attorney &middot; Licensed in Alabama</p></div>
+<div>
+<p class="coachname">Who reads your note</p>
+<p class="prooftext"><b>Russ Michaels, Esq.</b> &mdash; attorney, licensed in Alabama. Twenty years leading organizations as CEO, Executive Director, and Board President; transactional counsel on roughly $300M in closed partnerships. Tercet is a new practice built on that record &mdash; you work directly with him, on a flat fee, and he replies personally, usually within one business day.</p>
+<p class="coachrole"><a href="tel:+18888332510">(888) 833-2510</a></p>
 </div>
+</section>
 <div class="formwrap">
 <script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
 <div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
@@ -26,6 +37,15 @@ import { steps } from '../data/site.js';
 </div>
 </Base>
 <style>
+  .pricestrip{max-width:660px;margin:0 auto;text-align:center}
+  .fees{list-style:none;padding:0;margin:14px 0 10px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+  .fees li{border:1px solid rgba(139,146,153,.3);border-radius:10px;padding:10px 16px;display:flex;flex-direction:column;min-width:160px}
+  .fn{font-size:13px;opacity:.75}.fp{font-size:22px;font-weight:600}
+  .feenote{font-size:14px;opacity:.8;margin:0 auto 6px}.feenote a{text-decoration:underline}
+  .proof{display:flex;gap:18px;align-items:flex-start;max-width:660px;margin:0 auto 22px}
+  .proof img{width:110px;height:138px;object-fit:cover;border-radius:12px;flex:0 0 auto}
+  .prooftext{margin:4px 0 8px;font-size:15px;line-height:1.55}
+  @media (max-width:600px){.proof{flex-direction:column;align-items:center;text-align:center}}
   .formwrap{background:#f7f5f0;color:#14161c;border:1px solid #e4ded3;border-radius:14px;padding:26px 22px;margin:10px auto 20px;max-width:560px;min-height:360px;box-shadow:0 20px 40px rgba(0,0,0,.28)}
   .formwrap :is(label,legend,p,span,h1,h2,h3){color:#14161c !important}
   .formwrap :is(input,textarea,select){color:#14161c !important;background:#fff !important;border:1px solid #c9c4bb !important}

@@ -63,6 +63,7 @@
   .navlinks a:hover{color:var(--forest)}
   .navlinks .btn{padding:11px 22px}
   @media(max-width:820px){.navlinks a:not(.btn){display:none}}
+  @media(max-width:560px){.util{font-size:.7rem;padding:7px 10px;line-height:1.4}.nav{height:auto;padding:10px 0;gap:10px}.brand{font-size:1.05rem;letter-spacing:.12em;white-space:nowrap}.brand small{font-size:.48rem;letter-spacing:.2em;white-space:nowrap}.navlinks .btn{padding:9px 12px;font-size:.78rem;white-space:nowrap}}
 
   /* hero */
   .hero{padding:46px 0 44px}
@@ -273,6 +274,38 @@
   </div>
 </section>
 
+
+<!-- ORIGIN — why / what / who (added 8/22) -->
+<section class="vh-origin" id="origin">
+  <div class="wrap" style="max-width:760px;text-align:center;padding:56px 0 44px">
+    <div style="font-family:Inter,system-ui,sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#9C7B3C;font-weight:600">Where Tercet came from</div>
+    <h2 style="margin:12px 0 16px">One counselor for a whole legal life.</h2>
+    <p style="max-width:60ch;margin:0 auto 22px;font-size:1.05rem;line-height:1.6">For ten years I closed other people&rsquo;s deals as a transaction attorney &mdash; and watched the same thing happen to family after family: a will here, a contract there, a trust nobody funded, and no one holding the whole. Tercet is the answer I wished someone had given them.</p>
+    <a href="#" class="btn btn-primary" data-open-origin style="display:inline-block">Read the story (2 min)</a>
+  </div>
+</section>
+<div id="vh-origin-modal" aria-hidden="true" style="position:fixed;inset:0;z-index:2147483000;display:none">
+  <div data-close-origin style="position:absolute;inset:0;background:rgba(0,0,0,.74)"></div>
+  <div role="dialog" aria-modal="true" aria-label="Where Tercet came from" style="position:relative;width:min(760px,94vw);margin:5vh auto;background:#14161c;color:#f3efe6;border:1px solid #2c303a;border-radius:14px;padding:40px 44px 34px;max-height:88vh;overflow:auto;font-family:Georgia,'Fraunces',serif;box-shadow:0 30px 90px rgba(0,0,0,.55)">
+    <button type="button" data-close-origin aria-label="Close" style="position:absolute;top:8px;right:14px;background:none;border:0;font-size:30px;line-height:1;color:#a9adb6;cursor:pointer;padding:2px 8px">&times;</button>
+    <p style="font-family:Inter,system-ui,sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#c9a96e;margin:0 0 10px">Where Tercet came from</p>
+    <h2 style="font-size:2rem;line-height:1.15;margin:0 0 18px;color:#f3efe6;font-weight:500">One counselor for a whole legal life.</h2>
+    <div class="vh-origin-body" style="font-size:1.05rem;line-height:1.7;font-weight:300"><p>For a decade I was a transaction attorney, closing more than $350 million in equity across real estate and operating businesses. Hundreds of deals. And in nearly every one, the same quiet failure sat underneath: the family&rsquo;s will was drafted by someone who never saw the business; the business was structured by someone who never asked about the family; the trust was signed and never funded. Each professional was competent. None of them spoke to each other.</p><p>The law calls those separate matters. A life doesn&rsquo;t. When the day finally came that the documents were needed, what failed was never the drafting &mdash; it was the gaps between the people who drafted them.</p><p>Tercet is a law practice built the other way. One counselor who sees your family, your business, your money, and your legacy as one picture, on a flat fee you know before the work begins, in plain English, with the attorney himself across the table. A <em>tercet</em> is three lines of verse that only become whole together. That is the point.</p><p>Tercet is one of four practices under <a href="https://www.vaulthuman.com" target="_blank" rel="noopener">Vault Human</a> &mdash; a family of companies built on a single idea: the world hands your life to you in pieces, and someone should be able to hold it whole. The essay that started all of it is called <a href="https://www.vaulthuman.com/writing/the-fracture" target="_blank" rel="noopener">The Fracture</a>.</p><p style="margin-top:22px">&mdash; Russ Michaels</p></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:26px">
+      <a href="/start" data-close-origin style="display:inline-block;padding:12px 22px;border:1px solid #c9a96e;border-radius:6px;color:#14161c;background:#c9a96e;text-decoration:none;font-family:Inter,system-ui,sans-serif;font-weight:600">Start a conversation</a>
+      <a href="https://www.vaulthuman.com" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;border:1px solid #8B9299;border-radius:6px;color:#f3efe6;text-decoration:none;font-family:Inter,system-ui,sans-serif">Vault Human &rarr;</a>
+    </div>
+  </div>
+</div>
+<style>#vh-origin-modal.is-open{display:block !important} #vh-origin-modal .vh-origin-body p{margin:0 0 16px;color:#f3efe6} #vh-origin-modal a{color:#c9a96e} @media(max-width:560px){#vh-origin-modal [role=dialog]{width:100vw;min-height:100vh;margin:0;border-radius:0;padding:28px 20px}}</style>
+<script is:inline>
+(function(){var m=document.getElementById('vh-origin-modal');if(!m)return;
+function o(e){if(e)e.preventDefault();m.classList.add('is-open');m.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden';}
+function c(){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');document.documentElement.style.overflow='';}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-open-origin]');if(t){o(e);return;}if(e.target.closest('[data-close-origin]'))c();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});})();
+</script>
+
 <!-- RECOGNITION -->
 <section class="band band-dark recognition">
   <div class="wrap">
@@ -375,7 +408,7 @@
 <section class="band meet" id="about">
   <div class="wrap meet-grid">
     <div class="portrait">
-      <img class="portrait-photo" alt="Russ Michaels, Esq., founder of Tercet Law" src="/russ-color.jpg">
+      <img class="portrait-photo" alt="Russ Michaels, Esq., founder of Tercet Law" src="/russ-michaels.jpg">
       <div class="cap"><b>Russ Michaels, Esq.</b><span>Founder &middot; Tercet Law</span></div>
     </div>
     <div>

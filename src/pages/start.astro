@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import { steps, plans } from '../data/site.js';
 const flat = plans.filter(p => !p.price.includes('/mo'));
 ---
-<Base title="Start — Tercet Law" description="Start with a private conversation about your estate plan. Calm, plain-English, with clear flat-fee options. Licensed in Alabama." modal={false}>
+<Base title="Start — Tercet Law" description="Start with a private conversation about your estate plan. Calm, plain-English, with clear flat-fee options. Licensed in Alabama." modal={false} focus={true}>
 <div class="wrap">
 <div class="pagehead">
 <p class="eyebrow">Estate planning for Alabama families, individuals &amp; business owners</p>

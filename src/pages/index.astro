@@ -32,17 +32,17 @@ const year = new Date().getFullYear();
   </div></header>
 
   <main>
-    <section class="hero hero-video"><video class="bgvid" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1475274047050-1d0c3dc2b4ab?w=1600&q=60&auto=format&fit=crop"><source src="https://assets.mixkit.co/videos/46119/46119-720.mp4" type="video/mp4"></video><div class="veil"></div>
+    <section class="hero">
       <div class="wrap hero-grid"><div class="hero-copy">
         <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
         <h1>Wills, trusts, and a plan <em>for your family.</em></h1>
         <p class="lede">Tercet Law does estate planning with flat fees: your will, your trust, your health directive, and a plan you can actually live by. Plan it. Leave it better.</p>
         <div class="ctarow"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="#how">How it works</a></div>
         <p class="welcome" hidden>Welcome to Tercet Law · The future · <b>Live</b> on purpose</p>
-      </div></div>
+      </div><div class="hero-photo"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1400&q=72&auto=format&fit=crop" alt="Family members stacking hands together" width="1400" height="1000" fetchpriority="high" /></div></div>
       <div class="proof"><div class="wrap proof-grid"><div><b>3</b><span>Documents every adult needs</span></div><div><b>Flat</b><span>Fees, quoted up front</span></div><div><b>1</b><span>Attorney, start to finish</span></div><div><b>TX</b><span>Texas practice (Alabama licensed)</span></div></div></div>
     </section>
-
+    <section class="sec gallery-sec faces"><div class="wrap gallery"><figure><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&q=72&auto=format&fit=crop" alt="A couple meeting with their attorney" loading="lazy" /><figcaption>The plan</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=1000&q=72&auto=format&fit=crop" alt="A family at the dinner table" loading="lazy" /><figcaption>The family</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1000&q=72&auto=format&fit=crop" alt="A family walking on the beach" loading="lazy" /><figcaption>What it protects</figcaption></figure></div></section>
     <section class="sec" id="why"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">The problem</p><h2>Everyone means to do it.<br>Most never do.</h2></div>
       <div class="pains"><div class="pain"><h3>Unwritten</h3><p>No will. No directive. A family left guessing.</p></div><div class="pain"><h3>Unfunded</h3><p>A trust on paper that owns nothing.</p></div><div class="pain"><h3>Unlived</h3><p>A plan that was never a plan to live on.</p></div></div>
@@ -78,7 +78,7 @@ const year = new Date().getFullYear();
       <div class="faq"><details><summary>What does Tercet do?</summary><p>Estate planning: wills, trusts, health directives, powers of attorney, business succession. Flat fees.</p></details><details><summary>Do I need a trust?</summary><p>Sometimes. The call tells you honestly, and the price is the same either way.</p></details><details><summary>Where are you licensed?</summary><p>Alabama, with Texas admission pending. Based in Austin. Virtual appointments.</p></details><details><summary>What is Vault Human?</summary><p>Daily coaching, run by the same owner. It is separate from your legal work and never required.</p></details></div>
     </div></section>
 
-    <section class="sec final vid-sec" id="begin"><video class="bgvid" autoplay muted loop playsinline><source src="https://assets.mixkit.co/videos/6734/6734-720.mp4" type="video/mp4"></video><div class="veil"></div><div class="wrap">
+    <section class="sec final" id="begin"><div class="wrap">
       <h2>Book a planning call.</h2><p class="lede">Thirty minutes. You leave knowing what you need and exactly what it costs.</p>
       <div class="ctarow"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="tel:+18888332510">(888) 833-2510</a></div>
     </div></section>
@@ -125,6 +125,5 @@ const year = new Date().getFullYear();
   document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0)pop();});
   if(matchMedia('(max-width:760px)').matches)setTimeout(pop,45000);})();
   </script>
-  <script is:inline>document.querySelectorAll("video.bgvid").forEach(function(v){v.playbackRate=0.6;v.addEventListener("loadedmetadata",function(){v.playbackRate=0.6;});});</script>
 </body>
 </html>

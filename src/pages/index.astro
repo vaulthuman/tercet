@@ -116,5 +116,13 @@ const year = new Date().getFullYear();
    e.forEach(function(x){o.observe(x)});
   });
   </script>
+  <div class="stickybar" id="stickybar"><span>Wills, trusts, flat fees. 30-minute call.</span><a class="btn btn-acc" href="#" data-open-form>Book a call</a></div>
+  <script is:inline>
+  (function(){var sb=document.getElementById('stickybar');if(sb){document.body.classList.add('has-sticky');setTimeout(function(){sb.classList.add('on')},6000);}
+  var shown=false;try{shown=!!sessionStorage.getItem('vhpop')}catch(e){}
+  function pop(){if(shown)return;shown=true;try{sessionStorage.setItem('vhpop','1')}catch(e){}var m=document.getElementById('vh-modal');if(m&&!m.classList.contains('is-open')){m.classList.add('is-open');m.setAttribute('aria-hidden','false');}}
+  document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0)pop();});
+  if(matchMedia('(max-width:760px)').matches)setTimeout(pop,45000);})();
+  </script>
 </body>
 </html>

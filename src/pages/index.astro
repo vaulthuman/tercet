@@ -1,5 +1,6 @@
 ---
 import '../styles/home.css';
+import '../styles/nature.css';
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -31,14 +32,14 @@ const year = new Date().getFullYear();
   </div></header>
 
   <main>
-    <section class="hero">
+    <section class="hero hero-video"><video class="bgvid" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1475274047050-1d0c3dc2b4ab?w=1600&q=60&auto=format&fit=crop"><source src="https://assets.mixkit.co/videos/46119/46119-720.mp4" type="video/mp4"></video><div class="veil"></div>
       <div class="wrap hero-grid"><div class="hero-copy">
         <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
         <h1>Wills, trusts, and a plan <em>for your family.</em></h1>
         <p class="lede">Tercet Law does estate planning with flat fees: your will, your trust, your health directive, and a plan you can actually live by. Plan it. Leave it better.</p>
         <div class="ctarow"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="#how">How it works</a></div>
-        <p class="welcome">Welcome to Tercet Law · The future · <b>Live</b> on purpose</p>
-      </div><div class="hero-photo"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1400&q=72&auto=format&fit=crop" alt="Family members stacking hands together" width="1400" height="933" fetchpriority="high" /></div></div>
+        <p class="welcome" hidden>Welcome to Tercet Law · The future · <b>Live</b> on purpose</p>
+      </div></div>
       <div class="proof"><div class="wrap proof-grid"><div><b>3</b><span>Documents every adult needs</span></div><div><b>Flat</b><span>Fees, quoted up front</span></div><div><b>1</b><span>Attorney, start to finish</span></div><div><b>TX</b><span>Texas practice (Alabama licensed)</span></div></div></div>
     </section>
 
@@ -66,7 +67,7 @@ const year = new Date().getFullYear();
     </div></section>
 
     <section class="sec dark" id="family"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Learn · Love · Live</p><h2>Part of Vault Human.</h2><p class="lede">Tercet Law is the law firm inside the Vault Human family. It is a law firm, not coaching. Coaching is a separate thing you can choose later.</p></div>
+      <div class="sec-head"><p class="eyebrow">Past · Present · Future</p><h2>Part of Vault Human.</h2><p class="lede">A tercet is three lines that belong together. So is a plan: your will, your trust, and the directive that says what you want. Tercet Law is the law firm inside the Vault Human family. It is a law firm, not coaching. Coaching is a separate thing you can choose later.</p></div>
       <div class="tl-rail"></div>
       <div class="tl-cards"><a class="tlc brown" href="https://www.fretworksystems.com" target=_blank rel=noopener><div class="when">Learn · The past</div><h3>Fretwork</h3><p>Fixes how your work runs: tools, workflows, AI. Not a coach. Not a law firm.</p><span>fretworksystems.com ↗</span></a><a class="tlc green" href="https://triplicityadvisory.com" target=_blank rel=noopener><div class="when">Love · The present</div><h3>Triplicity</h3><p>The coaching company. Runs every Vault Human coaching program.</p><span>triplicityadvisory.com ↗</span></a><a class="tlc navy me" href="https://www.tercetlaw.com"><div class="when">Live · The future</div><h3>Tercet</h3><p>The law firm. Wills, trusts, and a plan for your family. Not coaching.</p><span>tercetlaw.com ↗</span></a></div>
       <p class="constant">The Constant: <a href="https://www.vaulthuman.com">Vault Human</a> — Listen.</p>
@@ -77,7 +78,7 @@ const year = new Date().getFullYear();
       <div class="faq"><details><summary>What does Tercet do?</summary><p>Estate planning: wills, trusts, health directives, powers of attorney, business succession. Flat fees.</p></details><details><summary>Do I need a trust?</summary><p>Sometimes. The call tells you honestly, and the price is the same either way.</p></details><details><summary>Where are you licensed?</summary><p>Alabama, with Texas admission pending. Based in Austin. Virtual appointments.</p></details><details><summary>What is Vault Human?</summary><p>Daily coaching, run by the same owner. It is separate from your legal work and never required.</p></details></div>
     </div></section>
 
-    <section class="sec final" id="begin"><div class="wrap">
+    <section class="sec final vid-sec" id="begin"><video class="bgvid" autoplay muted loop playsinline><source src="https://assets.mixkit.co/videos/6734/6734-720.mp4" type="video/mp4"></video><div class="veil"></div><div class="wrap">
       <h2>Book a planning call.</h2><p class="lede">Thirty minutes. You leave knowing what you need and exactly what it costs.</p>
       <div class="ctarow"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="tel:+18888332510">(888) 833-2510</a></div>
     </div></section>
@@ -124,5 +125,6 @@ const year = new Date().getFullYear();
   document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0)pop();});
   if(matchMedia('(max-width:760px)').matches)setTimeout(pop,45000);})();
   </script>
+  <script is:inline>document.querySelectorAll("video.bgvid").forEach(function(v){v.playbackRate=0.6;v.addEventListener("loadedmetadata",function(){v.playbackRate=0.6;});});</script>
 </body>
 </html>

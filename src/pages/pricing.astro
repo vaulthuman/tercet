@@ -1,18 +1,127 @@
 ---
-import Base from '../layouts/Base.astro';
-import { plans, pricingNote } from '../data/site.js';
+import '../styles/family.css';
+import '../styles/tokens.css';
+const year = new Date().getFullYear();
 ---
-<Base title="Pricing — Tercet Law" description="Three flat-fee estate planning plans, quoted before any work begins.">
-  <div class="wrap">
-    <div class="pagehead">
-      <p class="eyebrow">Flat fees</p>
-      <h1>You choose the plan &mdash; never wonder about the bill.</h1>
-      <p class="dek">Every fee is flat and quoted before any work begins. Three ways in; you choose which, not whether.</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fees — Tercet Law</title>
+<link rel="canonical" href="https://www.tercetlaw.com/pricing/">
+<meta name="description" content="Flat-fee estate planning, quoted in writing before any work begins. The Essentials from $1,500, the Trust Plan from $3,500, succession quoted.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Tercet Law"><meta property="og:title" content="Fees — Tercet Law"><meta property="og:description" content="Flat-fee estate planning, quoted in writing before any work begins. The Essentials from $1,500, the Trust Plan from $3,500, succession quoted."><meta property="og:image" content="https://www.tercetlaw.com/og-tercet.png"><meta property="og:url" content="https://www.tercetlaw.com/pricing/">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Fees — Tercet Law"><meta name="twitter:description" content="Flat-fee estate planning, quoted in writing before any work begins. The Essentials from $1,500, the Trust Plan from $3,500, succession quoted."><meta name="twitter:image" content="https://www.tercetlaw.com/og-tercet.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Ads gtag (AW-18371546487) + HubSpot conversion listener -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18371546487"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};var gtag=window.gtag;
+    gtag('js',new Date());gtag('config','AW-18371546487');gtag('config','G-B2NDY58EKD',{linker:{domains:['vaulthuman.com','tercetlaw.com','fretworksystems.com','triplicityadvisory.com']}});
+    (function(){var fired=false;function fire(){if(fired)return;fired=true;gtag('event','conversion',{send_to:'AW-18371546487/r4eECOKGw9wcEPeanrhE'});gtag('event','generate_lead');}
+    window.addEventListener('message',function(e){var d=e&&e.data;if(!d)return;if(typeof d==='string'){try{d=JSON.parse(d);}catch(_){return;}}if(!d||typeof d!=='object')return;var t=d.type||d.messageType||'',n=d.eventName||d.event||'';if(t==='hsFormCallback'&&(n==='onFormSubmitted'||n==='onFormSubmit'))fire();else if(n==='onFormSubmitted')fire();else if(d.accepted===true&&d.formGuid)fire();});
+    window.addEventListener('hsFormCallback',function(e){if(e&&e.detail&&e.detail.eventName==='onFormSubmitted')fire();});})();
+  </script>
+
+<style is:inline>
+.pagehero{position:relative;isolation:isolate;overflow:hidden;min-height:58vh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.pagehero .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.pagehero .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(42,35,29,.6),rgba(42,35,29,.45) 45%,rgba(42,35,29,.9))}
+.pagehero .wrap{position:relative;z-index:2;width:100%;padding-top:130px;padding-bottom:64px}
+.pagehero .eyebrow{color:var(--acc-soft)}
+.pagehero h1{font-size:clamp(42px,5vw,72px);max-width:16ch;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.pagehero h1 em{font-style:normal;color:var(--acc-soft)}
+.pagehero .lede{color:rgba(255,255,255,.88);margin:20px 0 0;max-width:54ch;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.pagehero .btn-line{color:#fff;border-color:rgba(255,255,255,.6)}.pagehero .btn-line:hover{background:#fff;color:var(--dark)}
+.areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.area{background:#fff;border:1px solid var(--line);border-top:4px solid var(--acc);border-radius:8px;padding:30px 26px;display:flex;flex-direction:column}
+.area h3{margin-bottom:10px}.area p{color:var(--muted);font-size:16px;margin:0 0 14px;flex:1}
+.area ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.area li{position:relative;padding-left:22px;font-size:15px}.area li:before{content:"";position:absolute;left:0;top:.6em;width:12px;height:2px;background:var(--acc)}
+.pkg ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:8px}
+.pkg li{position:relative;padding-left:24px;font-size:15.5px;color:var(--muted)}.pkg li:before{content:"";position:absolute;left:0;top:.6em;width:12px;height:2px;background:var(--acc)}
+.offer.feat.pkg li{color:rgba(255,255,255,.85)}.offer.feat.pkg li:before{background:var(--acc-soft)}
+.about-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
+.about-grid img{width:100%;max-width:420px;aspect-ratio:4/5;object-fit:cover;object-position:50% 15%;border-radius:10px}
+.about-grid .prose p{font-size:18px;line-height:1.65;margin:0 0 18px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px}
+.facts b{display:block;font-family:var(--disp);font-size:34px;line-height:1;color:var(--acc-ink);margin-bottom:6px}
+.facts span{font-size:14px;color:var(--muted)}
+.start-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.formcard{background:#fff;border:1px solid var(--line);border-top:5px solid var(--acc);border-radius:10px;padding:30px 26px;min-height:420px}
+.formcard h3{margin-bottom:6px}.formcard p{color:var(--muted);font-size:15px;margin:0 0 16px}
+.hs-form-frame{min-height:300px}
+.legal-prose{max-width:760px}.legal-prose p{font-size:16px;line-height:1.7;color:var(--muted);margin:0 0 16px}.legal-prose h3{margin:30px 0 10px}
+@media(max-width:900px){.areas{grid-template-columns:1fr}.about-grid,.start-grid{grid-template-columns:1fr;gap:32px}.about-grid img{max-width:360px}.facts{grid-template-columns:1fr}}
+@media(max-width:760px){.pagehero{min-height:50vh}.pagehero .wrap{padding-top:104px}}
+</style>
+</head>
+<body data-time="future" class="inner">
+  <header class="site"><div class="wrap bar">
+    <a class="brand" href="/">Tercet <b>Law</b></a>
+    <nav class="navlinks" id="navlinks"><a href="/services">Practice areas</a><a href="/process">How it works</a><a href="/pricing">Fees</a><a href="/about">About</a><a class="btn btn-acc" href="#" data-open-form>Book a call</a></nav><button class="navtoggle" type="button" aria-label="Open menu" aria-controls="navlinks" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div></header>
+
+  <main>
+    <section class="pagehero"><img class="bgimg" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&q=72&auto=format&fit=crop" alt="A handshake across a desk" fetchpriority="high" /><div class="veil"></div><div class="wrap">
+      <p class="eyebrow">Fees</p><h1>Flat fees. <em>No surprises.</em></h1><p class="lede">Every fee is quoted in writing on the planning call, before any work begins. You choose a plan, never wonder about the bill.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="tel:+18888332510">(888) 833-2510</a></div>
+    </div></section>
+    <section class="sec" id="plans"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Three plans</p><h2>Simple to choose.</h2></div>
+      <div class="offers"><div class="offer feat pkg"><div class="tag">Start here</div><h3>The Essentials</h3><div class="price ">From $1,500</div><ul><li>Last will and testament</li><li>Health care directive and living will</li><li>Financial and medical powers of attorney</li><li>Guardian nominations for minor children</li><li>Signing meeting with witnesses and notary</li></ul><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a></div><div class="offer pkg"><div class="tag">Most chosen</div><h3>The Trust Plan</h3><div class="price ">From $3,500</div><ul><li>Everything in the Essentials</li><li>Revocable living trust and pour-over will</li><li>Deed and account funding, done with you</li><li>Keeps your estate private and out of probate</li><li>One review meeting in the first year</li></ul><a class="btn btn-line" href="#" data-open-form>Book a planning call</a></div><div class="offer pkg"><div class="tag">For business owners</div><h3>Succession</h3><div class="price price-word">Quoted</div><ul><li>Buy-sell agreement</li><li>Operating agreement or bylaw review</li><li>Ownership transfer plan</li><li>Coordination with your CPA and advisor</li><li>Pairs with the Trust Plan</li></ul><a class="btn btn-line" href="#" data-open-form>Book a planning call</a></div></div>
+      <p class="offers-note">Prices in US dollars. "From" prices cover an individual or a married couple with a straightforward estate; the exact fee is quoted on the call and does not change. Probate, elder law and plan reviews are quoted flat after the call.</p>
+    </div></section>
+    <section class="sec alt" id="faq"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Questions</p><h2>About the fees.</h2></div>
+      <div class="faq"><details><summary>Is there a charge for the planning call?</summary><p>No. The 30-minute call is free and confidential.</p></details><details><summary>Do you bill by the hour?</summary><p>Not for planning work. Every plan is a flat fee quoted before we begin. If something outside the plan comes up, we quote that flat too, before doing it.</p></details><details><summary>When do I pay?</summary><p>Half when you engage, half at the signing. Card, check or transfer.</p></details><details><summary>Do I need a trust, or is a will enough?</summary><p>Sometimes a will is enough. The call tells you honestly, and the Essentials price is the same either way.</p></details><details><summary>What about probate or elder law?</summary><p>Quoted flat after the call, once we understand the estate or the situation.</p></details></div>
+    </div></section>
+    <section class="sec final" id="begin"><img class="bgimg" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1800&q=72&auto=format&fit=crop" alt="A bright, quiet office" loading="lazy" /><div class="veil"></div><div class="wrap">
+      <h2>Get your number on the call.</h2><p class="lede">Thirty minutes. You leave knowing what you need and exactly what it costs.</p>
+      <div class="ctarow"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="tel:+18888332510">(888) 833-2510</a></div>
+    </div></section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap foot">
+      <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Estate planning and elder law. Flat fees.</p><p><a href="mailto:russ@tercetlaw.com">russ@tercetlaw.com</a> · <a href="tel:+18888332510">(888) 833-2510</a></p></div>
+      <ul><li><a href="/services">Practice areas</a></li><li><a href="/process">How it works</a></li><li><a href="/pricing">Fees</a></li><li><a href="/about">About</a></li><li><a href="https://www.linkedin.com/in/russ-michaels/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+      <ul><li><a href="https://www.vaulthuman.com">Vault Human</a> — Listen</li><li><a href="https://www.fretworksystems.com">Fretwork</a> — Learn · the past</li><li><a href="https://triplicityadvisory.com">Triplicity</a> — Love · the present</li><li><a href="https://www.tercetlaw.com">Tercet Law</a> — Live · the future</li></ul>
     </div>
-    <hr class="rule" />
-    <section class="pkgs">{plans.map((pl) => (<div class="pkg"><div class="nm">{pl.name}</div><div class="pr">{pl.price}</div><ul>{pl.features.map((f) => <li>{f}</li>)}</ul></div>))}</section>
-    <p class="note">{pricingNote}</p>
-    <hr class="rule" />
-    <div class="ctarow"><a class="btn-fill" href="/start" data-open-form>Start with a conversation</a></div>
+    <div class="wrap legal"><span>&copy; {year} Tercet Law PLLC. Attorney advertising. No attorney-client relationship is formed by this site.</span><span>Part of the Vault Human family</span></div>
+  </footer>
+
+  <div id="vh-modal" class="vh-modal" aria-hidden="true">
+    <div class="vh-modal__bg" data-close-form></div>
+    <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book a planning call">
+      <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
+      <h2 class="vh-modal__title">Book a planning call</h2><p class="vh-modal__sub">Tell us a little about your situation. Russ replies personally, usually the same day. Everything you share is confidential.</p>
+      <div class="hs-form-frame" data-region="na2" data-form-id="3f225ab5-5a70-46d9-a497-29e6256b1e52" data-portal-id="246947446"></div>
+    </div>
   </div>
-</Base>
+  <script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
+  <script is:inline>
+  (function(){var m=document.getElementById('vh-modal');if(!m)return;
+  function o(e){if(e)e.preventDefault();m.classList.add('is-open');m.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden';}
+  function c(){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');document.documentElement.style.overflow='';}
+  document.addEventListener('click',function(e){var t=e.target.closest('[data-open-form]');if(t){o(e);return;}if(e.target.closest('[data-close-form]'))c();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});
+  if(location.hash==='#start')o();})();
+  addEventListener('DOMContentLoaded',function(){
+   document.body.classList.add('ready');
+   if(!('IntersectionObserver'in window))return;
+   var e=[].slice.call(document.querySelectorAll('.sec .wrap > *, .split__copy > *'));e.forEach(function(x){x.classList.add('reveal')});
+   var o=new IntersectionObserver(function(t){t.forEach(function(y){if(y.isIntersecting){y.target.classList.add('in');o.unobserve(y.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+   e.forEach(function(x){o.observe(x)});
+  });
+  </script>
+  <div class="stickybar" id="stickybar"><span>Wills, trusts, flat fees. 30-minute call.</span><a class="btn btn-acc" href="#" data-open-form>Book a call</a></div>
+  <script is:inline>
+  (function(){var sb=document.getElementById('stickybar');if(sb){document.body.classList.add('has-sticky');setTimeout(function(){sb.classList.add('on')},6000);}})();
+  </script>
+  <script is:inline>(function(){var b=document.querySelector(".navtoggle"),n=document.getElementById("navlinks");if(!b||!n)return;function set(o){document.body.classList.toggle("nav-open",o);b.setAttribute("aria-expanded",o?"true":"false");b.setAttribute("aria-label",o?"Close menu":"Open menu");}b.addEventListener("click",function(){set(!document.body.classList.contains("nav-open"));});n.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
+  <script is:inline>(function(){var h=document.querySelector("header.site");function f(){if(h)h.classList.toggle("scrolled",scrollY>40)}addEventListener("scroll",f,{passive:true});f();})();</script>
+</body>
+</html>

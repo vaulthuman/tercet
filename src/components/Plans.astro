@@ -1,1 +1,18 @@
-<!-- placeholder, replaced by upload -->
+---
+// The four flat-fee plans, read from src/data/site.js. detail=false shows the short card.
+import { plans, cta } from '../data/site.js';
+const { detail = true } = Astro.props;
+---
+<div class="offers four">
+  {plans.map((p) => (
+    <div class={`offer pkg${p.featured ? ' feat' : ''}`} id={`plan-${p.id}`}>
+      <div class="tag">{p.tag}</div>
+      <h3>{p.name}</h3>
+      <div class="price">{p.from && <small class="from">From</small>}{p.price}{p.unit && <small>{p.unit}</small>}</div>
+      <p class="price-alt">{p.alt ? p.alt : p.from ? 'Flat fee, quoted' : 'Flat fee'}</p>
+      <p>{p.blurb}</p>
+      {detail && <ul>{p.features.map((f) => <li>{f}</li>)}</ul>}
+      <a class={`btn ${p.featured ? 'btn-acc' : 'btn-line'}`} href={cta.href}>{cta.label}</a>
+    </div>
+  ))}
+</div>

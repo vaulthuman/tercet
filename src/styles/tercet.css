@@ -1,0 +1,109 @@
+/* TERCET — page components (2026-10-31). Colours and type come from family.css + tokens.css.
+   The inner-page rules below were previously inlined in every page; they live here now. */
+
+/* inner-page hero */
+.pagehero{position:relative;isolation:isolate;overflow:hidden;min-height:58vh;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.pagehero .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.pagehero .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(42,35,29,.6),rgba(42,35,29,.45) 45%,rgba(42,35,29,.9))}
+.pagehero .wrap{position:relative;z-index:2;width:100%;padding-top:130px;padding-bottom:64px}
+.pagehero .eyebrow{color:var(--acc-soft)}
+.pagehero h1{font-size:clamp(42px,5vw,72px);max-width:16ch;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.pagehero h1 em{font-style:normal;color:var(--acc-soft)}
+.pagehero .lede{color:rgba(255,255,255,.88);margin:20px 0 0;max-width:54ch;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.pagehero .btn-line{color:#fff;border-color:rgba(255,255,255,.6)}.pagehero .btn-line:hover{background:#fff;color:var(--dark)}
+.pkg ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:8px}
+.pkg li{position:relative;padding-left:24px;font-size:15.5px;color:var(--muted)}.pkg li:before{content:"";position:absolute;left:0;top:.6em;width:12px;height:2px;background:var(--acc)}
+.offer.feat.pkg li{color:rgba(255,255,255,.85)}.offer.feat.pkg li:before{background:var(--acc-soft)}
+.about-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
+.about-grid img{width:100%;max-width:420px;aspect-ratio:4/5;object-fit:cover;object-position:50% 15%;border-radius:10px}
+.about-grid .prose p{font-size:18px;line-height:1.65;margin:0 0 18px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px}
+.facts b{display:block;font-family:var(--disp);font-size:34px;line-height:1;color:var(--acc-ink);margin-bottom:6px}
+.facts span{font-size:14px;color:var(--muted)}
+.start-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.formcard{background:#fff;border:1px solid var(--line);border-top:5px solid var(--acc);border-radius:10px;padding:30px 26px;min-height:420px}
+.formcard h3{margin-bottom:6px}.formcard p{color:var(--muted);font-size:15px;margin:0 0 16px}
+.hs-form-frame{min-height:300px}
+.legal-prose{max-width:760px}.legal-prose p,.legal-prose li{font-size:16px;line-height:1.7;color:var(--muted);margin:0 0 16px}.legal-prose h3{margin:30px 0 10px}
+@media(max-width:900px){.about-grid,.start-grid{grid-template-columns:1fr;gap:32px}.about-grid img{max-width:360px}.facts{grid-template-columns:1fr}}
+@media(max-width:760px){.pagehero{min-height:50vh}.pagehero .wrap{padding-top:104px}}
+
+/* header CTA: the full label, kept on one line */
+.navlinks .btn{white-space:nowrap}
+
+/* four plans */
+.offers.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.offers.four .offer{background:#fff;border:1px solid var(--line)}
+.offers.four .offer.feat{background:var(--dark);border-color:var(--dark)}
+.offers.four .btn{padding:16px 14px;letter-spacing:1.2px}
+.offers.four .offer .price{font-size:52px;margin:10px 0 4px;min-height:0}
+.offer .price small.from{margin:0 6px 0 0}
+.offer .price-alt{font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--acc-ink);margin:0 0 14px;flex:0}
+.offer.feat .price-alt{color:var(--acc-soft)}
+.offer>p.price-alt{margin-bottom:14px}
+@media(max-width:1100px){.offers.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.offers.four{grid-template-columns:1fr}}
+
+/* four steps, with timing */
+.steps.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.step .when{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--acc-ink);background:rgba(31,58,95,.08);padding:6px 10px;border-radius:999px;margin:0 0 12px}
+@media(max-width:1100px){.steps.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.steps.four{grid-template-columns:1fr}}
+
+/* "every plan includes" list */
+.includes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.includes div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px 22px}
+.includes b{display:block;font-family:var(--disp);font-weight:400;font-size:26px;line-height:1.05;margin-bottom:8px;color:var(--acc-ink)}
+.includes p{margin:0;color:var(--muted);font-size:15.5px}
+@media(max-width:900px){.includes{grid-template-columns:1fr}}
+
+/* Estate Map section + illustration */
+.mapgrid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:center}
+.mapgrid h2{margin:0 0 22px}
+.mapgrid .ctarow{margin-top:30px}
+@media(max-width:1000px){.mapgrid{grid-template-columns:1fr;gap:36px}}
+.emap{margin:0;background:var(--dark);color:#fff;border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(42,35,29,.28);border-top:3px solid var(--acc)}
+.emap__bar{display:flex;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line-d)}
+.emap__bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22)}
+.emap__bar span{margin-left:10px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--acc-soft)}
+.emap__grid{display:grid;grid-template-columns:minmax(0,1fr) 150px minmax(0,1fr);gap:18px;align-items:center;padding:22px 20px 8px}
+.emap__k{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.6);margin:0 0 10px}
+.emap__col{display:grid;gap:8px}
+.emap .chip{position:relative;background:rgba(255,255,255,.07);border:1px solid var(--line-d);border-radius:8px;padding:9px 12px;font-size:14px;font-weight:600;line-height:1.25}
+.emap .chip small{display:block;font-weight:400;font-size:12px;color:rgba(255,255,255,.62);margin-top:2px}
+.emap__hub{position:relative;display:flex;align-items:center;justify-content:center;align-self:stretch}
+.emap__hub:before{content:"";position:absolute;left:-18px;right:-18px;top:50%;height:2px;background:linear-gradient(90deg,rgba(157,183,203,.15),var(--acc-soft),rgba(157,183,203,.15))}
+.emap .hub{position:relative;z-index:1;width:150px;min-height:150px;border-radius:50%;background:var(--acc);border:3px solid var(--acc-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;box-shadow:0 0 0 10px rgba(157,183,203,.08)}
+.emap .hub__k{font-family:var(--disp);font-size:28px;letter-spacing:1px;line-height:1}
+.emap .hub b{font-weight:500;font-size:11.5px;line-height:1.35;color:rgba(255,255,255,.85);margin-top:6px}
+.emap figcaption{font-size:12px;color:rgba(255,255,255,.55);padding:10px 20px 16px}
+@media(max-width:620px){
+ .emap__grid{grid-template-columns:1fr;gap:14px;padding:18px 16px 6px}
+ .emap__hub{padding:6px 0}
+ .emap__hub:before{left:50%;right:auto;top:-14px;bottom:-14px;width:2px;height:auto;background:linear-gradient(180deg,rgba(157,183,203,.15),var(--acc-soft),rgba(157,183,203,.15))}
+ .emap .hub{width:auto;min-height:0;border-radius:999px;padding:14px 22px}
+ .emap__col{grid-template-columns:1fr 1fr}
+ .emap__col .emap__k{grid-column:1/-1;margin-bottom:2px}
+ .emap .chip{font-size:13px;padding:8px 10px}
+ .emap .chip small{font-size:11px}
+}
+
+/* FAQ page */
+.faq-note{max-width:70ch;margin:28px 0 0;padding:16px 18px;border-left:3px solid var(--acc);background:#fff;border-radius:0 8px 8px 0;font-size:15px;color:var(--muted)}
+.faq details p + p{margin-top:12px}
+.faqmore{margin-top:26px}
+
+/* footer legal lines */
+.legal .resp{color:rgba(255,255,255,.72)}
+.legal-fine{margin-top:10px;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.45)}
+.legal-fine a{color:rgba(255,255,255,.6)}
+
+/* mobile sticky bar: the full CTA label on one line */
+.stickybar span{white-space:nowrap}
+.stickybar .btn{letter-spacing:1px;padding:12px 12px}
+@media(max-width:400px){.stickybar .btn{font-size:11px}}
+
+/* plan cards: list follows the blurb; button pinned to the bottom */
+.offers.four .offer>p{flex:0 0 auto}
+.offers.four .offer>ul{flex:1 1 auto;align-content:start}

@@ -1,19 +1,14 @@
 # Tercet Law — website
 
-Astro static site. Black-and-white VH house style.
-Deployed via Cloudflare Pages (build: `npm run build`, output: `dist`).
+Astro static site for Tercet Law, PLLC (Austin, Texas). Same frame as the Vault Human family sites.
+Deployed via Cloudflare Pages (build: `npm run build`, output: `dist`). `main` is live; other branches get preview deployments.
 
 ## Editing content
-All copy, prices, plans, and practice areas live in **`src/data/site.js`**.
-Change a value there → commit → push → Cloudflare rebuilds live in ~1 min.
-No visual editor, no layout file to touch for routine updates.
-
-## Fonts
-- Headings/display: **Fraunces** (Google Fonts) — refined high-contrast serif.
-- Cursive subline: **Pinyon Script** (Google Fonts).
-- Body: **Inter** (Google Fonts).
-Swap in `src/pages/index.astro` (the Google Fonts link) + `src/styles/global.css`.
-To use exact licensed fonts (e.g. Ball Pen / Ogg), drop the files in `public/fonts/` and add @font-face.
+- **`src/data/site.js`** holds the settings and shared content: the responsible attorney (`RESPONSIBLE_ATTORNEY`, the one place to change it), firm details, the booking call to action, plans and prices, the four steps and the Texas FAQ.
+- **`src/layouts/Base.astro`** is the shared frame: head tags, Google Ads tag and lead listener, structured data, header, footer, booking modal.
+- **`src/pages/`** holds one file per page. `llms.txt` is built from `site.js` by `src/pages/llms.txt.js`.
+- **`src/styles/`**: `family.css` (shared family frame), `tokens.css` (Tercet colour), `tercet.css` (Tercet page components).
+- Retired URLs are redirected in `public/_redirects`.
 
 ## Local dev (optional)
 `npm install && npm run dev` → http://localhost:4321

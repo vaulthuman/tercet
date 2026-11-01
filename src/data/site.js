@@ -23,9 +23,173 @@ export const firm = {
 };
 
 // Primary call to action, used on every page.
-export const cta = { label: "Book your Estate Map Session", href: "/start" };
+export const cta = { label: "Book your Estate Map Session", short: "Book", href: "/start" };
 
 export const session = { name: "Estate Map Session", minutes: 45, where: "Zoom" };
+
+// Transitional call to action: the free checklist for visitors not ready to book.
+export const guideCta = { label: "Get the free Texas checklist", href: "/checklist" };
+
+// Header navigation: one-word labels. The primary button reads "Book".
+export const nav = [
+  { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Process", href: "/process" },
+  { label: "FAQ", href: "/faq" },
+  { label: "About", href: "/about" },
+];
+
+// Client portal. Tercet Law uses Clio for Clients; Clio's own guidance is to link clients.clio.com from the firm site.
+// Sign-in is passwordless: invited clients enter their email and receive a one-time link.
+export const clientPortal = {
+  label: "Client Login",
+  href: "/login",
+  url: "https://clients.clio.com/login",
+  name: "Clio for Clients",
+};
+
+// StoryBrand message (SB7). The client is the hero; Tercet Law is the guide.
+export const story = {
+  oneLiner: "Most families put off estate planning because it feels complicated, costly and hard to start. Tercet Law makes it simple: three clear steps and a flat fee in writing, so the people you love know exactly what you want and what to do.",
+  problem: {
+    external: "No current will, trust or powers of attorney, and no clear picture of how everything you own would pass.",
+    internal: "It feels overwhelming and uncomfortable, and it is hard to know where to start or what it will cost.",
+    philosophical: "Your family should not have to guess what you wanted, or ask a court for permission to care for you.",
+  },
+  empathy: "Most people we talk with have meant to do this for years. That is normal. It is hard to sit down and think about, and the legal side can seem built to confuse.",
+  authority: [
+    { k: "Licensed in Texas", d: "Texas wills, trusts, deeds and powers of attorney, drafted under Texas law." },
+    { k: "20+ years leading", d: "As a CEO, executive director and board president, before and alongside the law." },
+    { k: "Flat fee, in writing", d: "Your fee is set in your engagement letter before any work begins." },
+  ],
+  promises: [
+    "Your fee in writing before any work begins.",
+    "You read every page before you sign.",
+    "No pressure. We recommend the plan that fits, not the biggest one.",
+  ],
+  failure: [
+    "Texas law, not you, decides who inherits.",
+    "A court may decide who manages your affairs, or who raises your children.",
+    "Your family may face delay, cost and a public probate file.",
+    "A trust that was never funded protects nothing.",
+  ],
+  success: [
+    "Your wishes are in writing, in plain English.",
+    "The people you chose can act for you without asking a court.",
+    "Your family knows where everything is and what to do.",
+  ],
+};
+
+// Practice areas. Fees: the four plans cover estate planning; everything else is a flat fee quoted after the free session.
+export const servicesFeeNote = "Flat fee quoted after your Estate Map Session";
+export const services = [
+  {
+    id: "estate-planning", title: "Estate Planning", short: "Wills, trusts, powers of attorney and directives",
+    for: "Adults, parents and couples who want their wishes in writing and the right people in charge.",
+    includes: [
+      "Wills and revocable living trusts",
+      "Statutory durable and medical powers of attorney",
+      "Directive to physicians and HIPAA authorization",
+      "Guardian choices for minor children",
+    ],
+    fee: "plans",
+  },
+  {
+    id: "probate", title: "Probate & Estate Administration", short: "Settling an estate in Texas, step by step",
+    for: "Executors and families after a death, with or without a will.",
+    includes: [
+      "Probating a will, including independent administration where it fits",
+      "Heirship and small-estate options when there is no will",
+      "Inventory, notices and paying debts",
+      "Distributing property and closing the estate",
+    ],
+  },
+  {
+    id: "trust-administration", title: "Trust Administration", short: "Guidance for trustees and fiduciaries",
+    for: "Successor trustees, executors and agents who have been asked to take charge.",
+    includes: [
+      "What you are required to do, and in what order",
+      "Notices and communication with beneficiaries",
+      "Records, accountings and coordination with your CPA",
+      "Distributions and closing out the trust",
+    ],
+  },
+  {
+    id: "elder-law", title: "Elder Law & Incapacity Planning", short: "Planning ahead for aging and incapacity",
+    for: "Older adults, and adult children helping a parent plan ahead.",
+    includes: [
+      "Powers of attorney and health care documents that keep decisions with people you chose",
+      "Alternatives to guardianship, such as supported decision-making agreements",
+      "Declaration of guardian, in case a court is ever involved",
+      "Guidance for families when a parent can no longer manage alone",
+    ],
+  },
+  {
+    id: "special-needs", title: "Special Needs Planning", short: "Care for a loved one with a disability",
+    for: "Families with a child or adult who has a disability.",
+    includes: [
+      "Supplemental needs trusts drafted to help protect eligibility for public benefits",
+      "Choosing who will look after your loved one, and how",
+      "Alternatives to guardianship for adult children",
+      "Coordination with the rest of your family's plan",
+    ],
+  },
+  {
+    id: "business-succession", title: "Business Succession", short: "Your company inside your estate plan",
+    for: "Owners of family and closely held businesses.",
+    includes: [
+      "Who takes over, and how ownership passes",
+      "Placing business interests in your trust where it fits",
+      "Review of company agreement and buy-sell terms",
+      "Coordination with your CPA and financial advisor",
+    ],
+  },
+  {
+    id: "real-estate", title: "Real Estate & Deeds", short: "Texas deeds, homestead and inherited property",
+    for: "Texas homeowners, and families who have inherited property.",
+    includes: [
+      "Transfer on death deeds",
+      "Deeds to place your home in your trust",
+      "Homestead questions when you plan",
+      "Clearing title to inherited property",
+    ],
+  },
+];
+
+// Free Texas estate planning checklist (the transitional CTA). Used on /checklist and in the PDF.
+export const checklist = [
+  {
+    t: "Your people",
+    items: [
+      "Who depends on you: spouse, children, parents, anyone you support",
+      "Who should inherit, and whether anyone needs help managing what they receive",
+      "Who you trust to act for you on money matters if you cannot",
+      "Who you trust to make health care decisions if you cannot",
+      "Who should settle your estate (your executor or successor trustee)",
+      "If you have minor children: who should raise them",
+    ],
+  },
+  {
+    t: "What you own",
+    items: [
+      "Your home and any other real estate, and how each is titled",
+      "Bank and investment accounts",
+      "Retirement accounts and life insurance, and who is named as beneficiary",
+      "Business interests, and any company agreement",
+      "Vehicles and valuable personal property",
+      "Debts: mortgage, loans, anything others would need to know about",
+    ],
+  },
+  {
+    t: "What you already have",
+    items: [
+      "Any existing will or trust, and the date it was signed",
+      "Powers of attorney, a directive to physicians, a HIPAA authorization",
+      "Beneficiary forms that may need an update after a marriage, divorce or birth",
+      "Where the originals are kept, and who knows where to find them",
+    ],
+  },
+];
 
 // Plans and prices. Prices show exactly as written here.
 export const plans = [

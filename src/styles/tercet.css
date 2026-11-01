@@ -107,3 +107,27 @@
 /* plan cards: list follows the blurb; button pinned to the bottom */
 .offers.four .offer>p{flex:0 0 auto}
 .offers.four .offer>ul{flex:1 1 auto;align-content:start}
+
+/* Why Tercet: three lines that work together */
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:8px}
+.three__line{position:relative;background:#fff;border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:8px;padding:26px 24px 24px}
+.sec.alt .three__line{background:var(--bg)}
+.three__n{display:block;font-family:var(--disp);font-size:20px;letter-spacing:3px;color:var(--acc);line-height:1;margin-bottom:14px}
+.three__k{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:var(--acc-ink);margin:0 0 6px}
+.three__line b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(28px,2.6vw,36px);line-height:1;margin-bottom:10px;color:var(--ink)}
+.three__line p{margin:0;color:var(--muted);font-size:16px}
+.three__line p.three__k{color:var(--acc-ink);font-size:11px;margin:0 0 6px}
+@media(max-width:900px){.three{grid-template-columns:1fr;gap:12px}}
+
+/* inner-page hero without a photo (legal pages) */
+.pagehero.plain{min-height:42vh;background:linear-gradient(180deg,var(--dark),var(--dark2))}
+
+/* closing band without a photo: each photo appears once on the site */
+.sec.final.plain{background:linear-gradient(160deg,var(--dark) 0%,var(--dark2) 100%);border-top:3px solid var(--acc)}
+
+/* inner-page hero with the photo shown clearly on the right (About, How It Works); full-bleed under the veil on small screens */
+.pagehero.photo-right{background:var(--dark)}
+@media(min-width:901px){
+ .pagehero.photo-right .bgimg{left:40%;width:60%}
+ .pagehero.photo-right .veil{background:linear-gradient(90deg,var(--dark) 0%,var(--dark) 40%,rgba(var(--darkr),.55) 48%,rgba(var(--darkr),.12) 62%,rgba(var(--darkr),.08) 100%),linear-gradient(180deg,rgba(var(--darkr),.35),rgba(var(--darkr),0) 30%)}
+}

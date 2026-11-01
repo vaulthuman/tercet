@@ -4,7 +4,7 @@
 import '../styles/family.css';
 import '../styles/tokens.css';
 import '../styles/tercet.css';
-import { firm, cta, plans, RESPONSIBLE_ATTORNEY } from '../data/site.js';
+import { firm, cta, plans, priceRange, RESPONSIBLE_ATTORNEY } from '../data/site.js';
 
 const {
   title = "Tercet Law | Flat-Fee Estate Planning in Austin, Texas",
@@ -61,7 +61,7 @@ const firmSchema = {
     { "@type": "State", name: "Texas" },
   ],
   knowsAbout: ["Estate planning", "Wills", "Revocable living trusts", "Powers of attorney", "Texas probate", "Texas homestead"],
-  priceRange: "$750–$12,500+",
+  priceRange,
   founder: person,
   hasOfferCatalog: { "@type": "OfferCatalog", name: "Flat-fee estate plans", itemListElement: offers },
 };

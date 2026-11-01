@@ -1,11 +1,12 @@
 // Builds /llms.txt from src/data/site.js, so names and prices stay in one place.
-import { firm, plans, session, RESPONSIBLE_ATTORNEY } from '../data/site.js';
+import { firm, plans, session, steps, tercet, RESPONSIBLE_ATTORNEY } from '../data/site.js';
 
 export function GET() {
   const alias = RESPONSIBLE_ATTORNEY !== firm.attorney ? `, who practices as ${firm.attorney}` : '';
   const planLines = plans
     .map((p) => `- ${p.name}: ${p.from ? 'from ' : ''}${p.price}${p.alt ? ` for one person, ${p.alt}` : ''}. ${p.features.join('; ')}.`)
     .join('\n');
+  const howLines = steps.map((s, i) => `${i + 1}. ${s.title}: ${s.short}.`).join('\n');
   const body = `# ${firm.name}
 
 > Flat-fee estate planning for ${firm.city}, ${firm.state} families and business owners. Every plan is handled personally by attorney ${firm.attorney}. Free ${session.minutes}-minute ${session.name} on ${session.where}.
@@ -18,8 +19,11 @@ Contact: ${firm.phone} · ${firm.email} · ${firm.url}
 ## Plans (flat fees, set in writing before any work begins)
 ${planLines}
 
-## How it works
-Map (free ${session.minutes}-minute ${session.name} on ${session.where}, where the client sees their whole estate on one screen) → Design (flat-fee engagement; drafts typically within 10 days) → Sign (guided signing, typically within 21 days) → Fund (funding instructions; the Trust Plan includes one Texas deed).
+## How it works (three steps)
+${howLines}
+
+## Why the name
+${tercet.meaning} A Tercet plan covers what you have built, what you want now and who comes next. The promise: ${tercet.promise.charAt(0).toLowerCase() + tercet.promise.slice(1)}
 
 ## Key pages
 - ${firm.url}/

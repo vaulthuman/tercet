@@ -5,16 +5,16 @@ import { firm, cta, steps, timingNote } from '../data/site.js';
 ---
 <Base
   title="How It Works | Tercet Law, Austin Estate Planning"
-  description="Map, design, sign, fund: how a Tercet Law estate plan comes together, from a free 45-minute Estate Map Session on Zoom to a signed plan in about three weeks."
+  description="Map, design, sign and fund: the three steps of a Tercet Law estate plan, from a free 45-minute Estate Map Session on Zoom to a signed plan in about three weeks."
   path="/process/"
 >
-    <section class="pagehero"><img class="bgimg" src="https://images.unsplash.com/photo-1714974528749-fc028e54feb9?w=1800&q=72&auto=format&fit=crop" alt="A quiet conference room" fetchpriority="high" /><div class="veil"></div><div class="wrap">
-      <p class="eyebrow">How it works</p><h1>Map. Design. Sign. <em>Fund.</em></h1><p class="lede">Four steps from your first conversation to a signed plan, in about three weeks from the day you engage. Clear at every step, and never rushed.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
+    <section class="pagehero photo-right"><img class="bgimg" src="/images/process-video-call.jpg" width="1800" height="1200" style="object-position:45% 45%" alt="An older couple at home on a video call at a laptop" fetchpriority="high" /><div class="veil"></div><div class="wrap">
+      <p class="eyebrow">How it works</p><h1>Map. Design. <em>Sign &amp; Fund.</em></h1><p class="lede">Three simple steps from your first conversation to a signed plan, in about three weeks from the day you engage. Clear at every step, and never rushed.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 
     <section class="sec" id="steps"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">The process</p><h2>What happens, in order.</h2></div>
-      <div class="steps four">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><p class="when">{s.when}</p><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
+      <div class="sec-head"><p class="eyebrow">Three steps</p><h2>What happens, in order.</h2></div>
+      <div class="steps">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><p class="when">{s.when}</p><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
       <p class="offers-note">{timingNote}</p>
     </div></section>
 
@@ -33,7 +33,7 @@ import { firm, cta, steps, timingNote } from '../data/site.js';
       <EstateMap />
     </div></section>
 
-    <section class="split rev" id="bring"><div class="split__media" style="background-image:url('https://images.unsplash.com/photo-1562564055-71e051d33c19?w=1400&q=72&auto=format&fit=crop')" role="img" aria-label="Reviewing documents at a desk"></div><div class="split__copy">
+    <section class="split rev" id="bring"><div class="split__media" style="background-image:url('https://images.unsplash.com/photo-1758227365187-016878604d94?w=1400&q=72&auto=format&fit=crop');background-position:center" role="img" aria-label="Wooden figures of a family beside a small wooden house and a key on a table"></div><div class="split__copy">
       <p class="eyebrow">What to bring</p><h2>A rough picture, not a mountain of paperwork.</h2>
       <ul class="ticks"><li>Who is in your life: spouse, children, parents, anyone you provide for.</li><li>What you own, roughly: home, bank and investment accounts, retirement accounts, life insurance, any business.</li><li>Who you would trust to act for you, and who should inherit.</li><li>Any existing wills, trusts or powers of attorney, so nothing gets drafted twice.</li></ul>
       <div class="ctarow"><a class="btn btn-line" href="/faq">Texas FAQ</a></div>
@@ -44,7 +44,7 @@ import { firm, cta, steps, timingNote } from '../data/site.js';
       <div class="after"><div><b>Your wishes are in writing.</b><p>Who decides, who inherits, and where everything is.</p></div><div><b>Your family knows who decides.</b><p>The people you chose, with the documents to act.</p></div><div><b>Your plan has a guide.</b><p>One attorney who already knows it, when life changes.</p></div></div>
     </div></section>
 
-    <section class="sec final" id="begin"><img class="bgimg" src="https://images.unsplash.com/photo-1761233976686-f43410a4f5d8?w=1800&q=72&auto=format&fit=crop" alt="Four generations of hands resting together on a table" loading="lazy" /><div class="veil"></div><div class="wrap">
+    <section class="sec final plain" id="begin"><div class="wrap">
       <h2>Start with the map.</h2><p class="lede">Forty-five minutes on Zoom, free, with no obligation.</p>
       <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>

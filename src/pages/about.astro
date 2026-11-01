@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Tercet from '../components/Tercet.astro';
 import { firm, cta } from '../data/site.js';
 ---
 <Base
@@ -7,7 +8,7 @@ import { firm, cta } from '../data/site.js';
   description="Russ Michaels is an Austin attorney who handles every Tercet Law estate plan personally, with more than twenty years as a CEO and nonprofit leader. Flat fees, plain English."
   path="/about/"
 >
-    <section class="pagehero"><img class="bgimg" src="https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?w=1800&q=72&auto=format&fit=crop" alt="A calm, private office" fetchpriority="high" /><div class="veil"></div><div class="wrap">
+    <section class="pagehero photo-right"><img class="bgimg" src="/images/about-handshake.jpg" width="1800" height="1202" style="object-position:50% 30%" alt="An attorney leaning across a table to shake hands with an older client while his wife smiles beside him" fetchpriority="high" /><div class="veil"></div><div class="wrap">
       <p class="eyebrow">About Russ</p><h1>One attorney. <em>Every plan, personally.</em></h1><p class="lede">Not a case number at a large firm. {firm.attorney} handles every Tercet Law plan himself, from the first map to the final signature.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 
@@ -24,10 +25,7 @@ import { firm, cta } from '../data/site.js';
       </div>
     </div></section>
 
-    <section class="sec alt" id="firm"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">The firm</p><h2>Why "Tercet".</h2><p class="lede">A tercet is three lines of verse that belong together. So does a plan: your will or trust, the people you choose, and the documents that say what you want. Tercet Law is a flat-fee estate planning firm based in Austin.</p></div>
-      <div class="facts"><div><b>Austin</b><span>Based here, planning for Texas families</span></div><div><b>20+ yrs</b><span>As a CEO and nonprofit leader</span></div><div><b>Flat</b><span>Fees, set in writing before any work begins</span></div></div>
-    </div></section>
+    <Tercet variant="lines" alt />
 
     <section class="split" id="how"><div class="split__media" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1400&q=72&auto=format&fit=crop')" role="img" aria-label="Signing a document"></div><div class="split__copy">
       <p class="eyebrow">How Russ works</p><h2>Careful documents. Clear answers. No pressure.</h2>
@@ -35,7 +33,7 @@ import { firm, cta } from '../data/site.js';
       <div class="ctarow"><a class="btn btn-acc" href="/process">How it works</a><a class="btn btn-line" href="/pricing">Plans &amp; pricing</a></div>
     </div></section>
 
-    <section class="sec final" id="begin"><img class="bgimg" src="https://images.unsplash.com/photo-1761233976686-f43410a4f5d8?w=1800&q=72&auto=format&fit=crop" alt="Four generations of hands resting together on a table" loading="lazy" /><div class="veil"></div><div class="wrap">
+    <section class="sec final plain" id="begin"><div class="wrap">
       <h2>Meet Russ on Zoom.</h2><p class="lede">A free 45-minute Estate Map Session. You leave knowing what you need and exactly what it costs.</p>
       <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>

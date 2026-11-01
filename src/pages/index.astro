@@ -2,16 +2,17 @@
 import Base from '../layouts/Base.astro';
 import Plans from '../components/Plans.astro';
 import EstateMap from '../components/EstateMap.astro';
+import Tercet from '../components/Tercet.astro';
 import { firm, cta, steps, timingNote, faqs, trustPriceNote } from '../data/site.js';
 const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'bring'].includes(f.id));
 ---
 <Base
   title="Tercet Law | Flat-Fee Estate Planning in Austin, Texas"
-  description="Flat-fee wills, trusts and powers of attorney for Austin families and business owners. Every plan handled personally by attorney Russ Michaels. Book a free 45-minute Estate Map Session on Zoom."
+  description="Flat-fee wills, trusts and powers of attorney for Austin families and business owners. Three simple steps, handled personally by attorney Russ Michaels. Book a free 45-minute Estate Map Session on Zoom."
   path="/"
   inner={false}
 >
-    <section class="hero"><img class="bgimg" src="https://images.unsplash.com/photo-1714974528737-3e6c7e4d11af?w=1800&q=72&auto=format&fit=crop" alt="An attorney meeting with clients across a small table" fetchpriority="high" /><div class="veil"></div>
+    <section class="hero"><img class="bgimg" src="/images/home-attorney-couple.jpg" width="1800" height="1202" style="object-position:62% 38%" alt="An attorney talking with a smiling couple in their sixties across a table in a bright office" fetchpriority="high" /><div class="veil"></div>
       <div class="wrap"><div class="hero-copy">
         <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
         <h1>Estate planning for Austin families. <em>One flat fee.</em></h1>
@@ -36,11 +37,13 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
       <EstateMap />
     </div></section>
 
-    <section class="split" id="problem"><div class="split__media" style="background-image:url('https://images.unsplash.com/photo-1758227365187-016878604d94?w=1400&q=72&auto=format&fit=crop');background-position:center" role="img" aria-label="A small wooden house, a family and a key on a table"></div><div class="split__copy">
+    <section class="split" id="problem"><div class="split__media" style="background-image:url('/images/home-older-couple.jpg');background-position:58% 30%" role="img" aria-label="An older couple smiling together outdoors, his arms around her shoulders"></div><div class="split__copy">
       <p class="eyebrow">Why plan now</p><h2>Without a plan, Texas law makes the choices.</h2>
-      <ul class="ticks"><li>Without a will, Texas law decides who inherits and a court decides who is in charge.</li><li>If you cannot act for yourself, your family may need a court's permission to act for you.</li><li>A trust that was never funded protects nothing.</li><li>Powers of attorney and a directive to physicians keep decisions with the people you chose.</li></ul>
+      <ul class="ticks"><li>If you cannot act for yourself, your family may need a court's permission to act for you.</li><li>Powers of attorney and a directive to physicians keep decisions with the people you chose.</li><li>Without a will, Texas law decides who inherits and a court decides who is in charge.</li><li>A trust that was never funded protects nothing.</li></ul>
       <div class="ctarow"><a class="btn btn-line" href="/faq">Read the Texas FAQ</a></div>
     </div></section>
+
+    <Tercet variant="protects" alt />
 
     <section class="sec" id="who"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">Who we help</p><h2>Austin families and business owners.</h2></div>
@@ -54,14 +57,14 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
     </div></section>
 
     <section class="sec" id="how"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">How it works</p><h2>Map. Design. Sign. Fund.</h2><p class="lede">A signed plan in about three weeks from the day you engage.</p></div>
-      <div class="steps four">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><p class="when">{s.when}</p><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
+      <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three simple steps.</h2><p class="lede">Map. Design. Sign &amp; Fund. A signed plan in about three weeks from the day you engage.</p></div>
+      <div class="steps">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><p class="when">{s.when}</p><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
       <p class="offers-note">{timingNote}</p>
       <div class="ctarow" style="margin-top:22px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/process">How it works</a></div>
     </div></section>
 
     <section class="sec dark" id="russ"><div class="wrap guide-grid">
-      <img src="/russ-michaels.jpg" alt="Russ Michaels, attorney" width="340" height="425" loading="lazy" />
+      <img src="/russ-color.jpg" alt="Russ Michaels, attorney, in a dark suit" width="340" height="425" loading="lazy" />
       <div><p class="eyebrow">Your attorney</p><h2>Russ Michaels</h2><p class="lede">An attorney in Austin who handles every plan personally, from the first map to the final signature. More than twenty years as a CEO and nonprofit leader taught him what a plan has to do when it is finally needed.</p><blockquote>A good plan is not about the end. It is about the people you love knowing exactly what you intended.</blockquote><div class="ctarow"><a class="btn btn-ghost" href="/about">About Russ</a><a class="btn btn-ghost" href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></div></div>
     </div></section>
 

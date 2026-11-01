@@ -1,21 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
 import Plans from '../components/Plans.astro';
-import { firm, cta, trustPriceNote } from '../data/site.js';
+import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary } from '../data/site.js';
 ---
 <Base
   title="Plans & Pricing | Tercet Law, Austin Estate Planning"
-  description="Flat-fee estate plans in Austin, Texas: Deed & POA Starter $750, Foundations $2,500, Trust Plan $4,500 for one person or $5,500 for a couple, Legacy from $12,500. Fees set in writing before work begins."
+  description={`Flat-fee estate plans in Austin, Texas: ${priceSummary}. Fees set in writing before work begins.`}
   path="/pricing/"
 >
-    <section class="pagehero"><img class="bgimg" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&q=72&auto=format&fit=crop" alt="A handshake across a desk" fetchpriority="high" /><div class="veil"></div><div class="wrap">
+    <section class="pagehero"><img class="bgimg" src="/images/pricing-couple-review.jpg" width="1800" height="1201" style="object-position:60% 35%" alt="A couple in their sixties going through their papers together at a laptop at home" fetchpriority="high" /><div class="veil"></div><div class="wrap">
       <p class="eyebrow">Plans &amp; Pricing</p><h1>Flat fees. <em>Set before we start.</em></h1><p class="lede">Four plans, each a flat fee confirmed in writing before any work begins. No hourly billing on your plan, and no surprises at the end.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="#plans">Compare plans</a></div>
     </div></section>
 
     <section class="sec" id="plans"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">Four plans</p><h2>Choose what fits.</h2><p class="lede">Not sure which one? That is what the free Estate Map Session is for.</p></div>
       <Plans />
-      <p class="offers-note">Prices in US dollars. {trustPriceNote} Legacy starts at $12,500 and is quoted in writing after your Estate Map Session. Recording fees and other third-party costs are separate and disclosed in advance.</p>
+      <p class="offers-note">Prices in US dollars. {trustPriceNote} {legacyPriceNote} Recording fees and other third-party costs are separate and disclosed in advance.</p>
     </div></section>
 
     <section class="sec alt" id="included"><div class="wrap">
@@ -46,7 +46,7 @@ import { firm, cta, trustPriceNote } from '../data/site.js';
       <div class="faq"><details><summary>Is the Estate Map Session really free?</summary><p>Yes. It is 45 minutes on Zoom, with no charge and no obligation.</p></details><details><summary>Do you bill by the hour?</summary><p>Not for your plan. Every plan is a flat fee set in writing before we begin. If you ask for something outside your plan, we quote that flat too, before doing it.</p></details><details><summary>When do I pay?</summary><p>Your payment schedule is set out in your engagement letter, in writing, before any work begins.</p></details><details><summary>Do I need a trust, or is a will enough?</summary><p>Sometimes a will-based plan is enough. Your Estate Map Session gives you an honest answer, with no pressure either way. <a href="/faq">Read the Texas FAQ</a>.</p></details><details><summary>What is not included?</summary><p>Court costs, recording fees and other third-party charges are separate and disclosed in advance. Work outside your plan, such as probate of an estate, is quoted separately.</p></details></div>
     </div></section>
 
-    <section class="sec final" id="begin"><img class="bgimg" src="https://images.unsplash.com/photo-1761233976686-f43410a4f5d8?w=1800&q=72&auto=format&fit=crop" alt="Four generations of hands resting together on a table" loading="lazy" /><div class="veil"></div><div class="wrap">
+    <section class="sec final plain" id="begin"><div class="wrap">
       <h2>Get your number in the session.</h2><p class="lede">Forty-five minutes on Zoom. You leave knowing which plan fits and exactly what it costs.</p>
       <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>

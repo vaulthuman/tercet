@@ -4,17 +4,18 @@
 import '../styles/family.css';
 import '../styles/tokens.css';
 import '../styles/tercet.css';
-import { firm, cta, plans, priceRange, RESPONSIBLE_ATTORNEY } from '../data/site.js';
+import { firm, cta, nav, clientPortal, guideCta, plans, priceRange, RESPONSIBLE_ATTORNEY } from '../data/site.js';
 
 const {
   title = "Tercet Law | Flat-Fee Estate Planning in Austin, Texas",
-  description = "Flat-fee wills, trusts and powers of attorney for Austin families and business owners. Book a free 45-minute Estate Map Session on Zoom.",
+  description = "Estate planning, probate, trust administration and elder law for Austin and Texas families. Three simple steps and a flat fee in writing. Book a free 45-minute Estate Map Session on Zoom.",
   path = "/",
   inner = true,
   modal = true,
   sticky = true,
   image = "https://www.tercetlaw.com/og-tercet-texas.png",
   schema = [],
+  noindex = false,
 } = Astro.props;
 
 const canonical = new URL(path, firm.url).href;
@@ -53,14 +54,14 @@ const firmSchema = {
   telephone: firm.phoneSchema,
   email: firm.email,
   image: "https://www.tercetlaw.com/og-tercet-texas.png",
-  description: "Flat-fee estate planning for Austin, Texas families and business owners: wills, revocable living trusts, powers of attorney and Texas deeds. Every plan handled personally by the attorney. Free 45-minute Estate Map Session on Zoom.",
+  description: "Estate planning, probate and estate administration, trust administration, elder law and incapacity planning, special needs planning, business succession and Texas deeds for Austin and Texas families. Flat fees in writing. Every matter handled personally by the attorney. Free 45-minute Estate Map Session on Zoom.",
   address: { "@type": "PostalAddress", addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" },
   areaServed: [
     { "@type": "City", name: "Austin", containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "AdministrativeArea", name: "Travis County, Texas" },
     { "@type": "State", name: "Texas" },
   ],
-  knowsAbout: ["Estate planning", "Wills", "Revocable living trusts", "Powers of attorney", "Texas probate", "Texas homestead"],
+  knowsAbout: ["Estate planning", "Wills", "Revocable living trusts", "Powers of attorney", "Texas probate", "Trust administration", "Elder law", "Guardianship alternatives", "Special needs planning", "Business succession", "Transfer on death deeds", "Texas homestead"],
   priceRange,
   founder: person,
   hasOfferCatalog: { "@type": "OfferCatalog", name: "Flat-fee estate plans", itemListElement: offers },
@@ -75,6 +76,7 @@ const ld = [firmSchema, ...schema];
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
   <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex" />}
   <meta name="description" content={description} />
   <meta property="og:type" content="website" /><meta property="og:site_name" content="Tercet Law" /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:image" content={image} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:url" content={canonical} /><meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={image} />
@@ -95,16 +97,16 @@ const ld = [firmSchema, ...schema];
 <body data-time="future" class={inner ? 'inner' : undefined}>
   <header class="site"><div class="wrap bar">
     <a class="brand" href="/">Tercet <b>Law</b></a>
-    <nav class="navlinks" id="navlinks"><a href="/pricing">Plans &amp; Pricing</a><a href="/process">How It Works</a><a href="/faq">Texas FAQ</a><a href="/about">About Russ</a><a class="btn btn-acc" href={cta.href}>{cta.label}</a></nav><button class="navtoggle" type="button" aria-label="Open menu" aria-controls="navlinks" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="navlinks" id="navlinks" aria-label="Main">{nav.map((n) => <a href={n.href} aria-current={(path === n.href + '/' || path === n.href) ? 'page' : undefined}>{n.label}</a>)}<a class="navutil" href={clientPortal.href}><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3"/></svg>{clientPortal.label}</a><a class="btn btn-acc" href={cta.href} aria-label={cta.label}>{cta.short}</a></nav><button class="navtoggle" type="button" aria-label="Open menu" aria-controls="navlinks" aria-expanded="false"><span></span><span></span><span></span></button>
   </div></header>
 
   <main><slot /></main>
 
   <footer class="site">
     <div class="wrap foot">
-      <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Flat-fee estate planning for Austin families and business owners.</p><p><a href={`mailto:${firm.email}`}>{firm.email}</a> · <a href={firm.phoneHref}>{firm.phone}</a></p></div>
-      <ul><li><a href="/pricing">Plans &amp; Pricing</a></li><li><a href="/process">How It Works</a></li><li><a href="/faq">Texas FAQ</a></li><li><a href="/about">About Russ</a></li><li><a href={cta.href}>{cta.label}</a></li></ul>
-      <ul><li><a href="/disclaimers">Disclaimers</a></li><li><a href="/privacy/">Privacy</a></li><li><a href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.vaulthuman.com">Vault Human</a> — daily coaching</li></ul>
+      <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Estate planning, probate and elder law for Austin and Texas families. Flat fees, in writing.</p><p><a href={`mailto:${firm.email}`}>{firm.email}</a> · <a href={firm.phoneHref}>{firm.phone}</a></p></div>
+      <ul><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/process">Process</a></li><li><a href="/faq">Texas FAQ</a></li><li><a href="/about">About Russ</a></li><li><a href={cta.href}>{cta.label}</a></li></ul>
+      <ul><li><a href={guideCta.href}>Free Texas checklist</a></li><li><a href={clientPortal.href}>{clientPortal.label}</a></li><li><a href="/disclaimers">Disclaimers</a></li><li><a href="/privacy/">Privacy</a></li><li><a href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.vaulthuman.com">Vault Human</a> — daily coaching</li></ul>
     </div>
     <div class="wrap legal"><span class="resp">{firm.legalName} · {firm.city}, {firm.state} · Responsible attorney: {RESPONSIBLE_ATTORNEY}</span><span>Attorney advertising</span></div>
     <div class="wrap legal-fine">&copy; {year} {firm.legalName}. {firm.license}. This website is general information, not legal advice. No attorney-client relationship forms until an engagement letter is signed. <a href="/disclaimers">Disclaimers</a> · <a href="/privacy/">Privacy</a> · Part of the Vault Human family.</div>

@@ -1,0 +1,33 @@
+---
+// The free Texas Estate Planning Checklist: the transitional call to action. Printable; a PDF copy is in /public.
+import Base from '../layouts/Base.astro';
+import { firm, cta, checklist, faqDisclaimer } from '../data/site.js';
+const pdf = '/tercet-texas-estate-planning-checklist.pdf';
+---
+<Base
+  title="Free Texas Estate Planning Checklist | Tercet Law"
+  description="A free one-page checklist for Texas families: the people, the property and the papers to gather before you make a will or trust. Print it or save it as a PDF."
+  path="/checklist/"
+>
+    <section class="pagehero plain"><div class="wrap">
+      <p class="eyebrow">Free · printable · no email needed</p><h1>The Texas estate planning <em>checklist.</em></h1><p class="lede">Three short lists: your people, what you own, and what you already have. Fill it in at the kitchen table. A rough picture is enough.</p>
+      <div class="ctarow noprint" style="margin-top:28px"><a class="btn btn-acc" href={pdf} download>Download the PDF</a><button class="btn btn-line" type="button" onclick="window.print()">Print this page</button></div>
+    </div></section>
+
+    <section class="sec" id="list"><div class="wrap checklist">
+      <p class="printonly print-brand">Tercet <b>Law</b> · Texas estate planning checklist · {firm.phone} · tercetlaw.com</p>
+      {checklist.map((g, gi) => (
+        <div class="cl-group">
+          <h2><span>{['I', 'II', 'III'][gi]}</span>{g.t}</h2>
+          <ul>{g.items.map((it) => <li><span class="box" aria-hidden="true"></span>{it}</li>)}</ul>
+        </div>
+      ))}
+      <div class="cl-next">
+        <h2>When you are ready</h2>
+        <p>Bring this list to a free 45-minute Estate Map Session on Zoom. {firm.attorney} maps it on one screen with you, shows how each piece would pass today, and tells you which plan fits and its flat fee.</p>
+        <p class="noprint"><a class="btn btn-acc" href={cta.href}>{cta.label}</a></p>
+        <p class="printonly">Book at tercetlaw.com/start or call {firm.phone}.</p>
+        <p class="cl-disc">{faqDisclaimer}</p>
+      </div>
+    </div></section>
+</Base>

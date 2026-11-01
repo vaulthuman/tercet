@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import EstateMap from '../components/EstateMap.astro';
-import { firm, cta, steps, timingNote } from '../data/site.js';
+import { firm, cta, guideCta, steps, timingNote, story } from '../data/site.js';
 ---
 <Base
   title="How It Works | Tercet Law, Austin Estate Planning"
@@ -15,6 +15,7 @@ import { firm, cta, steps, timingNote } from '../data/site.js';
     <section class="sec" id="steps"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">Three steps</p><h2>What happens, in order.</h2></div>
       <div class="steps">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><p class="when">{s.when}</p><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
+      <ul class="promises">{story.promises.map((p) => <li>{p}</li>)}</ul>
       <p class="offers-note">{timingNote}</p>
     </div></section>
 
@@ -33,10 +34,10 @@ import { firm, cta, steps, timingNote } from '../data/site.js';
       <EstateMap />
     </div></section>
 
-    <section class="split rev" id="bring"><div class="split__media" style="background-image:url('https://images.unsplash.com/photo-1758227365187-016878604d94?w=1400&q=72&auto=format&fit=crop');background-position:center" role="img" aria-label="Wooden figures of a family beside a small wooden house and a key on a table"></div><div class="split__copy">
+    <section class="split rev" id="bring"><div class="split__media" style="background-image:url('/images/process-grandparents.jpg');background-position:45% 40%" role="img" aria-label="Grandparents reading a page together with their two grandchildren at the kitchen table"></div><div class="split__copy">
       <p class="eyebrow">What to bring</p><h2>A rough picture, not a mountain of paperwork.</h2>
       <ul class="ticks"><li>Who is in your life: spouse, children, parents, anyone you provide for.</li><li>What you own, roughly: home, bank and investment accounts, retirement accounts, life insurance, any business.</li><li>Who you would trust to act for you, and who should inherit.</li><li>Any existing wills, trusts or powers of attorney, so nothing gets drafted twice.</li></ul>
-      <div class="ctarow"><a class="btn btn-line" href="/faq">Texas FAQ</a></div>
+      <div class="ctarow"><a class="btn btn-acc" href={guideCta.href}>{guideCta.label}</a><a class="btn btn-line" href="/faq">Texas FAQ</a></div>
     </div></section>
 
     <section class="sec" id="after"><div class="wrap">

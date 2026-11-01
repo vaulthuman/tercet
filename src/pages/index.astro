@@ -1,71 +1,88 @@
 ---
+// Home, built on the StoryBrand (SB7) frame: the client is the hero, Tercet Law is the guide.
+// Hero → problem and stakes → guide (empathy + authority) → three-step plan → services → plans →
+// what a plan protects (success) → free checklist (transitional CTA) → FAQ → final call to action.
 import Base from '../layouts/Base.astro';
 import Plans from '../components/Plans.astro';
 import EstateMap from '../components/EstateMap.astro';
 import Tercet from '../components/Tercet.astro';
-import { firm, cta, steps, timingNote, faqs, trustPriceNote } from '../data/site.js';
+import { firm, cta, guideCta, steps, timingNote, faqs, trustPriceNote, story, services, servicesFeeNote } from '../data/site.js';
 const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'bring'].includes(f.id));
 ---
 <Base
-  title="Tercet Law | Flat-Fee Estate Planning in Austin, Texas"
-  description="Flat-fee wills, trusts and powers of attorney for Austin families and business owners. Three simple steps, handled personally by attorney Russ Michaels. Book a free 45-minute Estate Map Session on Zoom."
+  title="Tercet Law | Estate Planning Made Simple in Austin, Texas"
+  description="Estate planning, probate, trust administration and elder law for Austin and Texas families. Three simple steps and a flat fee in writing, handled personally by attorney Russ Michaels. Book a free 45-minute Estate Map Session on Zoom."
   path="/"
   inner={false}
 >
-    <section class="hero"><img class="bgimg" src="/images/home-attorney-couple.jpg" width="1800" height="1202" style="object-position:62% 38%" alt="An attorney talking with a smiling couple in their sixties across a table in a bright office" fetchpriority="high" /><div class="veil"></div>
-      <div class="wrap"><div class="hero-copy">
+    <section class="hero hero-split"><div class="wrap hero-grid">
+      <div class="hero-copy">
         <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
-        <h1>Estate planning for Austin families. <em>One flat fee.</em></h1>
-        <p class="lede">Wills, trusts and powers of attorney for Austin families and business owners. {firm.attorney} handles every plan personally, and your fee is set in writing before any work begins.</p>
-        <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/pricing">See plans &amp; pricing</a></div>
+        <h1>Estate planning made simple <em>for Austin families.</em></h1>
+        <p class="lede">Wills, trusts, probate, elder law and more. Three clear steps and a flat fee in writing, so the people you love know exactly what you want and what to do.</p>
+        <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={guideCta.href}>{guideCta.label}</a></div>
         <p class="guarantee">Free · 45 minutes · on Zoom · {firm.license}</p>
-      </div></div>
-    </section>
+      </div>
+      <figure class="hero-photo"><img src="/images/home-family-advisor.jpg" width="1600" height="1067" alt="An advisor meeting with a family of four on a sofa at home, the father holding a clipboard as his wife and daughters look on" fetchpriority="high" /></figure>
+    </div></section>
+
+    <section class="split" id="problem"><div class="split__media" style="background-image:url('/images/home-texas-family.jpg');background-position:50% 40%" role="img" aria-label="A Texas family of five, three generations, smiling together on the grass, two of them in cowboy hats"></div><div class="split__copy">
+      <p class="eyebrow">Why plan now</p><h2>Without a plan, Texas law makes the choices.</h2>
+      <p class="split__lede">You know you should have a plan. It just feels complicated, uncomfortable and hard to start. Meanwhile, without one:</p>
+      <ul class="ticks">{story.failure.map((f) => <li>{f}</li>)}</ul>
+      <p class="split__lede"><b>{story.problem.philosophical}</b></p>
+      <div class="ctarow"><a class="btn btn-line" href="/faq">Read the Texas FAQ</a></div>
+    </div></section>
+
+    <section class="sec dark" id="guide"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Your guide</p><h2>We understand. And we keep it simple.</h2><p class="lede">{story.empathy} {firm.attorney} handles every matter personally, explains every page in plain English and sets the fee in writing first.</p></div>
+      <div class="facts dark3">{story.authority.map((a) => <div><b>{a.k}</b><span>{a.d}</span></div>)}</div>
+      <blockquote class="guide-quote">A good plan is not about the end. It is about the people you love knowing exactly what you intended.<cite>{firm.attorney}</cite></blockquote>
+      <div class="ctarow"><a class="btn btn-ghost" href="/about">About Russ</a><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div>
+    </div></section>
+
+    <section class="sec" id="how"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">The plan</p><h2>Three simple steps.</h2><p class="lede">Map. Design. Sign &amp; Fund. A signed plan in about three weeks from the day you engage.</p></div>
+      <div class="steps">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><p class="when">{s.when}</p><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
+      <ul class="promises">{story.promises.map((p) => <li>{p}</li>)}</ul>
+      <p class="offers-note">{timingNote}</p>
+      <div class="ctarow" style="margin-top:22px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/process">See the process</a></div>
+    </div></section>
 
     <section class="sec alt" id="map"><div class="wrap mapgrid">
       <div>
-        <p class="eyebrow">The Estate Map Session</p>
+        <p class="eyebrow">Step one, up close</p>
         <h2>See your whole estate on one screen.</h2>
         <ul class="ticks">
           <li>Forty-five minutes on Zoom with {firm.attorney}, free.</li>
           <li>Russ builds a visual map as you talk: what you own, who depends on you, and who you trust to take charge.</li>
           <li>You see how each piece would pass today, and where the gaps are.</li>
-          <li>You leave knowing which plan fits and its exact flat fee. No pressure either way.</li>
+          <li>You leave knowing what fits and its flat fee. No pressure either way.</li>
         </ul>
         <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div>
       </div>
       <EstateMap />
     </div></section>
 
-    <section class="split" id="problem"><div class="split__media" style="background-image:url('/images/home-older-couple.jpg');background-position:58% 30%" role="img" aria-label="An older couple smiling together outdoors, his arms around her shoulders"></div><div class="split__copy">
-      <p class="eyebrow">Why plan now</p><h2>Without a plan, Texas law makes the choices.</h2>
-      <ul class="ticks"><li>If you cannot act for yourself, your family may need a court's permission to act for you.</li><li>Powers of attorney and a directive to physicians keep decisions with the people you chose.</li><li>Without a will, Texas law decides who inherits and a court decides who is in charge.</li><li>A trust that was never funded protects nothing.</li></ul>
-      <div class="ctarow"><a class="btn btn-line" href="/faq">Read the Texas FAQ</a></div>
-    </div></section>
-
-    <Tercet variant="protects" alt />
-
-    <section class="sec" id="who"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Who we help</p><h2>Austin families and business owners.</h2></div>
-      <div class="pcards"><div class="pcard"><img src="https://images.unsplash.com/photo-1681505504714-4ded1bc247e7?w=900&q=72&auto=format&fit=crop" alt="Reviewing and signing estate documents across a desk" loading="lazy" /><span class="pc-k">Families</span><b>Parents with children at home</b><em>Name a guardian, decide who manages what your children inherit, and keep decisions with people you trust.</em></div><div class="pcard"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=72&auto=format&fit=crop" alt="A family home with a wide front porch" loading="lazy" /><span class="pc-k">Homeowners</span><b>Couples and homeowners</b><em>Plan for your Texas home and accounts, with a trust where it fits, so your family is not left to sort it out in court.</em></div><div class="pcard"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=72&auto=format&fit=crop" alt="A handshake across a desk" loading="lazy" /><span class="pc-k">Owners</span><b>Business owners</b><em>Fit your company into the same plan as your family, in coordination with your CPA and financial advisor.</em></div></div>
+    <section class="sec" id="services"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">What we do</p><h2>More than a will.</h2><p class="lede">Planning ahead, caring for someone who needs help, or settling an estate after a loss: one attorney, in plain English, with a flat fee in writing.</p></div>
+      <div class="svc-grid">{services.map((s) => (
+        <a class="svc" href={`/services#${s.id}`}><b>{s.title}</b><span class="svc__short">{s.short}</span><span class="svc__for">{s.for}</span><span class="svc__more">Learn more</span></a>
+      ))}<a class="svc svc--cta" href={cta.href}><b>Not sure which?</b><span class="svc__short">Start with the map.</span><span class="svc__for">Forty-five minutes on Zoom, free. You leave knowing what you need and its flat fee.</span><span class="svc__more">Book your session</span></a></div>
+      <p class="offers-note">Estate planning is offered as four flat-fee plans, below. Every other matter is a {servicesFeeNote.charAt(0).toLowerCase() + servicesFeeNote.slice(1)}. <a href="/services">All services</a>.</p>
     </div></section>
 
     <section class="sec alt" id="pricing"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Plans &amp; pricing</p><h2>Four plans. Flat fees.</h2><p class="lede">Your fee is set in writing before any work begins. No hourly billing on your plan.</p></div>
+      <div class="sec-head"><p class="eyebrow">Estate planning plans</p><h2>Four plans. Flat fees.</h2><p class="lede">Your fee is set in writing before any work begins. No hourly billing on your plan.</p></div>
       <Plans detail={false} />
       <p class="offers-note">{trustPriceNote} Legacy is quoted in writing after your Estate Map Session. <a href="/pricing">See everything each plan includes</a>.</p>
     </div></section>
 
-    <section class="sec" id="how"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three simple steps.</h2><p class="lede">Map. Design. Sign &amp; Fund. A signed plan in about three weeks from the day you engage.</p></div>
-      <div class="steps">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><p class="when">{s.when}</p><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
-      <p class="offers-note">{timingNote}</p>
-      <div class="ctarow" style="margin-top:22px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/process">How it works</a></div>
-    </div></section>
+    <Tercet variant="protects" />
 
-    <section class="sec dark" id="russ"><div class="wrap guide-grid">
-      <img src="/russ-color.jpg" alt="Russ Michaels, attorney, in a dark suit" width="340" height="425" loading="lazy" />
-      <div><p class="eyebrow">Your attorney</p><h2>Russ Michaels</h2><p class="lede">An attorney in Austin who handles every plan personally, from the first map to the final signature. More than twenty years as a CEO and nonprofit leader taught him what a plan has to do when it is finally needed.</p><blockquote>A good plan is not about the end. It is about the people you love knowing exactly what you intended.</blockquote><div class="ctarow"><a class="btn btn-ghost" href="/about">About Russ</a><a class="btn btn-ghost" href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></div></div>
+    <section class="checkband" id="checklist"><div class="wrap checkband__in">
+      <div><p class="eyebrow">Not ready to book?</p><h2>Start with the free Texas checklist.</h2><p>One page: the people, the property and the papers to gather before you plan. Print it, fill it in at the kitchen table, and bring it to your session when you are ready.</p></div>
+      <div class="ctarow"><a class="btn btn-acc" href={guideCta.href}>{guideCta.label}</a></div>
     </div></section>
 
     <section class="sec alt" id="faq"><div class="wrap">
@@ -75,7 +92,7 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
     </div></section>
 
     <section class="sec final" id="begin"><img class="bgimg" src="https://images.unsplash.com/photo-1761233976686-f43410a4f5d8?w=1800&q=72&auto=format&fit=crop" alt="Four generations of hands resting together on a table" loading="lazy" /><div class="veil"></div><div class="wrap">
-      <h2>See your estate on one screen.</h2><p class="lede">Forty-five minutes on Zoom, free. You leave knowing what you need and exactly what it costs.</p>
+      <h2>Your wishes, clear. Your family, ready.</h2><p class="lede">{story.success.join(' ')} It starts with forty-five minutes on Zoom, free.</p>
       <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 </Base>

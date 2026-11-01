@@ -1,0 +1,53 @@
+---
+// Practice areas. Content lives in src/data/site.js (services). Fees: estate planning uses the four plans;
+// everything else is a flat fee quoted after the free Estate Map Session. No prices here.
+import Base from '../layouts/Base.astro';
+import { firm, cta, guideCta, services, servicesFeeNote, steps } from '../data/site.js';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Tercet Law services",
+  itemListElement: services.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: { "@type": "Service", name: s.title, description: `${s.short}. For ${s.for.charAt(0).toLowerCase() + s.for.slice(1)}`, provider: { "@id": `${firm.url}/#firm` }, areaServed: "Texas" },
+  })),
+};
+---
+<Base
+  title="Services | Tercet Law, Austin, Texas"
+  description="Estate planning, probate and estate administration, trust administration, elder law and incapacity planning, special needs planning, business succession, and Texas deeds. Plain English, flat fees in writing."
+  path="/services/"
+  schema={[serviceSchema]}
+>
+    <section class="pagehero"><img class="bgimg" src="/images/services-three-generations.jpg" width="1800" height="1200" style="object-position:55% 18%" alt="A young man and a woman helping an older man read through a book at a dining table" fetchpriority="high" /><div class="veil"></div><div class="wrap">
+      <p class="eyebrow">Services</p><h1>Everything your plan <em>touches.</em></h1><p class="lede">Planning ahead, caring for someone who needs help, or settling an estate after a loss. One attorney, plain English, and a flat fee in writing before any work begins.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={guideCta.href}>{guideCta.label}</a></div>
+    </div></section>
+
+    <section class="sec" id="areas"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Practice areas</p><h2>Seven ways we help.</h2><p class="lede">Not sure which one you need? That is what the free Estate Map Session is for.</p></div>
+      <div class="svc-detail">{services.map((s) => (
+        <article class="svcd" id={s.id}>
+          <h3>{s.title}</h3>
+          <p class="svcd__short">{s.short}</p>
+          <p class="svcd__k">Who it is for</p><p>{s.for}</p>
+          <p class="svcd__k">What is included</p>
+          <ul>{s.includes.map((i) => <li>{i}</li>)}</ul>
+          <p class="svcd__fee">{s.fee === 'plans' ? <span>Four flat-fee plans. <a href="/pricing">See pricing</a>.</span> : <span>{servicesFeeNote}.</span>}</p>
+        </article>
+      ))}<div class="svcd svcd--cta"><h3>Not sure which?</h3><p class="svcd__short">Many families need more than one. That is normal.</p><p>In a free 45-minute Estate Map Session on Zoom, Russ maps what you have and what you want, and tells you which of these fits and its flat fee. No pressure either way.</p><p style="margin-top:18px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a></p></div></div>
+      <p class="faq-note">Every matter is different. What a matter includes is confirmed in your engagement letter, with the fee, before any work begins. Court costs, recording fees and other third-party charges are separate and disclosed in advance. {firm.license}.</p>
+    </div></section>
+
+    <section class="sec alt" id="how"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">The same three steps</p><h2>Whatever brings you here.</h2></div>
+      <div class="steps">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
+      <p class="offers-note">For probate and trust administration, the steps are the same idea: map what there is, design the path, then carry it out with you. <a href="/process">See the process</a>.</p>
+    </div></section>
+
+    <section class="sec final plain" id="begin"><div class="wrap">
+      <h2>Talk it through first.</h2><p class="lede">A free 45-minute Estate Map Session on Zoom. You leave knowing what you need, and the flat fee to do it.</p>
+      <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
+    </div></section>
+</Base>

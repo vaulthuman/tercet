@@ -1,0 +1,24 @@
+---
+// "Why Tercet": the name and the promise, in threes. Content lives in src/data/site.js (tercet).
+// variant="protects" (home): you, your family, what you've built.
+// variant="lines" (About): your past, present and future.
+import { tercet } from '../data/site.js';
+const { variant = 'protects', alt = false } = Astro.props;
+const marks = ['I', 'II', 'III'];
+const promise = tercet.promise.charAt(0).toLowerCase() + tercet.promise.slice(1);
+const items = variant === 'lines'
+  ? tercet.lines.map((l) => ({ k: l.k, t: l.t, d: l.d }))
+  : tercet.protects.map((p) => ({ k: null, t: p.t, d: p.d }));
+---
+<section class={`sec${alt ? ' alt' : ''}`} id="tercet"><div class="wrap">
+  {variant === 'lines' ? (
+    <div class="sec-head"><p class="eyebrow">Why Tercet</p><h2>The name is the promise.</h2><p class="lede">{tercet.meaning} A good plan works the same way: your past, your present and your future, written down plainly and working as one. Our promise is just as simple: {promise}</p></div>
+  ) : (
+    <div class="sec-head"><p class="eyebrow">Why Tercet</p><h2>Three things a plan protects.</h2><p class="lede">{tercet.meaning} A good plan works the same way, protecting three things at once. Our promise is simple: {promise}</p></div>
+  )}
+  <div class="three">
+    {items.map((it, i) => (
+      <div class="three__line"><span class="three__n" aria-hidden="true">{marks[i]}</span>{it.k && <p class="three__k">{it.k}</p>}<b>{it.t}</b><p>{it.d}</p></div>
+    ))}
+  </div>
+</div></section>

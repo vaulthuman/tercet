@@ -102,27 +102,48 @@ export const priceSummary = plans
   .join(', ');
 const trustPlan = plans.find((p) => p.id === 'trust');
 export const trustPriceNote = `The Trust Plan is ${trustPlan.price} for one person and ${trustPlan.alt.replace(' for a couple', '')} for a couple.`;
+const legacyPlan = plans.find((p) => p.from);
+export const legacyPriceNote = `Legacy starts at ${legacyPlan.price} and is quoted in writing after your Estate Map Session.`;
+const byAmount = [...plans].sort((a, b) => a.amount - b.amount);
+export const priceRange = `${byAmount[0].price}–${byAmount[byAmount.length - 1].price}+`;
 
-// How it works: Map → Design → Sign → Fund.
+// How it works: three steps. Map → Design → Sign & Fund.
 export const steps = [
   {
-    n: "01", title: "Map", when: "Within 3 days",
+    n: "01", title: "Map", when: "Free · 45 minutes on Zoom",
+    short: "a free 45-minute Estate Map Session on Zoom, where the client sees their whole estate on one screen",
     body: "Your free 45-minute Estate Map Session on Zoom. Russ lays out what you own, who depends on you and who you trust, on one screen you can see. You leave knowing which plan fits and its flat fee.",
   },
   {
-    n: "02", title: "Design", when: "Drafts in 10 days",
-    body: "You choose a plan and sign a flat-fee engagement letter. Russ designs and drafts every document himself, and you get drafts in plain English to read at your own pace.",
+    n: "02", title: "Design", when: "Drafts in about 10 days",
+    short: "a flat-fee engagement and a plan designed in plain English, with drafts typically in about 10 days",
+    body: "You choose a plan and sign a flat-fee engagement letter. Russ designs your plan with you in plain English, then drafts every document himself. Your drafts arrive in about 10 days, to read at your own pace.",
   },
   {
-    n: "03", title: "Sign", when: "Signed within 21 days",
-    body: "A guided signing meeting with the witnesses and notary your documents need. Every question answered before you sign a page.",
-  },
-  {
-    n: "04", title: "Fund", when: "Right after signing",
-    body: "A trust only works if it holds your assets. You get clear funding instructions, and the Trust Plan includes one Texas deed to place your home in the trust.",
+    n: "03", title: "Sign & Fund", when: "Signed in about 21 days",
+    short: "a guided signing, typically within about 21 days, then help moving assets into the plan",
+    body: "A guided signing meeting with the witnesses and notary your documents need, with every question answered first. Then we help you move your assets into the plan, so it holds what it is meant to hold.",
   },
 ];
 export const timingNote = "Timing is typical, not guaranteed. Drafts and signing are counted from the day you engage Tercet Law, and depend on receiving the information the plan needs.";
+
+// The Tercet way: a tercet is three lines that work together. Used on the home page, About and llms.txt.
+export const tercet = {
+  meaning: "A tercet is a set of three lines that work together.",
+  promise: "We don't complicate things.",
+  // Home: the three things a plan protects.
+  protects: [
+    { t: "You", d: "Powers of attorney and a directive to physicians keep decisions with the people you chose, if a day comes when you cannot make them yourself." },
+    { t: "Your family", d: "A guardian for minor children, clear choices about who inherits and who is in charge, and fewer questions left for the people you love." },
+    { t: "What you've built", d: "Your home, your accounts and your business, planned to pass the way you intend: by will, trust, deed or beneficiary form." },
+  ],
+  // About: your past, present and future.
+  lines: [
+    { k: "Your past", t: "What you've built", d: "A home, savings, a business: the work of a lifetime, written into a plan that says where it goes." },
+    { k: "Your present", t: "What you want now", d: "Who acts for you if you cannot, and what you want, in plain English you can read and sign with confidence." },
+    { k: "Your future", t: "Who comes next", d: "The people you love, with clear instructions and the documents they need to act." },
+  ],
+};
 
 // Texas FAQ. General information only. Used on /faq (and its structured data) and on the home page.
 export const faqs = [

@@ -14,9 +14,16 @@ export const firm = {
   license: "Licensed in Texas",
   attorney: "Russ Michaels", // the name used in page copy
   responsibleAttorney: RESPONSIBLE_ATTORNEY,
+  // Phone: swap these three lines for the Texas (512/737) number once Russ picks it.
   phone: "(888) 833-2510",
   phoneHref: "tel:+18888332510",
   phoneSchema: "+1-888-833-2510",
+  // Texas office address (footer, structured data). Leave street blank to show city only.
+  street: "1401 Lavaca Street, Suite 211",
+  zip: "78701",
+  // State Bar of Texas bar number. Leave blank until the State Bar issues it; the footer,
+  // disclaimers and structured data show it automatically once filled in.
+  barNumber: "",
   email: "russ@tercetlaw.com",
   url: "https://www.tercetlaw.com",
   linkedin: "https://www.linkedin.com/in/russ-michaels/",
@@ -26,6 +33,12 @@ export const firm = {
 export const cta = { label: "Book your Estate Map Session", short: "Book", href: "/start" };
 
 export const session = { name: "Estate Map Session", minutes: 45, where: "Zoom" };
+
+// Booking (Calendly). One place for the event link used by the modal and /start.
+export const booking = {
+  url: "https://calendly.com/vaulthuman/tercet-planning-call",
+  embed: "https://calendly.com/vaulthuman/tercet-planning-call?hide_gdpr_banner=1&hide_landing_page_details=1",
+};
 
 // Transitional call to action: the free checklist for visitors not ready to book.
 export const guideCta = { label: "Get the free Texas checklist", href: "/checklist" };

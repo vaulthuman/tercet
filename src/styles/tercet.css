@@ -259,3 +259,7 @@ button.btn{font-family:inherit;cursor:pointer}
 .svcd .svcd__short{margin:0 0 4px;color:var(--ink)}
 .svcd--cta{background:var(--dark);border-color:var(--dark);border-top-color:var(--acc-soft)}
 .svcd--cta h3{color:#fff}.svcd--cta .svcd__short{color:#fff}.svcd--cta p{color:rgba(255,255,255,.78)}
+
+/* Background motion (2026-11-02): looping muted clip over its poster frame; still image only for reduced motion */
+.bgvid{pointer-events:none}
+@media(prefers-reduced-motion:reduce){.bgvid{display:none}}

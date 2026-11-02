@@ -1,0 +1,39 @@
+---
+// A place for one of Russ's short videos (scripts: "Tercet Law — Six 90-Second Videos").
+// With `src` it plays in a pop-up player with captions; without it, it shows a "coming soon" card
+// so the page layout is ready. Leave `src` empty until the video is approved.
+interface Props {
+  title: string;          // e.g. "Why I do this work"
+  length?: string;        // e.g. "90 seconds"
+  src?: string;           // /video/russ/welcome.mp4 once recorded
+  captions?: string;      // /video/russ/welcome.vtt
+  poster?: string;
+  eyebrow?: string;
+  heading?: string;
+  lede?: string;
+  dark?: boolean;
+}
+const { title, length = '90 seconds', src = '', captions = '', poster = '/russ-michaels.jpg', eyebrow = 'Watch', heading, lede, dark = false } = Astro.props;
+const ready = Boolean(src);
+---
+<section class:list={['sec', 'vslot-sec', { dark }]}><div class="wrap vslot-grid">
+  <div class="vslot-copy">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{heading ?? title}</h2>
+    {lede && <p class="lede">{lede}</p>}
+    <slot />
+  </div>
+  {ready ? (
+    <button class="vslot" type="button" data-vslot={src} data-vslot-captions={captions} data-vslot-poster={poster} aria-label={`Play video: ${title}, ${length}, with captions`}>
+      <img src={poster} alt="" loading="lazy" />
+      <span class="vslot__play" aria-hidden="true"></span>
+      <span class="vslot__meta">{title} · {length} · captions</span>
+    </button>
+  ) : (
+    <div class="vslot is-soon" role="img" aria-label={`Video coming soon: ${title}`}>
+      <img src={poster} alt="" loading="lazy" />
+      <span class="vslot__play" aria-hidden="true"></span>
+      <span class="vslot__meta">Video coming soon · {title} · {length}</span>
+    </div>
+  )}
+</div></section>

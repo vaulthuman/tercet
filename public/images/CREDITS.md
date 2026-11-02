@@ -36,10 +36,17 @@ Muted loops of 14 seconds or less, re-encoded to 1280x720 H.264 at 30 fps withou
 
 | File | Used on | Pexels video |
 |---|---|---|
-| home.mp4 | Home, hero | Family reading on the sofa, https://www.pexels.com/video/6667318/ |
+| home.mp4 | Home, hero | Family walking in the park (Mixkit 33729, Mixkit License) |
 | services.mp4 | Services, hero | Older couple with their attorney, https://www.pexels.com/video/8440642/ |
 | pricing.mp4 | Pricing, hero | Couple signing documents together, https://www.pexels.com/video/8523711/ |
 | process.mp4 | Process, hero | Older couple meeting an advisor, https://www.pexels.com/video/8814509/ |
 | faq.mp4 | FAQ, hero | Three generations in the park, https://www.pexels.com/video/7982588/ |
-| about.mp4 | About, hero | Grandparents with their grandson, https://www.pexels.com/video/6970300/ |
+| about.mp4 | About, hero | Three generations sharing coffee, https://www.pexels.com/video/7981327/ |
 | start.mp4 | Start, hero | Family dinner, https://www.pexels.com/video/8811044/ |
+
+## Stills taken from Pexels videos (2026-11-02)
+
+| File | Used on | Source |
+|---|---|---|
+| about-family-sofa.jpg | About, "How Russ works" | Frame from https://www.pexels.com/video/6994703/ (Pexels License) |
+| start-family-kitchen.jpg | Start, "Why families book" | Frame from https://www.pexels.com/video/4297077/ (Pexels License) |

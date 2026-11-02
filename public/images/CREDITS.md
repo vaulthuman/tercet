@@ -30,16 +30,16 @@ No photos are hotlinked from images.unsplash.com any more; every photo is stored
 
 Edit note: on about-couple-signing.jpg the printed heading and handwriting on the paper were blurred so no document title is legible (the Pexels License allows modification).
 
-## Background video loops in /public/video (2026-11-02)
+## Background video loops in /public/video (rev 2, 2026-11-02)
 
-Muted 14-second (or shorter) loops, re-encoded to 1280×720 H.264 without audio. Source: Mixkit, free for commercial use under the Mixkit License (https://mixkit.co/license/#videoFree); no attribution required. Poster image = first frame of each clip (shown for reduced-motion visitors).
+Muted loops of 14 seconds or less, re-encoded to 1280x720 H.264 at 30 fps without audio. Chosen for diversity of age, color and culture. Source: Pexels, free for commercial use under the Pexels License (https://www.pexels.com/license/); no attribution required. Poster image = a frame from each clip (shown for reduced-motion visitors).
 
-| File | Used on | Mixkit clip |
+| File | Used on | Pexels video |
 |---|---|---|
-| home.mp4 | Home, hero | Young children with their grandparents (36147) |
-| services.mp4 | Services, hero | Lawyer explains to client with laptop in office (16106) |
-| pricing.mp4 | Pricing, hero | Man signing off a contract and handshake (23115) |
-| process.mp4 | Process, hero | Couple at lawyer office (23740) |
-| faq.mp4 | FAQ, hero | Grandparents reading a letter from their family (21674) |
-| about.mp4 | About, hero | Family walking in the park (33729) |
-| start.mp4 | Start, hero | Slow-motion offer of house key and handshake (12877) |
+| home.mp4 | Home, hero | Family reading on the sofa, https://www.pexels.com/video/6667318/ |
+| services.mp4 | Services, hero | Older couple with their attorney, https://www.pexels.com/video/8440642/ |
+| pricing.mp4 | Pricing, hero | Couple signing documents together, https://www.pexels.com/video/8523711/ |
+| process.mp4 | Process, hero | Older couple meeting an advisor, https://www.pexels.com/video/8814509/ |
+| faq.mp4 | FAQ, hero | Three generations in the park, https://www.pexels.com/video/7982588/ |
+| about.mp4 | About, hero | Grandparents with their grandson, https://www.pexels.com/video/6970300/ |
+| start.mp4 | Start, hero | Family dinner, https://www.pexels.com/video/8811044/ |

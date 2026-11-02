@@ -204,6 +204,9 @@ export const checklist = [
   },
 ];
 
+// Advertised prices are honored through this date (Texas advertising rules). Update it when prices change.
+export const pricesEffectiveThrough = "March 31, 2027";
+
 // Plans and prices. Prices show exactly as written here.
 export const plans = [
   {

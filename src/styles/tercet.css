@@ -263,3 +263,23 @@ button.btn{font-family:inherit;cursor:pointer}
 /* Background motion (2026-11-02): looping muted clip over its poster frame; still image only for reduced motion */
 .bgvid{pointer-events:none}
 @media(prefers-reduced-motion:reduce){.bgvid{display:none}}
+
+/* Video slots for Russ's short videos (2026-11-02): copy beside a 16:9 player; "coming soon" until a src is set */
+.vslot-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.vslot-copy h2{margin:10px 0 18px;max-width:18ch}
+.vslot-copy .lede{max-width:46ch}
+.vslot{position:relative;display:block;width:100%;aspect-ratio:16/9;max-width:100%;border:0;padding:0;border-radius:12px;overflow:hidden;background:var(--dark);box-shadow:0 24px 60px rgba(0,0,0,.25);cursor:pointer;color:#fff;font:inherit;text-align:left}
+.vslot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;opacity:.72;transition:opacity .3s,transform .6s}
+.vslot:hover img,.vslot:focus-visible img{opacity:.85;transform:scale(1.02)}
+.vslot:focus-visible{outline:3px solid var(--acc-soft);outline-offset:4px}
+.vslot__play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.vslot__play:after{content:"";position:absolute;left:31px;top:24px;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent var(--acc)}
+.vslot__meta{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;background:linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,0));font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.vslot.is-soon{cursor:default}
+.vslot.is-soon .vslot__play{opacity:.55}
+.vpop{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(10,8,6,.88);padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.vpop.open{display:flex}
+.vpop video{width:min(1100px,100%);max-height:86vh;border-radius:10px;background:#000}
+.vpop__x{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.4);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+@media(max-width:900px){.vslot-grid{grid-template-columns:1fr;gap:28px}}
+.hero .guarantee .watchlink{color:var(--acc-soft);text-decoration:underline;text-underline-offset:3px}

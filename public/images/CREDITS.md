@@ -29,3 +29,17 @@ Licences:
 No photos are hotlinked from images.unsplash.com any more; every photo is stored in this folder.
 
 Edit note: on about-couple-signing.jpg the printed heading and handwriting on the paper were blurred so no document title is legible (the Pexels License allows modification).
+
+## Background video loops in /public/video (2026-11-02)
+
+Muted 14-second (or shorter) loops, re-encoded to 1280×720 H.264 without audio. Source: Mixkit, free for commercial use under the Mixkit License (https://mixkit.co/license/#videoFree); no attribution required. Poster image = first frame of each clip (shown for reduced-motion visitors).
+
+| File | Used on | Mixkit clip |
+|---|---|---|
+| home.mp4 | Home, hero | Young children with their grandparents (36147) |
+| services.mp4 | Services, hero | Lawyer explains to client with laptop in office (16106) |
+| pricing.mp4 | Pricing, hero | Man signing off a contract and handshake (23115) |
+| process.mp4 | Process, hero | Couple at lawyer office (23740) |
+| faq.mp4 | FAQ, hero | Grandparents reading a letter from their family (21674) |
+| about.mp4 | About, hero | Family walking in the park (33729) |
+| start.mp4 | Start, hero | Slow-motion offer of house key and handshake (12877) |

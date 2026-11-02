@@ -1,5 +1,5 @@
 // Builds /llms.txt from src/data/site.js, so names and prices stay in one place.
-import { firm, plans, session, steps, tercet, story, services, servicesFeeNote, clientPortal, RESPONSIBLE_ATTORNEY } from '../data/site.js';
+import { firm, plans, session, steps, tercet, story, services, servicesFeeNote, clientPortal, RESPONSIBLE_ATTORNEY, pricesEffectiveThrough } from '../data/site.js';
 
 export function GET() {
   const alias = RESPONSIBLE_ATTORNEY !== firm.attorney ? `, who practices as ${firm.attorney}` : '';
@@ -20,7 +20,7 @@ Contact: ${firm.phone} · ${firm.email} · ${firm.url}
 ## Services
 ${serviceLines}
 
-## Estate planning plans (flat fees, set in writing before any work begins)
+## Estate planning plans (flat fees, set in writing before any work begins; prices effective through ${pricesEffectiveThrough})
 ${planLines}
 
 ## How it works (three steps)

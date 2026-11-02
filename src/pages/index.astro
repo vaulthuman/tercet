@@ -6,7 +6,7 @@ import Base from '../layouts/Base.astro';
 import Plans from '../components/Plans.astro';
 import EstateMap from '../components/EstateMap.astro';
 import Tercet from '../components/Tercet.astro';
-import { firm, cta, guideCta, steps, timingNote, faqs, trustPriceNote, story, services, servicesFeeNote } from '../data/site.js';
+import { firm, cta, guideCta, steps, timingNote, faqs, trustPriceNote, story, services, servicesFeeNote, pricesEffectiveThrough } from '../data/site.js';
 const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'bring'].includes(f.id));
 ---
 <Base
@@ -75,7 +75,7 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
     <section class="sec alt" id="pricing"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">Estate planning plans</p><h2>Four plans. Flat fees.</h2><p class="lede">Your fee is set in writing before any work begins. No hourly billing on your plan.</p></div>
       <Plans detail={false} />
-      <p class="offers-note">{trustPriceNote} Legacy is quoted in writing after your Estate Map Session. <a href="/pricing">See everything each plan includes</a>.</p>
+      <p class="offers-note">{trustPriceNote} Legacy is quoted in writing after your Estate Map Session. Prices effective through {pricesEffectiveThrough}. <a href="/pricing">See everything each plan includes</a>.</p>
     </div></section>
 
     <Tercet variant="protects" />

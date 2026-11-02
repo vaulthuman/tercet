@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import { firm, cta, faqs, faqDisclaimer, priceSummary } from '../data/site.js';
+import { firm, cta, faqs, faqDisclaimer, priceSummary, pricesEffectiveThrough } from '../data/site.js';
 
 const cost = {
   id: 'cost',
   q: 'How much does an estate plan cost at Tercet Law?',
   a: [
-    `Every plan is a flat fee set in writing before any work begins: ${priceSummary}. The Estate Map Session is free.`,
+    `Every plan is a flat fee set in writing before any work begins: ${priceSummary}. These prices are effective through ${pricesEffectiveThrough}. The Estate Map Session is free.`,
   ],
 };
 const all = [...faqs, cost];

@@ -41,7 +41,7 @@ Muted loops of 14 seconds or less, re-encoded to 1280x720 H.264 at 30 fps withou
 | pricing.mp4 | Pricing, hero | Couple signing documents together, https://www.pexels.com/video/8523711/ |
 | process.mp4 | Process, hero | Older couple meeting an advisor, https://www.pexels.com/video/8814509/ |
 | faq.mp4 | FAQ, hero | Three generations in the park, https://www.pexels.com/video/7982588/ |
-| about.mp4 | About, hero | Three generations sharing coffee, https://www.pexels.com/video/7981327/ |
+| about.mp4 | About, hero | Documents passed and signed at a desk, https://www.pexels.com/video/8061443/ |
 | start.mp4 | Start, hero | Family dinner, https://www.pexels.com/video/8811044/ |
 
 ## Stills taken from Pexels videos (2026-11-02)

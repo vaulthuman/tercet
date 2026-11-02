@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import VideoSlot from '../components/VideoSlot.astro';
 import Plans from '../components/Plans.astro';
 import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary, pricesEffectiveThrough } from '../data/site.js';
 ---
@@ -11,6 +12,9 @@ import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary, pricesEffecti
     <section class="pagehero"><img class="bgimg" src="/video/pricing.jpg" width="1280" height="720" style="object-position:50% 50%" alt="A couple side by side, signing their documents together" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/pricing.jpg" style="object-position:50% 50%" aria-hidden="true"><source src="/video/pricing.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
       <p class="eyebrow">Plans &amp; Pricing</p><h1>Flat fees. <em>Set before we start.</em></h1><p class="lede">Four plans, each a flat fee confirmed in writing before any work begins. No hourly billing on your plan, and no surprises at the end.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="#plans">Compare plans</a></div>
     </div></section>
+
+    <VideoSlot title="Why flat fees" heading="Why every plan has a flat fee." lede="Ninety seconds on how our pricing works, and why you'll never be billed for asking a question." />
+
 
     <section class="sec" id="plans"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">Four plans</p><h2>Choose what fits.</h2><p class="lede">Not sure which one? That is what the free Estate Map Session is for.</p></div>

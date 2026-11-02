@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import VideoSlot from '../components/VideoSlot.astro';
 import Tercet from '../components/Tercet.astro';
 import { firm, cta } from '../data/site.js';
 ---
@@ -8,7 +9,7 @@ import { firm, cta } from '../data/site.js';
   description="Russ Michaels is an Austin attorney who handles every Tercet Law estate plan personally, with more than twenty years as a CEO and nonprofit leader. Flat fees, plain English."
   path="/about/"
 >
-    <section class="pagehero photo-right"><img class="bgimg" src="/video/about.jpg" width="1280" height="720" style="object-position:50% 50%" alt="Grandparents helping their young grandson with a drawing at the kitchen table" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/about.jpg" style="object-position:50% 50%" aria-hidden="true"><source src="/video/about.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
+    <section class="pagehero photo-right"><img class="bgimg" src="/video/about.jpg" width="1280" height="720" style="object-position:50% 50%" alt="A grandfather, his son and his granddaughter sharing coffee and a laugh at home" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/about.jpg" style="object-position:50% 50%" aria-hidden="true"><source src="/video/about.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
       <p class="eyebrow">About Russ</p><h1>One attorney. <em>Every plan, personally.</em></h1><p class="lede">Not a case number at a large firm. {firm.attorney} handles every Tercet Law matter himself, from the first map to the final signature.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 
@@ -25,9 +26,11 @@ import { firm, cta } from '../data/site.js';
       </div>
     </div></section>
 
+    <VideoSlot title="Legacy is more than money" heading="Legacy is more than money." lede="Ninety seconds from Russ on why he calls this legacy planning, and what families want to leave behind." dark />
+
     <Tercet variant="lines" alt />
 
-    <section class="split" id="how"><div class="split__media" style="background-image:url('/images/about-couple-signing.jpg');background-position:42% 30%" role="img" aria-label="A young couple at a wooden table, the husband signing a document while his wife watches and smiles"></div><div class="split__copy">
+    <section class="split" id="how"><div class="split__media" style="background-image:url('/images/about-family-sofa.jpg');background-position:50% 30%" role="img" aria-label="A mother and father on the sofa with their son and daughter, talking together"></div><div class="split__copy">
       <p class="eyebrow">How Russ works</p><h2>Careful documents. Clear answers. No pressure.</h2>
       <ul class="ticks"><li>He recommends the plan that fits, not the biggest one.</li><li>You read every page before you sign.</li><li>You get clear instructions to fund your trust, so it holds what it is meant to hold.</li><li>He is here when life changes.</li></ul>
       <div class="ctarow"><a class="btn btn-acc" href="/process">How it works</a><a class="btn btn-line" href="/pricing">Plans &amp; pricing</a></div>

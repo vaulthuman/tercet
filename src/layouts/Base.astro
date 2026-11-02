@@ -4,10 +4,10 @@
 import '../styles/family.css';
 import '../styles/tokens.css';
 import '../styles/tercet.css';
-import { firm, cta, nav, clientPortal, guideCta, plans, priceRange, RESPONSIBLE_ATTORNEY } from '../data/site.js';
+import { firm, cta, nav, clientPortal, guideCta, plans, priceRange, booking, RESPONSIBLE_ATTORNEY } from '../data/site.js';
 
 const {
-  title = "Tercet Law | Flat-Fee Estate Planning in Austin, Texas",
+  title = "Tercet Law | Estate, Trust & Legacy Planning in Austin, Texas",
   description = "Estate planning, probate, trust administration and elder law for Austin and Texas families. Three simple steps and a flat fee in writing. Book a free 45-minute Estate Map Session on Zoom.",
   path = "/",
   inner = true,
@@ -43,6 +43,7 @@ const person = {
   sameAs: [firm.linkedin],
 };
 if (RESPONSIBLE_ATTORNEY !== firm.attorney) person.alternateName = RESPONSIBLE_ATTORNEY;
+if (firm.barNumber) person.identifier = { "@type": "PropertyValue", propertyID: "State Bar of Texas", value: firm.barNumber };
 
 const firmSchema = {
   "@context": "https://schema.org",
@@ -55,7 +56,7 @@ const firmSchema = {
   email: firm.email,
   image: "https://www.tercetlaw.com/og-tercet-texas.png",
   description: "Estate planning, probate and estate administration, trust administration, elder law and incapacity planning, special needs planning, business succession and Texas deeds for Austin and Texas families. Flat fees in writing. Every matter handled personally by the attorney. Free 45-minute Estate Map Session on Zoom.",
-  address: { "@type": "PostalAddress", addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" },
+  address: { "@type": "PostalAddress", ...(firm.street ? { streetAddress: firm.street, postalCode: firm.zip } : {}), addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" },
   areaServed: [
     { "@type": "City", name: "Austin", containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "AdministrativeArea", name: "Travis County, Texas" },
@@ -83,14 +84,15 @@ const ld = [firmSchema, ...schema];
   <meta name="geo.region" content="US-TX" /><meta name="geo.placename" content="Austin" />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Google Ads gtag (AW-18371546487) + HubSpot conversion listener -->
+  <!-- Google Ads gtag (AW-18371546487) + conversion listeners: Calendly booking and HubSpot form -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18371546487"></script>
   <script>
     window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};var gtag=window.gtag;
     gtag('js',new Date());gtag('config','AW-18371546487');gtag('config','G-B2NDY58EKD',{linker:{domains:['vaulthuman.com','tercetlaw.com']}});
     (function(){var fired=false;function fire(){if(fired)return;fired=true;gtag('event','conversion',{send_to:'AW-18371546487/yVNiCKX9xqkdEPeanrhE'});gtag('event','generate_lead');}
     window.addEventListener('message',function(e){var d=e&&e.data;if(!d)return;if(typeof d==='string'){try{d=JSON.parse(d);}catch(_){return;}}if(!d||typeof d!=='object')return;var t=d.type||d.messageType||'',n=d.eventName||d.event||'';if(t==='hsFormCallback'&&(n==='onFormSubmitted'||n==='onFormSubmit'))fire();else if(n==='onFormSubmitted')fire();else if(d.accepted===true&&d.formGuid)fire();});
-    window.addEventListener('hsFormCallback',function(e){if(e&&e.detail&&e.detail.eventName==='onFormSubmitted')fire();});})();
+    window.addEventListener('hsFormCallback',function(e){if(e&&e.detail&&e.detail.eventName==='onFormSubmitted')fire();});
+    window.addEventListener('message',function(e){if(!/(^|\.)calendly\.com$/.test((e.origin||'').replace(/^https?:\/\//,'')))return;var d=e.data;if(d&&d.event==='calendly.event_scheduled'){fire();gtag('event','book_appointment');}});})();
   </script>
   {ld.map((o) => <script type="application/ld+json" set:html={JSON.stringify(o)} />)}
 </head>
@@ -104,11 +106,11 @@ const ld = [firmSchema, ...schema];
 
   <footer class="site">
     <div class="wrap foot">
-      <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Estate planning, probate and elder law for Austin and Texas families. Flat fees, in writing.</p><p><a href={`mailto:${firm.email}`}>{firm.email}</a> · <a href={firm.phoneHref}>{firm.phone}</a></p></div>
+      <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Estate, trust and legacy planning for Austin and Texas families. Flat fees, in writing.</p><p><a href={`mailto:${firm.email}`}>{firm.email}</a> · <a href={firm.phoneHref}>{firm.phone}</a></p></div>
       <ul><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/process">Process</a></li><li><a href="/faq">Texas FAQ</a></li><li><a href="/about">About Russ</a></li><li><a href={cta.href}>{cta.label}</a></li></ul>
       <ul><li><a href={guideCta.href}>Free Texas checklist</a></li><li><a href={clientPortal.href}>{clientPortal.label}</a></li><li><a href="/disclaimers">Disclaimers</a></li><li><a href="/privacy/">Privacy</a></li><li><a href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.vaulthuman.com">Vault Human</a> — daily coaching</li></ul>
     </div>
-    <div class="wrap legal"><span class="resp">{firm.legalName} · {firm.city}, {firm.state} · Responsible attorney: {RESPONSIBLE_ATTORNEY}</span><span>Attorney advertising</span></div>
+    <div class="wrap legal"><span class="resp">{firm.legalName} · {firm.street ? `${firm.street}, ` : ''}{firm.city}, {firm.state}{firm.zip ? ` ${firm.zip}` : ''} · Responsible attorney: {RESPONSIBLE_ATTORNEY}{firm.barNumber ? `, State Bar of Texas No. ${firm.barNumber}` : ''}</span><span>Attorney advertising</span></div>
     <div class="wrap legal-fine">&copy; {year} {firm.legalName}. {firm.license}. This website is general information, not legal advice. No attorney-client relationship forms until an engagement letter is signed. <a href="/disclaimers">Disclaimers</a> · <a href="/privacy/">Privacy</a> · Part of the Vault Human family.</div>
   </footer>
 
@@ -118,7 +120,7 @@ const ld = [firmSchema, ...schema];
     <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book your Estate Map Session">
       <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
       <h2 class="vh-modal__title">Book your Estate Map Session</h2><p class="vh-modal__sub">Free, 45 minutes, on Zoom. Pick a time that suits you and you'll get a calendar invite with the link.</p>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/vaulthuman/tercet-planning-call?hide_gdpr_banner=1&hide_landing_page_details=1" style="min-width:300px;height:640px;border-radius:10px;overflow:hidden;background:#fff"></div><p style="margin:12px 0 0;font-size:14px;opacity:.8;text-align:center">Rather talk now? <a href="tel:+18888332510">(888) 833-2510</a></p><script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script><style is:inline>.vh-modal__card{width:min(820px,94vw)!important}</style>
+      <div class="calendly-inline-widget" data-url={booking.embed} style="min-width:300px;height:640px;border-radius:10px;overflow:hidden;background:#fff"></div><p style="margin:12px 0 0;font-size:14px;opacity:.8;text-align:center">Rather talk now? <a href={firm.phoneHref}>{firm.phone}</a></p><script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script><style is:inline>.vh-modal__card{width:min(820px,94vw)!important}</style>
     </div>
   </div>
   )}

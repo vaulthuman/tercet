@@ -115,6 +115,23 @@ const ld = [firmSchema, ...schema];
   </footer>
 
   {modal && (
+  <div id="vpop" class="vpop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video">
+    <button class="vpop__x" type="button" data-vpop-close aria-label="Close video">&times;</button>
+    <video controls playsinline preload="none"></video>
+  </div>
+  <script is:inline>
+  (function(){var p=document.getElementById('vpop');if(!p||!document.querySelector('[data-vslot]'))return;var v=p.querySelector('video');
+  function close(){v.pause();p.classList.remove('open');p.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+  document.querySelectorAll('[data-vslot]').forEach(function(b){b.addEventListener('click',function(){
+    v.innerHTML='';v.src=b.dataset.vslot;v.poster=b.dataset.vslotPoster||'';
+    if(b.dataset.vslotCaptions){var t=document.createElement('track');t.kind='captions';t.srclang='en';t.label='English';t.src=b.dataset.vslotCaptions;t.default=true;v.appendChild(t)}
+    p.classList.add('open');p.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var q=v.play();if(q&&q.catch)q.catch(function(){});
+    try{gtag('event','video_start',{video_title:b.getAttribute('aria-label')})}catch(e){}
+  })});
+  p.querySelectorAll('[data-vpop-close]').forEach(function(x){x.addEventListener('click',close)});
+  p.addEventListener('click',function(e){if(e.target===p)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open'))close()});})();
+  </script>
   <div id="vh-modal" class="vh-modal" aria-hidden="true">
     <div class="vh-modal__bg" data-close-form></div>
     <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book your Estate Map Session">

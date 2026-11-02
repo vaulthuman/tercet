@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { firm, priceSummary } from '../data/site.js';
+import { firm, priceSummary, booking } from '../data/site.js';
 ---
 <Base
   title="Book your Estate Map Session | Tercet Law, Austin"
@@ -18,7 +18,7 @@ import { firm, priceSummary } from '../data/site.js';
         <p class="offers-note" style="margin-top:22px">Flat-fee plans: {priceSummary}. <a href="/pricing">See what is in each plan</a>.</p>
       </div>
       <div class="formcard"><h3>Pick a time</h3><p>Confidential. Please share only a short note about what you need; details can wait for the session.</p>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/vaulthuman/tercet-planning-call?hide_gdpr_banner=1&hide_landing_page_details=1" style="min-width:300px;height:640px;border-radius:10px;overflow:hidden;background:#fff"></div><p style="margin:12px 0 0;font-size:14px;opacity:.8;text-align:center">Rather talk now? <a href="tel:+18888332510">(888) 833-2510</a></p><script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script><style is:inline>.vh-modal__card{width:min(820px,94vw)!important}</style>
+        <div class="calendly-inline-widget" data-url={booking.embed} style="min-width:300px;height:640px;border-radius:10px;overflow:hidden;background:#fff"></div><p style="margin:12px 0 0;font-size:14px;opacity:.8;text-align:center">Rather talk now? <a href={firm.phoneHref}>{firm.phone}</a></p><script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script><style is:inline>.vh-modal__card{width:min(820px,94vw)!important}</style>
       </div>
     </div></section>
     <section class="sec alt" id="who"><div class="wrap">

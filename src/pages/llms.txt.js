@@ -13,7 +13,7 @@ export function GET() {
 > ${story.oneLiner} Every matter is handled personally by attorney ${firm.attorney}. Free ${session.minutes}-minute ${session.name} on ${session.where}.
 
 ## About
-${firm.legalName} is an estate planning law firm based in ${firm.city}, ${firm.state}, serving Austin and Travis County. Responsible attorney: ${RESPONSIBLE_ATTORNEY}${alias}. ${firm.license}.
+${firm.legalName} is an estate planning law firm based in ${firm.city}, ${firm.state}, serving Austin and Travis County. Responsible attorney: ${RESPONSIBLE_ATTORNEY}${alias}. ${firm.license}${firm.barNumber ? ` (State Bar of Texas No. ${firm.barNumber})` : ''}.
 
 Contact: ${firm.phone} · ${firm.email} · ${firm.url}
 

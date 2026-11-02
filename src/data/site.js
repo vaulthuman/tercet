@@ -36,8 +36,8 @@ export const session = { name: "Estate Map Session", minutes: 45, where: "Zoom" 
 
 // Booking (Calendly). One place for the event link used by the modal and /start.
 export const booking = {
-  url: "https://calendly.com/vaulthuman/tercet-planning-call",
-  embed: "https://calendly.com/vaulthuman/tercet-planning-call?hide_gdpr_banner=1&hide_landing_page_details=1",
+  url: "https://calendly.com/vaulthuman/tercet-law-estate-map-session",
+  embed: "https://calendly.com/vaulthuman/tercet-law-estate-map-session?hide_gdpr_banner=1&hide_landing_page_details=1",
 };
 
 // Transitional call to action: the free checklist for visitors not ready to book.

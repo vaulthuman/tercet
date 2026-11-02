@@ -15,7 +15,7 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
   path="/"
   inner={false}
 >
-    <section class="hero hero-split"><div class="wrap hero-grid">
+    <section class="hero"><img class="bgimg" src="/video/home.jpg" width="1280" height="720" style="object-position:50% 35%" alt="Grandparents on a sofa sharing a tablet with their two granddaughters" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/home.jpg" style="object-position:50% 35%" aria-hidden="true"><source src="/video/home.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
       <div class="hero-copy">
         <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
         <h1>Estate, trust and legacy planning <em>for Austin families.</em></h1>
@@ -23,7 +23,6 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
         <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={guideCta.href}>{guideCta.label}</a></div>
         <p class="guarantee">Free · 45 minutes · on Zoom · {firm.license}</p>
       </div>
-      <figure class="hero-photo"><img src="/images/home-family-advisor-table.jpg" width="1600" height="1068" style="object-position:50% 40%" alt="An advisor with a clipboard talking with a father, mother and their young daughter around a dining table at home" fetchpriority="high" /></figure>
     </div></section>
 
     <section class="split" id="problem"><div class="split__media" style="background-image:url('/images/home-family-newborn.jpg');background-position:70% 30%" role="img" aria-label="Three generations of a family smiling around a newborn baby held by his mother, grandparents at either side"></div><div class="split__copy">

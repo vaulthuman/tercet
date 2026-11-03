@@ -1,0 +1,96 @@
+---
+// The Estate Map as a wheel: six parts of a life around you, each matched to the papers that protect it.
+// Interactive: hover or tap a part to see what it covers. Cycles on its own until someone touches it.
+// Generic illustration, no client data.
+const parts = [
+  { k: 'Your people', t: 'Who depends on you', d: 'Children, a spouse, aging parents, the people you would never want to leave guessing.', p: 'Will · guardian for minor children · beneficiaries' },
+  { k: 'Your home', t: 'The house and the land', d: 'Your homestead, a family ranch, a rental. How each one passes, and whether it has to go through court.', p: 'Trust · deed · Texas homestead planning' },
+  { k: 'Your money', t: 'Accounts and retirement', d: 'Bank, brokerage, retirement accounts and life insurance. Many pass by form, so the forms have to match the plan.', p: 'Beneficiary forms · trust funding' },
+  { k: 'Your decisions', t: 'Who decides if you can’t', d: 'Someone you trust to pay the bills, talk to your doctors and act for you, without asking a court first.', p: 'Durable power of attorney · medical power of attorney' },
+  { k: 'Your wishes', t: 'What you want', d: 'Your instructions, in your words. Care at the end of life, how you want things handled, what matters most.', p: 'Will · directive to physicians · letter of wishes' },
+  { k: 'Your digital life', t: 'Accounts, photos, AI and your voice', d: 'Email, photos, the AI tools that know you, even your voice and likeness. Texas lets you name who can reach them.', p: 'Digital assets authority · values file · family code word' },
+];
+const N = parts.length, R0 = 118, R1 = 236, C = 260;
+const rad = (a: number) => ((a - 90) * Math.PI) / 180;
+const pt = (r: number, a: number) => [C + r * Math.cos(rad(a)), C + r * Math.sin(rad(a))].map((v) => v.toFixed(1));
+const seg = (i: number) => {
+  const a0 = (360 / N) * i + 1.2, a1 = (360 / N) * (i + 1) - 1.2;
+  const [x0, y0] = pt(R1, a0), [x1, y1] = pt(R1, a1), [x2, y2] = pt(R0, a1), [x3, y3] = pt(R0, a0);
+  return `M${x0} ${y0} A${R1} ${R1} 0 0 1 ${x1} ${y1} L${x2} ${y2} A${R0} ${R0} 0 0 0 ${x3} ${y3}Z`;
+};
+const lab = (i: number) => pt((R0 + R1) / 2, (360 / N) * (i + 0.5));
+---
+<div class="ew" data-ew>
+  <svg class="ew__svg" viewBox="0 0 520 520" role="group" aria-label="The Estate Map: six parts of your life around you. Select one to see what it covers.">
+    <circle class="ew__orbit" cx={C} cy={C} r="252" />
+    {parts.map((p, i) => {
+      const [lx, ly] = lab(i);
+      const words = p.k.replace('Your ', '').toUpperCase();
+      return (
+        <g class="ew__seg" data-i={i} tabindex="0" role="button" aria-label={`${p.k}: ${p.t}`}>
+          <path d={seg(i)} />
+          <text x={lx} y={Number(ly) - 6} class="ew__k">YOUR</text>
+          <text x={lx} y={Number(ly) + 18} class="ew__t">{words}</text>
+        </g>
+      );
+    })}
+    <circle class="ew__core" cx={C} cy={C} r={R0 - 12} />
+    <text class="ew__c0" x={C} y={C - 10}>YOUR</text>
+    <text class="ew__c1" x={C} y={C + 26}>ESTATE MAP</text>
+  </svg>
+  <div class="ew__panel" aria-live="polite">
+    {parts.map((p, i) => (
+      <div class="ew__card" data-i={i} hidden={i !== 0}>
+        <p class="ew__pk">{p.k}</p>
+        <h3>{p.t}</h3>
+        <p>{p.d}</p>
+        <p class="ew__docs">{p.p}</p>
+      </div>
+    ))}
+    <p class="ew__fine">Your own map is built with Russ, in about forty-five minutes.</p>
+  </div>
+</div>
+
+<style is:inline>
+.ew{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+.ew__svg{width:100%;max-width:520px;height:auto;display:block;margin:0 auto;overflow:visible}
+.ew__orbit{fill:none;stroke:rgba(157,183,203,.35);stroke-width:1.5;stroke-dasharray:3 9;transform-origin:260px 260px;animation:ewspin 60s linear infinite}
+@keyframes ewspin{to{transform:rotate(360deg)}}
+.ew__seg{cursor:pointer;outline:none}
+.ew__seg path{fill:#2F3A46;stroke:#1F1A15;stroke-width:2;transition:fill .35s ease,transform .35s ease;transform-origin:260px 260px}
+.ew__seg:nth-child(odd) path{fill:#34414E}
+.ew__seg text{pointer-events:none;text-anchor:middle;fill:#F7F3EC}
+.ew__k{font:600 10px Inter,sans-serif;letter-spacing:.24em;fill:#9DB7CB!important}
+.ew__t{font:400 26px "Bebas Neue",sans-serif;letter-spacing:.04em}
+.ew__seg.on path,.ew__seg:hover path,.ew__seg:focus-visible path{fill:#1F3A5F;transform:scale(1.035)}
+.ew__seg.on .ew__k{fill:#F7F3EC!important}
+.ew__core{fill:#1F1A15;stroke:#C98B5A;stroke-width:2}
+.ew__c0{text-anchor:middle;font:600 12px Inter,sans-serif;letter-spacing:.3em;fill:#9DB7CB}
+.ew__c1{text-anchor:middle;font:400 34px "Bebas Neue",sans-serif;letter-spacing:.04em;fill:#F7F3EC}
+.ew__panel{position:relative;min-height:300px}
+.ew__card{background:rgba(255,255,255,.04);border:1px solid rgba(247,243,236,.14);border-top:3px solid #C98B5A;border-radius:12px;padding:30px 30px 26px;animation:ewin .45s ease}
+@keyframes ewin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ew__pk{font:700 12px Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#9DB7CB;margin:0 0 10px}
+.ew__card h3{font:400 clamp(34px,3.2vw,46px)/1 "Bebas Neue",sans-serif;letter-spacing:.02em;color:#fff;margin:0 0 14px}
+.ew__card p{color:rgba(247,243,236,.86);font-size:18px;line-height:1.55;margin:0 0 16px}
+.ew__docs{font-size:14px!important;letter-spacing:.06em;color:#C98B5A!important;font-weight:600;margin:0!important;padding-top:14px;border-top:1px solid rgba(247,243,236,.12)}
+.ew__fine{font-size:14px;color:rgba(247,243,236,.6);margin:16px 0 0}
+@media(max-width:900px){.ew{grid-template-columns:1fr;gap:22px}.ew__svg{max-width:420px}.ew__panel{min-height:0}}
+@media(prefers-reduced-motion:reduce){.ew__orbit{animation:none}.ew__card{animation:none}}
+</style>
+<script is:inline>
+(function(){document.querySelectorAll('[data-ew]').forEach(function(root){
+  var segs=[].slice.call(root.querySelectorAll('.ew__seg')),cards=[].slice.call(root.querySelectorAll('.ew__card')),cur=0,auto=true,t=null;
+  var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(i){cur=i;segs.forEach(function(s,k){s.classList.toggle('on',k===i);s.setAttribute('aria-pressed',k===i?'true':'false')});cards.forEach(function(c,k){c.hidden=k!==i});}
+  function stop(){auto=false;clearInterval(t);}
+  segs.forEach(function(s,k){
+    s.addEventListener('mouseenter',function(){stop();show(k)});
+    s.addEventListener('click',function(){stop();show(k)});
+    s.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();stop();show(k)}});
+    s.addEventListener('focus',function(){stop();show(k)});
+  });
+  show(0);
+  if(!still){var io=new IntersectionObserver(function(es){es.forEach(function(e){clearInterval(t);if(e.isIntersecting&&auto){t=setInterval(function(){if(auto&&!document.hidden)show((cur+1)%segs.length)},3600)}})},{threshold:.3});io.observe(root);}
+});})();
+</script>

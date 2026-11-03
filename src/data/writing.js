@@ -5,6 +5,7 @@
 export const writing = [
   {
     slug: 'your-digital-life-is-part-of-your-estate',
+    video: { slug: 'ai-age', title: 'An estate plan for the AI age' },
     iso: '2026-11-02', date: 'November 2, 2026', type: 'article',
     title: 'Your digital life is part of your estate.',
     dek: 'Email, photos, the AI assistant that knows you, and now even your voice. Who can reach them, and what happens next?',

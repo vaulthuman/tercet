@@ -315,6 +315,26 @@ export const plans = [
   },
 ];
 
+// The all-in plan: every part of the whole picture, built to suit and quoted flat after the session.
+// Kept out of `plans` so price summaries and ranges stay numeric.
+export const wholePlan = {
+  id: "whole",
+  covers: ["family", "decisions", "home", "business", "digital", "care", "later", "loss"],
+  name: "The Whole Picture",
+  tag: "All eight parts, built to suit",
+  price: "Built to suit",
+  alt: "One flat fee, quoted in writing",
+  blurb: "Every part of your picture in one plan, connected. Russ designs it around your family after your Estate Map Session and quotes one flat fee in writing before any work begins.",
+  features: [
+    "Everything in the Trust Plan",
+    "Business succession and ownership planning",
+    "Your digital life: accounts, AI, voice and likeness",
+    "Special needs planning, with a supplemental needs trust where it fits",
+    "Planning for the later years",
+    "A clear roadmap for your family and trustee after a loss",
+  ],
+};
+
 // One-line price summary, built from the plans above (used on /start and /faq).
 export const priceSummary = plans
   .map((p) => `${p.name} ${p.from ? 'from ' : ''}${p.price}${p.alt ? ` for one person or ${p.alt.replace(' for a couple', '')} for a couple` : ''}`)

@@ -28,13 +28,13 @@ const faqSchema = {
       <p class="eyebrow">Texas FAQ</p><h1>Texas estate planning, <em>answered.</em></h1><p class="lede">Short answers to the questions Austin families ask most. General information only; your Estate Map Session is where it gets specific to you.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="#questions">Read the answers</a></div>
     </div></section>
 
+    <VideoSlot title="Protecting your kids" src="/video/russ/protecting-your-kids.mp4" captions="/video/russ/protecting-your-kids.vtt" poster="/video/russ/protecting-your-kids.jpg" eyebrow="Watch" heading="Protecting your kids." lede="Who would raise them, and how the money is handled, if something happened to you." />
+
     <section class="sec" id="questions"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">Questions</p><h2>Straight answers.</h2></div>
       <div class="faq">{all.map((f, i) => (<details id={f.id} open={i === 0}><summary>{f.q}</summary>{f.a.map((p) => <p>{p}</p>)}</details>))}</div>
       <p class="faq-note"><b>{faqDisclaimer}</b> For advice about your own situation, book an Estate Map Session or call {firm.phone}.</p>
     </div></section>
-
-    <VideoSlot title="Protecting your kids" src="/video/russ/protecting-your-kids.mp4" captions="/video/russ/protecting-your-kids.vtt" poster="/video/russ/protecting-your-kids.jpg" eyebrow="Watch" heading="Protecting your kids." lede="Who would raise them, and how the money is handled, if something happened to you." />
 
     <section class="split alt"><div class="split__media" style="background-image:url('/images/home-family-advisor-table.jpg');background-position:50% 40%" role="img" aria-label="A family of three at their dining table talking with an advisor who holds a clipboard"></div><div class="split__copy">
       <p class="eyebrow">Still have a question?</p><h2>Bring it to your Estate Map Session.</h2>

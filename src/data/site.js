@@ -23,7 +23,7 @@ export const firm = {
   zip: "78701",
   // State Bar of Texas bar number. Leave blank until the State Bar issues it; the footer,
   // disclaimers and structured data show it automatically once filled in.
-  barNumber: "",
+  barNumber: "24157690",
   email: "russ@tercetlaw.com",
   url: "https://www.tercetlaw.com",
   linkedin: "https://www.linkedin.com/in/russ-michaels/",

@@ -4,6 +4,30 @@
 
 export const writing = [
   {
+    slug: 'legal-key-3-fair-is-a-conversation',
+    reel: { src: '/video/russ/legal-key-3.mp4', poster: '/video/russ/legal-key-3.jpg', title: 'Fair is a conversation, not a number' },
+    iso: '2026-11-03', date: 'November 3, 2026', type: 'key', keyNo: 3,
+    title: 'Fair is a conversation, not a number.',
+    dek: 'Legal Key No. 3. Equal on paper can feel unfair at the kitchen table. Your reasons are what make it fair.',
+    body: [
+      'Most parents want to be fair, so they split everything equally. Three children, three equal shares. But equal is not always fair. One child moved home to care for a parent. One has a disability and will need help for life. One already had help buying a house.',
+      'When people feel something is unfair, they start to wonder what you really meant. That is where family fights begin.',
+      'The key: write down your reasons. A short letter that goes with your plan, in your own words, saying why you chose what you chose. Better yet, tell your family now, while they can still ask you questions. When the people you love understand your reasons, they can live with the numbers.',
+    ],
+  },
+  {
+    slug: 'legal-key-2-kindness-keeps-you-out-of-court',
+    reel: { src: '/video/russ/legal-key-2.mp4', poster: '/video/russ/legal-key-2.jpg', title: 'Kindness keeps you out of court' },
+    iso: '2026-11-03', date: 'November 3, 2026', type: 'key', keyNo: 2,
+    title: 'Kindness keeps you out of court.',
+    dek: 'Legal Key No. 2. Most family fights over an estate don’t start with the will. They start with a conversation that never happened.',
+    body: [
+      'A brother who found out last. A sister who felt unseen. A comment at the funeral that nobody meant and nobody forgot. Then someone hires a lawyer, and a family that loved each other can spend years and a lot of money in a Texas courtroom.',
+      'A good plan helps. In Texas, a will can even say that anyone who challenges it without good cause gives up their share. But paper can’t make people feel heard. That part is yours.',
+      'The key: before you sign anything, have the conversation. Tell your family what you are planning and why. Say thank you while you can, and let the small things go. The families who stay out of court are the ones who kept talking.',
+    ],
+  },
+  {
     slug: 'your-digital-life-is-part-of-your-estate',
     video: { slug: 'ai-age', title: 'An estate plan for the AI age' },
     iso: '2026-11-02', date: 'November 2, 2026', type: 'article',

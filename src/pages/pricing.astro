@@ -10,14 +10,15 @@ import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary, pricesEffecti
   path="/pricing/"
 >
     <section class="pagehero"><img class="bgimg" src="/video/pricing.jpg" width="1280" height="720" style="object-position:50% 50%" alt="A couple side by side, signing their documents together" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/pricing.jpg" style="object-position:50% 50%" aria-hidden="true"><source src="/video/pricing.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
-      <p class="eyebrow">Plans &amp; Pricing</p><h1>Flat fees. <em>Set before we start.</em></h1><p class="lede">Four plans, each a flat fee confirmed in writing before any work begins. No hourly billing on your plan, and no surprises at the end.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="#plans">Compare plans</a></div>
+      <p class="eyebrow">Plans &amp; Pricing</p><h1>Flat fees. <em>Set before we start.</em></h1><p class="lede">Four plans, each a flat fee confirmed in writing before any work begins. You see exactly what you receive, and what it costs.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="#plans">Compare plans</a></div>
     </div></section>
 
-    <VideoSlot title="Why flat fees" heading="Why every plan has a flat fee." lede="Ninety seconds on how our pricing works, and why you'll never be billed for asking a question." />
+    <!-- Swap in a pricing video when it is finished. -->
+    <VideoSlot title="Meet Russ Michaels" eyebrow="Your attorney" heading="Meet Russ Michaels." lede="Why he does this work, and why every plan has a flat fee set before it begins." />
 
 
     <section class="sec" id="plans"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Four plans</p><h2>Choose what fits.</h2><p class="lede">Not sure which one? That is what the free Estate Map Session is for.</p></div>
+      <div class="sec-head"><p class="eyebrow">Four plans</p><h2>Choose what fits.</h2><p class="lede">The ring on each plan shows which of the eight parts of <a href="/#approach">your whole picture</a> it covers. Below it, exactly what you receive.</p></div>
       <Plans />
       <p class="offers-note">Prices in US dollars, effective through {pricesEffectiveThrough}. {trustPriceNote} {legacyPriceNote} Recording fees and other third-party costs are separate and disclosed in advance.</p>
     </div></section>
@@ -28,7 +29,7 @@ import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary, pricesEffecti
         <div><b>A free Estate Map Session</b><p>Forty-five minutes on Zoom to see your whole estate on one screen before you decide anything.</p></div>
         <div><b>Your attorney, personally</b><p>{firm.attorney} handles your plan himself, from the map to the signing.</p></div>
         <div><b>A fee in writing</b><p>Your flat fee is set in your engagement letter before any work begins.</p></div>
-        <div><b>Drafts in plain English</b><p>You read every document before you sign it, and every question gets an answer.</p></div>
+        <div><b>Drafts you can read</b><p>You read every document before you sign it, and every question gets an answer.</p></div>
         <div><b>A guided signing</b><p>A signing meeting with the witnesses and notary your documents need.</p></div>
         <div><b>Clear next steps</b><p>You leave knowing where your documents are and what to do next.</p></div>
       </div>
@@ -43,7 +44,7 @@ import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary, pricesEffecti
         <li><b>Legacy</b> if your estate is larger or more complex, includes a business, or has charitable goals.</li>
       </ul>
       <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div>
-      <p class="offers-note">Probate, trust administration, elder law, special needs planning and business succession are quoted as a flat fee after your Estate Map Session. <a href="/services">See all services</a>.</p>
+      <p class="offers-note">Probate, trust administration, elder law, special needs planning, business succession and digital life planning are quoted as a flat fee after your Estate Map Session. <a href="/services">See all services</a>.</p>
     </div></section>
 
     <section class="sec alt" id="faq"><div class="wrap">

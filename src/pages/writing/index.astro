@@ -3,6 +3,7 @@
 // Pieces dated after today stay hidden in the browser until their day (static site, no rebuild needed).
 // Same spine as Vault Human's Writing page: newest first, down a line, with a photo band every few pieces.
 import Base from '../../layouts/Base.astro';
+import VideoSlot from '../../components/VideoSlot.astro';
 import { writing, legalKeyDays, keyLabel } from '../../data/writing.js';
 const run = writing.filter((p) => !p.feature);
 const feature = writing.find((p) => p.feature);
@@ -30,11 +31,7 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
     </div></div>
   </section>
 
-  <section class="sec wr-duo" id="ai-age"><div class="wrap">
-    <div class="sec-head"><h2>A plan for the AI age.</h2><p class="lede">Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next.</p></div>
-    <div class="wr-duo__vid"><div class="vslot" data-vslot-box data-src="/video/russ/ai-age.mp4" data-captions="/video/russ/ai-age.vtt" data-poster="/video/russ/ai-age-poster.jpg"><img src="/video/russ/ai-age-poster.jpg" alt="" loading="lazy" /><button class="vslot__play" type="button" aria-label="Play video: An estate plan for the AI age"><span aria-hidden="true"></span></button></div></div>
-    {feature && <div class="ctarow wr-duo__cta"><a class="btn btn-acc" href={`/writing/${feature.slug}/`}>Read the essay &rarr;</a></div>}
-  </div></section>
+  <div id="ai-age"><VideoSlot title="An estate plan for the AI age" src="/video/russ/ai-age.mp4" captions="/video/russ/ai-age.vtt" poster="/video/russ/ai-age-poster.jpg" heading="A plan for the AI age." lede="Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next.">{feature && <a class="btn btn-acc" href={`/writing/${feature.slug}/`}>Read the essay &rarr;</a>}</VideoSlot></div>
 
   <section class="sec runwrap" id="pieces">
     <div class="run">
@@ -59,11 +56,6 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
 
   <style is:inline>
     .wr-hero{min-height:72vh}
-    .wr-duo{position:relative;isolation:isolate;background:#EFE6D8}
-    .wr-duo:before{content:"";position:absolute;inset:0;background:url('/images/tint-oak.jpg') center/cover;opacity:.12;z-index:-1}
-    .wr-duo__vid{max-width:860px;margin:0 auto}
-    .wr-duo__cta{justify-content:center;margin-top:24px}
-    .wr-duo .sec-head{text-align:center;margin-left:auto;margin-right:auto}
     .runwrap{transition:background-color 1.1s ease}
     .runwrap{padding:24px 0 96px;background:var(--bg)}
     .run{position:relative;display:flex;flex-direction:column;max-width:1180px;margin:0 auto;padding:0 24px}

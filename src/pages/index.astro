@@ -1,6 +1,6 @@
 ---
 // Home. Same flow as Vault Human: hero → our approach (the Whole Picture wheel) → meet Russ (video)
-// → where to start → three steps → in their own words → plans → writing → questions → begin.
+// → where to start → three steps → in their own words → plans → questions → begin.
 // Rules: short, clean copy; tiles, never hyphen lists; every button pair the same size;
 // stills from the videos are not reused as photos.
 import Base from '../layouts/Base.astro';
@@ -9,9 +9,7 @@ import Plans from '../components/Plans.astro';
 import WholePicture from '../components/WholePicture.astro';
 import Voices from '../components/Voices.astro';
 import { cta, faqs, trustPriceNote, pricesEffectiveThrough } from '../data/site.js';
-import { writing } from '../data/writing.js';
 const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'bring'].includes(f.id));
-const latest = writing.slice(0, 3);
 const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ-welcome.vtt', poster: '/video/russ/russ-still.jpg' };
 ---
 <Base
@@ -35,7 +33,7 @@ const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ
     <div class="ctarow eq" style="margin-top:38px"><a class="btn btn-ghost" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/services">All services</a></div>
   </div></section>
 
-  <div id="watch"><VideoSlot title="Meet Russ Michaels" src={video.src} captions={video.captions} poster={video.poster} eyebrow="Your attorney" heading="Meet Russ Michaels." lede="Why he does this work, and what a plan does for the people you love.">
+  <div id="watch"><VideoSlot title="Meet Russ Michaels" src={video.src} captions={video.captions} poster={video.poster} eyebrow="Your attorney" heading="Meet Russ." lede="Why he does this work, and what a plan does for the people you love.">
     <div class="ctarow eq"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/about">About Russ</a></div>
   </VideoSlot></div>
 
@@ -68,15 +66,7 @@ const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ
     <p class="offers-note">{trustPriceNote} Prices effective through {pricesEffectiveThrough}. <a href="/pricing">What each plan includes</a>.</p>
   </div></section>
 
-  <section class="sec" id="writing"><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Writing</p><h2>One clear idea a day.</h2></div>
-    <div class="wcards">{latest.map((p) => (
-      <a class={`wcard${p.type === 'key' ? ' key' : ''}`} href={`/writing/${p.slug}/`}><span class="wcard__k">{p.type === 'key' ? `Legal Key No. ${p.keyNo}` : 'Writing'}</span><b>{p.title}</b><em>{p.dek}</em></a>
-    ))}</div>
-    <div class="ctarow eq" style="margin-top:28px"><a class="btn btn-line" href="/writing/">All writing</a></div>
-  </div></section>
-
-  <section class="sec alt" id="faq"><div class="wrap">
+  <section class="sec" id="faq"><div class="wrap">
     <div class="sec-head"><p class="eyebrow">Questions</p><h2>Straight answers.</h2></div>
     <div class="faq">{homeFaqs.map((f) => (<details><summary>{f.q}</summary>{f.a.map((p) => <p>{p}</p>)}</details>))}</div>
     <p class="offers-note">General information, not legal advice. <a href="/faq">More questions</a>.</p>

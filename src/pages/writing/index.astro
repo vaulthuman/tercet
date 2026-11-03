@@ -2,6 +2,7 @@
 // Writing: one short piece a day on Texas estate planning, plus a Legal Key on Mondays and Fridays.
 // Same spine as Vault Human's Writing page: newest first, down a line, with a photo band every few pieces.
 import Base from '../../layouts/Base.astro';
+import VideoSlot from '../../components/VideoSlot.astro';
 import { writing, legalKeyDays } from '../../data/writing.js';
 const run = [...writing];
 let lastDate = '';
@@ -26,6 +27,8 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
       <div class="ctarow"><a class="btn btn-line" href={`/writing/${run[0].slug}/`}>Today's piece</a><a class="btn btn-acc" href="#keys">Legal Keys</a></div>
     </div></div>
   </section>
+
+  <VideoSlot title="An estate plan for the AI age" src="/video/russ/ai-age.mp4" captions="/video/russ/ai-age.vtt" poster="/video/russ/ai-age-poster.jpg" eyebrow="Watch" heading="A plan for the AI age." lede="Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next." />
 
   <section class="sec runwrap" id="pieces">
     <div class="run">

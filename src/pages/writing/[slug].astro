@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import { writing } from '../../data/writing.js';
 import { cta } from '../../data/site.js';
-import VideoSlot from '../../components/VideoSlot.astro';
 export function getStaticPaths() {
   return writing.map((p, i) => ({ params: { slug: p.slug }, props: { p, newer: writing[i - 1] || null, older: writing[i + 1] || null } }));
 }
@@ -16,9 +15,8 @@ const schema = [{ "@context": "https://schema.org", "@type": "Article", headline
     <h1>{p.title}</h1>
     <p class="wp__dek">{p.dek}</p>
   </div></article>
-  {p.video && <VideoSlot title={p.video.title} src={`/video/russ/${p.video.slug}.mp4`} captions={`/video/russ/${p.video.slug}.vtt`} poster={`/video/russ/${p.video.slug}.jpg`} eyebrow="Watch" heading={`${p.video.title}.`} lede="Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next." />}
-  {p.reel && <VideoSlot tall title={p.reel.title} src={p.reel.src} captions="" poster={p.reel.poster} eyebrow={kicker} heading="Watch the key." lede="Ninety seconds, in Russ’s own words." />}
-  <article class="sec wp wp--body"><div class="wrap wp__in">
+  <article class="sec wp wp--body"><div class:list={['wrap', 'wp__in', { 'wp__in--reel': p.reel }]}>
+    {p.reel && <div class="vslot vslot--reel" data-vslot-box data-src={p.reel.src} data-captions="" data-poster={p.reel.poster}><img src={p.reel.poster} alt="" loading="lazy" /><button class="vslot__play" type="button" aria-label={`Play video: ${p.reel.title}`}><span aria-hidden="true"></span></button></div>}
     <div class="wp__body">{p.body.map((t) => <p>{t}</p>)}</div>
     <p class="wp__fine">General information about Texas law, not legal advice. Every family is different.</p>
     <div class="ctarow wp__cta"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/writing/">All writing</a></div>
@@ -26,6 +24,11 @@ const schema = [{ "@context": "https://schema.org", "@type": "Article", headline
   </div></article>
   <style is:inline>
     .wp__in{max-width:760px}
+    .wp__in--reel{max-width:1040px;display:grid;grid-template-columns:minmax(0,1fr) 320px;column-gap:56px;align-items:start}
+    .wp__in--reel>*{grid-column:1}
+    .wp__in--reel .vslot--reel{grid-column:2;grid-row:1 / span 6;position:sticky;top:100px;aspect-ratio:9/16;width:100%}
+    .vslot--reel img{object-position:50% 50%}
+    @media(max-width:900px){.wp__in--reel{grid-template-columns:1fr}.wp__in--reel .vslot--reel{grid-column:1;grid-row:auto;position:relative;top:0;max-width:340px;margin:0 auto 28px}}
     .wp:has(+ .vslot-sec) .wp__dek{border-bottom:0;margin-bottom:0;padding-bottom:0}
     .wp--body{padding-top:48px}
     .wp__k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--acc);margin:0 0 18px}

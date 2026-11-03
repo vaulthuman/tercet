@@ -324,3 +324,5 @@ button.btn{font-family:inherit;cursor:pointer}
 .vslot-copy .ctarow.eq{flex-wrap:nowrap;gap:12px}
 .vslot-copy .ctarow.eq .btn{min-width:0;flex:1 1 0;padding-left:12px;padding-right:12px}
 @media(max-width:560px){.vslot-copy .ctarow.eq{flex-wrap:wrap}.vslot-copy .ctarow.eq .btn{flex:1 1 100%}}
+/* Pages with no photo hero (articles, legal pages): keep the header solid so the white nav stays readable */
+body:not(:has(.pagehero, .hero)) header.site{background:rgba(var(--darkr),.94)}

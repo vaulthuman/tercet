@@ -25,18 +25,18 @@ const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ
       <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
       <h1>Estate planning <em>for Texas families.</em></h1>
       <p class="lede">Protect the people you love and everything you&rsquo;ve built. One complete plan, with a flat fee set before we begin.</p>
-      <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><button class="btn btn-line" type="button" data-vslot={video.src} data-vslot-captions={video.captions} data-vslot-poster={video.poster}>Meet Russ</button></div>
+      <div class="ctarow eq"><a class="btn btn-line" href={cta.href}>{cta.label}</a><button class="btn btn-acc" type="button" data-vslot={video.src} data-vslot-captions={video.captions} data-vslot-poster={video.poster}>Meet Russ</button></div>
     </div>
   </div></section>
 
   <section class="sec dark" id="approach"><div class="wrap">
     <div class="sec-head"><p class="eyebrow">Our approach</p><h2>Your whole picture. One plan.</h2><p class="lede">Eight parts of a life, each with its own keys. Some families need one piece. Most need all of it to connect, so what you built, what you have now and who comes next are held together.</p></div>
     <WholePicture />
-    <div class="ctarow eq" style="margin-top:38px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-ghost" href="/services">All services</a></div>
+    <div class="ctarow eq" style="margin-top:38px"><a class="btn btn-ghost" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/services">All services</a></div>
   </div></section>
 
   <div id="watch"><VideoSlot title="Meet Russ Michaels" src={video.src} captions={video.captions} poster={video.poster} eyebrow="Your attorney" heading="Meet Russ Michaels." lede="Why he does this work, and what a plan does for the people you love.">
-    <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/about">About Russ</a></div>
+    <div class="ctarow eq"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/about">About Russ</a></div>
   </VideoSlot></div>
 
   <section class="sec alt" id="start"><div class="wrap">
@@ -55,7 +55,7 @@ const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ
       <div class="tile"><img src="/images/faq-library-shelves.jpg" alt="Rows of bound law books on library shelves" loading="lazy" /><div class="tile__b"><span class="tile__n">02</span><h3>Design</h3><p>The plan that fits, for a flat fee set in writing before any work begins.</p></div></div>
       <div class="tile"><img src="/images/about-couple-signing.jpg" alt="A couple signing a document together at a table" style="object-position:40% 40%" loading="lazy" /><div class="tile__b"><span class="tile__n">03</span><h3>Sign</h3><p>You sign, and Russ makes sure every account and deed matches the plan.</p></div></div>
     </div>
-    <div class="ctarow eq" style="margin-top:30px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/process">See the process</a></div>
+    <div class="ctarow eq" style="margin-top:30px"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/process">See the process</a></div>
   </div></section>
 
   <section class="hq"><div class="wrap"><p>A good plan isn&rsquo;t about the end. It&rsquo;s about the people you love knowing exactly what you wanted.</p></div></section>
@@ -84,7 +84,7 @@ const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ
 
   <section class="sec final" id="begin"><img class="bgimg" src="/images/about-pennybacker-bridge.jpg" width="1800" height="1200" style="object-position:50% 55%" alt="The Pennybacker Bridge over Lake Austin at sunset" loading="lazy" /><div class="veil"></div><div class="wrap">
     <h2>There&rsquo;s a door here for you.</h2><p class="lede">Let&rsquo;s put on paper what you&rsquo;ve been putting off.</p>
-    <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><button class="btn btn-line" type="button" data-vslot={video.src} data-vslot-captions={video.captions} data-vslot-poster={video.poster}>Meet Russ</button></div>
+    <div class="ctarow eq"><a class="btn btn-line" href={cta.href}>{cta.label}</a><button class="btn btn-acc" type="button" data-vslot={video.src} data-vslot-captions={video.captions} data-vslot-poster={video.poster}>Meet Russ</button></div>
   </div></section>
 
   <style is:inline>
@@ -107,6 +107,10 @@ const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ
     .wcard.key .wcard__k{color:#A86F42}
     .wcard b{font-family:var(--disp);font-weight:400;font-size:32px;line-height:1}
     .wcard em{font-style:normal;color:var(--muted);font-size:16px;line-height:1.5}
-    @media(max-width:900px){.tiles3,.wcards{grid-template-columns:1fr}}
+    @media(max-width:900px){.tiles3,.wcards{grid-template-columns:1fr}.tiles3{gap:12px}
+      .tile{flex-direction:row;align-items:stretch}
+      .tile img{width:34%;max-width:150px;aspect-ratio:auto;height:auto;min-height:100%;flex:0 0 auto}
+      .tile__b{padding:14px 16px 16px;border-top:0;border-left:3px solid var(--acc);flex:1}
+      .tile__n{font-size:28px}.tile h3{font-size:26px;margin:2px 0 6px}.tile p{font-size:15px;line-height:1.45}}
   </style>
 </Base>

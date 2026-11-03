@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import VideoSlot from '../components/VideoSlot.astro';
 import { firm, cta, priceSummary, booking, pricesEffectiveThrough } from '../data/site.js';
 ---
 <Base
@@ -11,11 +10,9 @@ import { firm, cta, priceSummary, booking, pricesEffectiveThrough } from '../dat
   sticky={false}
 >
     <section class="pagehero"><img class="bgimg" src="/video/start.jpg" width="1280" height="720" style="object-position:50% 50%" alt="Three generations of a family sharing a meal around a dinner table" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/start.jpg" style="object-position:50% 50%" aria-hidden="true"><source src="/video/start.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
-      <p class="eyebrow">Free · 45 minutes · Zoom</p><h1>Book your <em>Estate Map Session.</em></h1><p class="lede">Forty-five minutes on Zoom with {firm.attorney}. You see your whole estate on one screen, and you leave knowing which plan fits and its exact flat fee. No cost, no obligation.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href="#book">Pick a time</a><a class="btn btn-line" href={firm.phoneHref}>Call {firm.phone}</a></div>
+      <p class="eyebrow">Free · 45 minutes · Zoom</p><h1>Book your <em>Estate Map Session.</em></h1><p class="lede">Forty-five minutes on Zoom with {firm.attorney}. You see your whole estate on one screen, and you leave knowing which plan fits and its exact flat fee. No cost, no obligation.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-line" href="#book">Pick a time</a><a class="btn btn-acc" href={firm.phoneHref}>Call {firm.phone}</a></div>
     </div></section>
 
-    <!-- Swap in a session video when it is finished. -->
-    <VideoSlot title="Meet Russ Michaels" eyebrow="Your attorney" heading="Meet Russ before you book." lede="Forty-five minutes on Zoom. Nothing to send ahead of time. You leave knowing what fits and its flat fee." />
 
     <section class="sec" id="book"><div class="wrap start-grid">
       <div><p class="eyebrow">What happens next</p><h2>Three steps.</h2>

@@ -10,7 +10,7 @@ import { firm, cta, guideCta, steps, timingNote, story } from '../data/site.js';
   path="/process/"
 >
     <section class="pagehero photo-right"><img class="bgimg" src="/video/process.jpg" width="1280" height="720" style="object-position:50% 50%" alt="A smiling older couple meeting with their advisor at a bright office table" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/process.jpg" style="object-position:50% 50%" aria-hidden="true"><source src="/video/process.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
-      <p class="eyebrow">How it works</p><h1>Map. Design. <em>Sign &amp; Fund.</em></h1><p class="lede">Three simple steps from your first conversation to a signed plan, in about three weeks from the day you engage. Clear at every step, and never rushed.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
+      <p class="eyebrow">How it works</p><h1>Map. Design. <em>Sign &amp; Fund.</em></h1><p class="lede">Three simple steps from your first conversation to a signed plan, in about three weeks from the day you engage. Clear at every step, and never rushed.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 
     <VideoSlot title="Who speaks for you" src="/video/russ/who-speaks-for-you.mp4" captions="/video/russ/who-speaks-for-you.vtt" poster="/video/russ/who-speaks-for-you.jpg" eyebrow="Watch" heading="Who speaks for you." lede="The papers that matter while you are still here: who makes decisions if you cannot." />
@@ -41,7 +41,7 @@ import { firm, cta, guideCta, steps, timingNote, story } from '../data/site.js';
     <section class="split rev" id="bring"><div class="split__media" style="background-image:url('/images/process-mother-daughter.jpg');background-position:35% 30%" role="img" aria-label="An adult daughter with her arm around her mother as the mother writes notes at a small table"></div><div class="split__copy">
       <p class="eyebrow">What to bring</p><h2>A rough picture, not a mountain of paperwork.</h2>
       <ul class="ticks"><li>Who is in your life: spouse, children, parents, anyone you provide for.</li><li>What you own, roughly: home, bank and investment accounts, retirement accounts, life insurance, any business.</li><li>Who you would trust to act for you, and who should inherit.</li><li>Any existing wills, trusts or powers of attorney, so nothing gets drafted twice.</li></ul>
-      <div class="ctarow"><a class="btn btn-acc" href={guideCta.href}>{guideCta.label}</a><a class="btn btn-line" href="/faq">Texas FAQ</a></div>
+      <div class="ctarow"><a class="btn btn-line" href={guideCta.href}>{guideCta.label}</a><a class="btn btn-acc" href="/faq">Texas FAQ</a></div>
     </div></section>
 
     <section class="sec" id="after"><div class="wrap">
@@ -51,6 +51,6 @@ import { firm, cta, guideCta, steps, timingNote, story } from '../data/site.js';
 
     <section class="sec final plain" id="begin"><div class="wrap">
       <h2>Start with the map.</h2><p class="lede">Forty-five minutes on Zoom, free, with no obligation.</p>
-      <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
+      <div class="ctarow"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 </Base>

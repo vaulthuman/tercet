@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import VideoSlot from '../components/VideoSlot.astro';
 import Tercet from '../components/Tercet.astro';
 import { firm, cta } from '../data/site.js';
 ---
@@ -10,10 +9,9 @@ import { firm, cta } from '../data/site.js';
   path="/about/"
 >
     <section class="pagehero photo-right"><img class="bgimg" src="/video/about.jpg" width="1280" height="720" style="object-position:50% 50%" alt="Hands passing and signing documents across an office desk" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/about.jpg" style="object-position:50% 50%" aria-hidden="true"><source src="/video/about.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
-      <p class="eyebrow">About Russ</p><h1>One attorney. <em>Every plan, personally.</em></h1><p class="lede">Not a case number at a large firm. {firm.attorney} handles every Tercet Law matter himself, from the first map to the final signature.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
+      <p class="eyebrow">About Russ</p><h1>One attorney. <em>Every plan, personally.</em></h1><p class="lede">Not a case number at a large firm. {firm.attorney} handles every Tercet Law matter himself, from the first map to the final signature.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 
-    <VideoSlot title="Legacy is more than money" src="/video/russ/legacy.mp4" captions="/video/russ/legacy.vtt" poster="/video/russ/legacy.jpg" eyebrow="In his words" heading="Legacy is more than money." lede="What families remember, and why Russ starts with who you love." />
 
     <section class="sec" id="russ"><div class="wrap about-grid">
       <img src="/russ-michaels.jpg" alt="Russ Michaels, attorney and founder of Tercet Law" loading="lazy" />
@@ -24,7 +22,7 @@ import { firm, cta } from '../data/site.js';
         <p>Alongside the law, Russ has spent more than twenty years as a CEO and nonprofit leader, serving as a chief executive, an executive director and a board president. That work shaped how he plans: a document is only as good as how it holds up on the day it is needed.</p>
         <p>{firm.license}. Planning meetings are on Zoom; signings are arranged where it is convenient for you.</p>
         </div>
-        <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></div>
+        <div class="ctarow"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></div>
       </div>
     </div></section>
 
@@ -33,11 +31,11 @@ import { firm, cta } from '../data/site.js';
     <section class="split" id="how"><div class="split__media" style="background-image:url('/images/about-family-sofa.jpg');background-position:50% 30%" role="img" aria-label="A mother and father on the sofa with their son and daughter, talking together"></div><div class="split__copy">
       <p class="eyebrow">How Russ works</p><h2>Careful documents. Clear answers. No pressure.</h2>
       <ul class="ticks"><li>He recommends the plan that fits, not the biggest one.</li><li>You read every page before you sign.</li><li>You get clear instructions to fund your trust, so it holds what it is meant to hold.</li><li>He is here when life changes.</li></ul>
-      <div class="ctarow"><a class="btn btn-acc" href="/process">How it works</a><a class="btn btn-line" href="/pricing">Plans &amp; pricing</a></div>
+      <div class="ctarow"><a class="btn btn-line" href="/process">How it works</a><a class="btn btn-acc" href="/pricing">Plans &amp; pricing</a></div>
     </div></section>
 
     <section class="sec final plain" id="begin"><div class="wrap">
       <h2>Meet Russ on Zoom.</h2><p class="lede">A free 45-minute Estate Map Session. You leave knowing what you need and exactly what it costs.</p>
-      <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
+      <div class="ctarow"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 </Base>

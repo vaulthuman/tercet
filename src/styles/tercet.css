@@ -44,6 +44,13 @@
 .offer>p.price-alt{margin-bottom:14px}
 @media(max-width:1100px){.offers.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.offers.four{grid-template-columns:1fr}}
+/* the all-in plan: full width under the four */
+.offers.four .offer.whole{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 48px;align-items:start;border-top:3px solid var(--acc)}
+.offers.four .offer.whole .price{font-size:44px}
+.offer.whole .whole__a,.offer.whole .whole__b{display:flex;flex-direction:column}
+.offer.whole .whole__a .btn{align-self:flex-start;margin-top:auto;min-width:280px}
+.offer.whole .whole__a p{flex:0}
+@media(max-width:700px){.offers.four .offer.whole{grid-template-columns:1fr}.offer.whole .whole__a .btn{min-width:0;align-self:stretch}.offer.whole .whole__b{order:-1}}
 
 /* four steps, with timing */
 .steps.four{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -268,12 +275,19 @@ button.btn{font-family:inherit;cursor:pointer}
 .vslot-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
 .vslot-copy h2{margin:10px 0 18px;max-width:18ch}
 .vslot-copy .lede{max-width:46ch}
-.vslot{position:relative;display:block;width:100%;aspect-ratio:16/9;max-width:100%;border:0;padding:0;border-radius:12px;overflow:hidden;background:var(--dark);box-shadow:0 24px 60px rgba(0,0,0,.25);cursor:pointer;color:#fff;font:inherit;text-align:left}
-.vslot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;opacity:.72;transition:opacity .3s,transform .6s}
-.vslot:hover img,.vslot:focus-visible img{opacity:.85;transform:scale(1.02)}
-.vslot:focus-visible{outline:3px solid var(--acc-soft);outline-offset:4px}
-.vslot__play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.vslot__play:after{content:"";position:absolute;left:31px;top:24px;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent var(--acc)}
+.vslot{position:relative;display:block;width:100%;aspect-ratio:16/9;max-width:100%;border-radius:12px;overflow:hidden;background:var(--dark);box-shadow:0 24px 60px rgba(0,0,0,.25);cursor:pointer}
+.vslot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;transition:opacity .4s,transform .6s}
+.vslot:hover img{transform:scale(1.02)}
+.vslot video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;opacity:0;transition:opacity .35s;z-index:1}
+.vslot.playing video{opacity:1}
+.vslot.playing{cursor:default}
+.vslot.playing .vslot__play{display:none}
+.vslot__play{position:absolute;right:14px;bottom:14px;z-index:2;width:48px;height:48px;border:0;padding:0;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 6px 18px rgba(0,0,0,.3);cursor:pointer}
+.vslot__play span{position:absolute;left:19px;top:15px;border-style:solid;border-width:9px 0 9px 14px;border-color:transparent transparent transparent var(--acc)}
+.vslot__play:focus-visible{outline:3px solid var(--acc-soft);outline-offset:3px}
+.vslot.loading .vslot__play span{left:14px;top:14px;width:20px;height:20px;border:2px solid var(--acc);border-right-color:transparent;border-radius:50%;animation:vspin .8s linear infinite}
+@keyframes vspin{to{transform:rotate(360deg)}}
+@media(max-width:560px){.vslot__play{right:10px;bottom:10px;width:42px;height:42px}.vslot__play span{left:16px;top:12px;border-width:9px 0 9px 13px}.vslot.loading .vslot__play span{left:11px;top:11px}}
 .vslot__meta{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;background:linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,0));font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
 .vslot.is-soon{cursor:default}
 .vslot.is-soon .vslot__play{opacity:.55}

@@ -32,6 +32,10 @@
 /* header CTA: the full label, kept on one line */
 .navlinks .btn{white-space:nowrap}
 
+h1,h2,h3,summary,.wcard b{text-wrap:balance}
+.hero h1{max-width:none}.hero h1 em{display:block}
+@media(max-width:560px){.hero h1{font-size:46px}}
+
 /* four plans */
 .offers.four{grid-template-columns:repeat(4,minmax(0,1fr))}
 .offers.four .offer{background:#fff;border:1px solid var(--line)}
@@ -272,7 +276,9 @@ button.btn{font-family:inherit;cursor:pointer}
 @media(prefers-reduced-motion:reduce){.bgvid{display:none}}
 
 /* Video slots for Russ's short videos (2026-11-02): copy beside a 16:9 player; "coming soon" until a src is set */
-.vslot-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.vslot-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-areas:"copy vid" "btns vid";grid-template-rows:auto 1fr;column-gap:56px;row-gap:6px;align-items:end}
+.vslot-copy{grid-area:copy}.vslot-grid>.vslot{grid-area:vid;align-self:center}.vslot-btns{grid-area:btns;align-self:start}
+.vslot-btns .ctarow{margin-top:18px}
 .vslot-copy h2{margin:10px 0 18px;max-width:18ch}
 .vslot-copy .lede{max-width:46ch}
 .vslot{position:relative;display:block;width:100%;aspect-ratio:16/9;max-width:100%;border-radius:12px;overflow:hidden;background:var(--dark);box-shadow:0 24px 60px rgba(0,0,0,.25);cursor:pointer}
@@ -295,7 +301,8 @@ button.btn{font-family:inherit;cursor:pointer}
 .vpop.open{display:flex}
 .vpop video{width:min(1100px,100%);max-height:86vh;border-radius:10px;background:#000}
 .vpop__x{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.4);color:#fff;font-size:26px;line-height:1;cursor:pointer}
-@media(max-width:900px){.vslot-grid{grid-template-columns:1fr;gap:28px}}
+@media(max-width:900px){.vslot-grid{grid-template-columns:1fr;grid-template-areas:"copy" "vid" "btns";grid-template-rows:auto;row-gap:24px}.vslot-btns .ctarow{margin-top:0}.vslot{box-shadow:none}}
+.vslot.playing{box-shadow:none}.vslot.playing img{opacity:0}
 .hero .guarantee .watchlink{color:var(--acc-soft);text-decoration:underline;text-underline-offset:3px}
 
 /* ===== rev 11/3: no hyphen lists anywhere. Every list reads as small tiles with a check. ===== */
@@ -335,8 +342,8 @@ button.btn{font-family:inherit;cursor:pointer}
 .offer.feat .pkeys span{background:rgba(255,255,255,.07);color:#fff}
 .offer.feat .pkeys span:before{background-color:#C98B5A}
 /* Video section: the two buttons sit side by side at the same size */
-.vslot-copy .ctarow.eq{flex-wrap:nowrap;gap:12px}
-.vslot-copy .ctarow.eq .btn{min-width:0;flex:1 1 0;padding-left:12px;padding-right:12px}
-@media(max-width:560px){.vslot-copy .ctarow.eq{flex-wrap:wrap}.vslot-copy .ctarow.eq .btn{flex:1 1 100%}}
+.vslot-btns .ctarow.eq{flex-wrap:wrap;gap:12px}
+.vslot-btns .ctarow.eq .btn{min-width:0;flex:1 1 auto;white-space:nowrap;padding-left:18px;padding-right:18px}
+@media(max-width:560px){.vslot-btns .ctarow.eq{flex-wrap:wrap}.vslot-btns .ctarow.eq .btn{flex:1 1 100%}}
 /* Pages with no photo hero (articles, legal pages): keep the header solid so the white nav stays readable */
 body:not(:has(.pagehero, .hero)) header.site{background:rgba(var(--darkr),.94)}

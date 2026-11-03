@@ -8,7 +8,7 @@ const word = (id: string) => picture.parts.find((p) => p.id === id)?.word ?? id;
 ---
 <div class="offers four">
   {plans.map((p) => (
-    <div class={`offer pkg${p.featured ? ' feat' : ''}`} id={`plan-${p.id}`}>
+    <div class="offer pkg" id={`plan-${p.id}`}>
       <div class="tag">{p.tag}</div>
       <h3>{p.name}</h3>
       <div class="price">{p.from && <small class="from">From</small>}{p.price}{p.unit && <small>{p.unit}</small>}</div>
@@ -16,7 +16,7 @@ const word = (id: string) => picture.parts.find((p) => p.id === id)?.word ?? id;
       <div class="pcov"><PictureRing covers={p.covers} /><div class="pcov__w">{p.covers.map((c) => <span>{word(c)}</span>)}</div></div>
       <p>{p.blurb}</p>
       {detail && <><p class="pget">What you receive</p><div class="pkeys">{p.features.map((f) => <span>{f}</span>)}</div></>}
-      <a class={`btn ${p.featured ? 'btn-acc' : 'btn-line'}`} href={cta.href}>{cta.label}</a>
+      <a class="btn btn-line" href={cta.href}>{cta.label}</a>
     </div>
   ))}
   <div class="offer pkg whole" id={`plan-${wholePlan.id}`}>
@@ -26,7 +26,7 @@ const word = (id: string) => picture.parts.find((p) => p.id === id)?.word ?? id;
       <div class="price">{wholePlan.price}</div>
       <p class="price-alt">{wholePlan.alt}</p>
       <p>{wholePlan.blurb}</p>
-      <a class="btn btn-acc" href={cta.href}>{cta.label}</a>
+      <a class="btn btn-line" href={cta.href}>{cta.label}</a>
     </div>
     <div class="whole__b">
       <div class="pcov"><PictureRing covers={wholePlan.covers} /><div class="pcov__w">{wholePlan.covers.map((c) => <span>{word(c)}</span>)}</div></div>

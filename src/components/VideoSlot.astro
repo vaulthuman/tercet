@@ -20,10 +20,10 @@ const { title, src = WELCOME.src, captions = src === WELCOME.src ? WELCOME.capti
     <p class="eyebrow">{eyebrow}</p>
     <h2>{heading ?? title}</h2>
     {lede && <p class="lede">{lede}</p>}
-    <slot />
   </div>
   <div class="vslot" data-vslot-box data-src={src} data-captions={captions} data-poster={poster}>
     <img src={poster} alt="" loading="lazy" />
     <button class="vslot__play" type="button" aria-label={`Play video: ${title}`}><span aria-hidden="true"></span></button>
   </div>
+  {Astro.slots.has('default') && <div class="vslot-btns"><slot /></div>}
 </div></section>

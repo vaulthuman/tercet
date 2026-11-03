@@ -5,9 +5,16 @@
 export const writing = [
   {
     slug: 'a-plan-for-the-ai-age',
+    img: '/images/wr-ai-age.jpg', imgAlt: 'A grandmother and her granddaughter looking at a tablet together',
     feature: true,
     iso: '2026-11-03', date: 'November 3, 2026', type: 'article',
     title: 'A plan for the AI age.',
+    quote: 'The more of life that runs on machines, the more the human things are worth writing down.',
+    horizon: [
+      { yr: '2026', t: 'Today', d: 'Name who can reach your accounts and devices. Keep a short values file. Give your family a private code word.' },
+      { yr: '2036', t: 'Ten years out', d: 'Assistants that know you well, and copies of voices and faces. Your plan says who holds the keys and what may act in your name.' },
+      { yr: '2046+', t: 'The long view', d: 'Your grandchildren read your reasons, in your words. The tools will change. What you meant stays clear.' },
+    ],
     dek: 'Where this is going, from 2026 to 2036 and beyond, and why the most human parts of a plan will matter more, not less.',
     body: [
       'Ten years from now, many of us will have an assistant that has listened to us for a decade. It will know our routines and our money, who we call when we are worried, and what we say to our children at night. That is not a warning. It is simply where things are heading, and it can be a good thing, if we plan for it.',
@@ -20,9 +27,10 @@ export const writing = [
   },
   {
     slug: 'legal-key-3-beneficiary-forms-beat-your-will',
+    img: '/images/wr-beneficiary.jpg', imgAlt: 'An older couple smiling as they review a document at their kitchen table',
     iso: '2026-11-04', date: 'November 4, 2026', type: 'key', keyNo: 3,
     title: 'Your beneficiary forms beat your will.',
-    dek: 'Legal Key No. 3. The form you filled out at a new job may decide more than the will you signed later.',
+    dek: 'Legal Key 003. The form you filled out at a new job may decide more than the will you signed later.',
     body: [
       'Retirement accounts, life insurance and many bank and brokerage accounts pass to whoever is named on the account’s beneficiary form. Not to whoever is named in your will.',
       'So if your will leaves everything to your children, but your 401(k) form still names someone from fifteen years ago, the form usually wins.',
@@ -31,6 +39,7 @@ export const writing = [
   },
   {
     slug: 'your-digital-life-is-part-of-your-estate',
+    img: '/images/wr-digital-life.jpg', imgAlt: 'Hands sorting through a box of old family photographs',
     iso: '2026-11-03', date: 'November 3, 2026', type: 'article',
     title: 'Your digital life is part of your estate.',
     dek: 'Email, photos, the AI assistant that knows you, and now even your voice. Who can reach them, and what happens next?',
@@ -47,7 +56,7 @@ export const writing = [
     reel: { src: '/video/russ/legal-key-3.mp4', poster: '/video/russ/legal-key-3.jpg', title: 'Fair is a conversation, not a number' },
     iso: '2026-11-02', date: 'November 2, 2026', type: 'key', keyNo: 2,
     title: 'Fair is a conversation, not a number.',
-    dek: 'Legal Key No. 2. Equal on paper can feel unfair at the kitchen table. Your reasons are what make it fair.',
+    dek: 'Legal Key 002. Equal on paper can feel unfair at the kitchen table. Your reasons are what make it fair.',
     body: [
       'Most parents want to be fair, so they split everything equally. Three children, three equal shares. But equal is not always fair. One child moved home to care for a parent. One has a disability and will need help for life. One already had help buying a house.',
       'When people feel something is unfair, they start to wonder what you really meant. That is where family fights begin.',
@@ -56,6 +65,7 @@ export const writing = [
   },
   {
     slug: 'the-papers-for-while-youre-still-here',
+    img: '/images/wr-papers.jpg', imgAlt: 'A hand holding the hand of a loved one in a hospital bed',
     iso: '2026-11-01', date: 'November 1, 2026', type: 'article',
     title: 'The papers for while you’re still here.',
     dek: 'Some of the most important documents in a plan are for a stroke, an accident or a long illness, not for after you’re gone.',
@@ -69,6 +79,7 @@ export const writing = [
   },
   {
     slug: 'if-you-dont-choose-texas-chooses',
+    img: '/images/wr-texas-chooses.jpg', imgAlt: 'Three generations of a family talking around the dinner table',
     iso: '2026-10-31', date: 'October 31, 2026', type: 'article',
     title: 'If you don’t choose, Texas chooses.',
     dek: 'What actually happens in Texas when someone passes away without a plan. Not to scare you. Just so you know.',
@@ -86,7 +97,7 @@ export const writing = [
     reel: { src: '/video/russ/legal-key-2.mp4', poster: '/video/russ/legal-key-2.jpg', title: 'Kindness keeps you out of court' },
     iso: '2026-10-30', date: 'October 30, 2026', type: 'key', keyNo: 1,
     title: 'Kindness keeps you out of court.',
-    dek: 'Legal Key No. 1. Most family fights over an estate don’t start with the will. They start with a conversation that never happened.',
+    dek: 'Legal Key 001. Most family fights over an estate don’t start with the will. They start with a conversation that never happened.',
     body: [
       'A brother who found out last. A sister who felt unseen. A comment at the funeral that nobody meant and nobody forgot. Then someone hires a lawyer, and a family that loved each other can spend years and a lot of money in a Texas courtroom.',
       'A good plan helps. In Texas, a will can even say that anyone who challenges it without good cause gives up their share. But paper can’t make people feel heard. That part is yours.',
@@ -96,3 +107,4 @@ export const writing = [
 ];
 
 export const legalKeyDays = 'Monday, Wednesday and Friday';
+export const keyLabel = (n) => `Legal Key ${String(n).padStart(3, '0')}`;

@@ -1,103 +1,113 @@
 ---
-// Home, built on the StoryBrand (SB7) frame: the client is the hero, Tercet Law is the guide.
-// Hero → problem and stakes → guide (empathy + authority) → three-step plan → services → plans →
-// what a plan protects (success) → free checklist (transitional CTA) → FAQ → final call to action.
+// Home. Same flow as Vault Human: hero → the approach (the Estate Map wheel) → where to start (photo tiles)
+// → meet Russ (video) → three steps → in their own words → plans → writing → questions → begin.
+// Rules: short, plain copy; tiles not bullet lists; every button pair the same size.
 import Base from '../layouts/Base.astro';
 import VideoSlot from '../components/VideoSlot.astro';
 import Plans from '../components/Plans.astro';
-import EstateMap from '../components/EstateMap.astro';
-import Tercet from '../components/Tercet.astro';
-import { firm, cta, guideCta, steps, timingNote, faqs, trustPriceNote, story, services, servicesFeeNote, pricesEffectiveThrough } from '../data/site.js';
+import EstateWheel from '../components/EstateWheel.astro';
+import Voices from '../components/Voices.astro';
+import { cta, faqs, trustPriceNote, pricesEffectiveThrough } from '../data/site.js';
+import { writing } from '../data/writing.js';
 const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'bring'].includes(f.id));
+const latest = writing.slice(0, 3);
+const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ-welcome.vtt', poster: '/video/russ/russ-welcome.jpg' };
 ---
 <Base
-  title="Tercet Law | Estate, Trust & Legacy Planning in Austin, Texas"
-  description="Estate, trust and legacy planning for Austin and Texas families, plus probate, trust administration and elder law. Three simple steps and a flat fee in writing, handled personally by attorney Russ Michaels. Book a free 45-minute Estate Map Session on Zoom."
+  title="Tercet Law | Estate Planning for Texas Families"
+  description="Wills, trusts and a plan for everything you've built, with attorney Russ Michaels. Plain English and a flat fee in writing."
   path="/"
   inner={false}
 >
-    <section class="hero"><img class="bgimg" src="/video/home.jpg" width="1280" height="720" style="object-position:50% 35%" alt="A mother, father and young child walking hand in hand through a park in autumn" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/home.jpg" style="object-position:50% 35%" aria-hidden="true"><source src="/video/home.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
-      <div class="hero-copy">
-        <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
-        <h1>Estate, trust and legacy planning <em>for Austin families.</em></h1>
-        <p class="lede">Wills, living trusts and a plan for everything you&rsquo;ve built, with probate and elder law when your family needs them. Three clear steps and a flat fee in writing, so the people you love know exactly what you want and what to do.</p>
-        <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={guideCta.href}>{guideCta.label}</a></div>
-        <p class="guarantee">Free · 45 minutes · on Zoom · {firm.license} · <a href="#watch" class="watchlink">Watch: what we do (90 sec)</a></p>
-      </div>
-    </div></section>
+  <section class="hero"><img class="bgimg" src="/video/home.jpg" width="1280" height="720" style="object-position:50% 35%" alt="A mother, father and young child walking hand in hand through a park in autumn" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/home.jpg" aria-hidden="true"><source src="/video/home.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
+    <div class="hero-copy">
+      <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
+      <h1>Estate planning <em>for Texas families.</em></h1>
+      <p class="lede">Wills, trusts and a plan for everything you&rsquo;ve built. In plain English, with a flat fee in writing.</p>
+      <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><button class="btn btn-line" type="button" data-vslot={video.src} data-vslot-captions={video.captions} data-vslot-poster={video.poster}>Meet Russ</button></div>
+    </div>
+  </div></section>
 
-    <div id="watch"><VideoSlot title="What Tercet Law does" eyebrow="Meet your attorney" heading="Meet Russ Michaels." lede="Ninety seconds on why Russ does this work, what a plan does for the people you love, and how the free Estate Map Session works.">
-      <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/about">About Russ</a></div>
-    </VideoSlot></div>
+  <section class="sec dark" id="map"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">The Estate Map</p><h2>Everything you own. Everyone you love. One map.</h2></div>
+    <EstateWheel />
+    <div class="ctarow eq" style="margin-top:34px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-ghost" href="/process">See the process</a></div>
+  </div></section>
 
+  <section class="sec" id="start"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Where to start</p><h2>Start where life is.</h2></div>
+    <div class="pcards">
+      <a class="pcard" href="/services#estate-planning"><img src="/images/home/family-dog.jpg" alt="A mother and her daughters laughing with their dog on the couch" style="object-position:40% 40%" loading="lazy" /><span class="pc-k">Planning ahead</span><b>Wills and trusts</b><em>A plan for your family, your home and everything you&rsquo;ve built.</em></a>
+      <a class="pcard" href="/services#elder-law"><img src="/images/home/couple-album.jpg" alt="An older couple looking through a photo album together" style="object-position:50% 35%" loading="lazy" /><span class="pc-k">Caring for someone</span><b>Aging and incapacity</b><em>Powers of attorney and a plan for the years ahead.</em></a>
+      <a class="pcard" href="/services#probate"><img src="/images/home/grandmother-photos.jpg" alt="An older woman sorting through family photographs at her table" style="object-position:45% 35%" loading="lazy" /><span class="pc-k">After a loss</span><b>Probate and trusts</b><em>Settling an estate in Texas, one step at a time.</em></a>
+    </div>
+  </div></section>
 
-    <section class="split" id="problem"><div class="split__media" style="background-image:url('/images/home-family-newborn.jpg');background-position:70% 30%" role="img" aria-label="Three generations of a family smiling around a newborn baby held by his mother, grandparents at either side"></div><div class="split__copy">
-      <p class="eyebrow">Why plan now</p><h2>Without a plan, Texas law makes the choices.</h2>
-      <p class="split__lede">You know you should have a plan. It just feels complicated, uncomfortable and hard to start. Meanwhile, without one:</p>
-      <ul class="ticks">{story.failure.map((f) => <li>{f}</li>)}</ul>
-      <p class="split__lede"><b>{story.problem.philosophical}</b></p>
-      <div class="ctarow"><a class="btn btn-line" href="/faq">Read the Texas FAQ</a></div>
-    </div></section>
+  <div id="watch"><VideoSlot title="Why I do this work" length="2 minutes" src={video.src} captions={video.captions} poster={video.poster} eyebrow="Your attorney" heading="Meet Russ Michaels." lede="Why he does this work, and what a plan does for the people you love." dark>
+    <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-ghost" href="/about">About Russ</a></div>
+  </VideoSlot></div>
 
-    <section class="sec dark" id="guide"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Your guide</p><h2>We understand. And we keep it simple.</h2><p class="lede">{story.empathy} {firm.attorney} handles every matter personally, explains every page in plain English and sets the fee in writing first.</p></div>
-      <div class="facts dark3">{story.authority.map((a) => <div><b>{a.k}</b><span>{a.d}</span></div>)}</div>
-      <blockquote class="guide-quote">A good plan is not about the end. It is about the people you love knowing exactly what you intended.<cite>{firm.attorney}</cite></blockquote>
-      <div class="ctarow"><a class="btn btn-ghost" href="/about">About Russ</a><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div>
-    </div></section>
+  <section class="sec" id="how"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three steps.</h2></div>
+    <div class="tiles3">
+      <div class="tile"><img src="/images/home/kitchen-baby.jpg" alt="A young couple and their baby in the kitchen" loading="lazy" /><div class="tile__b"><span class="tile__n">01</span><h3>Map</h3><p>Forty-five minutes with Russ. Everything you own and everyone you love, on one map.</p></div></div>
+      <div class="tile"><img src="/images/home/father-son.jpg" alt="A father and son hugging in their kitchen" loading="lazy" /><div class="tile__b"><span class="tile__n">02</span><h3>Design</h3><p>Your plan, in plain English, for a flat fee set in writing before any work begins.</p></div></div>
+      <div class="tile"><img src="/images/home/grandfather-bench.jpg" alt="A grandfather laughing with his grandchildren on a bench" loading="lazy" /><div class="tile__b"><span class="tile__n">03</span><h3>Sign</h3><p>You sign, and Russ makes sure every account and deed matches the plan.</p></div></div>
+    </div>
+    <div class="ctarow eq" style="margin-top:30px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/process">See the process</a></div>
+  </div></section>
 
-    <section class="sec" id="how"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">The plan</p><h2>Three simple steps.</h2><p class="lede">Map. Design. Sign &amp; Fund. A signed plan in about three weeks from the day you engage.</p></div>
-      <div class="steps">{steps.map((s) => (<div class="step"><div class="n">{s.n}</div><p class="when">{s.when}</p><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
-      <ul class="promises">{story.promises.map((p) => <li>{p}</li>)}</ul>
-      <p class="offers-note">{timingNote}</p>
-      <div class="ctarow" style="margin-top:22px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/process">See the process</a></div>
-    </div></section>
+  <section class="band" style="background-image:url('/images/home/grandparents-heads.jpg');background-position:50% 40%"><div class="wrap"><p>A good plan isn&rsquo;t about the end. It&rsquo;s about the people you love knowing exactly what you wanted.</p></div></section>
 
-    <section class="sec alt" id="map"><div class="wrap mapgrid">
-      <div>
-        <p class="eyebrow">Step one, up close</p>
-        <h2>See your whole estate on one screen.</h2>
-        <ul class="ticks">
-          <li>Forty-five minutes on Zoom with {firm.attorney}, free.</li>
-          <li>Russ builds a visual map as you talk: what you own, who depends on you, and who you trust to take charge.</li>
-          <li>You see how each piece would pass today, and where the gaps are.</li>
-          <li>You leave knowing what fits and its flat fee. No pressure either way.</li>
-        </ul>
-        <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div>
-      </div>
-      <EstateMap />
-    </div></section>
+  <Voices />
 
-    <section class="sec" id="services"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">What we do</p><h2>More than a will.</h2><p class="lede">Planning ahead, caring for someone who needs help, or settling an estate after a loss: one attorney, in plain English, with a flat fee in writing.</p></div>
-      <div class="svc-grid">{services.map((s) => (
-        <a class="svc" href={`/services#${s.id}`}><b>{s.title}</b><span class="svc__short">{s.short}</span><span class="svc__for">{s.for}</span><span class="svc__more">Learn more</span></a>
-      ))}<a class="svc svc--cta" href={cta.href}><b>Not sure which?</b><span class="svc__short">Start with the map.</span><span class="svc__for">Forty-five minutes on Zoom, free. You leave knowing what you need and its flat fee.</span><span class="svc__more">Book your session</span></a></div>
-      <p class="offers-note">Estate planning is offered as four flat-fee plans, below. Every other matter is a {servicesFeeNote.charAt(0).toLowerCase() + servicesFeeNote.slice(1)}. <a href="/services">All services</a>.</p>
-    </div></section>
+  <section class="sec alt" id="pricing"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Plans</p><h2>Flat fees. In writing.</h2></div>
+    <Plans detail={false} />
+    <p class="offers-note">{trustPriceNote} Prices effective through {pricesEffectiveThrough}. <a href="/pricing">What each plan includes</a>.</p>
+  </div></section>
 
-    <section class="sec alt" id="pricing"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Estate planning plans</p><h2>Four plans. Flat fees.</h2><p class="lede">Your fee is set in writing before any work begins. No hourly billing on your plan.</p></div>
-      <Plans detail={false} />
-      <p class="offers-note">{trustPriceNote} Legacy is quoted in writing after your Estate Map Session. Prices effective through {pricesEffectiveThrough}. <a href="/pricing">See everything each plan includes</a>.</p>
-    </div></section>
+  <section class="sec" id="writing"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Writing</p><h2>One clear idea a day.</h2></div>
+    <div class="wcards">{latest.map((p) => (
+      <a class={`wcard${p.type === 'key' ? ' key' : ''}`} href={`/writing/${p.slug}/`}><span class="wcard__k">{p.type === 'key' ? `Legal Key No. ${p.keyNo}` : 'Writing'}</span><b>{p.title}</b><em>{p.dek}</em></a>
+    ))}</div>
+    <div class="ctarow eq" style="margin-top:28px"><a class="btn btn-line" href="/writing/">All writing</a></div>
+  </div></section>
 
-    <Tercet variant="protects" />
+  <section class="sec alt" id="faq"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Questions</p><h2>Straight answers.</h2></div>
+    <div class="faq">{homeFaqs.map((f) => (<details><summary>{f.q}</summary>{f.a.map((p) => <p>{p}</p>)}</details>))}</div>
+    <p class="offers-note">General information, not legal advice. <a href="/faq">More questions</a>.</p>
+  </div></section>
 
-    <section class="checkband" id="checklist"><div class="wrap checkband__in">
-      <div><p class="eyebrow">Not ready to book?</p><h2>Start with the free Texas checklist.</h2><p>One page: the people, the property and the papers to gather before you plan. Print it, fill it in at the kitchen table, and bring it to your session when you are ready.</p></div>
-      <div class="ctarow"><a class="btn btn-acc" href={guideCta.href}>{guideCta.label}</a></div>
-    </div></section>
+  <section class="sec final" id="begin"><img class="bgimg" src="/images/home/pennybacker.jpg" width="1920" height="1080" style="object-position:50% 50%" alt="The Pennybacker Bridge over Lake Austin in the Texas Hill Country" loading="lazy" /><div class="veil"></div><div class="wrap">
+    <h2>There&rsquo;s a door here for you.</h2><p class="lede">Let&rsquo;s put on paper what you&rsquo;ve been putting off.</p>
+    <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><button class="btn btn-line" type="button" data-vslot={video.src} data-vslot-captions={video.captions} data-vslot-poster={video.poster}>Meet Russ</button></div>
+  </div></section>
 
-    <section class="sec alt" id="faq"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Texas questions</p><h2>Straight answers.</h2></div>
-      <div class="faq">{homeFaqs.map((f) => (<details><summary>{f.q}</summary>{f.a.map((p) => <p>{p}</p>)}</details>))}</div>
-      <p class="offers-note">General information, not legal advice. <a href="/faq">More Texas questions</a>.</p>
-    </div></section>
-
-    <section class="sec final" id="begin"><img class="bgimg" src="/images/home-hands-generations.jpg" width="1800" height="1200" style="object-position:55% 60%" alt="Hands of a grandmother, a mother and a young girl clasped together in a family's laps" loading="lazy" /><div class="veil"></div><div class="wrap">
-      <h2>Your wishes, clear. Your family, ready.</h2><p class="lede">{story.success.join(' ')} It starts with forty-five minutes on Zoom, free.</p>
-      <div class="ctarow"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
-    </div></section>
+  <style is:inline>
+    .ctarow.eq .btn{min-width:300px;text-align:center;justify-content:center}
+    @media(max-width:560px){.ctarow.eq .btn{min-width:0;width:100%}}
+    .tiles3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .tile{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+    .tile img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+    .tile__b{padding:24px 24px 26px;border-top:3px solid var(--acc)}
+    .tile__n{font-family:var(--disp);font-size:44px;line-height:.9;color:var(--acc)}
+    .tile h3{font-family:var(--disp);font-weight:400;font-size:34px;line-height:1;margin:6px 0 10px}
+    .tile p{margin:0;color:var(--muted);font-size:17px;line-height:1.5}
+    .band{position:relative;background-size:cover;background-position:55% 60%;min-height:52vh;display:flex;align-items:flex-end;isolation:isolate}
+    .band:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,35,29,.2),rgba(42,35,29,.85));z-index:-1}
+    .band .wrap{padding-bottom:56px}
+    .band p{font-family:var(--disp);font-size:clamp(34px,4vw,58px);line-height:1;color:#fff;max-width:22ch;margin:0}
+    .wcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .wcard{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:12px;padding:26px;text-decoration:none;color:var(--ink);transition:box-shadow .3s,border-color .3s}
+    .wcard:hover{box-shadow:0 10px 30px rgba(31,58,95,.14)}
+    .wcard.key{border-top-color:#C98B5A}
+    .wcard__k{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--acc)}
+    .wcard.key .wcard__k{color:#A86F42}
+    .wcard b{font-family:var(--disp);font-weight:400;font-size:32px;line-height:1}
+    .wcard em{font-style:normal;color:var(--muted);font-size:16px;line-height:1.5}
+    @media(max-width:900px){.tiles3,.wcards{grid-template-columns:1fr}}
+  </style>
 </Base>

@@ -1,0 +1,18 @@
+---
+// A small Whole Picture ring: the eight parts, with the ones a plan covers filled in.
+import { picture } from '../data/site.js';
+const { covers = [], size = 92 } = Astro.props;
+const parts = picture.parts, N = parts.length, C = 50, R0 = 26, R1 = 46;
+const rad = (a: number) => ((a - 90) * Math.PI) / 180;
+const pt = (r: number, a: number) => [C + r * Math.cos(rad(a)), C + r * Math.sin(rad(a))].map((v) => v.toFixed(2));
+const seg = (i: number) => {
+  const a0 = (360 / N) * i + 2, a1 = (360 / N) * (i + 1) - 2;
+  const [x0, y0] = pt(R1, a0), [x1, y1] = pt(R1, a1), [x2, y2] = pt(R0, a1), [x3, y3] = pt(R0, a0);
+  return `M${x0} ${y0} A${R1} ${R1} 0 0 1 ${x1} ${y1} L${x2} ${y2} A${R0} ${R0} 0 0 0 ${x3} ${y3}Z`;
+};
+const label = `Covers ${covers.length} of ${N} parts of the whole picture: ` + parts.filter((p) => covers.includes(p.id)).map((p) => p.word.toLowerCase()).join(', ');
+---
+<svg class="pring" viewBox="0 0 100 100" width={size} height={size} role="img" aria-label={label}>
+  {parts.map((p, i) => <path d={seg(i)} class={covers.includes(p.id) ? 'on' : ''}><title>{p.top} {p.word.toLowerCase()}</title></path>)}
+  <text x="50" y="49" class="pring__n">{covers.length}</text><text x="50" y="60" class="pring__of">OF {N}</text>
+</svg>

@@ -380,3 +380,11 @@ body:not(:has(.pagehero, .hero)) header.site{background:rgba(var(--darkr),.94)}
 .photoband .wrap{padding-bottom:40px;width:100%}
 .photoband p{font-family:var(--disp);font-size:clamp(30px,3.4vw,52px);line-height:1;margin:0;max-width:20ch;color:#fff;text-wrap:balance}
 @media(max-width:700px){.photoband{min-height:34vh}.photoband .wrap{padding-bottom:26px}}
+
+/* faint photo backdrop behind a section, to break up long cream pages */
+.sec.tint{position:relative;isolation:isolate}
+.sec.tint:before{content:"";position:absolute;inset:0;background:var(--tint) center/cover no-repeat;opacity:var(--tint-o,.12);z-index:-1;pointer-events:none}
+/* video section sits closer to what follows it */
+.vslot-sec{padding-bottom:56px!important}
+.vslot-sec + .sec{padding-top:64px}
+@media(max-width:760px){.vslot-sec{padding-bottom:36px!important}.vslot-sec + .sec{padding-top:44px}}

@@ -270,6 +270,12 @@ button.btn{font-family:inherit;cursor:pointer}
 .svcd .svcd__k{margin:16px 0 4px}
 .svcd .svcd__short{margin:0 0 4px;color:var(--ink)}
 .svcd--cta{background:var(--dark);border-color:var(--dark);border-top-color:var(--acc-soft)}
+.svcd__img{display:block;width:calc(100% + 52px);max-width:none;margin:-28px -26px 22px;aspect-ratio:16/10;height:auto;object-fit:cover;border-radius:5px 5px 0 0}
+.svcd{overflow:hidden}
+.svc-detail .svcd--cta{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:28px 40px;padding:34px 36px}
+.svcd--cta__t{max-width:62ch}
+.svcd--cta .btn{flex:0 0 auto;white-space:nowrap}
+@media(max-width:700px){.svc-detail .svcd--cta{flex-direction:column;align-items:stretch;padding:26px 22px}.svcd--cta .btn{white-space:normal}}
 .svcd--cta h3{color:#fff}.svcd--cta .svcd__short{color:#fff}.svcd--cta p{color:rgba(255,255,255,.78)}
 
 /* Background motion (2026-11-02): looping muted clip over its poster frame; still image only for reduced motion */
@@ -289,6 +295,14 @@ button.btn{font-family:inherit;cursor:pointer}
 .vslot.playing video{opacity:1}
 .vslot.playing{cursor:default}
 .vslot.playing .vslot__play{display:none}
+.vslot.playing.paused .vslot__play{display:block}
+.vslot.playing{cursor:pointer}
+.vslot__bar{position:absolute;left:0;right:0;bottom:0;height:14px;z-index:3;cursor:pointer;display:none}
+.vslot__bar:before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.25)}
+.vslot__bar i{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--acc-soft,#9DB7CB)}
+.vslot.playing .vslot__bar{display:block}
+.vslot video::-webkit-media-controls{display:none!important}
+.vslot video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
 .vslot__play{position:absolute;right:14px;bottom:14px;z-index:2;width:48px;height:48px;border:0;padding:0;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 6px 18px rgba(0,0,0,.3);cursor:pointer}
 .vslot__play span{position:absolute;left:19px;top:15px;border-style:solid;border-width:9px 0 9px 14px;border-color:transparent transparent transparent var(--acc)}
 .vslot__play:focus-visible{outline:3px solid var(--acc-soft);outline-offset:3px}
@@ -352,3 +366,10 @@ button.btn{font-family:inherit;cursor:pointer}
 @media(max-width:560px){.vslot-btns .ctarow.eq{flex-wrap:wrap}.vslot-btns .ctarow.eq .btn{flex:1 1 100%}}
 /* Pages with no photo hero (articles, legal pages): keep the header solid so the white nav stays readable */
 body:not(:has(.pagehero, .hero)) header.site{background:rgba(var(--darkr),.94)}
+
+/* full-bleed photo band: breaks up long text pages */
+.photoband{position:relative;min-height:46vh;background-size:cover;display:flex;align-items:flex-end;isolation:isolate}
+.photoband:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.62),rgba(20,16,12,.05) 60%);z-index:-1}
+.photoband .wrap{padding-bottom:40px;width:100%}
+.photoband p{font-family:var(--disp);font-size:clamp(30px,3.4vw,52px);line-height:1;margin:0;max-width:20ch;color:#fff;text-wrap:balance}
+@media(max-width:700px){.photoband{min-height:34vh}.photoband .wrap{padding-bottom:26px}}

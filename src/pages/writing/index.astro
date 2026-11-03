@@ -15,13 +15,13 @@ run.forEach((p, i) => {
   const m = p.date !== lastDate ? p.date : null; lastDate = p.date;
   items.push({ p, m });
 });
-const desc = 'Short, plain-English pieces on wills, trusts and planning in Texas, plus a Legal Key every ' + legalKeyDays + '.';
+const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a Legal Key every ' + legalKeyDays + '.';
 ---
 <Base title="Writing | Tercet Law" description={desc} path="/writing/" inner={false}>
   <section class="hero wr-hero"><img class="bgimg" src="/video/writing.jpg" width="1280" height="720" alt="The Austin skyline and Lady Bird Lake from above" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/writing.jpg" aria-hidden="true"><source src="/video/writing.mp4" type="video/mp4" /></video><div class="veil"></div>
     <div class="wrap"><div class="hero-copy">
       <p class="eyebrow" style="color:var(--acc-soft)">Writing</p>
-      <h1>One clear idea a day. <em>In plain English.</em></h1>
+      <h1>One clear idea <em>a day.</em></h1>
       <p class="lede">Short pieces on wills, trusts and planning in Texas. A Legal Key every {legalKeyDays}.</p>
       <div class="ctarow"><a class="btn btn-acc" href={`/writing/${run[0].slug}/`}>Today's piece</a><a class="btn btn-line" href="#keys">Legal Keys</a></div>
     </div></div>

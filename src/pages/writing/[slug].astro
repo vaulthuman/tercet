@@ -17,6 +17,7 @@ const schema = [{ "@context": "https://schema.org", "@type": "Article", headline
     <p class="wp__dek">{p.dek}</p>
   </div></article>
   {p.video && <VideoSlot title={p.video.title} src={`/video/russ/${p.video.slug}.mp4`} captions={`/video/russ/${p.video.slug}.vtt`} poster={`/video/russ/${p.video.slug}.jpg`} eyebrow="Watch" heading={`${p.video.title}.`} lede="Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next." />}
+  {p.reel && <VideoSlot tall title={p.reel.title} src={p.reel.src} captions="" poster={p.reel.poster} eyebrow={kicker} heading="Watch the key." lede="Ninety seconds, in Russ’s own words." />}
   <article class="sec wp wp--body"><div class="wrap wp__in">
     <div class="wp__body">{p.body.map((t) => <p>{t}</p>)}</div>
     <p class="wp__fine">General information about Texas law, not legal advice. Every family is different.</p>

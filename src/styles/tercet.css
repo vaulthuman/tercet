@@ -50,7 +50,7 @@
 .offer.whole .whole__a,.offer.whole .whole__b{display:flex;flex-direction:column}
 .offer.whole .whole__a .btn{align-self:flex-start;margin-top:auto;min-width:280px}
 .offer.whole .whole__a p{flex:0}
-@media(max-width:700px){.offers.four .offer.whole{grid-template-columns:1fr}.offer.whole .whole__a .btn{min-width:0;align-self:stretch}.offer.whole .whole__b{order:-1}}
+@media(max-width:700px){.offers.four .offer.whole{display:flex;flex-direction:column}.offer.whole .whole__a,.offer.whole .whole__b{display:contents}.offer.whole .whole__a .btn{order:9;margin-top:6px}.offer.whole .whole__a .btn{min-width:0;align-self:stretch}}
 
 /* four steps, with timing */
 .steps.four{grid-template-columns:repeat(4,minmax(0,1fr))}

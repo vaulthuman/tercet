@@ -1,0 +1,25 @@
+---
+// Client Login. Tercet Law uses Clio for Clients; this page explains the invitation and links to Clio's sign-in page.
+import Base from '../layouts/Base.astro';
+import { firm, cta, clientPortal } from '../data/site.js';
+---
+<Base
+  title="Client Login | Tercet Law"
+  description="Sign in to the Tercet Law client portal (Clio for Clients) to see your documents, messages and invoices."
+  path="/login/"
+  noindex={true}
+>
+    <section class="pagehero plain"><div class="wrap">
+      <p class="eyebrow">Clients</p><h1>Client <em>login.</em></h1><p class="lede">Tercet Law clients share documents, messages and invoices through {clientPortal.name}, a secure portal. There is no password to remember.</p>
+      <div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={clientPortal.url} target="_blank" rel="noopener">Sign in to {clientPortal.name}</a></div>
+    </div></section>
+
+    <section class="sec" id="how"><div class="wrap">
+      <div class="steps">
+        <div class="step"><div class="n">01</div><h3>Your invitation</h3><p>When your matter opens, you receive an email invitation to the portal. Look for it from Clio on behalf of Tercet Law.</p></div>
+        <div class="step"><div class="n">02</div><h3>Sign in by email</h3><p>Enter the same email address the invitation went to. Clio sends you a one-time sign-in link. Links expire after a short time; you can always request a new one.</p></div>
+        <div class="step"><div class="n">03</div><h3>Come back anytime</h3><p>Bookmark <a href={clientPortal.url} target="_blank" rel="noopener">clients.clio.com/login</a>, use this page, or use the Clio for Clients mobile app.</p></div>
+      </div>
+      <p class="faq-note">Not a client yet? The portal opens once you engage Tercet Law. <a href={cta.href}>{cta.label}</a> or call {firm.phone}. Trouble signing in? Email <a href={`mailto:${firm.email}`}>{firm.email}</a>.</p>
+    </div></section>
+</Base>

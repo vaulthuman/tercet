@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import { writing } from '../../data/writing.js';
+import { cta } from '../../data/site.js';
+import VideoSlot from '../../components/VideoSlot.astro';
+export function getStaticPaths() {
+  return writing.map((p, i) => ({ params: { slug: p.slug }, props: { p, newer: writing[i - 1] || null, older: writing[i + 1] || null } }));
+}
+const { p, newer, older } = Astro.props;
+const kicker = p.type === 'key' ? `Legal Key No. ${p.keyNo}` : 'Writing';
+const schema = [{ "@context": "https://schema.org", "@type": "Article", headline: p.title, description: p.dek, datePublished: p.iso, author: { "@type": "Person", name: "Russ Michaels" }, publisher: { "@type": "LegalService", name: "Tercet Law" } }];
+---
+<Base title={`${p.title} | Tercet Law`} description={p.dek} path={`/writing/${p.slug}/`} schema={schema}>
+  <article class="sec wp"><div class="wrap wp__in">
+    <p class="wp__k"><a href="/writing/">Writing</a> · {kicker} · {p.date}</p>
+    <h1>{p.title}</h1>
+    <p class="wp__dek">{p.dek}</p>
+    <div class="wp__body">{p.body.map((t) => <p>{t}</p>)}</div>
+    <p class="wp__fine">General information about Texas law, not legal advice. Every family is different.</p>
+    <div class="ctarow wp__cta"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/writing/">All writing</a></div>
+    <nav class="wp__nav">{older ? <a href={`/writing/${older.slug}/`}>&larr; {older.title}</a> : <span></span>}{newer ? <a href={`/writing/${newer.slug}/`}>{newer.title} &rarr;</a> : <span></span>}</nav>
+  </div></article>
+  {p.video && <VideoSlot title={p.video.title} src={`/video/russ/${p.video.slug}.mp4`} captions={`/video/russ/${p.video.slug}.vtt`} poster={`/video/russ/${p.video.slug}.jpg`} eyebrow="Watch" heading={`${p.video.title}.`} lede="Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next." dark />}
+  <style is:inline>
+    .wp__in{max-width:760px}
+    .wp__k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--acc);margin:0 0 18px}
+    .wp__k a{color:inherit}
+    .wp h1{font-size:clamp(44px,5vw,72px);line-height:.95;margin:0 0 18px}
+    .wp__dek{font-size:21px;line-height:1.5;color:var(--muted);margin:0 0 34px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+    .wp__body p{font-size:19px;line-height:1.7;margin:0 0 22px}
+    .wp__fine{font-size:14px;color:var(--muted);margin:30px 0 0}
+    .wp__cta{margin-top:28px}
+    .wp__nav{display:flex;justify-content:space-between;gap:20px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:15px}
+    .wp__nav a{color:var(--acc);text-decoration:none;max-width:48%}
+  </style>
+</Base>

@@ -1,0 +1,29 @@
+---
+// A place for one of Russ's videos. It plays in the pop-up player with captions.
+// Until a page's own video is finished, it shows Russ's welcome video (swap `src` later).
+// Clean on purpose: a still and a play button, no titles or running times over the picture.
+interface Props {
+  title: string;          // used only for the screen-reader label
+  src?: string;
+  captions?: string;
+  poster?: string;
+  eyebrow?: string;
+  heading?: string;
+  lede?: string;
+  dark?: boolean;
+}
+const WELCOME = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ-welcome.vtt', poster: '/video/russ/russ-still.jpg' };
+const { title, src = WELCOME.src, captions = src === WELCOME.src ? WELCOME.captions : '', poster = WELCOME.poster, eyebrow = 'Watch', heading, lede, dark = false } = Astro.props;
+---
+<section class:list={['sec', 'vslot-sec', { dark }]}><div class="wrap vslot-grid">
+  <div class="vslot-copy">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{heading ?? title}</h2>
+    {lede && <p class="lede">{lede}</p>}
+    <slot />
+  </div>
+  <button class="vslot" type="button" data-vslot={src} data-vslot-captions={captions} data-vslot-poster={poster} aria-label={`Play video: ${title}`}>
+    <img src={poster} alt="" loading="lazy" />
+    <span class="vslot__play" aria-hidden="true"></span>
+  </button>
+</div></section>

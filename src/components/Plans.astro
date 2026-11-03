@@ -1,0 +1,22 @@
+---
+// The four flat-fee plans, read from src/data/site.js. Each card shows which parts of the
+// Whole Picture it covers (the ring) and exactly what you receive. detail=false shows the short card.
+import { plans, cta, picture } from '../data/site.js';
+import PictureRing from './PictureRing.astro';
+const { detail = true } = Astro.props;
+const word = (id: string) => picture.parts.find((p) => p.id === id)?.word ?? id;
+---
+<div class="offers four">
+  {plans.map((p) => (
+    <div class={`offer pkg${p.featured ? ' feat' : ''}`} id={`plan-${p.id}`}>
+      <div class="tag">{p.tag}</div>
+      <h3>{p.name}</h3>
+      <div class="price">{p.from && <small class="from">From</small>}{p.price}{p.unit && <small>{p.unit}</small>}</div>
+      <p class="price-alt">{p.alt ? p.alt : p.from ? 'Flat fee, quoted' : 'Flat fee'}</p>
+      <div class="pcov"><PictureRing covers={p.covers} /><div class="pcov__w">{p.covers.map((c) => <span>{word(c)}</span>)}</div></div>
+      <p>{p.blurb}</p>
+      {detail && <><p class="pget">What you receive</p><div class="pkeys">{p.features.map((f) => <span>{f}</span>)}</div></>}
+      <a class={`btn ${p.featured ? 'btn-acc' : 'btn-line'}`} href={cta.href}>{cta.label}</a>
+    </div>
+  ))}
+</div>

@@ -1,137 +1,112 @@
 ---
-import '../styles/family.css';
-import '../styles/tokens.css';
-const year = new Date().getFullYear();
+// Home. Same flow as Vault Human: hero → our approach (the Whole Picture wheel) → meet Russ (video)
+// → where to start → three steps → in their own words → plans → writing → questions → begin.
+// Rules: short, clean copy; tiles, never hyphen lists; every button pair the same size;
+// stills from the videos are not reused as photos.
+import Base from '../layouts/Base.astro';
+import VideoSlot from '../components/VideoSlot.astro';
+import Plans from '../components/Plans.astro';
+import WholePicture from '../components/WholePicture.astro';
+import Voices from '../components/Voices.astro';
+import { cta, faqs, trustPriceNote, pricesEffectiveThrough } from '../data/site.js';
+import { writing } from '../data/writing.js';
+const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'bring'].includes(f.id));
+const latest = writing.slice(0, 3);
+const video = { src: '/video/russ/russ-welcome.mp4', captions: '/video/russ/russ-welcome.vtt', poster: '/video/russ/russ-still.jpg' };
 ---
-<!doctype html>
-<html lang="en">
-<head>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" /><link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tercet Law — Live. The Future. Estate Planning and Life Law</title>
-<link rel="canonical" href="https://www.tercetlaw.com/">
-<meta name="description" content="Tercet Law is estate and life-law planning: the will, the trust, the directive — and a plan to live on. Flat fees. Alabama-licensed. Part of the Vault Human family.">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Tercet Law"><meta property="og:title" content="Tercet Law — Live. The Future. Estate Planning and Life Law"><meta property="og:description" content="Tercet Law is estate and life-law planning: the will, the trust, the directive — and a plan to live on. Flat fees. Alabama-licensed. Part of the Vault Human family."><meta property="og:image" content="https://www.tercetlaw.com/og-tercet.png"><meta property="og:url" content="https://www.tercetlaw.com/">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Tercet Law — Live. The Future. Estate Planning and Life Law"><meta name="twitter:description" content="Tercet Law is estate and life-law planning: the will, the trust, the directive — and a plan to live on. Flat fees. Alabama-licensed. Part of the Vault Human family."><meta name="twitter:image" content="https://www.tercetlaw.com/og-tercet.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- Google Ads gtag (AW-18371546487) + HubSpot conversion listener -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18371546487"></script>
-  <script>
-    window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};var gtag=window.gtag;
-    gtag('js',new Date());gtag('config','AW-18371546487');gtag('config','G-B2NDY58EKD',{linker:{domains:['vaulthuman.com','tercetlaw.com']}});
-    (function(){var fired=false;function fire(){if(fired)return;fired=true;gtag('event','conversion',{send_to:'AW-18371546487/yVNiCKX9xqkdEPeanrhE'});gtag('event','generate_lead');}
-    window.addEventListener('message',function(e){var d=e&&e.data;if(!d)return;if(typeof d==='string'){try{d=JSON.parse(d);}catch(_){return;}}if(!d||typeof d!=='object')return;var t=d.type||d.messageType||'',n=d.eventName||d.event||'';if(t==='hsFormCallback'&&(n==='onFormSubmitted'||n==='onFormSubmit'))fire();else if(n==='onFormSubmitted')fire();else if(d.accepted===true&&d.formGuid)fire();});
-    window.addEventListener('hsFormCallback',function(e){if(e&&e.detail&&e.detail.eventName==='onFormSubmitted')fire();});})();
-  </script>
-</head>
-<body data-time="future">
-  <header class="site"><div class="wrap bar">
-    <a class="brand" href="/">Tercet <b>Law</b></a>
-    <nav class="navlinks" id="navlinks"><a href="/services">Practice areas</a><a href="/process">How it works</a><a href="/pricing">Fees</a><a href="/about">About</a><a class="btn btn-acc" href="#" data-open-form>Book a call</a></nav><button class="navtoggle" type="button" aria-label="Open menu" aria-controls="navlinks" aria-expanded="false"><span></span><span></span><span></span></button>
-  </div></header>
-
-  <main>
-    <section class="hero"><img class="bgimg" src="https://images.unsplash.com/photo-1714974528737-3e6c7e4d11af?w=1800&q=72&auto=format&fit=crop" alt="An attorney meeting with clients across a small table" fetchpriority="high" /><div class="veil"></div>
-      <div class="wrap"><div class="hero-copy">
-        <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
-        <h1>Wills, trusts and estate planning, <em>done properly.</em></h1>
-        <p class="lede">Tercet Law is an estate planning and elder law firm. Wills, trusts, powers of attorney, probate and business succession, with flat fees quoted up front and an attorney who explains every page. Confidential, virtual, on your schedule.</p>
-        <div class="ctarow"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="#how">How it works</a></div>
-        <p class="guarantee">A confidential 30-minute planning call. No charge.</p>
-      </div></div>
-    </section>
-
-    <section class="split" id="problem"><div class="split__media" style="background-image:url('https://images.unsplash.com/photo-1758227365187-016878604d94?w=1400&q=72&auto=format&fit=crop');background-position:center" role="img" aria-label="A small wooden house, a family and a key on a table"></div><div class="split__copy">
-      <p class="eyebrow">Why now</p><h2>An estate without a plan is settled by a court.</h2>
-      <ul class="ticks"><li>Without a will, state law decides who inherits and who is in charge.</li><li>A trust that was never funded protects nothing.</li><li>A health directive and powers of attorney keep decisions with the people you chose.</li></ul>
-    </div></section>
-
-    <section class="split rev alt" id="approach"><div class="split__media" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1400&q=72&auto=format&fit=crop');background-position:center" role="img" aria-label="Signing a document with a fountain pen"></div><div class="split__copy">
-      <p class="eyebrow">How we work</p><h2>One attorney. One flat fee. Every page explained.</h2>
-      <ul class="ticks"><li>We begin with what you own, who you are responsible for, and what you intend.</li><li>Will, revocable trust, health directive and powers of attorney, drafted to fit.</li><li>We fund the trust with you, so it holds what it is meant to hold.</li><li>Signed, witnessed, and kept current as life changes.</li></ul>
-      <div class="ctarow"><a class="btn btn-acc" href="/process">See the process</a><a class="btn btn-line" href="/services">Practice areas</a></div>
-    </div></section>
-
-    <section class="sec" id="who"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Practice focus</p><h2>What do you need?</h2></div>
-      <div class="pcards"><div class="pcard"><img src="https://images.unsplash.com/photo-1681505504714-4ded1bc247e7?w=900&q=72&auto=format&fit=crop" alt="Reviewing and signing estate documents across a desk" loading="lazy" /><span class="pc-k">Plan</span><b>Estate planning</b><em>A will, directives and powers of attorney, drafted and signed properly.</em></div><div class="pcard"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=72&auto=format&fit=crop" alt="A family home with a wide front porch" loading="lazy" /><span class="pc-k">Protect</span><b>Trusts</b><em>A revocable trust, funded, to keep your estate private and out of probate.</em></div><div class="pcard"><img src="https://images.unsplash.com/photo-1751977979426-41cb711222cf?w=900&q=72&auto=format&fit=crop" style="object-position:22% 50%" alt="Three older adults reviewing paperwork together" loading="lazy" /><span class="pc-k">Settle</span><b>Probate and elder law</b><em>Settling an estate, or planning for a parent, with steady guidance.</em></div></div>
-    </div></section>
-
-    <section class="sec gallery-sec" id="what"><div class="wrap"><div class="sec-head"><p class="eyebrow">Practice areas</p><h2>Five areas. One firm.</h2></div><div class="gallery five"><figure><img src="https://images.unsplash.com/photo-1763729805496-b5dbf7f00c79?w=1000&q=72&auto=format&fit=crop" alt="A hand signing a will with a fountain pen" loading="lazy" /><figcaption>Wills and directives</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1000&q=72&auto=format&fit=crop" alt="A law library" loading="lazy" /><figcaption>Trusts</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1000&q=72&auto=format&fit=crop" alt="Estate paperwork on a desk" loading="lazy" /><figcaption>Probate</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1631217875019-8cb2649c3478?w=1000&q=72&auto=format&fit=crop" alt="An attorney meeting with an older couple" loading="lazy" /><figcaption>Elder law</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&q=72&auto=format&fit=crop" alt="A handshake across a desk" loading="lazy" /><figcaption>Business succession</figcaption></figure></div></div></section>
-
-    <section class="sec dark" id="russ"><div class="wrap guide-grid">
-      <img src="/russ-michaels.jpg" alt="Russ Michaels" width="340" height="425" loading="lazy" />
-      <div><p class="eyebrow">Your attorney</p><h2>Russ Michaels</h2><p class="lede">An attorney since 2014, practicing from Austin. Twenty years leading organizations alongside the practice, and he brings that steadiness to the table: clear answers, careful documents, no pressure.</p><blockquote>A good plan is not about the end. It is about the people you love knowing exactly what you intended.</blockquote><div class="ctarow"><a class="btn btn-ghost" href="/about">About Russ</a><a class="btn btn-ghost" href="https://www.linkedin.com/in/russ-michaels/" target="_blank" rel="noopener">LinkedIn</a></div></div>
-    </div></section>
-
-    <section class="sec alt" id="how"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three steps.</h2><p class="lede">Start with a confidential planning call.</p></div>
-      <div class="steps"><div class="step"><div class="n">01</div><h3>The call</h3><p>A confidential thirty minutes. What you have, what you want, what it costs.</p></div><div class="step"><div class="n">02</div><h3>The plan</h3><p>One flat fee. Will, trust, directive, powers of attorney. Drafted, explained, signed.</p></div><div class="step"><div class="n">03</div><h3>The keeping</h3><p>We fund the trust, deliver your documents, and review the plan when life changes.</p></div></div>
-      <div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="tel:+18888332510">(888) 833-2510</a></div>
-    </div></section>
-
-    <section class="sec" id="after"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">What changes</p><h2>When it is done.</h2></div>
-      <div class="after"><div><b>Your wishes are in writing.</b><p>Who decides, who inherits, and where everything is.</p></div><div><b>Your estate stays private.</b><p>A funded trust keeps it out of the courthouse.</p></div><div><b>Your family has a guide.</b><p>One attorney who already knows the plan.</p></div></div>
-    </div></section>
-
-    <section class="sec alt" id="pricing"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Pricing</p><h2>Simple to start.</h2></div>
-      <div class="offers"><div class="offer feat"><div class="tag">Start here</div><h3>The Essentials</h3><div class="price ">From $1,500</div><p>Will, health directive, powers of attorney. Signed and explained.</p><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a></div><div class="offer"><div class="tag">Most chosen</div><h3>The Trust Plan</h3><div class="price ">From $3,500</div><p>Revocable trust, funded. Everything in the Essentials.</p><a class="btn btn-line" href="#" data-open-form>Book a planning call</a></div><div class="offer"><div class="tag">For business owners</div><h3>Succession</h3><div class="price ">From $5,000</div><p>Who runs the company if you cannot. Buy-sell, operating agreements, the hand-off.</p><a class="btn btn-line" href="#" data-open-form>Book a planning call</a></div></div>
-      <p class="offers-note">Flat fees, confirmed in writing on the call. No hourly billing on planning work. <a href="/pricing">See what each plan includes</a>.</p>
-    </div></section>
-
-    <section class="sec" id="faq"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Questions</p><h2>Straight answers.</h2></div>
-      <div class="faq"><details><summary>What does Tercet Law do?</summary><p>Estate planning and elder law: wills, trusts, health directives, powers of attorney, probate and business succession. Flat fees.</p></details><details><summary>Is the call confidential?</summary><p>Yes. Attorney-client confidentiality applies from the first conversation.</p></details><details><summary>Do I need a trust?</summary><p>Sometimes. The call tells you honestly, and the price is the same either way.</p></details><details><summary>Where are you licensed?</summary><p>Alabama, with Texas admission pending. Based in Austin. Virtual appointments.</p></details><details><summary>How long does it take?</summary><p>Most plans are signed within three to four weeks of the first call.</p></details><details><summary>What is Vault Human?</summary><p>Daily coaching, run by the same owner. It is separate from your legal work and never required.</p></details></div>
-    </div></section>
-
-    <section class="sec final" id="begin"><img class="bgimg" src="https://images.unsplash.com/photo-1761233976686-f43410a4f5d8?w=1800&q=72&auto=format&fit=crop" alt="Four generations of hands resting together on a table" loading="lazy" /><div class="veil"></div><div class="wrap">
-      <h2>Book a confidential planning call.</h2><p class="lede">Thirty minutes. You leave knowing what you need and exactly what it costs.</p>
-      <div class="ctarow"><a class="btn btn-acc" href="#" data-open-form>Book a planning call</a><a class="btn btn-line" href="tel:+18888332510">(888) 833-2510</a></div>
-    </div></section>
-  </main>
-
-  <footer class="site">
-    <div class="wrap foot">
-      <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Estate planning and elder law. Flat fees.</p><p><a href="mailto:russ@tercetlaw.com">russ@tercetlaw.com</a> · <a href="tel:+18888332510">(888) 833-2510</a></p></div>
-      <ul><li><a href="/services">Practice areas</a></li><li><a href="/process">How it works</a></li><li><a href="/pricing">Fees</a></li><li><a href="/about">About</a></li><li><a href="https://www.linkedin.com/in/russ-michaels/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
-      <ul><li><a href="https://www.vaulthuman.com">Vault Human</a> — daily coaching</li><li><a href="https://www.tercetlaw.com">Tercet Law</a> — estate planning</li></ul>
+<Base
+  title="Tercet Law | Estate Planning for Texas Families"
+  description="Wills, trusts and one complete plan for everything you've built, with attorney Russ Michaels. A flat fee set before we begin."
+  path="/"
+  inner={false}
+>
+  <section class="hero"><img class="bgimg" src="/video/home.jpg" width="1280" height="720" style="object-position:50% 35%" alt="A mother, father and young child walking hand in hand through a park in autumn" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/home.jpg" aria-hidden="true"><source src="/video/home.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
+    <div class="hero-copy">
+      <div class="timeword"><span class="tw past">Past</span><span class="tw present">Present</span><span class="tw future on">Future</span></div>
+      <h1>Estate planning <em>for Texas families.</em></h1>
+      <p class="lede">Protect the people you love and everything you&rsquo;ve built. One complete plan, with a flat fee set before we begin.</p>
+      <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><button class="btn btn-line" type="button" data-vslot={video.src} data-vslot-captions={video.captions} data-vslot-poster={video.poster}>Meet Russ</button></div>
     </div>
-    <div class="wrap legal"><span>&copy; {year} Tercet Law PLLC. Attorney advertising. No attorney-client relationship is formed by this site.</span><span><a href="/privacy/">Privacy</a> · Part of the Vault Human family</span></div>
-  </footer>
+  </div></section>
 
-  <div id="vh-modal" class="vh-modal" aria-hidden="true">
-    <div class="vh-modal__bg" data-close-form></div>
-    <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book a planning call">
-      <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
-      <h2 class="vh-modal__title">Book a free 30-minute call</h2><p class="vh-modal__sub">Pick a time that suits you. You'll get a calendar invite with the video link.</p>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/vaulthuman/tercet-planning-call?hide_gdpr_banner=1&hide_landing_page_details=1" style="min-width:300px;height:640px;border-radius:10px;overflow:hidden;background:#fff"></div><p style="margin:12px 0 0;font-size:14px;opacity:.8;text-align:center">Rather talk now? <a href="tel:+18888332510">(888) 833-2510</a></p><script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script><style is:inline>.vh-modal__card{width:min(820px,94vw)!important}</style>
+  <section class="sec dark" id="approach"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Our approach</p><h2>Your whole picture. One plan.</h2><p class="lede">Eight parts of a life, each with its own keys. Some families need one piece. Most need all of it to connect, so what you built, what you have now and who comes next are held together.</p></div>
+    <WholePicture />
+    <div class="ctarow eq" style="margin-top:38px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-ghost" href="/services">All services</a></div>
+  </div></section>
+
+  <div id="watch"><VideoSlot title="Meet Russ Michaels" src={video.src} captions={video.captions} poster={video.poster} eyebrow="Your attorney" heading="Meet Russ Michaels." lede="Why he does this work, and what a plan does for the people you love.">
+    <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/about">About Russ</a></div>
+  </VideoSlot></div>
+
+  <section class="sec alt" id="start"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Where to start</p><h2>Start where your life is.</h2></div>
+    <div class="pcards">
+      <a class="pcard" href="/services#estate-planning"><img src="/images/home-family-newborn.jpg" alt="A family gathered around a mother holding her newborn" style="object-position:66% 35%" loading="lazy" /><span class="pc-k">Planning ahead</span><b>A plan for your family</b><em>Wills, trusts and the people in charge.</em></a>
+      <a class="pcard" href="/services#elder-law"><img src="/images/process-couple-video-call.jpg" alt="An older couple smiling together at a laptop on their sofa" style="object-position:55% 35%" loading="lazy" /><span class="pc-k">Caring for someone</span><b>The years ahead</b><em>Powers of attorney and a plan for aging.</em></a>
+      <a class="pcard" href="/services#probate"><img src="/images/pricing-couple-sofa.jpg" alt="An older couple going over papers together at home" style="object-position:50% 35%" loading="lazy" /><span class="pc-k">After a loss</span><b>Settling an estate</b><em>Probate and trusts in Texas, step by step.</em></a>
     </div>
-  </div>
-  <script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
-  <script is:inline>
-  (function(){var m=document.getElementById('vh-modal');if(!m)return;
-  function o(e){if(e)e.preventDefault();m.classList.add('is-open');m.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden';}
-  function c(){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');document.documentElement.style.overflow='';}
-  document.addEventListener('click',function(e){var t=e.target.closest('[data-open-form]');if(t){o(e);return;}if(e.target.closest('[data-close-form]'))c();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')c();});
-  if(location.hash==='#start')o();})();
-  addEventListener('DOMContentLoaded',function(){
-   document.body.classList.add('ready');
-   if(!('IntersectionObserver'in window))return;
-   var e=[].slice.call(document.querySelectorAll('.sec .wrap > *, .split__copy > *'));e.forEach(function(x){x.classList.add('reveal')});
-   var o=new IntersectionObserver(function(t){t.forEach(function(y){if(y.isIntersecting){y.target.classList.add('in');o.unobserve(y.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-   e.forEach(function(x){o.observe(x)});
-  });
-  </script>
-  <div class="stickybar" id="stickybar"><span>Wills, trusts, flat fees. 30-minute call.</span><a class="btn btn-acc" href="#" data-open-form>Book a call</a></div>
-  <script is:inline>
-  (function(){var sb=document.getElementById('stickybar');if(sb){document.body.classList.add('has-sticky');setTimeout(function(){sb.classList.add('on')},6000);}})();
-  </script>
-  <script is:inline>(function(){var b=document.querySelector(".navtoggle"),n=document.getElementById("navlinks");if(!b||!n)return;function set(o){document.body.classList.toggle("nav-open",o);b.setAttribute("aria-expanded",o?"true":"false");b.setAttribute("aria-label",o?"Close menu":"Open menu");}b.addEventListener("click",function(){set(!document.body.classList.contains("nav-open"));});n.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
-  <script is:inline>(function(){var h=document.querySelector("header.site");function f(){if(h)h.classList.toggle("scrolled",scrollY>40)}addEventListener("scroll",f,{passive:true});f();})();</script>
-</body>
-</html>
+  </div></section>
+
+  <section class="sec" id="how"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three steps.</h2></div>
+    <div class="tiles3">
+      <div class="tile"><img src="/images/start-couple-laptop.jpg" alt="A couple smiling at a laptop together" style="object-position:50% 30%" loading="lazy" /><div class="tile__b"><span class="tile__n">01</span><h3>Map</h3><p>Forty-five minutes with Russ. Your whole picture, on one page.</p></div></div>
+      <div class="tile"><img src="/images/faq-library-shelves.jpg" alt="Rows of bound law books on library shelves" loading="lazy" /><div class="tile__b"><span class="tile__n">02</span><h3>Design</h3><p>The plan that fits, for a flat fee set in writing before any work begins.</p></div></div>
+      <div class="tile"><img src="/images/about-couple-signing.jpg" alt="A couple signing a document together at a table" style="object-position:40% 40%" loading="lazy" /><div class="tile__b"><span class="tile__n">03</span><h3>Sign</h3><p>You sign, and Russ makes sure every account and deed matches the plan.</p></div></div>
+    </div>
+    <div class="ctarow eq" style="margin-top:30px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/process">See the process</a></div>
+  </div></section>
+
+  <section class="hq"><div class="wrap"><p>A good plan isn&rsquo;t about the end. It&rsquo;s about the people you love knowing exactly what you wanted.</p></div></section>
+
+  <Voices />
+
+  <section class="sec alt" id="pricing"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Plans</p><h2>Flat fees. Clear coverage.</h2><p class="lede">Each plan shows which parts of your picture it covers. Anything else is quoted flat after your session.</p></div>
+    <Plans detail={false} />
+    <p class="offers-note">{trustPriceNote} Prices effective through {pricesEffectiveThrough}. <a href="/pricing">What each plan includes</a>.</p>
+  </div></section>
+
+  <section class="sec" id="writing"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Writing</p><h2>One clear idea a day.</h2></div>
+    <div class="wcards">{latest.map((p) => (
+      <a class={`wcard${p.type === 'key' ? ' key' : ''}`} href={`/writing/${p.slug}/`}><span class="wcard__k">{p.type === 'key' ? `Legal Key No. ${p.keyNo}` : 'Writing'}</span><b>{p.title}</b><em>{p.dek}</em></a>
+    ))}</div>
+    <div class="ctarow eq" style="margin-top:28px"><a class="btn btn-line" href="/writing/">All writing</a></div>
+  </div></section>
+
+  <section class="sec alt" id="faq"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Questions</p><h2>Straight answers.</h2></div>
+    <div class="faq">{homeFaqs.map((f) => (<details><summary>{f.q}</summary>{f.a.map((p) => <p>{p}</p>)}</details>))}</div>
+    <p class="offers-note">General information, not legal advice. <a href="/faq">More questions</a>.</p>
+  </div></section>
+
+  <section class="sec final" id="begin"><img class="bgimg" src="/images/about-pennybacker-bridge.jpg" width="1800" height="1200" style="object-position:50% 55%" alt="The Pennybacker Bridge over Lake Austin at sunset" loading="lazy" /><div class="veil"></div><div class="wrap">
+    <h2>There&rsquo;s a door here for you.</h2><p class="lede">Let&rsquo;s put on paper what you&rsquo;ve been putting off.</p>
+    <div class="ctarow eq"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><button class="btn btn-line" type="button" data-vslot={video.src} data-vslot-captions={video.captions} data-vslot-poster={video.poster}>Meet Russ</button></div>
+  </div></section>
+
+  <style is:inline>
+    .ctarow.eq .btn{min-width:300px;text-align:center;justify-content:center}
+    @media(max-width:560px){.ctarow.eq .btn{min-width:0;width:100%}}
+    .tiles3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .tile{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+    .tile img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+    .tile__b{padding:24px 24px 26px;border-top:3px solid var(--acc)}
+    .tile__n{font-family:var(--disp);font-size:44px;line-height:.9;color:var(--acc)}
+    .tile h3{font-family:var(--disp);font-weight:400;font-size:34px;line-height:1;margin:6px 0 10px}
+    .tile p{margin:0;color:var(--muted);font-size:17px;line-height:1.5}
+    .hq{background:var(--bg2);padding:56px 0;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .hq p{font-family:var(--disp);font-size:clamp(24px,2.4vw,32px);line-height:1.15;color:var(--acc-ink);max-width:34ch;margin:0 auto}
+    .wcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .wcard{display:flex;flex-direction:column;gap:10px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:12px;padding:26px;text-decoration:none;color:var(--ink);transition:box-shadow .3s,border-color .3s}
+    .wcard:hover{box-shadow:0 10px 30px rgba(31,58,95,.14)}
+    .wcard.key{border-top-color:#C98B5A}
+    .wcard__k{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--acc)}
+    .wcard.key .wcard__k{color:#A86F42}
+    .wcard b{font-family:var(--disp);font-weight:400;font-size:32px;line-height:1}
+    .wcard em{font-style:normal;color:var(--muted);font-size:16px;line-height:1.5}
+    @media(max-width:900px){.tiles3,.wcards{grid-template-columns:1fr}}
+  </style>
+</Base>

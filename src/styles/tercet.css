@@ -150,6 +150,13 @@ body.nav-open .stickybar{display:none!important}
 .navlinks a[aria-current="page"]{opacity:1;box-shadow:inset 0 -2px 0 var(--acc-soft)}
 .navlinks .navutil{display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:.2px;font-weight:500;font-size:13px;opacity:.8;padding-left:22px;border-left:1px solid rgba(255,255,255,.28)}
 .navlinks .navutil svg{flex:0 0 auto}
+.navlinks .navphone + .navutil{border-left:0;padding-left:4px}
+.navlinks .navphone{white-space:nowrap}
+.hdrcall{display:none}
+@media(max-width:1120px){
+ .hdrcall{display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:auto;margin-right:10px;border:1px solid rgba(255,255,255,.35);border-radius:6px;background:rgba(var(--darkr),.45);color:#fff;position:relative;z-index:62}
+ body.nav-open .hdrcall{visibility:hidden}
+}
 @media(max-width:1120px){
  header.site .navlinks .navutil{display:flex!important;gap:10px;padding-left:0;border-left:0;font-family:var(--sans)!important;font-size:16px!important;font-weight:600;letter-spacing:.02em}
 }

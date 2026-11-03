@@ -131,7 +131,7 @@ const ld = [firmSchema, ...schema];
   <script is:inline>
   (function(){
   function ga(t){try{gtag('event','video_start',{video_title:t})}catch(e){}}
-  function prep(box){if(box._v)return box._v;var v=document.createElement('video');v.controls=false;v.disablePictureInPicture=true;v.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='metadata';v.poster=box.dataset.poster||'';v.src=box.dataset.src;
+  function prep(box){if(box._v)return box._v;var v=document.createElement('video');v.controls=false;v.disablePictureInPicture=true;v.setAttribute('controlslist','nodownload nofullscreen noremoteplayback');v.disableRemotePlayback=true;v.setAttribute('x-webkit-airplay','deny');['play','playing','pause','loadedmetadata'].forEach(function(ev){v.addEventListener(ev,function(){if(v.controls||v.hasAttribute('controls')){v.controls=false;v.removeAttribute('controls')}})});v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='metadata';v.poster=box.dataset.poster||'';v.src=box.dataset.src;
     if(box.dataset.captions){var t=document.createElement('track');t.kind='captions';t.srclang='en';t.label='English';t.src=box.dataset.captions;t.default=true;v.appendChild(t)}
     v.addEventListener('playing',function(){box.classList.remove('loading','paused');box.classList.add('playing')});
     v.addEventListener('pause',function(){if(box.classList.contains('playing'))box.classList.add('paused')});

@@ -233,6 +233,9 @@ export const checklist = [
 // Advertised prices are honored through this date (Texas advertising rules). Update it when prices change.
 export const pricesEffectiveThrough = "March 31, 2027";
 
+// Add-ons, quoted flat in writing (rev 11/3).
+export const addOns = "Additional Texas deed $500. Supplemental needs trust, added to any plan, +$3,500.";
+
 // Plans and prices. Prices show exactly as written here.
 export const plans = [
   {
@@ -240,8 +243,11 @@ export const plans = [
     covers: ["home", "decisions"],
     name: "Deed & POA Starter",
     tag: "One focused need",
-    price: "$750",
-    amount: 750,
+    price: "$1,150",
+    unit: "one person",
+    alt: "$1,550 for a couple",
+    amount: 1150,
+    amountCouple: 1550,
     blurb: "One Texas deed and your powers of attorney, when you need a specific piece in place now.",
     features: [
       "One Texas deed, such as a transfer on death deed",
@@ -255,8 +261,11 @@ export const plans = [
     covers: ["family", "decisions", "later"],
     name: "Foundations",
     tag: "The core documents",
-    price: "$2,500",
-    amount: 2500,
+    price: "$2,950",
+    unit: "one person",
+    alt: "$3,850 for a couple",
+    amount: 2950,
+    amountCouple: 3850,
     blurb: "The documents every adult should have, drafted to fit your family and signed properly.",
     features: [
       "Wills",
@@ -273,11 +282,11 @@ export const plans = [
     name: "Trust Plan",
     tag: "Built around a trust",
     featured: true,
-    price: "$4,500",
+    price: "$5,500",
     unit: "one person",
-    alt: "$5,500 for a couple",
-    amount: 4500,
-    amountCouple: 5500,
+    alt: "$6,900 for a couple",
+    amount: 5500,
+    amountCouple: 6900,
     blurb: "Everything in Foundations, built around a revocable living trust that can keep assets out of probate once funded.",
     features: [
       "Everything in Foundations",
@@ -294,8 +303,8 @@ export const plans = [
     name: "Legacy",
     tag: "Complex estates",
     from: true,
-    price: "$12,500",
-    amount: 12500,
+    price: "$15,000",
+    amount: 15000,
     blurb: "For larger or more complex estates, business interests and charitable goals. Quoted in writing after your Estate Map Session.",
     features: [
       "Everything in the Trust Plan",

@@ -112,6 +112,7 @@ h1,h2,h3,summary,.wcard b{text-wrap:balance}
 
 /* mobile sticky bar: the full CTA label on one line */
 .stickybar span{white-space:nowrap}
+body.nav-open .stickybar{display:none!important}
 .stickybar .btn{letter-spacing:1px;padding:12px 12px}
 @media(max-width:400px){.stickybar .btn{font-size:11px}}
 

@@ -3,3 +3,11 @@
 /preview/    /         301
 /estate-planning/austin-tx   /services/   301
 /estate-planning/*   /services/   301
+
+# Legal Keys renumbered 2026-11-03 (Kindness = No. 1, Fair = No. 2, Beneficiary forms = No. 3)
+/writing/legal-key-2-kindness-keeps-you-out-of-court/   /writing/legal-key-1-kindness-keeps-you-out-of-court/   301
+/writing/legal-key-2-kindness-keeps-you-out-of-court    /writing/legal-key-1-kindness-keeps-you-out-of-court/   301
+/writing/legal-key-3-fair-is-a-conversation/   /writing/legal-key-2-fair-is-a-conversation/   301
+/writing/legal-key-3-fair-is-a-conversation    /writing/legal-key-2-fair-is-a-conversation/   301
+/writing/legal-key-1-beneficiary-forms/   /writing/legal-key-3-beneficiary-forms-beat-your-will/   301
+/writing/legal-key-1-beneficiary-forms    /writing/legal-key-3-beneficiary-forms-beat-your-will/   301

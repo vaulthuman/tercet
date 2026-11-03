@@ -119,6 +119,15 @@ const ld = [firmSchema, ...schema];
     <button class="vpop__x" type="button" data-vpop-close aria-label="Close video">&times;</button>
     <video controls playsinline preload="none"></video>
   </div>
+  <div id="vh-modal" class="vh-modal" aria-hidden="true">
+    <div class="vh-modal__bg" data-close-form></div>
+    <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book your Estate Map Session">
+      <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
+      <h2 class="vh-modal__title">Book your Estate Map Session</h2><p class="vh-modal__sub">Free, 45 minutes, on Zoom. Pick a time that suits you and you'll get a calendar invite with the link.</p>
+      <div class="calendly-inline-widget" data-url={booking.embed} style="min-width:300px;height:640px;border-radius:10px;overflow:hidden;background:#fff"></div><p style="margin:12px 0 0;font-size:14px;opacity:.8;text-align:center">Rather talk now? <a href={firm.phoneHref}>{firm.phone}</a></p><script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script><style is:inline>.vh-modal__card{width:min(820px,94vw)!important}</style>
+    </div>
+  </div>
+  )}
   <script is:inline>
   (function(){
   function ga(t){try{gtag('event','video_start',{video_title:t})}catch(e){}}
@@ -144,15 +153,6 @@ const ld = [firmSchema, ...schema];
   p.addEventListener('click',function(e){if(e.target===p)close()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open'))close()});}})();
   </script>
-  <div id="vh-modal" class="vh-modal" aria-hidden="true">
-    <div class="vh-modal__bg" data-close-form></div>
-    <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book your Estate Map Session">
-      <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
-      <h2 class="vh-modal__title">Book your Estate Map Session</h2><p class="vh-modal__sub">Free, 45 minutes, on Zoom. Pick a time that suits you and you'll get a calendar invite with the link.</p>
-      <div class="calendly-inline-widget" data-url={booking.embed} style="min-width:300px;height:640px;border-radius:10px;overflow:hidden;background:#fff"></div><p style="margin:12px 0 0;font-size:14px;opacity:.8;text-align:center">Rather talk now? <a href={firm.phoneHref}>{firm.phone}</a></p><script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script><style is:inline>.vh-modal__card{width:min(820px,94vw)!important}</style>
-    </div>
-  </div>
-  )}
   <script is:inline src="https://js-na2.hsforms.net/forms/embed/246947446.js" defer></script>
   <script is:inline>
   (function(){var m=document.getElementById('vh-modal');if(!m)return;

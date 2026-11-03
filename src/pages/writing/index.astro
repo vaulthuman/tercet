@@ -1,0 +1,86 @@
+---
+// Writing: one short piece a day on Texas estate planning, plus a Legal Key on Mondays and Fridays.
+// Same spine as Vault Human's Writing page: newest first, down a line, with a photo band every few pieces.
+import Base from '../../layouts/Base.astro';
+import { writing, legalKeyDays } from '../../data/writing.js';
+const run = [...writing];
+let lastDate = '';
+const BANDS = [
+  { t: 'A plan is a gift to the people you love.', img: '/images/home-hands-generations.jpg', pos: '55% 60%' },
+  { t: 'Clear wishes. A family that knows what to do.', img: '/images/home/austin-skyline.jpg', pos: '50% 50%' },
+];
+const items: any[] = [];
+run.forEach((p, i) => {
+  if (i > 0 && i % 6 === 0) items.push({ band: BANDS[(i / 6 - 1) % BANDS.length], r: (i / 6) % 2 });
+  const m = p.date !== lastDate ? p.date : null; lastDate = p.date;
+  items.push({ p, m });
+});
+const desc = 'Short, plain-English pieces on wills, trusts and planning in Texas, plus a Legal Key every ' + legalKeyDays + '.';
+---
+<Base title="Writing | Tercet Law" description={desc} path="/writing/" inner={false}>
+  <section class="hero wr-hero"><img class="bgimg" src="/video/writing.jpg" width="1280" height="720" alt="The Austin skyline and Lady Bird Lake from above" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/writing.jpg" aria-hidden="true"><source src="/video/writing.mp4" type="video/mp4" /></video><div class="veil"></div>
+    <div class="wrap"><div class="hero-copy">
+      <p class="eyebrow" style="color:var(--acc-soft)">Writing</p>
+      <h1>One clear idea a day. <em>In plain English.</em></h1>
+      <p class="lede">Short pieces on wills, trusts and planning in Texas. A Legal Key every {legalKeyDays}.</p>
+      <div class="ctarow"><a class="btn btn-acc" href={`/writing/${run[0].slug}/`}>Today's piece</a><a class="btn btn-line" href="#keys">Legal Keys</a></div>
+    </div></div>
+  </section>
+
+  <section class="sec runwrap" id="pieces">
+    <div class="run">
+      {items.map((it) => it.band ? (
+        <div class={`rb${it.r ? ' rb-r' : ''}`} style={`background-image:url('${it.band.img}');background-position:${it.band.pos}`}><div class="rb-in"><p class="rb-t">{it.band.t}</p></div></div>
+      ) : (
+        <>
+          {it.m && <div class="rm"><span>{it.m}</span></div>}
+          <a class={`rl rv${it.p.type === 'key' ? ' key' : ''}`} href={`/writing/${it.p.slug}/`} id={it.p.type === 'key' ? 'keys' : undefined}>
+            <p class="rl-date">{it.p.type === 'key' ? `Legal Key No. ${it.p.keyNo}` : 'Writing'}</p>
+            <p class="rl-t">{it.p.title}</p>
+            <p class="rl-d">{it.p.dek}</p>
+          </a>
+        </>
+      ))}
+      <div class="rend"><span></span></div>
+    </div>
+    <p class="wr-fine">General information about Texas law, not legal advice. Every family is different.</p>
+  </section>
+
+  <style is:inline>
+    .wr-hero{min-height:72vh}
+    .runwrap{padding:24px 0 96px;background:var(--bg)}
+    .run{position:relative;display:flex;flex-direction:column;max-width:1180px;margin:0 auto;padding:0 24px}
+    .run:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-1px);background:linear-gradient(180deg,var(--acc),rgba(31,58,95,.35) 80%,transparent)}
+    .rm{display:flex;justify-content:center;padding:34px 0 26px;position:relative}
+    .rm span{font-size:11px;letter-spacing:4px;text-transform:uppercase;font-weight:700;color:var(--acc);background:var(--bg);padding:7px 16px;border:1px solid rgba(31,58,95,.35);border-radius:999px}
+    .rl{position:relative;display:block;width:calc(50% - 44px);text-decoration:none;color:var(--ink);padding:20px 24px 22px;margin:8px 0;border-radius:12px;background:#fff;border:1px solid var(--line);box-shadow:0 6px 24px rgba(31,26,21,.06);transition:border-color .3s,box-shadow .3s,opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+    .rl:nth-of-type(odd){margin-right:auto}.rl:nth-of-type(even){margin-left:auto}
+    .rl:before{content:"";position:absolute;top:30px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--acc)}
+    .rl:nth-of-type(odd):before{right:-44px;transform:translateX(50%)}.rl:nth-of-type(even):before{left:-44px;transform:translateX(-50%)}
+    .rl:after{content:"";position:absolute;top:35px;height:1px;width:34px;background:rgba(31,58,95,.35)}
+    .rl:nth-of-type(odd):after{right:-40px}.rl:nth-of-type(even):after{left:-40px}
+    .rl:hover{border-color:var(--acc);box-shadow:0 10px 30px rgba(31,58,95,.14)}
+    .rl.key{border-top:3px solid #C98B5A}.rl.key:before{border-color:#C98B5A;background:#C98B5A}
+    .rl-date{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--acc);margin:0 0 8px}
+    .rl.key .rl-date{color:#A86F42}
+    .rl-t{font-family:var(--disp);font-size:clamp(28px,2.5vw,36px);line-height:1;margin:0 0 10px;letter-spacing:.5px}
+    .rl-d{font-size:17px;line-height:1.5;color:var(--muted);margin:0}
+    .rl.rv{opacity:0}.rl.rv:nth-of-type(odd){transform:translateX(-26px)}.rl.rv:nth-of-type(even){transform:translateX(26px)}.rl.rv.on{opacity:1;transform:none}
+    .rb{position:relative;width:100vw;margin:48px 0 48px calc(50% - 50vw);min-height:44vh;background-size:cover;display:flex;align-items:flex-end;isolation:isolate}
+    .rb:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,35,29,.35),rgba(42,35,29,.85));z-index:0}
+    .rb-in{position:relative;z-index:1;width:100%;max-width:1180px;margin:0 auto;padding:0 24px 40px}.rb-r .rb-in{text-align:right}
+    .rb-t{font-family:var(--disp);font-size:clamp(32px,3.6vw,54px);line-height:1;margin:0;max-width:18ch;color:#fff}.rb-r .rb-t{margin-left:auto}
+    .rend{display:flex;justify-content:center;padding:26px 0 0}.rend span{width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 6px rgba(31,58,95,.15)}
+    .wr-fine{text-align:center;color:var(--muted);font-size:14px;margin:36px 24px 0}
+    @media(prefers-reduced-motion:reduce){.rl.rv{opacity:1;transform:none}}
+    @media(max-width:760px){.run{padding:0 18px}.run:before{left:24px}.rm{justify-content:flex-start}
+      .rl,.rl:nth-of-type(odd),.rl:nth-of-type(even){width:auto;margin:8px 0 8px 38px}
+      .rl:nth-of-type(odd):before,.rl:nth-of-type(even):before{left:-32px;right:auto;transform:translateX(-50%)}
+      .rl:nth-of-type(odd):after,.rl:nth-of-type(even):after{left:-22px;right:auto;width:18px}
+      .rl.rv:nth-of-type(odd),.rl.rv:nth-of-type(even){transform:translateY(14px)}.rend{justify-content:flex-start;padding-left:19px}}
+  </style>
+  <script is:inline>
+    (function(){var r=[].slice.call(document.querySelectorAll('.rl.rv'));if(!('IntersectionObserver'in window)){r.forEach(function(x){x.classList.add('on')});return;}
+    var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');o.unobserve(e.target)}})},{threshold:.12});r.forEach(function(x){o.observe(x)});})();
+  </script>
+</Base>

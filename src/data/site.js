@@ -63,7 +63,7 @@ export const clientPortal = {
 
 // StoryBrand message (SB7). The client is the hero; Tercet Law is the guide.
 export const story = {
-  oneLiner: "Most families put off estate planning because it feels complicated, costly and hard to start. Tercet Law makes it simple: three clear steps and a flat fee in writing, so the people you love know exactly what you want and what to do.",
+  oneLiner: "Most families put off estate planning because it feels complicated and hard to start. Tercet Law brings your whole picture into one plan, with three clear steps and a flat fee set before we begin, so the people you love know exactly what you wanted.",
   problem: {
     external: "No current will, trust or powers of attorney, and no clear picture of how everything you own would pass.",
     internal: "It feels overwhelming and uncomfortable, and it is hard to know where to start or what it will cost.",
@@ -87,13 +87,13 @@ export const story = {
     "A trust that was never funded protects nothing.",
   ],
   success: [
-    "Your wishes are in writing, in plain English.",
+    "Your wishes are in writing, clear and complete.",
     "The people you chose can act for you without asking a court.",
     "Your family knows where everything is and what to do.",
   ],
 };
 
-// Practice areas. Fees: the four plans cover estate planning; everything else is a flat fee quoted after the free session.
+// Practice areas (eight, matching the eight parts of the Whole Picture wheel). Fees: the four plans cover estate planning; everything else is a flat fee quoted after the free session.
 export const servicesFeeNote = "Flat fee quoted after your Estate Map Session";
 export const services = [
   {
@@ -167,7 +167,33 @@ export const services = [
       "Clearing title to inherited property",
     ],
   },
+  {
+    id: "digital-life", title: "Digital Life & Likeness", short: "Your accounts, your data, your AI tools, your voice and image",
+    for: "Anyone with email, photos, online accounts or AI tools that know them. Which is almost everyone.",
+    includes: [
+      "Written authority for the person you choose to reach your digital accounts and records",
+      "Who controls your name, voice and likeness after you die, under Texas law",
+      "Instructions for the AI assistants and accounts that know you",
+      "A values file, and a family code word against voice-clone scams",
+    ],
+  },
 ];
+
+// The Whole Picture: Tercet Law's approach. Eight parts of a life, each with its own keys
+// (the documents and decisions that protect it). Drives the home-page wheel and the plan coverage rings.
+export const picture = {
+  name: "The Whole Picture",
+  parts: [
+    { id: "family", top: "Your", word: "Family", t: "Who you love, and who inherits", d: "Who receives what you leave, who is in charge, and who raises your children if you can't.", keys: ["Will", "Living trust", "Guardian for your children", "Beneficiary forms"], service: "estate-planning" },
+    { id: "decisions", top: "Your", word: "Decisions", t: "Who decides if you can't", d: "People you trust to handle your money and talk to your doctors, without asking a court first.", keys: ["Durable power of attorney", "Medical power of attorney", "Directive to physicians", "HIPAA authorization"], service: "estate-planning" },
+    { id: "home", top: "Your", word: "Home", t: "The house and the land", d: "Your homestead, a family ranch, a rental. How each one passes, and whether it has to go through court.", keys: ["Transfer on death deed", "Deed to your trust", "Texas homestead", "Inherited title"], service: "real-estate" },
+    { id: "business", top: "Your", word: "Business", t: "What you built at work", d: "Who takes over, how ownership passes, and how the company fits inside the rest of your plan.", keys: ["Succession plan", "Buy-sell review", "Company agreement", "Business in your trust"], service: "business-succession" },
+    { id: "digital", top: "Your", word: "Digital life", t: "Accounts, AI, voice and likeness", d: "Email, photos, the AI tools that know you, and your name, voice and image. Who can reach them, and who controls how you are remembered.", keys: ["Digital assets authority", "Name, voice and likeness", "Values file", "Family code word"], service: "digital-life" },
+    { id: "care", top: "Special", word: "Needs", t: "Someone who counts on you", d: "A child or adult with a disability, cared for by the people you choose, with benefits protected where possible.", keys: ["Supplemental needs trust", "Caregiver choices", "Benefits eligibility", "Guardianship alternatives"], service: "special-needs" },
+    { id: "later", top: "Your", word: "Later years", t: "Planning for the years ahead", d: "A plan for aging that keeps choices with you and your family, so a court never has to step in.", keys: ["Declaration of guardian", "Supported decision-making", "Care decisions", "Help for adult children"], service: "elder-law" },
+    { id: "loss", top: "After", word: "A loss", t: "When someone you love dies", d: "Settling an estate or carrying out a trust in Texas, one step at a time, with someone beside you.", keys: ["Probate", "Independent administration", "Heirship", "Trust administration"], service: "probate" },
+  ],
+};
 
 // Free Texas estate planning checklist (the transitional CTA). Used on /checklist and in the PDF.
 export const checklist = [
@@ -211,6 +237,7 @@ export const pricesEffectiveThrough = "March 31, 2027";
 export const plans = [
   {
     id: "starter",
+    covers: ["home", "decisions"],
     name: "Deed & POA Starter",
     tag: "One focused need",
     price: "$750",
@@ -225,6 +252,7 @@ export const plans = [
   },
   {
     id: "foundations",
+    covers: ["family", "decisions", "later"],
     name: "Foundations",
     tag: "The core documents",
     price: "$2,500",
@@ -241,6 +269,7 @@ export const plans = [
   },
   {
     id: "trust",
+    covers: ["family", "decisions", "later", "home"],
     name: "Trust Plan",
     tag: "Built around a trust",
     featured: true,
@@ -261,6 +290,7 @@ export const plans = [
   },
   {
     id: "legacy",
+    covers: ["family", "decisions", "later", "home", "business"],
     name: "Legacy",
     tag: "Complex estates",
     from: true,
@@ -296,8 +326,8 @@ export const steps = [
   },
   {
     n: "02", title: "Design", when: "Drafts in about 10 days",
-    short: "a flat-fee engagement and a plan designed in plain English, with drafts typically in about 10 days",
-    body: "You choose a plan and sign a flat-fee engagement letter. Russ designs your plan with you in plain English, then drafts every document himself. Your drafts arrive in about 10 days, to read at your own pace.",
+    short: "a flat-fee engagement and a plan designed with you, with drafts typically in about 10 days",
+    body: "You choose a plan and sign a flat-fee engagement letter. Russ designs your plan with you, then drafts every document himself. Your drafts arrive in about 10 days, to read at your own pace.",
   },
   {
     n: "03", title: "Sign & Fund", when: "Signed in about 21 days",
@@ -320,7 +350,7 @@ export const tercet = {
   // About: your past, present and future.
   lines: [
     { k: "Your past", t: "What you've built", d: "A home, savings, a business: the work of a lifetime, written into a plan that says where it goes." },
-    { k: "Your present", t: "What you want now", d: "Who acts for you if you cannot, and what you want, in plain English you can read and sign with confidence." },
+    { k: "Your present", t: "What you want now", d: "Who acts for you if you cannot, and what you want, in documents you can read and sign with confidence." },
     { k: "Your future", t: "Who comes next", d: "The people you love, with clear instructions and the documents they need to act." },
   ],
 };

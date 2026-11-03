@@ -3,8 +3,7 @@
 // Pieces dated after today stay hidden in the browser until their day (static site, no rebuild needed).
 // Same spine as Vault Human's Writing page: newest first, down a line, with a photo band every few pieces.
 import Base from '../../layouts/Base.astro';
-import VideoSlot from '../../components/VideoSlot.astro';
-import { writing, legalKeyDays } from '../../data/writing.js';
+import { writing, legalKeyDays, keyLabel } from '../../data/writing.js';
 const run = writing.filter((p) => !p.feature);
 const feature = writing.find((p) => p.feature);
 let firstKey = true;
@@ -26,14 +25,24 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
     <div class="wrap"><div class="hero-copy">
       <p class="eyebrow" style="color:var(--acc-soft)">Writing</p>
       <h1>One clear idea <em>a day.</em></h1>
-      <p class="lede">Short pieces on wills, trusts and planning in Texas. A Legal Key every {legalKeyDays}.</p>
-      <div class="ctarow"><a class="btn btn-line" href={`/writing/${run[0].slug}/`}>Today's piece</a><a class="btn btn-acc" href="#keys">Legal Keys</a></div>
+      <p class="lede">Short pieces on wills, trusts and planning in Texas, plus a Legal Key every {legalKeyDays}: one small key at a time, adding up to a whole plan.</p>
+      <div class="ctarow"><a class="btn btn-line" href={`/writing/${run[0].slug}/`}>Today's piece</a><a class="btn btn-acc" href="/legal-keys/">Legal Keys</a></div>
     </div></div>
   </section>
 
-  <VideoSlot title="An estate plan for the AI age" src="/video/russ/ai-age.mp4" captions="/video/russ/ai-age.vtt" poster="/video/russ/ai-age-poster.jpg" eyebrow="Watch" heading="A plan for the AI age." lede="Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next.">
-    {feature && <a class="wr-feat" href={`/writing/${feature.slug}/`}><span class="wr-feat__k">Read</span><b>{feature.title}</b><em>{feature.dek}</em><span class="wr-feat__go" aria-hidden="true">&rarr;</span></a>}
-  </VideoSlot>
+  <section class="sec wr-duo" id="ai-age"><div class="wrap">
+    <div class="sec-head"><h2>A plan for the AI age.</h2><p class="lede">Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next.</p></div>
+    <div class="wr-duo__row">
+      <div class="wr-duo__card">
+        <div class="vslot" data-vslot-box data-src="/video/russ/ai-age.mp4" data-captions="/video/russ/ai-age.vtt" data-poster="/video/russ/ai-age-poster.jpg"><img src="/video/russ/ai-age-poster.jpg" alt="" loading="lazy" /><button class="vslot__play" type="button" aria-label="Play video: An estate plan for the AI age"><span aria-hidden="true"></span></button></div>
+        <div class="wr-duo__b"><span class="wr-duo__k">Video · 90 seconds</span><b>An estate plan for the AI age.</b><em>Russ on what changes when the tools that know you best outlive you.</em></div>
+      </div>
+      {feature && <a class="wr-duo__card wr-duo__read" href={`/writing/${feature.slug}/`}>
+        <img src={feature.img} alt={feature.imgAlt} loading="lazy" />
+        <div class="wr-duo__b"><span class="wr-duo__k">Read · 2026 to 2036 and beyond</span><b>{feature.title}</b><em>{feature.dek}</em><span class="wr-duo__go">Read the essay &rarr;</span></div>
+      </a>}
+    </div>
+  </div></section>
 
   <section class="sec runwrap" id="pieces">
     <div class="run">
@@ -44,7 +53,7 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
           {it.m && <div class="rm" data-iso={it.p.iso}><span>{it.m}</span></div>}
           <a class={`rl rv${it.p.type === 'key' ? ' key' : ''}${it.p.reel ? ' has-reel' : ''}`} href={`/writing/${it.p.slug}/`} data-iso={it.p.iso} id={it.p.type === 'key' && firstKey ? ((firstKey = false), 'keys') : undefined}>
             {it.p.reel && <span class="rl-thumb"><img src={it.p.reel.poster} alt="" loading="lazy" /><i aria-hidden="true"></i></span>}
-            <p class="rl-date">{it.p.type === 'key' ? `Legal Key No. ${it.p.keyNo}` : 'Writing'}</p>
+            <p class="rl-date">{it.p.type === 'key' ? keyLabel(it.p.keyNo) : 'Writing'}</p>
             <p class="rl-t">{it.p.title}</p>
             <p class="rl-d">{it.p.dek}</p>
             {it.p.reel && <p class="rl-watch">Watch the video</p>}
@@ -58,6 +67,20 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
 
   <style is:inline>
     .wr-hero{min-height:72vh}
+    .wr-duo{position:relative;isolation:isolate;background:#EFE6D8}
+    .wr-duo:before{content:"";position:absolute;inset:0;background:url('/images/tint-oak.jpg') center/cover;opacity:.12;z-index:-1}
+    .wr-duo__row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .wr-duo__card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 30px rgba(31,26,21,.08)}
+    .wr-duo__card .vslot{border-radius:0;box-shadow:none}
+    .wr-duo__read img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+    .wr-duo__b{display:flex;flex-direction:column;gap:8px;padding:22px 24px 24px;border-top:3px solid #C98B5A;flex:1}
+    .wr-duo__k{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#A86F42}
+    .wr-duo__b b{font-family:var(--disp);font-weight:400;font-size:32px;line-height:1}
+    .wr-duo__b em{font-style:normal;color:var(--muted);font-size:16px;line-height:1.5}
+    .wr-duo__go{margin-top:auto;padding-top:10px;color:var(--acc);font-weight:600;font-size:15px}
+    .wr-duo__read:hover{box-shadow:0 14px 36px rgba(31,58,95,.16)}
+    @media(max-width:860px){.wr-duo__row{grid-template-columns:1fr}}
+    .runwrap{transition:background-color 1.1s ease}
     .runwrap{padding:24px 0 96px;background:var(--bg)}
     .run{position:relative;display:flex;flex-direction:column;max-width:1180px;margin:0 auto;padding:0 24px}
     .run:before{content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-1px);background:linear-gradient(180deg,var(--acc),rgba(31,58,95,.35) 80%,transparent)}
@@ -70,7 +93,7 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
     .rl:after{content:"";position:absolute;top:35px;height:1px;width:34px;background:rgba(31,58,95,.35)}
     .rl:nth-of-type(odd):after{right:-40px}.rl:nth-of-type(even):after{left:-40px}
     .rl:hover{border-color:var(--acc);box-shadow:0 10px 30px rgba(31,58,95,.14)}
-    .rl.key{border-top:3px solid #C98B5A}.rl.key:before{border-color:#C98B5A;background:#C98B5A}
+    .rl.key{border-top:3px solid #C98B5A;background:#FCF7F0}.rl.key:before{border-color:#C98B5A;background:#C98B5A}
     .rl-date{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--acc);margin:0 0 8px}
     .rl.key .rl-date{color:#A86F42}
     .rl-t{font-family:var(--disp);font-size:clamp(28px,2.5vw,36px);line-height:1;margin:0 0 10px;letter-spacing:.5px}
@@ -102,6 +125,9 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
       .rl.rv:nth-of-type(odd),.rl.rv:nth-of-type(even){transform:translateY(14px)}.rend{justify-content:flex-start;padding-left:19px}}
   </style>
   <script is:inline>
+    // As you scroll, the timeline's background drifts through warm tints, one per day marker.
+    (function(){var w=document.querySelector('.runwrap');if(!w||!('IntersectionObserver'in window))return;var pal=['#F7F3EC','#F1E7D8','#EAF0F3','#F4EBDD','#EEF1E8','#F2E6DA'];
+      setTimeout(function(){var ms=[].slice.call(document.querySelectorAll('.run .rm'));var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=ms.indexOf(e.target);w.style.backgroundColor=pal[i%pal.length]}})},{rootMargin:'-40% 0px -50% 0px'});ms.forEach(function(m){io.observe(m)})},50)})();
     // Hide pieces dated after today (Central time) until their day comes.
     (function(){var t=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
       document.querySelectorAll('.run [data-iso]').forEach(function(el){if(el.getAttribute('data-iso')>t)el.remove()});

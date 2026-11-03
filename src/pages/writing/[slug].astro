@@ -1,47 +1,86 @@
 ---
+// One Writing piece. Header: title + dek beside the piece's photo (or, for a Legal Key, its video beside the words).
+// The AI-age essay (feature) adds a 2026 / 2036 / 2046 horizon and a pull quote.
 import Base from '../../layouts/Base.astro';
-import { writing } from '../../data/writing.js';
+import { writing, keyLabel } from '../../data/writing.js';
 import { cta } from '../../data/site.js';
 export function getStaticPaths() {
   const run = writing.filter((x) => !x.feature);
   return writing.map((p) => { const i = run.indexOf(p); return { params: { slug: p.slug }, props: { p, newer: i > 0 ? run[i - 1] : null, older: i >= 0 ? run[i + 1] || null : null } }; });
 }
 const { p, newer, older } = Astro.props;
-const kicker = p.type === 'key' ? `Legal Key No. ${p.keyNo}` : 'Writing';
+const kicker = p.type === 'key' ? keyLabel(p.keyNo) : 'Writing';
 const shownDate = p.feature ? '' : p.date;
-const schema = [{ "@context": "https://schema.org", "@type": "Article", headline: p.title, description: p.dek, datePublished: p.iso, author: { "@type": "Person", name: "Russ Michaels" }, publisher: { "@type": "LegalService", name: "Tercet Law" } }];
+const back = p.type === 'key' ? { href: '/legal-keys/', label: 'Legal Keys' } : { href: '/writing/', label: 'Writing' };
+const schema = [{ "@context": "https://schema.org", "@type": "Article", headline: p.title, description: p.dek, datePublished: p.iso, author: { "@type": "Person", name: "Russ Michaels" }, publisher: { "@type": "LegalService", name: "Tercet Law" }, ...(p.img ? { image: `https://www.tercetlaw.com${p.img}` } : {}) }];
+const half = Math.ceil(p.body.length / 2);
 ---
 <Base title={`${p.title} | Tercet Law`} description={p.dek} path={`/writing/${p.slug}/`} schema={schema}>
-  <article class="sec wp"><div class="wrap wp__in">
-    <p class="wp__k"><a href="/writing/">Writing</a> · {kicker}{shownDate && ` · ${shownDate}`}</p>
-    <h1>{p.title}</h1>
-    <p class="wp__dek">{p.dek}</p>
+  <article class:list={['sec', 'wp', 'wp--head', { 'wp--hasimg': p.img }]}><div class="wrap wp__hd">
+    <div class="wp__hdtext">
+      <p class="wp__k"><a href={back.href}>{back.label}</a> · {kicker}{shownDate && ` · ${shownDate}`}</p>
+      <h1>{p.title}</h1>
+      <p class="wp__dek">{p.dek}</p>
+    </div>
+    {p.img && <img class="wp__img" src={p.img} width="960" height="720" alt={p.imgAlt ?? ''} fetchpriority="high" />}
   </div></article>
+
   <article class="sec wp wp--body"><div class:list={['wrap', 'wp__in', { 'wp__in--reel': p.reel }]}>
     {p.reel && <div class="vslot vslot--reel" data-vslot-box data-src={p.reel.src} data-captions="" data-poster={p.reel.poster}><img src={p.reel.poster} alt="" loading="lazy" /><button class="vslot__play" type="button" aria-label={`Play video: ${p.reel.title}`}><span aria-hidden="true"></span></button></div>}
-    <div class="wp__body">{p.body.map((t) => <p>{t}</p>)}</div>
-    <p class="wp__fine">General information about Texas law, not legal advice. Every family is different.</p>
-    <div class="ctarow wp__cta"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/writing/">All writing</a></div>
-    <nav class="wp__nav">{older ? <a href={`/writing/${older.slug}/`}>&larr; {older.title}</a> : <span></span>}{newer ? <a href={`/writing/${newer.slug}/`} data-iso={newer.iso}>{newer.title} &rarr;</a> : <span></span>}</nav>
+    <div class="wp__body">
+      {p.body.slice(0, half).map((t) => <p>{t}</p>)}
+      {p.quote && <blockquote class="wp__q">{p.quote}</blockquote>}
+      {p.body.slice(half).map((t) => <p>{t}</p>)}
+    </div>
   </div></article>
+
+  {p.horizon && (
+    <section class="sec wp-hz"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">The long view</p><h2>Where this is going.</h2></div>
+      <div class="wp-hz__row">{p.horizon.map((h) => (
+        <div class="wp-hz__t"><span class="wp-hz__yr">{h.yr}</span><b>{h.t}</b><p>{h.d}</p></div>
+      ))}</div>
+      <div class="ctarow" style="margin-top:30px"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/writing/#ai-age">Watch the video</a></div>
+    </div></section>
+  )}
+
+  <section class="sec wp wp--foot"><div class="wrap wp__in">
+    <p class="wp__fine">General information about Texas law, not legal advice. Every family is different.</p>
+    {!p.horizon && <div class="ctarow wp__cta"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={back.href}>{p.type === 'key' ? 'All Legal Keys' : 'All writing'}</a></div>}
+    <nav class="wp__nav">{older ? <a href={`/writing/${older.slug}/`}>&larr; {older.title}</a> : <span></span>}{newer ? <a href={`/writing/${newer.slug}/`} data-iso={newer.iso}>{newer.title} &rarr;</a> : <span></span>}</nav>
+  </div></section>
   <script is:inline>(function(){var t=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());document.querySelectorAll('.wp__nav [data-iso]').forEach(function(a){if(a.getAttribute('data-iso')>t)a.replaceWith(document.createElement('span'))})})();</script>
   <style is:inline>
+    .wp--head{background:linear-gradient(180deg,#EFE6D8 0%,var(--bg) 100%);padding-bottom:40px!important}
+    .wp__hd{max-width:760px}
+    .wp--hasimg .wp__hd{max-width:1100px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+    .wp__img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block;box-shadow:0 18px 44px rgba(31,26,21,.16)}
     .wp__in{max-width:760px}
+    .wp--hasimg + .wp--body .wp__in{max-width:760px}
     .wp__in--reel{max-width:1040px;display:grid;grid-template-columns:minmax(0,1fr) 320px;column-gap:56px;align-items:start}
     .wp__in--reel>*{grid-column:1}
     .wp__in--reel .vslot--reel{grid-column:2;grid-row:1 / span 6;position:sticky;top:100px;aspect-ratio:9/16;width:100%}
     .vslot--reel img{object-position:50% 50%}
-    @media(max-width:900px){.wp__in--reel{grid-template-columns:1fr}.wp__in--reel .vslot--reel{grid-column:1;grid-row:auto;position:relative;top:0;max-width:340px;margin:0 auto 28px}}
-    .wp:has(+ .vslot-sec) .wp__dek{border-bottom:0;margin-bottom:0;padding-bottom:0}
-    .wp--body{padding-top:48px}
+    .wp--body{padding-top:28px!important;padding-bottom:12px!important}
+    .wp--foot{padding-top:0!important}
     .wp__k{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--acc);margin:0 0 18px}
     .wp__k a{color:inherit}
-    .wp h1{font-size:clamp(44px,5vw,72px);line-height:.95;margin:0 0 18px}
-    .wp__dek{font-size:21px;line-height:1.5;color:var(--muted);margin:0 0 34px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+    .wp h1{font-size:clamp(42px,4.6vw,68px);line-height:.95;margin:0 0 18px}
+    .wp__dek{font-size:21px;line-height:1.5;color:var(--muted);margin:0}
     .wp__body p{font-size:19px;line-height:1.7;margin:0 0 22px}
+    .wp__q{margin:30px 0 32px;padding:22px 26px;border-left:3px solid #C98B5A;background:#fff;border-radius:0 10px 10px 0;font-family:var(--disp);font-size:clamp(26px,2.6vw,34px);line-height:1.1;color:var(--acc-ink);text-wrap:balance}
+    .wp-hz{position:relative;isolation:isolate;background:var(--dark);color:#fff}
+    .wp-hz:before{content:"";position:absolute;inset:0;background:url('/images/tint-hill-country.jpg') center/cover;opacity:.16;z-index:-1}
+    .wp-hz h2{color:#fff}
+    .wp-hz__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .wp-hz__t{display:flex;flex-direction:column;gap:8px;padding:24px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-top:3px solid #C98B5A}
+    .wp-hz__yr{font-family:var(--disp);font-size:46px;line-height:.9;color:#C98B5A}
+    .wp-hz__t b{font-family:var(--disp);font-weight:400;font-size:26px;letter-spacing:.02em}
+    .wp-hz__t p{margin:0;color:rgba(255,255,255,.82);font-size:16px;line-height:1.5}
     .wp__fine{font-size:14px;color:var(--muted);margin:30px 0 0}
     .wp__cta{margin-top:28px}
     .wp__nav{display:flex;justify-content:space-between;gap:20px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:15px}
     .wp__nav a{color:var(--acc);text-decoration:none;max-width:48%}
+    @media(max-width:900px){.wp--hasimg .wp__hd{grid-template-columns:1fr;gap:24px}.wp__in--reel{grid-template-columns:1fr}.wp__in--reel .vslot--reel{grid-column:1;grid-row:auto;position:relative;top:0;max-width:340px;margin:0 auto 28px}.wp-hz__row{grid-template-columns:1fr}}
   </style>
 </Base>

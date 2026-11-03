@@ -15,6 +15,16 @@ const serviceSchema = {
     item: { "@type": "Service", name: s.title, description: `${s.short}. For ${s.for.charAt(0).toLowerCase() + s.for.slice(1)}`, provider: { "@id": `${firm.url}/#firm` }, areaServed: "Texas" },
   })),
 };
+const svcAlt: Record<string, string> = {
+  'estate-planning': 'Grandparents cooking with their grandchildren in the kitchen',
+  'probate': 'A family sitting close together, comforting one another after a loss',
+  'trust-administration': 'Two women reviewing documents together at a table',
+  'elder-law': 'A daughter holding her elderly father\'s hand as they sit together',
+  'special-needs': 'A family together outdoors with their daughter in her wheelchair',
+  'business-succession': 'Two shop owners in aprons smiling in their store',
+  'real-estate': 'A mother and her daughters sitting on the front steps of their home',
+  'digital-life': 'A young woman showing her grandfather something on a smartphone',
+};
 ---
 <Base
   title="Services | Tercet Law, Austin, Texas"
@@ -26,13 +36,14 @@ const serviceSchema = {
       <p class="eyebrow">Services</p><h1>Everything your plan <em>touches.</em></h1><p class="lede">Planning ahead, caring for someone who needs help, or settling an estate after a loss. One attorney, one complete plan, and a flat fee in writing before any work begins.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={guideCta.href}>{guideCta.label}</a></div>
     </div></section>
 
-    <VideoSlot title="Protect your kids" src="/video/russ/protecting-your-kids.mp4" captions="/video/russ/protecting-your-kids.vtt" poster="/video/russ/protecting-your-kids.jpg" eyebrow="Watch" heading="Protect your kids." lede="Who raises them, and who handles the money, if you can't." />
+    <VideoSlot title="Protect your kids" src="/video/russ/protecting-your-kids.mp4" captions="/video/russ/protecting-your-kids.vtt" poster="/video/russ/protecting-your-kids-poster.jpg" eyebrow="Watch" heading="Protect your kids." lede="Who raises them, and who handles the money, if you can't." />
 
 
     <section class="sec" id="areas"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">The whole picture</p><h2>Eight ways we help.</h2><p class="lede">Each one is a part of <a href="/#approach">your whole picture</a>, with its own keys. Not sure which you need? That is what the free session is for.</p></div>
       <div class="svc-detail">{services.map((s) => (
         <article class="svcd" id={s.id}>
+          <img class="svcd__img" src={`/images/svc-${s.id}.jpg`} width="1200" height="750" alt={svcAlt[s.id] ?? ''} loading="lazy" />
           <h3>{s.title}</h3>
           <p class="svcd__short">{s.short}</p>
           <p class="svcd__k">Who it is for</p><p>{s.for}</p>
@@ -40,7 +51,7 @@ const serviceSchema = {
           <ul>{s.includes.map((i) => <li>{i}</li>)}</ul>
           <p class="svcd__fee">{s.fee === 'plans' ? <span>Four flat-fee plans, or one built to suit. <a href="/pricing">See pricing</a>.</span> : <span>{servicesFeeNote}.</span>}</p>
         </article>
-      ))}<div class="svcd svcd--cta"><h3>Not sure which?</h3><p class="svcd__short">Many families need more than one. That is normal.</p><p>In a free 45-minute Estate Map Session on Zoom, Russ maps what you have and what you want, and tells you which of these fits and its flat fee. No pressure either way.</p><p style="margin-top:18px"><a class="btn btn-acc" href={cta.href}>{cta.label}</a></p></div></div>
+      ))}<div class="svcd svcd--cta"><div class="svcd--cta__t"><h3>Not sure which?</h3><p class="svcd__short">Many families need more than one. That is normal.</p><p>In a free 45-minute Estate Map Session on Zoom, Russ maps what you have and what you want, and tells you which of these fits and its flat fee. No pressure either way.</p></div><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div></div>
       <p class="faq-note">Every matter is different. What a matter includes is confirmed in your engagement letter, with the fee, before any work begins. Court costs, recording fees and other third-party charges are separate and disclosed in advance. {firm.license}.</p>
     </div></section>
 

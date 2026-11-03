@@ -7,6 +7,7 @@ import Base from '../layouts/Base.astro';
 import Plans from '../components/Plans.astro';
 import WholePicture from '../components/WholePicture.astro';
 import Voices from '../components/Voices.astro';
+import VideoSlot from '../components/VideoSlot.astro';
 import { cta, faqs, trustPriceNote, pricesEffectiveThrough } from '../data/site.js';
 const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'bring'].includes(f.id));
 ---
@@ -31,8 +32,17 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
     <div class="ctarow eq" style="margin-top:38px"><a class="btn btn-ghost" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/services">All services</a></div>
   </div></section>
 
-  <section class="sec" id="meet"><div class="wrap meet">
-    <img class="meet__img" src="/russ-color.jpg" width="900" height="1125" alt="Russ Michaels, founder and attorney, Tercet Law" loading="lazy" />
+  <section class="sec" id="start"><div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Where to start</p><h2>Start where your life is.</h2></div>
+    <div class="pcards">
+      <a class="pcard" href="/services#estate-planning"><img src="/images/home-family-newborn.jpg" alt="A family gathered around a mother holding her newborn" style="object-position:66% 35%" loading="lazy" /><span class="pc-k">Planning ahead</span><b>A plan for your family</b><em>Wills, trusts and the people in charge.</em></a>
+      <a class="pcard" href="/services#elder-law"><img src="/images/process-couple-video-call.jpg" alt="An older couple smiling together at a laptop on their sofa" style="object-position:55% 35%" loading="lazy" /><span class="pc-k">Caring for someone</span><b>The years ahead</b><em>Powers of attorney and a plan for aging.</em></a>
+      <a class="pcard" href="/services#probate"><img src="/images/pricing-couple-sofa.jpg" alt="An older couple going over papers together at home" style="object-position:50% 35%" loading="lazy" /><span class="pc-k">After a loss</span><b>Settling an estate</b><em>Probate and trusts in Texas, step by step.</em></a>
+    </div>
+  </div></section>
+
+  <section class="sec alt" id="meet"><div class="wrap meet">
+    <img class="meet__img" src="/russ-michaels.jpg" width="900" height="1125" alt="Russ Michaels, founder and attorney, Tercet Law" loading="lazy" />
     <div class="meet__copy">
       <p class="eyebrow">Your attorney</p>
       <h2>Meet Russ.</h2>
@@ -48,16 +58,7 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
 
   <Voices />
 
-  <section class="sec alt" id="start"><div class="wrap">
-    <div class="sec-head"><p class="eyebrow">Where to start</p><h2>Start where your life is.</h2></div>
-    <div class="pcards">
-      <a class="pcard" href="/services#estate-planning"><img src="/images/home-family-newborn.jpg" alt="A family gathered around a mother holding her newborn" style="object-position:66% 35%" loading="lazy" /><span class="pc-k">Planning ahead</span><b>A plan for your family</b><em>Wills, trusts and the people in charge.</em></a>
-      <a class="pcard" href="/services#elder-law"><img src="/images/process-couple-video-call.jpg" alt="An older couple smiling together at a laptop on their sofa" style="object-position:55% 35%" loading="lazy" /><span class="pc-k">Caring for someone</span><b>The years ahead</b><em>Powers of attorney and a plan for aging.</em></a>
-      <a class="pcard" href="/services#probate"><img src="/images/pricing-couple-sofa.jpg" alt="An older couple going over papers together at home" style="object-position:50% 35%" loading="lazy" /><span class="pc-k">After a loss</span><b>Settling an estate</b><em>Probate and trusts in Texas, step by step.</em></a>
-    </div>
-  </div></section>
-
-  <section class="sec" id="how"><div class="wrap">
+  <section class="sec alt" id="how"><div class="wrap">
     <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three steps.</h2></div>
     <div class="tiles3">
       <div class="tile"><img src="/images/start-couple-laptop.jpg" alt="A couple smiling at a laptop together" style="object-position:50% 30%" loading="lazy" /><div class="tile__b"><span class="tile__n">01</span><h3>Map</h3><p>Forty-five minutes with Russ. Your whole picture, on one page.</p></div></div>
@@ -66,6 +67,8 @@ const homeFaqs = faqs.filter((f) => ['will-or-trust', 'probate', 'homestead', 'b
     </div>
     <div class="ctarow eq" style="margin-top:30px"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/process">See the process</a></div>
   </div></section>
+
+  <VideoSlot title="Who speaks for you" src="/video/russ/who-speaks-for-you.mp4" captions="/video/russ/who-speaks-for-you.vtt" poster="/video/russ/who-speaks-for-you-poster.jpg" eyebrow="Watch" heading="Who speaks for you." lede="The papers that matter while you are still here: who decides if you can't." />
 
   <section class="hq"><div class="wrap"><p>A good plan isn&rsquo;t about the end. It&rsquo;s about the people you love knowing exactly what you wanted.</p></div></section>
 

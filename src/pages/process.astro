@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import VideoSlot from '../components/VideoSlot.astro';
 import EstateMap from '../components/EstateMap.astro';
 import { firm, cta, guideCta, steps, timingNote, story } from '../data/site.js';
 ---
@@ -13,7 +12,6 @@ import { firm, cta, guideCta, steps, timingNote, story } from '../data/site.js';
       <p class="eyebrow">How it works</p><h1>Map. Design. <em>Sign &amp; Fund.</em></h1><p class="lede">Three simple steps from your first conversation to a signed plan, in about three weeks from the day you engage. Clear at every step, and never rushed.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 
-    <VideoSlot title="Who speaks for you" src="/video/russ/who-speaks-for-you.mp4" captions="/video/russ/who-speaks-for-you.vtt" poster="/video/russ/who-speaks-for-you.jpg" eyebrow="Watch" heading="Who speaks for you." lede="The papers that matter while you are still here: who makes decisions if you cannot." />
 
 
     <section class="sec" id="steps"><div class="wrap">

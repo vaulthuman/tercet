@@ -1,36 +1,37 @@
 // TERCET LAW — Writing. One short piece a day on estate planning in Texas, plus a Legal Key
-// twice a week (Mondays and Fridays). Newest first on the page; add new pieces to the top.
+// three times a week (Mondays, Wednesdays and Fridays). Newest first on the page; add new pieces to the top.
 // type: 'article' or 'key'. General information only, never legal advice.
 
 export const writing = [
   {
-    slug: 'legal-key-3-fair-is-a-conversation',
-    reel: { src: '/video/russ/legal-key-3.mp4', poster: '/video/russ/legal-key-3.jpg', title: 'Fair is a conversation, not a number' },
-    iso: '2026-11-03', date: 'November 3, 2026', type: 'key', keyNo: 3,
-    title: 'Fair is a conversation, not a number.',
-    dek: 'Legal Key No. 3. Equal on paper can feel unfair at the kitchen table. Your reasons are what make it fair.',
+    slug: 'a-plan-for-the-ai-age',
+    feature: true,
+    iso: '2026-11-03', date: 'November 3, 2026', type: 'article',
+    title: 'A plan for the AI age.',
+    dek: 'Where this is going, from 2026 to 2036 and beyond, and why the most human parts of a plan will matter more, not less.',
     body: [
-      'Most parents want to be fair, so they split everything equally. Three children, three equal shares. But equal is not always fair. One child moved home to care for a parent. One has a disability and will need help for life. One already had help buying a house.',
-      'When people feel something is unfair, they start to wonder what you really meant. That is where family fights begin.',
-      'The key: write down your reasons. A short letter that goes with your plan, in your own words, saying why you chose what you chose. Better yet, tell your family now, while they can still ask you questions. When the people you love understand your reasons, they can live with the numbers.',
+      'Ten years from now, many of us will have an assistant that has listened to us for a decade. It will know our routines and our money, who we call when we are worried, and what we say to our children at night. That is not a warning. It is simply where things are heading, and it can be a good thing, if we plan for it.',
+      'For most of history, what we left behind fit in a drawer: a deed, a will, a box of letters. By 2036, much of a life will live in accounts, devices and tools that can write, speak and even act. Some of it will carry our voice. Some of it will carry our face. Every family will face a question that is simple to say and hard to answer: who holds the keys, and what is allowed to keep going in your name?',
+      'The law is moving, but more slowly than the technology. Texas already lets you name who may reach your digital accounts and records, and that matters today. Over the next decade, new questions will come: whether an assistant may keep paying the bills after you are gone, whether a recording of your voice may be used, how your family will know what is really you. A plan written now can answer many of those questions in plain words, so the people you love are not left guessing.',
+      'Here is the part that will not change. The most valuable thing you leave will not be a password. It will be what you meant: the reasons behind your choices, the values you lived by, the words you want your grandchildren to hear. The more of life that runs on machines, the more those human things are worth writing down.',
+      'That is where we help. We map your whole picture with you: the home and the accounts, the people who count on you, and the digital life that now sits beside all of it. We name who decides, who can reach what, and what should stop when you do. And we help you leave something no machine can make for you, a clear and kind account of who you were and what you wanted.',
+      'Whether you are planning for 2026 or for 2046, the first step is the same. Tell the people you love what you want, and put it in writing. That is a plan that holds, however the world changes.',
     ],
   },
   {
-    slug: 'legal-key-2-kindness-keeps-you-out-of-court',
-    reel: { src: '/video/russ/legal-key-2.mp4', poster: '/video/russ/legal-key-2.jpg', title: 'Kindness keeps you out of court' },
-    iso: '2026-11-03', date: 'November 3, 2026', type: 'key', keyNo: 2,
-    title: 'Kindness keeps you out of court.',
-    dek: 'Legal Key No. 2. Most family fights over an estate don’t start with the will. They start with a conversation that never happened.',
+    slug: 'legal-key-3-beneficiary-forms-beat-your-will',
+    iso: '2026-11-04', date: 'November 4, 2026', type: 'key', keyNo: 3,
+    title: 'Your beneficiary forms beat your will.',
+    dek: 'Legal Key No. 3. The form you filled out at a new job may decide more than the will you signed later.',
     body: [
-      'A brother who found out last. A sister who felt unseen. A comment at the funeral that nobody meant and nobody forgot. Then someone hires a lawyer, and a family that loved each other can spend years and a lot of money in a Texas courtroom.',
-      'A good plan helps. In Texas, a will can even say that anyone who challenges it without good cause gives up their share. But paper can’t make people feel heard. That part is yours.',
-      'The key: before you sign anything, have the conversation. Tell your family what you are planning and why. Say thank you while you can, and let the small things go. The families who stay out of court are the ones who kept talking.',
+      'Retirement accounts, life insurance and many bank and brokerage accounts pass to whoever is named on the account’s beneficiary form. Not to whoever is named in your will.',
+      'So if your will leaves everything to your children, but your 401(k) form still names someone from fifteen years ago, the form usually wins.',
+      'The key: every time your life changes, a marriage, a divorce, a child, a death, pull up every beneficiary form and make sure it matches the plan you actually want.',
     ],
   },
   {
     slug: 'your-digital-life-is-part-of-your-estate',
-    video: { slug: 'ai-age', title: 'An estate plan for the AI age' },
-    iso: '2026-11-02', date: 'November 2, 2026', type: 'article',
+    iso: '2026-11-03', date: 'November 3, 2026', type: 'article',
     title: 'Your digital life is part of your estate.',
     dek: 'Email, photos, the AI assistant that knows you, and now even your voice. Who can reach them, and what happens next?',
     body: [
@@ -42,19 +43,20 @@ export const writing = [
     ],
   },
   {
-    slug: 'legal-key-1-beneficiary-forms',
-    iso: '2026-11-02', date: 'November 2, 2026', type: 'key', keyNo: 1,
-    title: 'Your beneficiary forms beat your will.',
-    dek: 'Legal Key No. 1. The form you filled out at a new job may decide more than the will you signed later.',
+    slug: 'legal-key-2-fair-is-a-conversation',
+    reel: { src: '/video/russ/legal-key-3.mp4', poster: '/video/russ/legal-key-3.jpg', title: 'Fair is a conversation, not a number' },
+    iso: '2026-11-02', date: 'November 2, 2026', type: 'key', keyNo: 2,
+    title: 'Fair is a conversation, not a number.',
+    dek: 'Legal Key No. 2. Equal on paper can feel unfair at the kitchen table. Your reasons are what make it fair.',
     body: [
-      'Retirement accounts, life insurance and many bank and brokerage accounts pass to whoever is named on the account’s beneficiary form. Not to whoever is named in your will.',
-      'So if your will leaves everything to your children, but your 401(k) form still names someone from fifteen years ago, the form usually wins.',
-      'The key: every time your life changes, a marriage, a divorce, a child, a death, pull up every beneficiary form and make sure it matches the plan you actually want.',
+      'Most parents want to be fair, so they split everything equally. Three children, three equal shares. But equal is not always fair. One child moved home to care for a parent. One has a disability and will need help for life. One already had help buying a house.',
+      'When people feel something is unfair, they start to wonder what you really meant. That is where family fights begin.',
+      'The key: write down your reasons. A short letter that goes with your plan, in your own words, saying why you chose what you chose. Better yet, tell your family now, while they can still ask you questions. When the people you love understand your reasons, they can live with the numbers.',
     ],
   },
   {
     slug: 'the-papers-for-while-youre-still-here',
-    iso: '2026-11-02', date: 'November 2, 2026', type: 'article',
+    iso: '2026-11-01', date: 'November 1, 2026', type: 'article',
     title: 'The papers for while you’re still here.',
     dek: 'Some of the most important documents in a plan are for a stroke, an accident or a long illness, not for after you’re gone.',
     body: [
@@ -67,7 +69,7 @@ export const writing = [
   },
   {
     slug: 'if-you-dont-choose-texas-chooses',
-    iso: '2026-11-02', date: 'November 2, 2026', type: 'article',
+    iso: '2026-10-31', date: 'October 31, 2026', type: 'article',
     title: 'If you don’t choose, Texas chooses.',
     dek: 'What actually happens in Texas when someone passes away without a plan. Not to scare you. Just so you know.',
     body: [
@@ -79,6 +81,18 @@ export const writing = [
       'It doesn’t have to be complicated. It just has to be done.',
     ],
   },
+  {
+    slug: 'legal-key-1-kindness-keeps-you-out-of-court',
+    reel: { src: '/video/russ/legal-key-2.mp4', poster: '/video/russ/legal-key-2.jpg', title: 'Kindness keeps you out of court' },
+    iso: '2026-10-30', date: 'October 30, 2026', type: 'key', keyNo: 1,
+    title: 'Kindness keeps you out of court.',
+    dek: 'Legal Key No. 1. Most family fights over an estate don’t start with the will. They start with a conversation that never happened.',
+    body: [
+      'A brother who found out last. A sister who felt unseen. A comment at the funeral that nobody meant and nobody forgot. Then someone hires a lawyer, and a family that loved each other can spend years and a lot of money in a Texas courtroom.',
+      'A good plan helps. In Texas, a will can even say that anyone who challenges it without good cause gives up their share. But paper can’t make people feel heard. That part is yours.',
+      'The key: before you sign anything, have the conversation. Tell your family what you are planning and why. Say thank you while you can, and let the small things go. The families who stay out of court are the ones who kept talking.',
+    ],
+  },
 ];
 
-export const legalKeyDays = 'Monday and Friday';
+export const legalKeyDays = 'Monday, Wednesday and Friday';

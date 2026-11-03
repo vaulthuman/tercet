@@ -3,15 +3,17 @@ import Base from '../../layouts/Base.astro';
 import { writing } from '../../data/writing.js';
 import { cta } from '../../data/site.js';
 export function getStaticPaths() {
-  return writing.map((p, i) => ({ params: { slug: p.slug }, props: { p, newer: writing[i - 1] || null, older: writing[i + 1] || null } }));
+  const run = writing.filter((x) => !x.feature);
+  return writing.map((p) => { const i = run.indexOf(p); return { params: { slug: p.slug }, props: { p, newer: i > 0 ? run[i - 1] : null, older: i >= 0 ? run[i + 1] || null : null } }; });
 }
 const { p, newer, older } = Astro.props;
 const kicker = p.type === 'key' ? `Legal Key No. ${p.keyNo}` : 'Writing';
+const shownDate = p.feature ? '' : p.date;
 const schema = [{ "@context": "https://schema.org", "@type": "Article", headline: p.title, description: p.dek, datePublished: p.iso, author: { "@type": "Person", name: "Russ Michaels" }, publisher: { "@type": "LegalService", name: "Tercet Law" } }];
 ---
 <Base title={`${p.title} | Tercet Law`} description={p.dek} path={`/writing/${p.slug}/`} schema={schema}>
   <article class="sec wp"><div class="wrap wp__in">
-    <p class="wp__k"><a href="/writing/">Writing</a> · {kicker} · {p.date}</p>
+    <p class="wp__k"><a href="/writing/">Writing</a> · {kicker}{shownDate && ` · ${shownDate}`}</p>
     <h1>{p.title}</h1>
     <p class="wp__dek">{p.dek}</p>
   </div></article>
@@ -20,8 +22,9 @@ const schema = [{ "@context": "https://schema.org", "@type": "Article", headline
     <div class="wp__body">{p.body.map((t) => <p>{t}</p>)}</div>
     <p class="wp__fine">General information about Texas law, not legal advice. Every family is different.</p>
     <div class="ctarow wp__cta"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/writing/">All writing</a></div>
-    <nav class="wp__nav">{older ? <a href={`/writing/${older.slug}/`}>&larr; {older.title}</a> : <span></span>}{newer ? <a href={`/writing/${newer.slug}/`}>{newer.title} &rarr;</a> : <span></span>}</nav>
+    <nav class="wp__nav">{older ? <a href={`/writing/${older.slug}/`}>&larr; {older.title}</a> : <span></span>}{newer ? <a href={`/writing/${newer.slug}/`} data-iso={newer.iso}>{newer.title} &rarr;</a> : <span></span>}</nav>
   </div></article>
+  <script is:inline>(function(){var t=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());document.querySelectorAll('.wp__nav [data-iso]').forEach(function(a){if(a.getAttribute('data-iso')>t)a.replaceWith(document.createElement('span'))})})();</script>
   <style is:inline>
     .wp__in{max-width:760px}
     .wp__in--reel{max-width:1040px;display:grid;grid-template-columns:minmax(0,1fr) 320px;column-gap:56px;align-items:start}

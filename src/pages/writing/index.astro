@@ -1,10 +1,13 @@
 ---
-// Writing: one short piece a day on Texas estate planning, plus a Legal Key on Mondays and Fridays.
+// Writing: one short piece a day on Texas estate planning, plus a Legal Key on Mondays, Wednesdays and Fridays.
+// Pieces dated after today stay hidden in the browser until their day (static site, no rebuild needed).
 // Same spine as Vault Human's Writing page: newest first, down a line, with a photo band every few pieces.
 import Base from '../../layouts/Base.astro';
 import VideoSlot from '../../components/VideoSlot.astro';
 import { writing, legalKeyDays } from '../../data/writing.js';
-const run = [...writing];
+const run = writing.filter((p) => !p.feature);
+const feature = writing.find((p) => p.feature);
+let firstKey = true;
 let lastDate = '';
 const BANDS = [
   { t: 'A plan is a gift to the people you love.', img: '/images/home-hands-generations.jpg', pos: '55% 60%' },
@@ -28,7 +31,9 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
     </div></div>
   </section>
 
-  <VideoSlot title="An estate plan for the AI age" src="/video/russ/ai-age.mp4" captions="/video/russ/ai-age.vtt" poster="/video/russ/ai-age-poster.jpg" eyebrow="Watch" heading="A plan for the AI age." lede="Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next." />
+  <VideoSlot title="An estate plan for the AI age" src="/video/russ/ai-age.mp4" captions="/video/russ/ai-age.vtt" poster="/video/russ/ai-age-poster.jpg" eyebrow="Watch" heading="A plan for the AI age." lede="Your accounts, your AI assistant, your voice and likeness: who can reach them, and what happens next.">
+    {feature && <a class="wr-feat" href={`/writing/${feature.slug}/`}><span class="wr-feat__k">Read</span><b>{feature.title}</b><em>{feature.dek}</em><span class="wr-feat__go" aria-hidden="true">&rarr;</span></a>}
+  </VideoSlot>
 
   <section class="sec runwrap" id="pieces">
     <div class="run">
@@ -36,11 +41,13 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
         <div class={`rb${it.r ? ' rb-r' : ''}`} style={`background-image:url('${it.band.img}');background-position:${it.band.pos}`}><div class="rb-in"><p class="rb-t">{it.band.t}</p></div></div>
       ) : (
         <>
-          {it.m && <div class="rm"><span>{it.m}</span></div>}
-          <a class={`rl rv${it.p.type === 'key' ? ' key' : ''}`} href={`/writing/${it.p.slug}/`} id={it.p.type === 'key' ? 'keys' : undefined}>
+          {it.m && <div class="rm" data-iso={it.p.iso}><span>{it.m}</span></div>}
+          <a class={`rl rv${it.p.type === 'key' ? ' key' : ''}${it.p.reel ? ' has-reel' : ''}`} href={`/writing/${it.p.slug}/`} data-iso={it.p.iso} id={it.p.type === 'key' && firstKey ? ((firstKey = false), 'keys') : undefined}>
+            {it.p.reel && <span class="rl-thumb"><img src={it.p.reel.poster} alt="" loading="lazy" /><i aria-hidden="true"></i></span>}
             <p class="rl-date">{it.p.type === 'key' ? `Legal Key No. ${it.p.keyNo}` : 'Writing'}</p>
             <p class="rl-t">{it.p.title}</p>
             <p class="rl-d">{it.p.dek}</p>
+            {it.p.reel && <p class="rl-watch">Watch the video</p>}
           </a>
         </>
       ))}
@@ -74,6 +81,18 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
     .rb-in{position:relative;z-index:1;width:100%;max-width:1180px;margin:0 auto;padding:0 24px 40px}.rb-r .rb-in{text-align:right}
     .rb-t{font-family:var(--disp);font-size:clamp(32px,3.6vw,54px);line-height:1;margin:0;max-width:18ch;color:#fff}.rb-r .rb-t{margin-left:auto}
     .rend{display:flex;justify-content:center;padding:26px 0 0}.rend span{width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 6px rgba(31,58,95,.15)}
+    .rl.has-reel{padding-left:112px;min-height:168px}
+    .rl-thumb{position:absolute;left:18px;top:20px;width:76px;aspect-ratio:9/16;border-radius:8px;overflow:hidden;background:var(--dark)}
+    .rl-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .rl-thumb i{position:absolute;right:6px;bottom:6px;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.94)}
+    .rl-thumb i:after{content:"";position:absolute;left:9px;top:6px;border-style:solid;border-width:6px 0 6px 9px;border-color:transparent transparent transparent var(--acc)}
+    .rl-watch{margin:10px 0 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#A86F42}
+    .wr-feat{position:relative;display:grid;gap:6px;margin-top:4px;padding:18px 48px 18px 20px;background:#fff;border:1px solid var(--line);border-left:3px solid #C98B5A;border-radius:10px;text-decoration:none;color:var(--ink);max-width:520px;transition:box-shadow .3s,border-color .3s}
+    .wr-feat:hover{box-shadow:0 10px 30px rgba(31,58,95,.14)}
+    .wr-feat__k{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#A86F42}
+    .wr-feat b{font-family:var(--disp);font-weight:400;font-size:26px;line-height:1}
+    .wr-feat em{font-style:normal;color:var(--muted);font-size:15px;line-height:1.45}
+    .wr-feat__go{position:absolute;right:18px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--acc)}
     .wr-fine{text-align:center;color:var(--muted);font-size:14px;margin:36px 24px 0}
     @media(prefers-reduced-motion:reduce){.rl.rv{opacity:1;transform:none}}
     @media(max-width:760px){.run{padding:0 18px}.run:before{left:24px}.rm{justify-content:flex-start}
@@ -83,6 +102,11 @@ const desc = 'Short, clear pieces on wills, trusts and planning in Texas, plus a
       .rl.rv:nth-of-type(odd),.rl.rv:nth-of-type(even){transform:translateY(14px)}.rend{justify-content:flex-start;padding-left:19px}}
   </style>
   <script is:inline>
+    // Hide pieces dated after today (Central time) until their day comes.
+    (function(){var t=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+      document.querySelectorAll('.run [data-iso]').forEach(function(el){if(el.getAttribute('data-iso')>t)el.remove()});
+      var first=document.querySelector('.run .rl');var td=document.querySelector('.wr-hero .ctarow a');if(first&&td)td.setAttribute('href',first.getAttribute('href'));
+      if(!document.getElementById('keys')){var k=document.querySelector('.run .rl.key');if(k)k.id='keys'}})();
     (function(){var r=[].slice.call(document.querySelectorAll('.rl.rv'));if(!('IntersectionObserver'in window)){r.forEach(function(x){x.classList.add('on')});return;}
     var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');o.unobserve(e.target)}})},{threshold:.12});r.forEach(function(x){o.observe(x)});})();
   </script>

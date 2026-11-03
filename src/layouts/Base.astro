@@ -120,17 +120,29 @@ const ld = [firmSchema, ...schema];
     <video controls playsinline preload="none"></video>
   </div>
   <script is:inline>
-  (function(){var p=document.getElementById('vpop');if(!p||!document.querySelector('[data-vslot]'))return;var v=p.querySelector('video');
-  function close(){v.pause();p.classList.remove('open');p.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+  (function(){
+  function ga(t){try{gtag('event','video_start',{video_title:t})}catch(e){}}
+  function prep(box){if(box._v)return box._v;var v=document.createElement('video');v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.preload='metadata';v.poster=box.dataset.poster||'';v.src=box.dataset.src;
+    if(box.dataset.captions){var t=document.createElement('track');t.kind='captions';t.srclang='en';t.label='English';t.src=box.dataset.captions;t.default=true;v.appendChild(t)}
+    v.addEventListener('playing',function(){box.classList.remove('loading');box.classList.add('playing')});
+    box.appendChild(v);box._v=v;return v}
+  function play(box){if(box.classList.contains('playing'))return;var v=prep(box);v.preload='auto';box.classList.add('loading');
+    document.querySelectorAll('[data-vslot-box] video').forEach(function(o){if(o!==v)o.pause()});
+    var q=v.play();if(q&&q.catch)q.catch(function(){box.classList.remove('loading');box.classList.add('playing')});ga(box.querySelector('.vslot__play').getAttribute('aria-label'))}
+  var boxes=[].slice.call(document.querySelectorAll('[data-vslot-box]'));
+  boxes.forEach(function(box){box.addEventListener('click',function(){play(box)});box.addEventListener('pointerdown',function(){prep(box)},{passive:true})});
+  if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){prep(e.target);io.unobserve(e.target)}})},{rootMargin:'300px 0px'});boxes.forEach(function(b){io.observe(b)})}
+  var p=document.getElementById('vpop'),pv=p&&p.querySelector('video');
+  function close(){pv.pause();p.classList.remove('open');p.setAttribute('aria-hidden','true');document.body.style.overflow=''}
   document.querySelectorAll('[data-vslot]').forEach(function(b){b.addEventListener('click',function(){
-    v.innerHTML='';v.src=b.dataset.vslot;v.poster=b.dataset.vslotPoster||'';
-    if(b.dataset.vslotCaptions){var t=document.createElement('track');t.kind='captions';t.srclang='en';t.label='English';t.src=b.dataset.vslotCaptions;t.default=true;v.appendChild(t)}
-    p.classList.add('open');p.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var q=v.play();if(q&&q.catch)q.catch(function(){});
-    try{gtag('event','video_start',{video_title:b.getAttribute('aria-label')})}catch(e){}
-  })});
-  p.querySelectorAll('[data-vpop-close]').forEach(function(x){x.addEventListener('click',close)});
+    var box=boxes.filter(function(x){return x.dataset.src===b.dataset.vslot})[0];
+    if(box){box.scrollIntoView({behavior:'smooth',block:'center'});play(box);return}
+    if(!p)return;pv.innerHTML='';pv.src=b.dataset.vslot;pv.poster=b.dataset.vslotPoster||'';pv.preload='auto';
+    if(b.dataset.vslotCaptions){var t=document.createElement('track');t.kind='captions';t.srclang='en';t.label='English';t.src=b.dataset.vslotCaptions;t.default=true;pv.appendChild(t)}
+    p.classList.add('open');p.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';var q=pv.play();if(q&&q.catch)q.catch(function(){});ga(b.textContent)})});
+  if(p){p.querySelectorAll('[data-vpop-close]').forEach(function(x){x.addEventListener('click',close)});
   p.addEventListener('click',function(e){if(e.target===p)close()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open'))close()});})();
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&p.classList.contains('open'))close()});}})();
   </script>
   <div id="vh-modal" class="vh-modal" aria-hidden="true">
     <div class="vh-modal__bg" data-close-form></div>
@@ -159,7 +171,12 @@ const ld = [firmSchema, ...schema];
   </script>
   {sticky && (<div class="stickybar" id="stickybar"><span>Tercet Law</span><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div>)}
   <script is:inline>
-  (function(){var sb=document.getElementById('stickybar');if(sb){document.body.classList.add('has-sticky');setTimeout(function(){sb.classList.add('on')},6000);}})();
+  (function(){var sb=document.getElementById('stickybar');if(!sb)return;document.body.classList.add('has-sticky');
+  // Show the bar only once you have scrolled, and never while another set of buttons is on screen (no stacked buttons).
+  var rows=[].slice.call(document.querySelectorAll('.ctarow')),vis=new Set();
+  function f(){sb.classList.toggle('on',scrollY>240&&vis.size===0)}
+  if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?vis.add(e.target):vis.delete(e.target)});f()});rows.forEach(function(r){io.observe(r)})}
+  addEventListener('scroll',f,{passive:true});f();})();
   </script>
   <script is:inline>(function(){var b=document.querySelector(".navtoggle"),n=document.getElementById("navlinks");if(!b||!n)return;function set(o){document.body.classList.toggle("nav-open",o);b.setAttribute("aria-expanded",o?"true":"false");b.setAttribute("aria-label",o?"Close menu":"Open menu");}b.addEventListener("click",function(){set(!document.body.classList.contains("nav-open"));});n.addEventListener("click",function(e){if(e.target.closest("a"))set(false);});document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});})();</script>
   <script is:inline>(function(){var h=document.querySelector("header.site");function f(){if(h)h.classList.toggle("scrolled",scrollY>40)}addEventListener("scroll",f,{passive:true});f();})();</script>

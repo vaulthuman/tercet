@@ -107,7 +107,7 @@ const ld = [firmSchema, ...schema];
   <footer class="site">
     <div class="wrap foot">
       <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Estate planning for Texas families. Flat fees, in writing.</p><p><a href={`mailto:${firm.email}`}>{firm.email}</a> · <a href={firm.phoneHref}>{firm.phone}</a></p></div>
-      <ul><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/process">Process</a></li><li><a href="/faq">Texas FAQ</a></li><li><a href="/about">About Russ</a></li><li><a href={cta.href}>{cta.label}</a></li></ul>
+      <ul><li><a href="/about">About Russ</a></li><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/process">Process</a></li><li><a href="/faq">Texas FAQ</a></li><li><a href="/writing/">Writing</a></li><li><a href={cta.href}>{cta.label}</a></li></ul>
       <ul><li><a href={guideCta.href}>Free Texas checklist</a></li><li><a href={clientPortal.href}>{clientPortal.label}</a></li><li><a href="/disclaimers">Disclaimers</a></li><li><a href="/privacy/">Privacy</a></li><li><a href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></li></ul>
     </div>
     <div class="wrap legal"><span class="resp">{firm.legalName} · {firm.street ? `${firm.street}, ` : ''}{firm.city}, {firm.state}{firm.zip ? ` ${firm.zip}` : ''} · Responsible attorney: {RESPONSIBLE_ATTORNEY}{firm.barNumber ? `, State Bar of Texas No. ${firm.barNumber}` : ''}</span><span>Attorney advertising</span></div>

@@ -1,7 +1,7 @@
 ---
-// The four flat-fee plans, read from src/data/site.js. Each card shows which parts of the
+// The four flat-fee plans plus the all-in Whole Picture plan, read from src/data/site.js. Each card shows which parts of the
 // Whole Picture it covers (the ring) and exactly what you receive. detail=false shows the short card.
-import { plans, cta, picture } from '../data/site.js';
+import { plans, wholePlan, cta, picture } from '../data/site.js';
 import PictureRing from './PictureRing.astro';
 const { detail = true } = Astro.props;
 const word = (id: string) => picture.parts.find((p) => p.id === id)?.word ?? id;
@@ -19,4 +19,18 @@ const word = (id: string) => picture.parts.find((p) => p.id === id)?.word ?? id;
       <a class={`btn ${p.featured ? 'btn-acc' : 'btn-line'}`} href={cta.href}>{cta.label}</a>
     </div>
   ))}
+  <div class="offer pkg whole" id={`plan-${wholePlan.id}`}>
+    <div class="whole__a">
+      <div class="tag">{wholePlan.tag}</div>
+      <h3>{wholePlan.name}</h3>
+      <div class="price">{wholePlan.price}</div>
+      <p class="price-alt">{wholePlan.alt}</p>
+      <p>{wholePlan.blurb}</p>
+      <a class="btn btn-acc" href={cta.href}>{cta.label}</a>
+    </div>
+    <div class="whole__b">
+      <div class="pcov"><PictureRing covers={wholePlan.covers} /><div class="pcov__w">{wholePlan.covers.map((c) => <span>{word(c)}</span>)}</div></div>
+      {detail && <><p class="pget">What you receive</p><div class="pkeys">{wholePlan.features.map((f) => <span>{f}</span>)}</div></>}
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 ---
-// A place for one of Russ's videos. It plays in the pop-up player with captions.
+// A place for one of Russ's videos. It plays right here, in place, with captions (no pop-up).
 // Until a page's own video is finished, it shows Russ's welcome video (swap `src` later).
 // Clean on purpose: a still and a play button, no titles or running times over the picture.
 interface Props {
@@ -22,8 +22,8 @@ const { title, src = WELCOME.src, captions = src === WELCOME.src ? WELCOME.capti
     {lede && <p class="lede">{lede}</p>}
     <slot />
   </div>
-  <button class="vslot" type="button" data-vslot={src} data-vslot-captions={captions} data-vslot-poster={poster} aria-label={`Play video: ${title}`}>
+  <div class="vslot" data-vslot-box data-src={src} data-captions={captions} data-poster={poster}>
     <img src={poster} alt="" loading="lazy" />
-    <span class="vslot__play" aria-hidden="true"></span>
-  </button>
+    <button class="vslot__play" type="button" aria-label={`Play video: ${title}`}><span aria-hidden="true"></span></button>
+  </div>
 </div></section>

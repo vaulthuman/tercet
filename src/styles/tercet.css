@@ -283,3 +283,44 @@ button.btn{font-family:inherit;cursor:pointer}
 .vpop__x{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.4);color:#fff;font-size:26px;line-height:1;cursor:pointer}
 @media(max-width:900px){.vslot-grid{grid-template-columns:1fr;gap:28px}}
 .hero .guarantee .watchlink{color:var(--acc-soft);text-decoration:underline;text-underline-offset:3px}
+
+/* ===== rev 11/3: no hyphen lists anywhere. Every list reads as small tiles with a check. ===== */
+.ticks,.svcd ul,.promises{list-style:none;padding:0;display:grid;gap:10px;max-width:none}
+.ticks{grid-template-columns:1fr}
+.promises{grid-template-columns:repeat(3,minmax(0,1fr));margin:26px 0 0}
+.ticks li,.svcd li,.promises li{position:relative;padding:13px 16px 13px 44px;background:#fff;border:1px solid var(--line);border-radius:10px;font-size:16.5px;line-height:1.45;color:var(--ink);font-weight:400}
+.alt .ticks li,.alt .svcd li{background:#fff}
+.ticks li:before,.svcd li:before,.promises li:before{content:"";position:absolute;left:15px;top:15px;width:18px;height:18px;border:0;border-radius:50%;transform:none;background:var(--acc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
+.ticks li b{display:block;font-family:var(--disp);font-weight:400;font-size:24px;line-height:1;margin:0 0 4px;color:var(--acc-ink)}
+@media(max-width:760px){.promises{grid-template-columns:1fr}}
+
+/* Services: keys as a two-column tile grid */
+.svcd ul{grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 0}
+.svcd li{font-size:14.5px;padding:11px 12px 11px 38px;background:var(--bg)}
+.svcd li:before{left:12px;top:12px;width:16px;height:16px;background-size:10px}
+@media(max-width:560px){.svcd ul{grid-template-columns:1fr}}
+
+/* Plans: Whole Picture coverage ring + what you receive */
+.pcov{display:flex;align-items:center;gap:14px;margin:14px 0 14px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.offer.feat .pcov{border-color:rgba(255,255,255,.14)}
+.pring{flex:0 0 auto;display:block}
+.pring path{fill:rgba(31,58,95,.12);stroke:none}
+.pring path.on{fill:var(--acc)}
+.offer.feat .pring path{fill:rgba(255,255,255,.12)}.offer.feat .pring path.on{fill:#C98B5A}
+.pring__n{text-anchor:middle;font:400 22px "Bebas Neue",sans-serif;fill:var(--ink)}
+.pring__of{text-anchor:middle;font:700 6px Inter,sans-serif;letter-spacing:.12em;fill:var(--muted)}
+.offer.feat .pring__n{fill:#fff}.offer.feat .pring__of{fill:rgba(255,255,255,.6)}
+.pcov__w{display:flex;flex-wrap:wrap;gap:5px}
+.pcov__w span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--acc-ink);background:rgba(31,58,95,.07);padding:5px 8px;border-radius:999px}
+.offer.feat .pcov__w span{color:#fff;background:rgba(255,255,255,.1)}
+.pget{font-size:11px!important;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--acc-ink);margin:16px 0 8px!important}
+.offer.feat .pget{color:#C98B5A}
+.pkeys{display:grid;gap:6px;margin:0 0 18px;flex:1 1 auto;align-content:start}
+.pkeys span{position:relative;display:block;padding:9px 10px 9px 32px;border-radius:8px;background:var(--bg);font-size:14.5px;line-height:1.35}
+.pkeys span:before{content:"";position:absolute;left:10px;top:11px;width:14px;height:14px;border-radius:50%;background:var(--acc) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/9px no-repeat}
+.offer.feat .pkeys span{background:rgba(255,255,255,.07);color:#fff}
+.offer.feat .pkeys span:before{background-color:#C98B5A}
+/* Video section: the two buttons sit side by side at the same size */
+.vslot-copy .ctarow.eq{flex-wrap:nowrap;gap:12px}
+.vslot-copy .ctarow.eq .btn{min-width:0;flex:1 1 0;padding-left:12px;padding-right:12px}
+@media(max-width:560px){.vslot-copy .ctarow.eq{flex-wrap:wrap}.vslot-copy .ctarow.eq .btn{flex:1 1 100%}}

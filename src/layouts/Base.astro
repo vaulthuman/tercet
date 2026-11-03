@@ -8,7 +8,7 @@ import { firm, cta, nav, clientPortal, guideCta, plans, priceRange, booking, RES
 
 const {
   title = "Tercet Law | Estate, Trust & Legacy Planning in Austin, Texas",
-  description = "Estate planning, probate, trust administration and elder law for Austin and Texas families. Three simple steps and a flat fee in writing. Book a free 45-minute Estate Map Session on Zoom.",
+  description = "Estate planning, probate, trust administration and elder law for Texas families. Plain English and a flat fee in writing.",
   path = "/",
   inner = true,
   modal = true,
@@ -55,7 +55,7 @@ const firmSchema = {
   telephone: firm.phoneSchema,
   email: firm.email,
   image: "https://www.tercetlaw.com/og-tercet-texas.png",
-  description: "Estate planning, probate and estate administration, trust administration, elder law and incapacity planning, special needs planning, business succession and Texas deeds for Austin and Texas families. Flat fees in writing. Every matter handled personally by the attorney. Free 45-minute Estate Map Session on Zoom.",
+  description: "Estate planning, probate and estate administration, trust administration, elder law and incapacity planning, special needs planning, business succession and Texas deeds for Texas families. Flat fees in writing. Every matter handled personally by the attorney. Free 45-minute Estate Map Session on Zoom.",
   address: { "@type": "PostalAddress", ...(firm.street ? { streetAddress: firm.street, postalCode: firm.zip } : {}), addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" },
   areaServed: [
     { "@type": "City", name: "Austin", containedInPlace: { "@type": "State", name: "Texas" } },
@@ -106,7 +106,7 @@ const ld = [firmSchema, ...schema];
 
   <footer class="site">
     <div class="wrap foot">
-      <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Estate, trust and legacy planning for Austin and Texas families. Flat fees, in writing.</p><p><a href={`mailto:${firm.email}`}>{firm.email}</a> · <a href={firm.phoneHref}>{firm.phone}</a></p></div>
+      <div><a class="brand" href="/">Tercet <b>Law</b></a><p>Estate planning for Texas families. Flat fees, in writing.</p><p><a href={`mailto:${firm.email}`}>{firm.email}</a> · <a href={firm.phoneHref}>{firm.phone}</a></p></div>
       <ul><li><a href="/services">Services</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/process">Process</a></li><li><a href="/faq">Texas FAQ</a></li><li><a href="/about">About Russ</a></li><li><a href={cta.href}>{cta.label}</a></li></ul>
       <ul><li><a href={guideCta.href}>Free Texas checklist</a></li><li><a href={clientPortal.href}>{clientPortal.label}</a></li><li><a href="/disclaimers">Disclaimers</a></li><li><a href="/privacy/">Privacy</a></li><li><a href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></li></ul>
     </div>
@@ -157,7 +157,7 @@ const ld = [firmSchema, ...schema];
    e.forEach(function(x){o.observe(x)});
   });
   </script>
-  {sticky && (<div class="stickybar" id="stickybar"><span>Free · 45 min</span><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div>)}
+  {sticky && (<div class="stickybar" id="stickybar"><span>Tercet Law</span><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div>)}
   <script is:inline>
   (function(){var sb=document.getElementById('stickybar');if(sb){document.body.classList.add('has-sticky');setTimeout(function(){sb.classList.add('on')},6000);}})();
   </script>

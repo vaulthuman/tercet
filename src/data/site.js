@@ -47,7 +47,7 @@ export const guideCta = { label: "Get the free Texas checklist", href: "/checkli
 export const nav = [
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Process", href: "/process" },
+  { label: "Writing", href: "/writing/" },
   { label: "FAQ", href: "/faq" },
   { label: "About", href: "/about" },
 ];

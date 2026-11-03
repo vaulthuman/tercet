@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import VideoSlot from '../components/VideoSlot.astro';
 import { firm, cta, faqs, faqDisclaimer, priceSummary, pricesEffectiveThrough } from '../data/site.js';
 
 const cost = {
@@ -32,6 +33,8 @@ const faqSchema = {
       <div class="faq">{all.map((f, i) => (<details id={f.id} open={i === 0}><summary>{f.q}</summary>{f.a.map((p) => <p>{p}</p>)}</details>))}</div>
       <p class="faq-note"><b>{faqDisclaimer}</b> For advice about your own situation, book an Estate Map Session or call {firm.phone}.</p>
     </div></section>
+
+    <VideoSlot title="Protecting your kids" src="/video/russ/protecting-your-kids.mp4" captions="/video/russ/protecting-your-kids.vtt" poster="/video/russ/protecting-your-kids.jpg" eyebrow="Watch" heading="Protecting your kids." lede="Who would raise them, and how the money is handled, if something happened to you." />
 
     <section class="split alt"><div class="split__media" style="background-image:url('/images/home-family-advisor-table.jpg');background-position:50% 40%" role="img" aria-label="A family of three at their dining table talking with an advisor who holds a clipboard"></div><div class="split__copy">
       <p class="eyebrow">Still have a question?</p><h2>Bring it to your Estate Map Session.</h2>

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import VideoSlot from '../components/VideoSlot.astro';
 import Plans from '../components/Plans.astro';
-import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary, pricesEffectiveThrough } from '../data/site.js';
+import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary, pricesEffectiveThrough, addOns } from '../data/site.js';
 ---
 <Base
   title="Plans & Pricing | Tercet Law, Austin Estate Planning"
@@ -20,7 +20,7 @@ import { firm, cta, trustPriceNote, legacyPriceNote, priceSummary, pricesEffecti
     <section class="sec" id="plans"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">Four plans</p><h2>Choose what fits.</h2><p class="lede">The ring on each plan shows which of the eight parts of <a href="/#approach">your whole picture</a> it covers. Below it, exactly what you receive.</p></div>
       <Plans />
-      <p class="offers-note">Prices in US dollars, effective through {pricesEffectiveThrough}. {trustPriceNote} {legacyPriceNote} Recording fees and other third-party costs are separate and disclosed in advance.</p>
+      <p class="offers-note">Prices in US dollars, effective through {pricesEffectiveThrough}. {trustPriceNote} {legacyPriceNote} {addOns} Recording fees and other third-party costs are separate and disclosed in advance.</p>
     </div></section>
 
     <section class="sec alt" id="included"><div class="wrap">

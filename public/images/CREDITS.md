@@ -50,3 +50,17 @@ Muted loops of 14 seconds or less, re-encoded to 1280x720 H.264 at 30 fps withou
 |---|---|---|
 | about-family-sofa.jpg | About, "How Russ works" | Frame from https://www.pexels.com/video/6994703/ (Pexels License) |
 | start-family-kitchen.jpg | Start, "Why families book" | Frame from https://www.pexels.com/video/4297077/ (Pexels License) |
+
+## Added 2026-11-03 (Services card photos, photo bands) — Pexels License
+| File | Used on | Source page |
+|---|---|---|
+| svc-estate-planning.jpg | Services, Estate Planning card | https://www.pexels.com/photo/8317880/ |
+| svc-probate.jpg | Services, Probate card | https://www.pexels.com/photo/7317714/ |
+| svc-trust-administration.jpg | Services, Trust Administration card | https://www.pexels.com/photo/8962373/ |
+| svc-elder-law.jpg | Services, Elder Law card | https://www.pexels.com/photo/7551671/ |
+| svc-special-needs.jpg | Services, Special Needs card | https://www.pexels.com/photo/7698661/ |
+| svc-business-succession.jpg | Services, Business Succession card | https://www.pexels.com/photo/8475204/ |
+| svc-real-estate.jpg | Services, Real Estate card | https://www.pexels.com/photo/7982544/ |
+| svc-digital-life.jpg | Services, Digital Life card | https://www.pexels.com/photo/3823542/ |
+| band-pricing-generations.jpg | Pricing, photo band | https://www.pexels.com/photo/20191411/ |
+| band-faq-grandmother.jpg | Texas FAQ, photo band | https://www.pexels.com/photo/8684226/ |

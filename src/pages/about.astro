@@ -1,11 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import Tercet from '../components/Tercet.astro';
+import Voices from '../components/Voices.astro';
 import { firm, cta } from '../data/site.js';
 ---
 <Base
   title="About Russ Michaels | Tercet Law, Austin"
-  description="Russ Michaels is an Austin attorney who handles every Tercet Law estate plan personally, with more than twenty years as a CEO and nonprofit leader. One complete plan and a flat fee in writing."
+  description="Russ Michaels, J.D., South Texas College of Law Houston, is the Austin attorney behind Tercet Law. He handles every estate plan personally, with nearly two decades as a CEO and nonprofit leader."
   path="/about/"
 >
     <section class="pagehero photo-right"><img class="bgimg" src="/video/about.jpg" width="1280" height="720" style="object-position:50% 50%" alt="Hands passing and signing documents across an office desk" fetchpriority="high" /><video class="bgimg bgvid" autoplay muted loop playsinline preload="auto" poster="/video/about.jpg" style="object-position:50% 50%" aria-hidden="true"><source src="/video/about.mp4" type="video/mp4" /></video><div class="veil"></div><div class="wrap">
@@ -15,16 +16,40 @@ import { firm, cta } from '../data/site.js';
 
     <section class="sec" id="russ"><div class="wrap about-grid">
       <img src="/russ-michaels.jpg" alt="Russ Michaels, attorney and founder of Tercet Law" loading="lazy" />
-      <div><p class="eyebrow">Your attorney</p><h2>Russ Michaels</h2>
+      <div><p class="eyebrow">Founder &amp; attorney</p><h2>Russ Michaels</h2>
         <div class="prose" style="margin-top:20px">
-        <p>Russ Michaels is an attorney based in Austin, Texas, and the founder of Tercet Law. He handles every matter personally: the Estate Map Session, the design, the drafting and the signing, and the guidance families need after a loss.</p>
-        <p>Most people he meets have meant to plan for years. He understands why it gets put off, and he works to make it simple: a clear map, documents you can read, and a fee in writing before any work begins.</p>
-        <p>Alongside the law, Russ has spent more than twenty years as a CEO and nonprofit leader, serving as a chief executive, an executive director and a board president. That work shaped how he plans: a document is only as good as how it holds up on the day it is needed.</p>
-        <p>{firm.license}. Planning meetings are on Zoom; signings are arranged where it is convenient for you.</p>
+        <p>Russ Michaels is the founder of Tercet Law in Austin. His practice focuses on estate planning for Texas families: wills, living trusts, powers of attorney, planning for the later years, and guiding families through probate after a loss. He handles every matter himself, from the first Estate Map Session to the final signature.</p>
+        <p>He earned his law degree at South Texas College of Law Houston, with a focus on business, transactional and real estate law, and spent a year as a visiting student at the University of Denver Sturm College of Law. He began his career in Houston in real estate development and transactional work, after clerking at a Houston trial firm during law school.</p>
+        <p>For nearly two decades he has led organizations as a chief executive, an executive director and a board president. Today he serves as board president of Portfolio Resident Services, one of the largest resident-services nonprofits in the country, and helps lead The Inter-Faith Group, an alliance of affordable housing nonprofits across Texas. That work shaped how he plans: a document is only as good as how it holds up on the day it is needed.</p>
+        <p>Russ paid his way through school bartending and waiting tables, in every role from busboy to manager. He still plans the way a good server works: listen first, then get every detail right.</p>
         </div>
-        <div class="ctarow"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></div>
       </div>
     </div></section>
+
+    <section class="sec alt" id="credentials"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Education &amp; licensure</p><h2>Credentials.</h2></div>
+      <div class="cred">
+        <div class="cred__t"><span class="cred__k">Law degree</span><b>J.D., South Texas College of Law Houston</b><em>Business, transactional and real estate law. 2014.</em></div>
+        <div class="cred__t"><span class="cred__k">Visiting student</span><b>University of Denver Sturm College of Law</b><em>Visiting J.D. student, 2013 to 2014.</em></div>
+        <div class="cred__t"><span class="cred__k">Study abroad</span><b>Charles University, Prague</b><em>Summer law program, 2013.</em></div>
+        <div class="cred__t"><span class="cred__k">Undergraduate</span><b>B.S., Middle Tennessee State University</b><em>Business administration and the recording industry.</em></div>
+        <div class="cred__t"><span class="cred__k">Licensure</span><b>{firm.license}</b><em>Planning meetings on Zoom; signings arranged where convenient for you.</em></div>
+        <div class="cred__t"><span class="cred__k">Leadership</span><b>Board president and executive director</b><em>Portfolio Resident Services; The Inter-Faith Group.</em></div>
+      </div>
+      <div class="ctarow" style="margin-top:30px"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.linkedin} target="_blank" rel="noopener">LinkedIn</a></div>
+    </div></section>
+
+    <Voices eyebrow="What people say" title="In their own words." />
+
+    <style is:inline>
+      .cred{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+      .cred__t{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:12px;padding:22px 22px 24px}
+      .cred__k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--acc)}
+      .cred__t b{font-family:var(--disp);font-weight:400;font-size:26px;line-height:1.05;text-wrap:balance}
+      .cred__t em{font-style:normal;color:var(--muted);font-size:15.5px;line-height:1.45}
+      @media(max-width:900px){.cred{grid-template-columns:1fr 1fr}}
+      @media(max-width:560px){.cred{grid-template-columns:1fr;gap:10px}.cred__t{padding:16px 18px 18px}.cred__t b{font-size:23px}}
+    </style>
 
     <Tercet variant="lines" alt />
 

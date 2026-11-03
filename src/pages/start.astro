@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import VideoSlot from '../components/VideoSlot.astro';
 import { firm, cta, priceSummary, booking, pricesEffectiveThrough } from '../data/site.js';
 ---
 <Base
@@ -13,6 +14,7 @@ import { firm, cta, priceSummary, booking, pricesEffectiveThrough } from '../dat
       <p class="eyebrow">Free · 45 minutes · Zoom</p><h1>Book your <em>Estate Map Session.</em></h1><p class="lede">Forty-five minutes on Zoom with {firm.attorney}. You see your whole estate on one screen, and you leave knowing which plan fits and its exact flat fee. No cost, no obligation.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-line" href="#book">Pick a time</a><a class="btn btn-acc" href={firm.phoneHref}>Call {firm.phone}</a></div>
     </div></section>
 
+    <VideoSlot title="Meet Russ before you book" src="/video/russ/russ-welcome.mp4" captions="/video/russ/russ-welcome.vtt" poster="/video/russ/russ-still.jpg" eyebrow="Your attorney" heading="Meet Russ first." lede="Why he does this work, and what a plan does for the people you love." />
 
     <section class="sec" id="book"><div class="wrap start-grid">
       <div><p class="eyebrow">What happens next</p><h2>Three steps.</h2>
@@ -30,6 +32,6 @@ import { firm, cta, priceSummary, booking, pricesEffectiveThrough } from '../dat
     </div></section>
 
     <section class="sec alt" id="who"><div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Who you will meet</p><h2 style="color:var(--ink)">Russ Michaels</h2><p class="lede">An attorney in Austin with more than twenty years as a CEO and nonprofit leader. You work directly with him, on a flat fee, from the first map to the signing.</p><p class="offers-note" style="margin-top:6px">{firm.license}. Booking a session does not create an attorney-client relationship; that begins only when an engagement letter is signed. <a href="/about">About Russ</a>.</p></div>
+      <div class="sec-head"><p class="eyebrow">Who you will meet</p><h2 style="color:var(--ink)">Russ Michaels</h2><p class="lede">An Austin attorney, J.D., South Texas College of Law Houston, with nearly two decades as a CEO and nonprofit leader. You work directly with him, on a flat fee, from the first map to the signing.</p><p class="offers-note" style="margin-top:6px">{firm.license}. Booking a session does not create an attorney-client relationship; that begins only when an engagement letter is signed. <a href="/about">About Russ</a>.</p></div>
     </div></section>
 </Base>

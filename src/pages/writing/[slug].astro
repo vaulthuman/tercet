@@ -20,7 +20,7 @@ const schema = [{ "@context": "https://schema.org", "@type": "Article", headline
   <article class="sec wp wp--body"><div class="wrap wp__in">
     <div class="wp__body">{p.body.map((t) => <p>{t}</p>)}</div>
     <p class="wp__fine">General information about Texas law, not legal advice. Every family is different.</p>
-    <div class="ctarow wp__cta"><a class="btn btn-acc" href={cta.href}>{cta.label}</a><a class="btn btn-line" href="/writing/">All writing</a></div>
+    <div class="ctarow wp__cta"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href="/writing/">All writing</a></div>
     <nav class="wp__nav">{older ? <a href={`/writing/${older.slug}/`}>&larr; {older.title}</a> : <span></span>}{newer ? <a href={`/writing/${newer.slug}/`}>{newer.title} &rarr;</a> : <span></span>}</nav>
   </div></article>
   <style is:inline>

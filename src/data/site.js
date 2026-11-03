@@ -45,11 +45,11 @@ export const guideCta = { label: "Get the free Texas checklist", href: "/checkli
 
 // Header navigation: one-word labels. The primary button reads "Book".
 export const nav = [
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Writing", href: "/writing/" },
   { label: "FAQ", href: "/faq" },
-  { label: "About", href: "/about" },
+  { label: "Writing", href: "/writing/" },
 ];
 
 // Client portal. Tercet Law uses Clio for Clients; Clio's own guidance is to link clients.clio.com from the firm site.

@@ -64,3 +64,20 @@ Muted loops of 14 seconds or less, re-encoded to 1280x720 H.264 at 30 fps withou
 | svc-digital-life.jpg | Services, Digital Life card | https://www.pexels.com/photo/3823542/ |
 | band-pricing-generations.jpg | Pricing, photo band | https://www.pexels.com/photo/20191411/ |
 | band-faq-grandmother.jpg | Texas FAQ, photo band | https://www.pexels.com/photo/8684226/ |
+
+## Added 2026-11-03 (Writing photos, section backdrops) — Pexels License
+| File | Used on | Source page |
+|---|---|---|
+| wr-ai-age.jpg | Writing: A plan for the AI age | https://www.pexels.com/photo/5691823/ |
+| wr-digital-life.jpg | Writing: Your digital life | https://www.pexels.com/photo/33305508/ |
+| wr-papers.jpg | Writing: The papers for while you're still here | https://www.pexels.com/photo/35697429/ |
+| wr-texas-chooses.jpg | Writing: If you don't choose, Texas chooses | https://www.pexels.com/photo/36799056/ |
+| wr-beneficiary.jpg | Legal Key 003 | https://www.pexels.com/photo/8441854/ |
+| tint-hill-country.jpg | AI-age essay backdrop | https://www.pexels.com/photo/28257371/ |
+| tint-oak.jpg | Writing page backdrop | https://www.pexels.com/photo/6083028/ |
+| tint-windmill.jpg | Legal Keys grid backdrop | https://www.pexels.com/photo/38835694/ |
+| tint-river.jpg | Legal Keys hero + backdrop | https://www.pexels.com/photo/38482543/ |
+| tint-bluebonnet.jpg | Services backdrop | https://www.pexels.com/photo/18554232/ |
+| tint-savanna.jpg | Services backdrop | https://www.pexels.com/photo/26986451/ |
+| tint-texas-oak.jpg | Pricing backdrop | https://www.pexels.com/photo/33615369/ |
+| tint-lake.jpg | About backdrop | https://www.pexels.com/photo/10577447/ |

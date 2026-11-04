@@ -18,9 +18,9 @@ export const firm = {
   phone: "(888) 833-2510",
   phoneHref: "tel:+18888332510",
   phoneSchema: "+1-888-833-2510",
-  // Texas office address (footer, structured data). Leave street blank to show city only.
-  street: "1401 Lavaca Street, Suite 211",
-  zip: "78701",
+  // Texas OFFICE address clients walk into (footer, structured data). Mailing address for state/bar paperwork (1401 Lavaca St, Ste 211, 78701) is never shown here. Leave street blank to show city only.
+  street: "4807 Spicewood Springs Rd, Bldg 1, Unit 1240",
+  zip: "78759",
   // State Bar of Texas bar number. Leave blank until the State Bar issues it; the footer,
   // disclaimers and structured data show it automatically once filled in.
   barNumber: "24157690",

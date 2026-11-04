@@ -28,13 +28,15 @@ export const writing = [
   {
     slug: 'legal-key-3-beneficiary-forms-beat-your-will',
     img: '/images/wr-beneficiary.jpg', imgAlt: 'An older couple smiling as they review a document at their kitchen table',
+    reel: { src: '/video/russ/key-003-meaning.mp4', poster: '/video/russ/key-003-meaning.jpg', title: 'Your meaning is meaningful' },
     iso: '2026-11-04', date: 'November 4, 2026', type: 'key', keyNo: 3,
-    title: 'Your beneficiary forms beat your will.',
-    dek: 'Legal Key 003. The form you filled out at a new job may decide more than the will you signed later.',
+    title: 'Your meaning is meaningful.',
+    dek: 'Legal Key 003. Beneficiary forms beat your will. The form you filled out at a new job may decide more than the will you signed later.',
     body: [
       'Retirement accounts, life insurance and many bank and brokerage accounts pass to whoever is named on the account’s beneficiary form. Not to whoever is named in your will.',
       'So if your will leaves everything to your children, but your 401(k) form still names someone from fifteen years ago, the form usually wins.',
       'The key: every time your life changes, a marriage, a divorce, a child, a death, pull up every beneficiary form and make sure it matches the plan you actually want.',
+      'A plan is more than paperwork. It is how the people you love will know what you meant. Make sure every form says it.',
     ],
   },
   {

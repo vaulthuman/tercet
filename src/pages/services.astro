@@ -49,7 +49,7 @@ const svcAlt: Record<string, string> = {
           <p class="svcd__k">Who it is for</p><p>{s.for}</p>
           <p class="svcd__k">The keys</p>
           <ul>{s.includes.map((i) => <li>{i}</li>)}</ul>
-          <p class="svcd__fee">{s.fee === 'plans' ? <span>Four flat-fee plans, or one built to suit. <a href="/pricing">See pricing</a>.</span> : <span>{servicesFeeNote}.</span>}</p>
+          <p class="svcd__fee">{s.fee === 'plans' ? <span>Four flat-fee plans, or one built to suit. <a href="/pricing">See pricing</a>.</span> : <span>{servicesFeeNote}.</span>}{s.id === 'probate' && <span> <a href="/probate/">How probate works in Austin</a>.</span>}</p>
         </article>
       ))}<div class="svcd svcd--cta"><div class="svcd--cta__t"><h3>Not sure which?</h3><p class="svcd__short">Many families need more than one. That is normal.</p><p>In a free 45-minute Estate Map Session on Zoom, Russ maps what you have and what you want, and tells you which of these fits and its flat fee. No pressure either way.</p></div><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div></div>
       <p class="faq-note">Every matter is different. What a matter includes is confirmed in your engagement letter, with the fee, before any work begins. Court costs, recording fees and other third-party charges are separate and disclosed in advance. {firm.license}.</p>

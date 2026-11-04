@@ -1,0 +1,84 @@
+---
+// Probate landing page (approved wording: "Tercet Probate Page — Draft for Review", all legal checks ticked by Russ 11/4/26).
+// No probate price is published: flat fee quoted after the Estate Map Session (servicesFeeNote).
+import Base from '../layouts/Base.astro';
+import { firm, cta, faqDisclaimer } from '../data/site.js';
+
+const howSteps = [
+  { n: '1', title: 'We look at what was left.', body: 'A will or no will, what the person owned, what they owed, and who is in the family.' },
+  { n: '2', title: 'We choose the simplest path the law allows.', body: 'Many Texas estates qualify for a lighter process than people expect.' },
+  { n: '3', title: 'We file with the court.', body: 'In Travis County, probate cases go to Travis County Probate Court No. 1. After the required notice period, a short hearing confirms the will or the heirs and appoints the person in charge.' },
+  { n: '4', title: 'The executor or administrator does the work, with us beside them.', body: 'Notice to creditors, an inventory of what the estate holds, paying valid debts.' },
+  { n: '5', title: 'Property goes to the people it belongs to,', body: 'and the estate is closed.' },
+];
+
+const paths = [
+  { title: 'Muniment of title', body: 'There is a will and the estate owes no unpaid debts other than those secured by real estate. The will itself transfers the property; no executor is appointed.' },
+  { title: 'Small estate affidavit', body: 'There is no will and the estate, not counting the homestead and exempt property, is modest. Heirs sign an affidavit the court approves.' },
+  { title: 'Independent administration', body: 'The most common path in Texas. The executor settles the estate with little court supervision once the inventory is filed.' },
+  { title: 'Determination of heirship', body: 'There is no will. The court decides who the legal heirs are, often with an attorney appointed to look out for unknown heirs.' },
+  { title: 'Dependent administration', body: "The court supervises each step. Used when the family can't agree or the will requires it." },
+];
+
+const faqs = [
+  { id: 'all-estates', q: 'Do all estates in Texas have to go through probate?', a: "No. Property held in a living trust, accounts with a named beneficiary, and property with a transfer on death deed usually pass outside probate. We check what's left before recommending any court filing." },
+  { id: 'four-years', q: 'How long do I have to probate a will in Texas?', a: "Generally, a will should be filed within four years of the death. After that, the options narrow, so it's worth starting early." },
+  { id: 'no-will', q: 'What if there is no will?', a: 'Texas law decides who inherits. Depending on the estate, that may mean a small estate affidavit or a court determination of heirship.' },
+  { id: 'court', q: 'Do I need to come to court?', a: 'Usually only for one short hearing, and we prepare you for it. Much of the rest happens on paper and by Zoom.' },
+  { id: 'cost', q: 'What does it cost?', a: 'A flat fee, quoted in writing after your Estate Map Session and before any work begins. Court and publication costs are separate and listed up front.' },
+  { id: 'outside-austin', q: 'I live outside Austin but the estate is here. Can you help?', a: 'Yes. Texas probate is handled in the county where the person lived, and we work with executors wherever they are, by Zoom and phone.' },
+];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${firm.url}/probate/#service`,
+  name: "Probate & Estate Administration",
+  serviceType: "Probate law",
+  description: "Settling an estate under Texas law for executors and families in Austin and Travis County, on a flat fee quoted in writing before work begins.",
+  provider: { "@id": `${firm.url}/#firm` },
+  areaServed: [{ "@type": "City", name: "Austin" }, { "@type": "AdministrativeArea", name: "Travis County, Texas" }, { "@type": "State", name: "Texas" }],
+  url: `${firm.url}/probate/`,
+};
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+---
+<Base
+  title="Probate Lawyer in Austin, TX | Tercet Law, PLLC"
+  description="Settling an estate in Travis County? Attorney Russ Michaels guides executors and families through Texas probate on a flat fee quoted up front."
+  path="/probate/"
+  schema={[serviceSchema, faqSchema]}
+>
+    <section class="pagehero"><img class="bgimg" src="/images/svc-probate.jpg" width="1200" height="750" style="object-position:50% 40%" alt="A family sitting close together, comforting one another after a loss" fetchpriority="high" /><div class="veil"></div><div class="wrap">
+      <p class="eyebrow">Probate in Austin</p><h1>Probate in Austin, <em>handled step by step.</em></h1><p class="lede">When someone you love dies, the paperwork arrives at the worst possible time. Tercet Law helps executors and families in Austin and Travis County settle an estate under Texas law, one clear step at a time, on a flat fee quoted before we begin. You work directly with attorney {firm.attorney} from the first call to the closing of the estate.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>Book a free Estate Map Session</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
+    </div></section>
+
+    <section class="sec alt" id="how"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">The process</p><h2>How probate works in Texas.</h2></div>
+      <div class="steps">{howSteps.map((s) => (<div class="step"><div class="n">{s.n}</div><h3>{s.title}</h3><p>{s.body}</p></div>))}</div>
+    </div></section>
+
+    <section class="sec tint" id="paths" style="--tint:url(/images/tint-oak.jpg);--tint-o:.08;background:#F3ECE1"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Your options</p><h2>The paths, from lightest to fullest.</h2><p class="lede">Which one fits depends on whether there is a will, what the estate holds and what it owes. We tell you which applies in your Estate Map Session.</p></div>
+      <div class="steps">{paths.map((p) => (<div class="step"><h3>{p.title}</h3><p>{p.body}</p></div>))}</div>
+    </div></section>
+
+    <section class="sec" id="cost"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Time and cost</p><h2>What to expect.</h2><p class="lede">A simple estate on the lighter paths can wrap up in a few months; a full administration often takes most of a year. Tercet quotes a flat fee after your Estate Map Session, in writing, before any work begins. Court filing fees and publication costs are separate and we tell you what they are up front.</p></div>
+    </div></section>
+
+    <section class="sec alt" id="questions"><div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Questions</p><h2>Probate questions.</h2></div>
+      <div class="faq">{faqs.map((f, i) => (<details id={f.id} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>))}</div>
+      <p class="faq-note"><b>{faqDisclaimer}</b> More answers on the <a href="/faq/">FAQ page</a>; every service is on the <a href="/services/#probate">services page</a>.</p>
+    </div></section>
+
+    <section class="sec final plain" id="begin"><div class="wrap">
+      <h2>Start with an Estate Map Session.</h2><p class="lede">In a free 45-minute Zoom session, we put the whole estate on one screen: what was left, who is involved, which path fits and what it will cost. You leave knowing your next step, whether or not you hire us.</p>
+      <div class="ctarow"><a class="btn btn-line" href={cta.href}>Book a free Estate Map Session</a><a class="btn btn-acc" href={firm.phoneHref}>{firm.phone}</a></div>
+      <p class="faq-note" style="margin-top:28px"><i>Tercet Law, PLLC · Responsible attorney: {firm.attorney}, licensed in Texas · Austin, Texas. This page is general information, not legal advice; no attorney-client relationship forms without a signed engagement letter.</i></p>
+    </div></section>
+</Base>

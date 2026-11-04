@@ -32,6 +32,7 @@ ${tercet.meaning} A Tercet plan covers what you have built, what you want now an
 ## Key pages
 - ${firm.url}/
 - ${firm.url}/services/
+- ${firm.url}/probate/ (probate in Austin and Travis County)
 - ${firm.url}/pricing/
 - ${firm.url}/process/
 - ${firm.url}/faq/

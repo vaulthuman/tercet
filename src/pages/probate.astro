@@ -2,6 +2,7 @@
 // Probate landing page (approved wording: "Tercet Probate Page — Draft for Review", all legal checks ticked by Russ 11/4/26).
 // No probate price is published: flat fee quoted after the Estate Map Session (servicesFeeNote).
 import Base from '../layouts/Base.astro';
+import VideoSlot from '../components/VideoSlot.astro';
 import { firm, cta, faqDisclaimer } from '../data/site.js';
 
 const howSteps = [
@@ -55,6 +56,8 @@ const faqSchema = {
     <section class="pagehero"><img class="bgimg" src="/images/svc-probate.jpg" width="1200" height="750" style="object-position:50% 40%" alt="A family sitting close together, comforting one another after a loss" fetchpriority="high" /><div class="veil"></div><div class="wrap">
       <p class="eyebrow">Probate in Austin</p><h1>Probate in Austin, <em>handled step by step.</em></h1><p class="lede">When someone you love dies, the paperwork arrives at the worst possible time. Tercet Law helps executors and families in Austin and Travis County settle an estate under Texas law, one clear step at a time, on a flat fee quoted before we begin. You work directly with attorney {firm.attorney} from the first call to the closing of the estate.</p><div class="ctarow" style="margin-top:28px"><a class="btn btn-acc" href={cta.href}>Book a free Estate Map Session</a><a class="btn btn-line" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
+
+    <VideoSlot title="If you've lost someone" src="/video/russ/probate-when-someone-dies.mp4" poster="/video/russ/probate-when-someone-dies-poster.jpg" heading="If you've lost someone." lede="A short word from Russ on what probate is, and what happens next." />
 
     <section class="sec alt" id="how"><div class="wrap">
       <div class="sec-head"><p class="eyebrow">The process</p><h2>How probate works in Texas.</h2></div>

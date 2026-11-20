@@ -1,6 +1,6 @@
 ---
 // Practice areas. Content lives in src/data/site.js (services). Fees: estate planning uses the four plans;
-// everything else is a flat fee quoted after the free Estate Map Session. No prices here.
+// everything else is a flat fee quoted after the free consultation. No prices here.
 import Base from '../layouts/Base.astro';
 import VideoSlot from '../components/VideoSlot.astro';
 import { firm, cta, guideCta, services, servicesFeeNote, steps } from '../data/site.js';
@@ -55,7 +55,7 @@ const svcAlt: Record<string, string> = {
           <ul>{s.includes.map((i) => <li>{i}</li>)}</ul>
           <p class="svcd__fee">{s.fee === 'plans' ? <span>Four flat-fee plans, or one built to suit. <a href="/pricing">See pricing</a>.</span> : <span>{servicesFeeNote}.</span>}{s.id === 'probate' && <span> <a href="/probate/">How probate works in Austin</a>.</span>}</p>
         </article>
-      ))}<div class="svcd svcd--cta"><div class="svcd--cta__t"><h3>Not sure which?</h3><p class="svcd__short">Many families need more than one. That is normal.</p><p>In a free 45-minute Estate Map Session on Zoom, Russ maps what you have and what you want, and tells you which of these fits and its flat fee. No pressure either way.</p></div><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div></div>
+      ))}<div class="svcd svcd--cta"><div class="svcd--cta__t"><h3>Not sure which?</h3><p class="svcd__short">Many families need more than one. That is normal.</p><p>In a free consultation, Russ maps what you have and what you want, and tells you which of these fits and its flat fee. No pressure either way.</p></div><a class="btn btn-acc" href={cta.href}>{cta.label}</a></div></div>
       <p class="faq-note">Every matter is different. What a matter includes is confirmed in your engagement letter, with the fee, before any work begins. Court costs, recording fees and other third-party charges are separate and disclosed in advance. {firm.license}.</p>
     </div></section>
 
@@ -72,7 +72,7 @@ const svcAlt: Record<string, string> = {
     </div></section>
 
     <section class="sec final plain" id="begin"><div class="wrap">
-      <h2>Talk it through first.</h2><p class="lede">A free 45-minute Estate Map Session on Zoom. You leave knowing what you need, and the flat fee to do it.</p>
+      <h2>Talk it through first.</h2><p class="lede">A free consultation. You leave knowing what you need, and the flat fee to do it.</p>
       <div class="ctarow"><a class="btn btn-line" href={cta.href}>{cta.label}</a><a class="btn btn-acc" href={firm.phoneHref}>{firm.phone}</a></div>
     </div></section>
 </Base>

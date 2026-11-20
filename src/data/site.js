@@ -30,14 +30,14 @@ export const firm = {
 };
 
 // Primary call to action, used on every page.
-export const cta = { label: "Book your Estate Map Session", short: "Book", href: "/start" };
+export const cta = { label: "Book your free consultation", short: "Book", href: "/start" };
 
-export const session = { name: "Estate Map Session", minutes: 45, where: "Zoom" };
+export const session = { name: "Free consultation", where: "phone" };
 
 // Booking (Calendly). One place for the event link used by the modal and /start.
 export const booking = {
-  url: "https://calendly.com/vaulthuman/tercet-law-estate-map-session",
-  embed: "https://calendly.com/vaulthuman/tercet-law-estate-map-session?hide_gdpr_banner=1&hide_landing_page_details=1",
+  url: "https://calendly.com/vaulthuman/tercet-free-consultation",
+  embed: "https://calendly.com/vaulthuman/tercet-free-consultation?hide_gdpr_banner=1&hide_landing_page_details=1",
 };
 
 // Transitional call to action: the free checklist for visitors not ready to book.
@@ -94,7 +94,7 @@ export const story = {
 };
 
 // Practice areas (eight, matching the eight parts of the Whole Picture wheel). Fees: the four plans cover estate planning; everything else is a flat fee quoted after the free session.
-export const servicesFeeNote = "Flat fee quoted after your Estate Map Session";
+export const servicesFeeNote = "Flat fee quoted after your free consultation";
 export const services = [
   {
     id: "estate-planning", title: "Estate Planning", short: "Wills, trusts, powers of attorney and directives",
@@ -305,7 +305,7 @@ export const plans = [
     from: true,
     price: "$15,000",
     amount: 15000,
-    blurb: "For larger or more complex estates, business interests and charitable goals. Quoted in writing after your Estate Map Session.",
+    blurb: "For larger or more complex estates, business interests and charitable goals. Quoted in writing after your free consultation.",
     features: [
       "Everything in the Trust Plan",
       "Planning for business interests",
@@ -324,7 +324,7 @@ export const wholePlan = {
   tag: "All eight parts, built to suit",
   price: "Built to suit",
   alt: "One flat fee, quoted in writing",
-  blurb: "Every part of your picture in one plan, connected. Russ designs it around your family after your Estate Map Session and quotes one flat fee in writing before any work begins.",
+  blurb: "Every part of your picture in one plan, connected. Russ designs it around your family after your free consultation and quotes one flat fee in writing before any work begins.",
   features: [
     "Everything in the Trust Plan",
     "Business succession and ownership planning",
@@ -342,16 +342,16 @@ export const priceSummary = plans
 const trustPlan = plans.find((p) => p.id === 'trust');
 export const trustPriceNote = `The Trust Plan is ${trustPlan.price} for one person and ${trustPlan.alt.replace(' for a couple', '')} for a couple.`;
 const legacyPlan = plans.find((p) => p.from);
-export const legacyPriceNote = `Legacy starts at ${legacyPlan.price} and is quoted in writing after your Estate Map Session.`;
+export const legacyPriceNote = `Legacy starts at ${legacyPlan.price} and is quoted in writing after your free consultation.`;
 const byAmount = [...plans].sort((a, b) => a.amount - b.amount);
 export const priceRange = `${byAmount[0].price}–${byAmount[byAmount.length - 1].price}+`;
 
 // How it works: three steps. Map → Design → Sign & Fund.
 export const steps = [
   {
-    n: "01", title: "Map", when: "Free · 45 minutes on Zoom",
-    short: "a free 45-minute Estate Map Session on Zoom, where the client sees their whole estate on one screen",
-    body: "Your free 45-minute Estate Map Session on Zoom. Russ lays out what you own, who depends on you and who you trust, on one screen you can see. You leave knowing which plan fits and its flat fee.",
+    n: "01", title: "Map", when: "Free · no obligation",
+    short: "a free consultation, where the client sees their whole estate on one screen",
+    body: "Your free consultation. Russ lays out what you own, who depends on you and who you trust, on one screen you can see. You leave knowing which plan fits and its flat fee.",
   },
   {
     n: "02", title: "Design", when: "Drafts in about 10 days",
@@ -391,7 +391,7 @@ export const faqs = [
     q: "Do I need a will or a living trust in Texas?",
     a: [
       "It depends on what you own and what you want. A will names who receives your property and who is in charge, and it generally goes through probate before it takes effect. A revocable living trust can pass assets without probate, as long as the assets are actually placed in it.",
-      "Probate in Texas is often more manageable than in many other states, so a will-based plan is a sound choice for many families. A trust tends to make more sense if you own real estate in more than one state, want more privacy, have a blended family, or want a plan that can manage your affairs if you become unable to. Your Estate Map Session is where you find out which fits.",
+      "Probate in Texas is often more manageable than in many other states, so a will-based plan is a sound choice for many families. A trust tends to make more sense if you own real estate in more than one state, want more privacy, have a blended family, or want a plan that can manage your affairs if you become unable to. Your free consultation is where you find out which fits.",
     ],
   },
   {
@@ -435,7 +435,7 @@ export const faqs = [
   },
   {
     id: "bring",
-    q: "What should I bring to my Estate Map Session?",
+    q: "What should I bring to my free consultation?",
     a: [
       "Nothing has to be sent ahead of time, and a rough picture is enough. It helps to know the main things you own (your home, bank and investment accounts, retirement accounts, life insurance and any business interests), who depends on you, who you would trust to make decisions for you, who you want to inherit, and whether you already have wills, trusts or powers of attorney.",
     ],
@@ -444,7 +444,7 @@ export const faqs = [
     id: "remote",
     q: "Can I do this without coming to an office?",
     a: [
-      "Mostly, yes. Your Estate Map Session and planning conversations happen on Zoom. Your signing is a guided meeting with the witnesses and notary your documents need, arranged where it is convenient for you.",
+      "Mostly, yes. Your free consultation is by phone, and planning conversations happen on Zoom. Your signing is a guided meeting with the witnesses and notary your documents need, arranged where it is convenient for you.",
     ],
   },
 ];

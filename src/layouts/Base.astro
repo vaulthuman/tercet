@@ -55,7 +55,7 @@ const firmSchema = {
   telephone: firm.phoneSchema,
   email: firm.email,
   image: "https://www.tercetlaw.com/og-tercet-texas.png",
-  description: "Estate planning, probate and estate administration, trust administration, elder law and incapacity planning, special needs planning, business succession and Texas deeds for Texas families. Flat fees in writing. Every matter handled personally by the attorney. Free 45-minute Estate Map Session on Zoom.",
+  description: "Estate planning, probate and estate administration, trust administration, elder law and incapacity planning, special needs planning, business succession and Texas deeds for Texas families. Flat fees in writing. Every matter handled personally by the attorney. Free consultation.",
   address: { "@type": "PostalAddress", ...(firm.street ? { streetAddress: firm.street, postalCode: firm.zip } : {}), addressLocality: "Austin", addressRegion: "TX", addressCountry: "US" },
   areaServed: [
     { "@type": "City", name: "Austin", containedInPlace: { "@type": "State", name: "Texas" } },
@@ -121,9 +121,9 @@ const ld = [firmSchema, ...schema];
   </div>
   <div id="vh-modal" class="vh-modal" aria-hidden="true">
     <div class="vh-modal__bg" data-close-form></div>
-    <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book your Estate Map Session">
+    <div class="vh-modal__card" role="dialog" aria-modal="true" aria-label="Book your free consultation">
       <button class="vh-modal__x" type="button" data-close-form aria-label="Close">&times;</button>
-      <h2 class="vh-modal__title">Book your Estate Map Session</h2><p class="vh-modal__sub">Free, 45 minutes, on Zoom. Pick a time that suits you and you'll get a calendar invite with the link.</p>
+      <h2 class="vh-modal__title">Book your free consultation</h2><p class="vh-modal__sub">Free, with no obligation. Pick a time that suits you and you'll get a calendar invite with the link.</p>
       <div class="calendly-inline-widget" data-url={booking.embed} style="min-width:300px;height:640px;border-radius:10px;overflow:hidden;background:#fff"></div><p style="margin:12px 0 0;font-size:14px;opacity:.8;text-align:center">Rather talk now? <a href={firm.phoneHref}>{firm.phone}</a></p><script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script><style is:inline>.vh-modal__card{width:min(820px,94vw)!important}</style>
     </div>
   </div>

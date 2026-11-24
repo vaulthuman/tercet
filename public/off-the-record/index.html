@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Off the Record · A short film in three parts · Tercet Law</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Past, present and future: what happens to everything we never wrote down, now that something keeps track. A short film narrated by Russ Michaels, Tercet Law.">
+<meta property="og:type" content="video.other">
+<meta property="og:title" content="Off the Record · A short film in three parts">
+<meta property="og:description" content="Past. Present. Future. What happens to everything we never wrote down, now that something keeps track.">
+<meta property="og:image" content="https://www.tercetlaw.com/off-the-record/poster.jpg">
+<meta property="og:url" content="https://www.tercetlaw.com/off-the-record/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0b0b0c;--ink:#f2efe9;--mute:#a19d96;--line:#2a2a2d;--accent:#d8c7a0}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink)}
+  body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:40px 16px 56px}
+  .eyebrow{letter-spacing:.28em;font-size:12px;text-transform:uppercase;color:var(--mute)}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.05;margin:10px 0 10px}
+  .sub{color:var(--mute);font-size:17px;max-width:640px;margin:0 0 28px}
+  .player{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  video{width:100%;height:100%;display:block;background:#000}
+  .chapters{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 0}
+  .chapters button{all:unset;cursor:pointer;border:1px solid var(--line);border-radius:6px;padding:12px 14px;transition:border-color .2s,background .2s}
+  .chapters button:hover,.chapters button:focus-visible{border-color:var(--accent);background:#141416}
+  .chapters button.on{border-color:var(--accent)}
+  .chapters .n{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+  .chapters .t{display:block;font-family:'Fraunces',Georgia,serif;font-size:17px;margin-top:2px}
+  .chapters .tm{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+  .meta{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between}
+  .meta p{margin:0}
+  .by{font-size:15px}
+  .by a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+  .fine{font-size:12px;color:var(--mute);margin-top:18px}
+  @media (max-width:640px){.chapters{grid-template-columns:1fr}.wrap{padding-top:28px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">Off the Record · A short film in three parts</div>
+  <h1>Off the Record</h1>
+  <p class="sub">Past, present and future. What happens to everything we never wrote down, now that something keeps track. Running time 21 minutes.</p>
+
+  <div class="player">
+    <video id="v" controls playsinline preload="metadata" poster="/off-the-record/poster.jpg" controlslist="nodownload noplaybackrate" disablepictureinpicture oncontextmenu="return false"></video>
+  </div>
+
+  <div class="chapters" role="group" aria-label="Chapters">
+    <button data-t="0"><span class="n">Part 1 · The past</span><span class="t">Nobody Was Keeping Track</span><span class="tm">0:00</span></button>
+    <button data-t="301.3"><span class="n">Part 2 · The present</span><span class="t">Now Something Keeps Track</span><span class="tm">5:01</span></button>
+    <button data-t="669.5"><span class="n">Part 3 · The future</span><span class="t">There Is No After</span><span class="tm">11:09</span></button>
+  </div>
+
+  <div class="meta">
+    <p class="by">Narrated by Russ Michaels, Esq. · Tercet Law, PLLC · Austin, Texas</p>
+    <p class="by"><a href="https://www.tercetlaw.com/">www.tercetlaw.com</a></p>
+  </div>
+  <p class="fine">Dramatization. Illustrative scenes. General information, not legal advice. Responsible attorney: Russ Michael Schmidtberger.</p>
+</main>
+<script src="/off-the-record/hls.min.js"></script>
+<script>
+  (function(){
+    var v=document.getElementById('v'), src='https://otr-media.vaulthumanadmin.workers.dev/otr/otr.m3u8';
+    if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src=src; }
+    else if (window.Hls && Hls.isSupported()) { var h=new Hls({maxBufferLength:30}); h.loadSource(src); h.attachMedia(v); }
+    var btns=[].slice.call(document.querySelectorAll('.chapters button'));
+    btns.forEach(function(b){ b.addEventListener('click',function(){ v.currentTime=parseFloat(b.dataset.t); v.play(); }); });
+    v.addEventListener('timeupdate',function(){
+      var t=v.currentTime, on=0; btns.forEach(function(b,i){ if(t>=parseFloat(b.dataset.t)-0.5) on=i; });
+      btns.forEach(function(b,i){ b.classList.toggle('on', i===on && t>0); });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -39,7 +39,17 @@
   .by{font-size:15px}
   .by a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
   .fine{font-size:12px;color:var(--mute);margin-top:18px}
-  @media (max-width:640px){.chapters{grid-template-columns:1fr}.wrap{padding-top:28px}}
+  @media (max-width:640px){.wrap{padding-top:28px}}
+  .tap{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:transparent;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .tap i{width:74px;height:74px;border-radius:50%;background:rgba(11,11,12,.55);border:1px solid rgba(242,239,233,.5);display:grid;place-items:center;transition:opacity .25s}
+  .tap i:after{content:'';margin-left:6px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent var(--ink)}
+  .playing .tap i{opacity:0}
+  .bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(242,239,233,.15);display:none}
+  .bar b{display:block;height:100%;width:0;background:var(--accent)}
+  .fs{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:8px;border:0;background:rgba(11,11,12,.45);display:none;cursor:pointer}
+  .fs:before{content:'';position:absolute;inset:10px;border:2px solid var(--ink);border-radius:2px}
+  .mob .chapters{display:none}.mob .tap,.mob .bar{display:flex}.mob .bar{display:block}.mob .fs{display:block}.mob.playing .fs{opacity:.35}
+
 </style>
 </head>
 <body>
@@ -49,7 +59,8 @@
   <p class="sub">Past, present and future. What happens to everything we never wrote down, now that something keeps track.</p>
 
   <div class="player">
-    <video id="v" controls playsinline preload="metadata" poster="/off-the-record/poster.jpg" controlslist="nodownload noplaybackrate" disablepictureinpicture oncontextmenu="return false"></video>
+    <video id="v" controls playsinline webkit-playsinline preload="metadata" poster="/off-the-record/poster.jpg" controlslist="nodownload noplaybackrate" disablepictureinpicture oncontextmenu="return false"></video>
+    <button class="tap" id="tap" type="button" aria-label="Play"><i></i></button><div class="bar"><b id="prog"></b></div><button class="fs" id="fs" type="button" aria-label="Full screen"></button>
   </div>
 
   <div class="chapters" role="group" aria-label="Chapters">
@@ -67,6 +78,16 @@
 <script src="/off-the-record/hls.min.js"></script>
 <script>
   (function(){
+    var mob=window.matchMedia('(pointer:coarse) and (max-width:900px), (pointer:coarse) and (max-height:600px)').matches;
+    var v0=document.getElementById('v'),pl=document.querySelector('.player');
+    if(mob){document.body.classList.add('mob');v0.removeAttribute('controls');
+      var tap=document.getElementById('tap'),prog=document.getElementById('prog');
+      tap.onclick=function(){if(v0.paused){v0.play();}else{v0.pause();}};
+      v0.addEventListener('play',function(){document.body.classList.add('playing');});
+      v0.addEventListener('pause',function(){document.body.classList.remove('playing');});
+      v0.addEventListener('timeupdate',function(){if(v0.duration)prog.style.width=(v0.currentTime/v0.duration*100)+'%';});
+      document.getElementById('fs').onclick=function(e){e.stopPropagation();if(v0.webkitEnterFullscreen){v0.webkitEnterFullscreen();}else if(pl.requestFullscreen){pl.requestFullscreen();}};
+    }
     var v=document.getElementById('v'), src='https://otr-media.vaulthumanadmin.workers.dev/otr/otr.m3u8';
     if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src=src; }
     else if (window.Hls && Hls.isSupported()) { var h=new Hls({maxBufferLength:30}); h.loadSource(src); h.attachMedia(v); }
